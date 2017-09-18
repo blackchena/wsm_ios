@@ -1,0 +1,28 @@
+use_frameworks!
+platform :ios, '9.0'
+
+target 'wsm' do
+    pod 'Moya', '~> 8.0.5'
+    pod 'TPKeyboardAvoiding'
+    pod 'LGSideMenuController'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'Kingfisher', '~> 3.12.2'
+    pod 'SVProgressHUD'
+    pod 'InAppLocalize'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+    pod 'DateToolsSwift'
+    pod 'Himotoki'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
+    pod 'ReactiveCocoa'
+    pod 'Permission/Location'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'NYTPhotoViewer'
+    pod 'SwiftLint'
+end
