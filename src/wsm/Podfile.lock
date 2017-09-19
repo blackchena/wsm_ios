@@ -1,21 +1,9 @@
 PODS:
   - Alamofire (4.5.1)
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
   - DateToolsSwift (2.0.3)
   - Fabric (1.6.13)
-  - FBSDKCoreKit (4.26.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.26.0):
-    - FBSDKCoreKit
-  - FBSDKShareKit (4.26.0):
-    - FBSDKCoreKit
   - Firebase/Core (4.1.1):
     - FirebaseAnalytics (= 4.0.3)
     - FirebaseCore (= 4.0.6)
@@ -39,13 +27,6 @@ PODS:
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
   - FLAnimatedImage (1.0.12)
-  - GoogleMaps (2.4.0):
-    - GoogleMaps/Maps (= 2.4.0)
-  - GoogleMaps/Base (2.4.0)
-  - GoogleMaps/Maps (2.4.0):
-    - GoogleMaps/Base
-  - GooglePlaces (2.4.0):
-    - GoogleMaps/Base (= 2.4.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -92,13 +73,8 @@ DEPENDENCIES:
   - Crashlytics
   - DateToolsSwift
   - Fabric
-  - FBSDKCoreKit
-  - FBSDKLoginKit
-  - FBSDKShareKit
   - Firebase/Core
   - Firebase/Messaging
-  - GoogleMaps
-  - GooglePlaces
   - Himotoki
   - InAppLocalize
   - Kingfisher (~> 3.12.2)
@@ -115,21 +91,15 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
-  FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
-  FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
-  FBSDKShareKit: 320712d8293fde6392872c91eb80ef0da5d73cc3
   Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
   FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
   FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
   FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
   FirebaseMessaging: 85af6c27188538b3a6f7dfd0b3b0596358cb0c39
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
-  GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Himotoki: 85fda41d4d0e14f7228317a3b474175cdfb8f515
   InAppLocalize: bdee44c374762f9c61ef801bd0c4edb11d9ae968
@@ -149,6 +119,6 @@ SPEC CHECKSUMS:
   SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
 
-PODFILE CHECKSUM: 0875f7c0997ec4b55254d22dd246330932a4df5b
+PODFILE CHECKSUM: 4aa34dbdedcfe84d16647b67fa651fb7a04879b5
 
 COCOAPODS: 1.2.1
