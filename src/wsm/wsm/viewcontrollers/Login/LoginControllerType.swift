@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FBSDKLoginKit
+import UIKit
 
 protocol LoginControllerType {
     func didLogin(with user: User?)
