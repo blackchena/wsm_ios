@@ -11,23 +11,13 @@ import Himotoki
 
 final class User: Decodable {
 
-    var userId: String?
-    var fullname: String?
-    var gender: String?
-    var dob: String?
-    var phone: String?
-    var email: String?
-    var avatarUrl: String?
+    var authenToken: String?
+    var isManager: Bool?
 
-    static func decode(_ extractor: Extractor) throws -> User {
+    static func decode(_ e: Extractor) throws -> User {
         let user = User()
-        user.userId = try? extractor <| "userId"
-        user.fullname = try? extractor <| "fullname"
-        user.gender = try? extractor <| "gender"
-        user.dob = try? extractor <| "dob"
-        user.phone = try? extractor <| "phone"
-        user.email = try? extractor <| "email"
-        user.avatarUrl = try? extractor <| "avatar"
+        user.authenToken = try? e <| "authen_token"
+        user.isManager = try? e <| "is_manager"
         return user
     }
 }

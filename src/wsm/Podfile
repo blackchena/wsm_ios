@@ -6,7 +6,7 @@ target 'wsm' do
     pod 'TPKeyboardAvoiding'
     pod 'LGSideMenuController'
     pod 'Kingfisher', '~> 3.12.2'
-    pod 'SVProgressHUD'
+    pod 'SVProgressHUD'    
     pod 'InAppLocalize'
     pod 'Fabric'
     pod 'Crashlytics'
@@ -18,6 +18,5 @@ target 'wsm' do
     pod 'Permission/Location'
     pod 'RxSwift'
     pod 'RxCocoa'
-    pod 'NYTPhotoViewer'
     pod 'SwiftLint'
 end

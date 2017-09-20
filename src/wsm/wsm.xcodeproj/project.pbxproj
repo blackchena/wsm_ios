@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9BA1F6FC42200544A7D /* AppDelegate.swift */; };
-		202ED9C01F6FC42200544A7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202ED9BE1F6FC42200544A7D /* Main.storyboard */; };
 		202ED9C21F6FC42200544A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202ED9C11F6FC42200544A7D /* Assets.xcassets */; };
-		202ED9C51F6FC42200544A7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202ED9C31F6FC42200544A7D /* LaunchScreen.storyboard */; };
 		202ED9D91F6FCBCB00544A7D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9CE1F6FCBCB00544A7D /* API.swift */; };
 		202ED9DA1F6FCBCB00544A7D /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9CF1F6FCBCB00544A7D /* ApiHelper.swift */; };
 		202ED9DB1F6FCBCB00544A7D /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9D11F6FCBCB00544A7D /* HomeProvider.swift */; };
@@ -24,15 +22,18 @@
 		202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9EA1F6FCE8600544A7D /* AlertHelper.swift */; };
 		20FDE55A1F6FD0C300D1D9C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FDE5591F6FD0C300D1D9C7 /* HomeViewController.swift */; };
 		20FDE55C1F6FD0CC00D1D9C7 /* HomeControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FDE55B1F6FD0CC00D1D9C7 /* HomeControllerType.swift */; };
+		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
+		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
+		51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */; };
+		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
+		51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143761F70F5E700A8F6F7 /* UserProfile.swift */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		202ED9B71F6FC42200544A7D /* wsm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wsm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202ED9BA1F6FC42200544A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		202ED9BF1F6FC42200544A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		202ED9C11F6FC42200544A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		202ED9C41F6FC42200544A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		202ED9C61F6FC42200544A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		202ED9CE1F6FCBCB00544A7D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		202ED9CF1F6FCBCB00544A7D /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
@@ -48,6 +49,11 @@
 		20FDE5591F6FD0C300D1D9C7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20FDE55B1F6FD0CC00D1D9C7 /* HomeControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeControllerType.swift; sourceTree = "<group>"; };
 		2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wsm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
+		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		51E143761F70F5E700A8F6F7 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		DF322323208842894208499E /* Pods-wsm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.debug.xcconfig"; sourceTree = "<group>"; };
 		E357AF6EDD8FEAF08F129429 /* Pods-wsm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.release.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +110,7 @@
 			children = (
 				202ED9CE1F6FCBCB00544A7D /* API.swift */,
 				202ED9CF1F6FCBCB00544A7D /* ApiHelper.swift */,
+				51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */,
 				202ED9D01F6FCBCB00544A7D /* Provider */,
 			);
 			path = api;
@@ -114,6 +121,7 @@
 			children = (
 				202ED9D11F6FCBCB00544A7D /* HomeProvider.swift */,
 				202ED9D21F6FCBCB00544A7D /* LoginProvider.swift */,
+				51E143741F70F55000A8F6F7 /* UserProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -137,8 +145,8 @@
 		202ED9D51F6FCBCB00544A7D /* interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				202ED9BE1F6FC42200544A7D /* Main.storyboard */,
-				202ED9C31F6FC42200544A7D /* LaunchScreen.storyboard */,
+				516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */,
+				516C32111F70B11E0001D1E8 /* Main.storyboard */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				202ED9DD1F6FCBF000544A7D /* User.swift */,
+				51E143761F70F5E700A8F6F7 /* UserProfile.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -267,9 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				202ED9C51F6FC42200544A7D /* LaunchScreen.storyboard in Resources */,
+				516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */,
 				202ED9C21F6FC42200544A7D /* Assets.xcassets in Resources */,
-				202ED9C01F6FC42200544A7D /* Main.storyboard in Resources */,
+				516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +325,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DA12107119DA2A90C53A9282 /* [CP] Embed Pods Frameworks */ = {
@@ -342,11 +351,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
+				51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */,
 				202ED9DB1F6FCBCB00544A7D /* HomeProvider.swift in Sources */,
 				202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */,
 				202ED9DA1F6FCBCB00544A7D /* ApiHelper.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
 				202ED9D91F6FCBCB00544A7D /* API.swift in Sources */,
+				51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */,
 				202ED9E41F6FCD4900544A7D /* Extension.swift in Sources */,
 				202ED9DC1F6FCBCB00544A7D /* LoginProvider.swift in Sources */,
 				202ED9E01F6FCD0C00544A7D /* BaseViewController.swift in Sources */,
@@ -355,28 +366,27 @@
 				20FDE55A1F6FD0C300D1D9C7 /* HomeViewController.swift in Sources */,
 				20FDE55C1F6FD0CC00D1D9C7 /* HomeControllerType.swift in Sources */,
 				202ED9DE1F6FCBF000544A7D /* User.swift in Sources */,
+				51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		202ED9BE1F6FC42200544A7D /* Main.storyboard */ = {
+		516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				202ED9BF1F6FC42200544A7D /* Base */,
-			);
-			name = Main.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		202ED9C31F6FC42200544A7D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				202ED9C41F6FC42200544A7D /* Base */,
+				516C32101F70B11E0001D1E8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = ..;
+			sourceTree = "<group>";
+		};
+		516C32111F70B11E0001D1E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				516C32121F70B11E0001D1E8 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

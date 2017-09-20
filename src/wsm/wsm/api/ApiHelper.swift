@@ -14,19 +14,19 @@ import Moya
 final class ApiHelper {
     class func mapResponseAsDictionary(_ response: Response) -> ResponseData {
         do {
-            if let json = try response.mapJSON() as? [String: Any], let status = json["status"] as? String {
-                return ResponseData(status, json["message"] as? String, json["data"] as? [String: Any])
+            if let json = try response.mapJSON() as? [String: Any], let status = json["status"] as? Int {
+                return ResponseData(status, json["messages"] as? String, json["data"] as? [String: Any])
             }
         } catch {}
-        return ResponseData("failure", "unknown", nil)
+        return ResponseData(400, "unknown", nil)
     }
 
     class func mapResponseAsRaw(_ response: Response) -> ResponseData {
         do {
-            if let json = try response.mapJSON() as? [String: Any], let status = json["status"] as? String {
-                return ResponseData(status, json["message"] as? String, json["data"])
+            if let json = try response.mapJSON() as? [String: Any], let status = json["status"] as? Int {
+                return ResponseData(status, json["messages"] as? String, json["data"])
             }
         } catch {}
-        return ResponseData("failure", "unknown", nil)
+        return ResponseData(400, "unknown", nil)
     }
 }

@@ -13,12 +13,6 @@ import Result
 import Moya
 import Himotoki
 
-enum LoginType {
-    case facebook
-    case twitter
-    case google
-}
-
 final class LoginProvider {
 
     typealias ProvideSignal = SignalProducer<User, RequestErrorType>
@@ -37,6 +31,7 @@ final class LoginProvider {
                         if responseProfile.isSucceeded() {
                             if let data = responseProfile.data,
                                 let loginUser = try? decodeValue(data) as User {
+                                ApiProvider.accessToken = loginUser.authenToken
                                 LoginProvider.loginUser = loginUser
                                 observer.send(value: loginUser)
                             }
