@@ -25,4 +25,15 @@ extension LoginControllerType where Self: UIViewController {
             self.didLogin(with: user)
         }).start()
     }
+    func getProfile(userId: Int) {
+        AlertHelper.showLoading()
+        UserProvider.getProfile(userId: userId).on(failed: { (error) in
+            AlertHelper.hideLoading()
+            AlertHelper.showError(message: error.message)
+        }, completed: {
+            AlertHelper.hideLoading()
+        }, value: { (profile) in
+            print(profile.email ?? "error")
+        }).start()
+    }
 }

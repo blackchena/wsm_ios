@@ -53,18 +53,18 @@ public func==(lhs: RequestErrorType, rhs: RequestErrorType) -> Bool {
 }
 
 public struct ResponseData {
-    var status: String
+    var status: Int
     var message: String?
     var data: Any?
 
-    init(_ status: String, _ message: String?, _ data: Any?) {
+    init(_ status: Int, _ message: String?, _ data: Any?) {
         self.status = status
         self.message = message
         self.data = data
     }
 
     func isSucceeded() -> Bool {
-        return status.caseInsensitiveCompare("success") == .orderedSame
+        return status == 200
     }
 
     func string(forKey key: String) -> String? {
@@ -78,15 +78,15 @@ public struct ResponseData {
 public enum API {
     case login(String, String)
     case logout
-    case getProfile
+    case getProfile(userId: Int)
 }
 
 extension API: TargetType {
-    static var debugMode = false
+    static var debugMode = true
 
-    static let baseURLStringProd = "https://backend_url"
+    static let baseURLStringProd = "http://wsm.framgia.vn"
 
-    static let baseURLStringDebug = "http://wsmapi.apiary-mock.com"
+    static let baseURLStringDebug = "http://edev.framgia.vn"
 
     public var baseURL: URL {
         if API.debugMode {
@@ -98,11 +98,11 @@ extension API: TargetType {
     public var path: String {
         switch self {
         case .login:
-            return "/users/login"
+            return "/api/sign_in"
         case .logout:
-            return "/users/logout"
-        case .getProfile:
-            return "/profile"
+            return "/api/sign_out"
+        case .getProfile(let userId):
+            return "/api/dashboard/users/\(userId)"
         }
     }
 
@@ -119,8 +119,13 @@ extension API: TargetType {
     public var parameters: [String: Any]? {
         switch self {
         case .login(let email, let password):
-            return ["email": email,
-                    "password": password]
+            let params: [String: Any] = [
+                "sign_in": [
+                    "email": email,
+                    "password": password
+                ]
+            ]
+            return params
         case .logout:
             return nil
         case .getProfile:
@@ -180,7 +185,7 @@ public struct ApiProvider {
         let plugins: [PluginType] = [
             NetworkLoggerPlugin(verbose: true, output: debugLog),
             NetworkActivityPlugin(networkActivityClosure: networkActivityClosure),
-            AccessTokenPlugin(token: token)
+            WsmAccessTokenPlugin(token: token)
         ]
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 15

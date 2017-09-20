@@ -26,7 +26,6 @@ PODS:
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
-  - FLAnimatedImage (1.0.12)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -46,13 +45,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NYTPhotoViewer (1.2.0):
-    - NYTPhotoViewer/AnimatedGifSupport (= 1.2.0)
-    - NYTPhotoViewer/Core (= 1.2.0)
-  - NYTPhotoViewer/AnimatedGifSupport (1.2.0):
-    - FLAnimatedImage (~> 1.0.12)
-    - NYTPhotoViewer/Core
-  - NYTPhotoViewer/Core (1.2.0)
   - Permission/Core (2.0.4)
   - Permission/Location (2.0.4):
     - Permission/Core
@@ -80,7 +72,6 @@ DEPENDENCIES:
   - Kingfisher (~> 3.12.2)
   - LGSideMenuController
   - Moya (~> 8.0.5)
-  - NYTPhotoViewer
   - Permission/Location
   - ReactiveCocoa
   - RxCocoa
@@ -99,7 +90,6 @@ SPEC CHECKSUMS:
   FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
   FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
   FirebaseMessaging: 85af6c27188538b3a6f7dfd0b3b0596358cb0c39
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Himotoki: 85fda41d4d0e14f7228317a3b474175cdfb8f515
   InAppLocalize: bdee44c374762f9c61ef801bd0c4edb11d9ae968
@@ -107,7 +97,6 @@ SPEC CHECKSUMS:
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NYTPhotoViewer: 323217e4590a1586eb3c9674b3fefb0fb8b57896
   Permission: 6853b9694e66a6c9197468c66d1935c3629cbf9c
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   ReactiveCocoa: cf6595131c832c468fe3f84a2d7f74ed68eb3058
@@ -119,6 +108,6 @@ SPEC CHECKSUMS:
   SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
 
-PODFILE CHECKSUM: 4aa34dbdedcfe84d16647b67fa651fb7a04879b5
+PODFILE CHECKSUM: 3d57377a87e9bcacb8298410868e8f72e553ced8
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.1.1
