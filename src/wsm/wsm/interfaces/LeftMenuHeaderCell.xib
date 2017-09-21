@@ -19,7 +19,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-49-6A7">
                         <rect key="frame" x="0.0" y="0.0" width="270" height="130"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.097997004580000005" green="0.4001475639" blue="0.37689255669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrG-6v-XJw">
                         <rect key="frame" x="230" y="10" width="30" height="30"/>
@@ -27,47 +27,46 @@
                             <constraint firstAttribute="width" constant="30" id="aB7-yt-cW9"/>
                             <constraint firstAttribute="height" constant="30" id="kga-nI-1T4"/>
                         </constraints>
-                        <state key="normal" image="icon_power.png"/>
+                        <state key="normal" image="ic_logout.png"/>
                         <connections>
                             <action selector="logoutBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lk4-Wc-M2y"/>
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="60z-Jf-Bcf">
-                        <rect key="frame" x="10" y="50" width="65" height="65"/>
+                        <rect key="frame" x="8" y="50" width="70" height="70"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="65" id="ANb-iy-3C6"/>
-                            <constraint firstAttribute="width" constant="65" id="vul-nt-8xn"/>
+                            <constraint firstAttribute="height" constant="70" id="ANb-iy-3C6"/>
+                            <constraint firstAttribute="width" constant="70" id="vul-nt-8xn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nguyen Le Si Nguyen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et7-Tr-zDB">
-                        <rect key="frame" x="85" y="60" width="165" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="86" y="60" width="176" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nguyen.le.si.nguyen@framgia.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgg-Ie-J7c">
-                        <rect key="frame" x="85" y="89" width="165" height="16"/>
+                        <rect key="frame" x="86" y="94" width="176" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="wFF-49-6A7" secondAttribute="bottom" id="5kc-Fn-5nO"/>
                     <constraint firstItem="wFF-49-6A7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="B9M-Zp-Ifn"/>
                     <constraint firstItem="Fgg-Ie-J7c" firstAttribute="bottom" secondItem="60z-Jf-Bcf" secondAttribute="bottom" constant="-10" id="BLw-RC-6BM"/>
                     <constraint firstAttribute="trailing" secondItem="wFF-49-6A7" secondAttribute="trailing" id="J3g-Kh-W0W"/>
-                    <constraint firstItem="60z-Jf-Bcf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Mhj-4H-r0F"/>
+                    <constraint firstItem="60z-Jf-Bcf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Mhj-4H-r0F"/>
                     <constraint firstItem="et7-Tr-zDB" firstAttribute="top" secondItem="60z-Jf-Bcf" secondAttribute="top" constant="10" id="PFT-1e-hI6"/>
-                    <constraint firstItem="et7-Tr-zDB" firstAttribute="leading" secondItem="60z-Jf-Bcf" secondAttribute="trailing" constant="10" id="ZZc-Cw-h7s"/>
+                    <constraint firstItem="et7-Tr-zDB" firstAttribute="leading" secondItem="60z-Jf-Bcf" secondAttribute="trailing" constant="8" id="ZZc-Cw-h7s"/>
                     <constraint firstAttribute="trailing" secondItem="lrG-6v-XJw" secondAttribute="trailing" constant="10" id="aB0-9M-GnA"/>
-                    <constraint firstAttribute="trailing" secondItem="et7-Tr-zDB" secondAttribute="trailing" constant="20" id="jR4-by-tbu"/>
+                    <constraint firstAttribute="trailing" secondItem="et7-Tr-zDB" secondAttribute="trailing" constant="8" id="jR4-by-tbu"/>
                     <constraint firstItem="lrG-6v-XJw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pYT-UG-Pjv"/>
                     <constraint firstItem="60z-Jf-Bcf" firstAttribute="top" secondItem="lrG-6v-XJw" secondAttribute="bottom" constant="10" id="s3Z-89-lzE"/>
                     <constraint firstItem="wFF-49-6A7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tGB-UT-oca"/>
-                    <constraint firstItem="Fgg-Ie-J7c" firstAttribute="leading" secondItem="60z-Jf-Bcf" secondAttribute="trailing" constant="10" id="tTW-GF-Gjj"/>
-                    <constraint firstAttribute="trailing" secondItem="Fgg-Ie-J7c" secondAttribute="trailing" constant="20" id="zas-Rz-ODP"/>
+                    <constraint firstItem="Fgg-Ie-J7c" firstAttribute="leading" secondItem="60z-Jf-Bcf" secondAttribute="trailing" constant="8" id="tTW-GF-Gjj"/>
+                    <constraint firstAttribute="trailing" secondItem="Fgg-Ie-J7c" secondAttribute="trailing" constant="8" id="zas-Rz-ODP"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -80,6 +79,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_power.png" width="128" height="128"/>
+        <image name="ic_logout.png" width="256" height="256"/>
     </resources>
 </document>

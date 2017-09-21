@@ -12,7 +12,7 @@ import UIKit
 class LeftMenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
-    let rowHeight: CGFloat = 50.0
+    let rowHeight: CGFloat = 44.0
     var menuItems = [MenuItem]()
 
     override func viewDidLoad() {
@@ -21,14 +21,14 @@ class LeftMenuViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        menuItems.append(MenuItem(image: "icon_notification", title: .UserInfo, header: .UserInfo))
-        menuItems.append(MenuItem(image: "icon_notification", title: .UserSetting, header: .UserInfo))
-        menuItems.append(MenuItem(image: "icon_notification", title: .TimeSheet, header: .UserData))
-        menuItems.append(MenuItem(image: "icon_notification", title: .CalendarOff, header: .UserData))
-        menuItems.append(MenuItem(image: "icon_notification", title: .UserReport, header: .UserData))
-        menuItems.append(MenuItem(image: "icon_notification", title: .RequestOt, header: .UserRequest))
-        menuItems.append(MenuItem(image: "icon_notification", title: .RequestOff, header: .UserRequest))
-        menuItems.append(MenuItem(image: "icon_notification", title: .OtherRequest, header: .UserRequest))
+        menuItems.append(MenuItem(image: "ic_personal_information", title: .UserInfo, header: .UserInfo))
+        menuItems.append(MenuItem(image: "ic_setup_profile", title: .UserSetting, header: .UserInfo))
+        menuItems.append(MenuItem(image: "ic_calendar_timesheet", title: .TimeSheet, header: .UserData))
+        menuItems.append(MenuItem(image: "ic_holiday_calendar", title: .CalendarOff, header: .UserData))
+        menuItems.append(MenuItem(image: "ic_statistic_personal", title: .UserReport, header: .UserData))
+        menuItems.append(MenuItem(image: "ic_overtime", title: .RequestOt, header: .UserRequest))
+        menuItems.append(MenuItem(image: "ic_day_off", title: .RequestOff, header: .UserRequest))
+        menuItems.append(MenuItem(image: "ic_clock", title: .OtherRequest, header: .UserRequest))
 
         if let header = Bundle.main.loadNibNamed("LeftMenuHeaderCell", owner: self, options: nil)?.first
             as? LeftMenuHeaderCell {
@@ -73,7 +73,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainViewController = sideMenuController!
         let rootViewController = mainViewController.rootViewController
-        let timeSheetViewController = TimeSheetViewController(nibName: "TimeSheetViewController", bundle: nil)
+        let timeSheetViewController = getStoryboardController(identifier: "TimeSheetViewController")
 
         guard let navigationController = rootViewController as? NavigationController else {
             return
@@ -83,7 +83,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
 
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            selectedViewController = UserInfoViewController(nibName: "UserInfoViewController", bundle: nil)
+            selectedViewController = getStoryboardController(identifier: "UserInfoViewController")
         case (0, 1):
             break
         case (1, 0):
