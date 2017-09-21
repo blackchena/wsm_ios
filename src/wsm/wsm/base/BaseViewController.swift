@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let menuImage = UIImage(named: "icon_hamburger_menu")
+        let menuImage = UIImage(named: "ic_menu_nav")
         let tintedMenuImage = menuImage?.withRenderingMode(.alwaysTemplate)
         let leftButton = UIButton(type: .custom)
         leftButton.setImage(tintedMenuImage, for: .normal)
@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
         let leftBarButton = UIBarButtonItem(customView: leftButton)
         navigationItem.leftBarButtonItem = leftBarButton
 
-        let notificationImage = UIImage(named: "icon_notification")
+        let notificationImage = UIImage(named: "ic_notifications")
         let tintedNotificationImage = notificationImage?.withRenderingMode(.alwaysTemplate)
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(tintedNotificationImage, for: .normal)

@@ -21,6 +21,7 @@ let openSansSemiboldItalic = "OpenSans-SemiboldItalic"
 
 final class Utils {
     static let decimalFormatter = NumberFormatter(numberStyle: .decimal)
+
     static func getPortraitScreenSize() -> CGSize {
         let size = UIScreen.main.bounds
         return CGSize(width: min(size.width, size.height), height: max(size.width, size.height))

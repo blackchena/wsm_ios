@@ -31,10 +31,9 @@ class LoginViewController: BaseViewController {
 
 extension LoginViewController: LoginControllerType {
     func didLogin(with user: User?) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController")
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-        let timeSheetVc = TimeSheetViewController(nibName: "TimeSheetViewController", bundle: nil)
+        let navigationController = getStoryboardController(identifier: "NavigationController")
+        let mainViewController = getStoryboardController(identifier: "MainViewController")
+        let timeSheetVc = getStoryboardController(identifier: "TimeSheetViewController")
 
         guard let mainNav = navigationController as? NavigationController else {
             return

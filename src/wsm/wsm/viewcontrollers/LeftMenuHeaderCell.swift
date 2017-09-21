@@ -29,6 +29,7 @@ class LeftMenuHeaderCell: UIView {
 
         avatarImageView.circleImage()
         avatarImageView.backgroundColor = UIColor.white
+        avatarImageView.image = UIImage(named: "ic_user")
     }
 
     @IBAction func logoutBtnClick(_ sender: Any) {

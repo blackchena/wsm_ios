@@ -139,15 +139,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:VTm-Vo-KgP:image" translatesAutoresizingMaskIntoConstraints="NO" id="VTm-Vo-KgP">
-                                                    <rect key="frame" x="23" y="10" width="30" height="30"/>
+                                                    <rect key="frame" x="23" y="15" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="2x5-yI-edv"/>
-                                                        <constraint firstAttribute="width" constant="30" id="ftV-jn-9ze"/>
+                                                        <constraint firstAttribute="height" constant="20" id="2x5-yI-edv"/>
+                                                        <constraint firstAttribute="width" constant="20" id="ftV-jn-9ze"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F4-iD-PTw">
-                                                    <rect key="frame" x="68" y="15" width="284" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="58" y="16.5" width="294" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -184,6 +184,24 @@
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="843.32833583208401"/>
         </scene>
+        <!--User Info View Controller-->
+        <scene sceneID="epq-jR-7j6">
+            <objects>
+                <viewController storyboardIdentifier="UserInfoViewController" id="mkq-mY-sQS" customClass="UserInfoViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pT5-do-ZiR"/>
+                        <viewControllerLayoutGuide type="bottom" id="TaS-1Z-CPC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KN5-1x-ysq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fde-Fj-CVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="843"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="McF-0g-0f1">
             <objects>
@@ -196,6 +214,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPM-Ge-EQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1732" y="123"/>
+        </scene>
+        <!--Time Sheet View Controller-->
+        <scene sceneID="F4c-mJ-6iz">
+            <objects>
+                <viewController storyboardIdentifier="TimeSheetViewController" id="jDh-pu-dLX" customClass="TimeSheetViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SgE-6j-8D2"/>
+                        <viewControllerLayoutGuide type="bottom" id="tPq-8X-ZMr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DMM-hU-I09">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Azp-mo-NiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="123"/>
         </scene>
     </scenes>
     <resources>
