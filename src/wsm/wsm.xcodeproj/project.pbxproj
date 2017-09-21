@@ -20,8 +20,23 @@
 		202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9E61F6FCE0A00544A7D /* LoginViewController.swift */; };
 		202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9E81F6FCE3F00544A7D /* LoginControllerType.swift */; };
 		202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9EA1F6FCE8600544A7D /* AlertHelper.swift */; };
-		20FDE55A1F6FD0C300D1D9C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FDE5591F6FD0C300D1D9C7 /* HomeViewController.swift */; };
-		20FDE55C1F6FD0CC00D1D9C7 /* HomeControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FDE55B1F6FD0CC00D1D9C7 /* HomeControllerType.swift */; };
+		5100D3AE1F73511500F44329 /* TimeSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3AC1F73511500F44329 /* TimeSheetViewController.xib */; };
+		5100D3AF1F73511500F44329 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3AD1F73511500F44329 /* UserInfoViewController.xib */; };
+		5100D3B31F73535900F44329 /* LeftMenuHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */; };
+		5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100D3B41F73539400F44329 /* LeftMenuHeaderCell.swift */; };
+		5100D3B91F7356E100F44329 /* LeftMenuSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */; };
+		5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */; };
+		5131FD5C1F7276AA00E0478B /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD551F7276AA00E0478B /* LeftMenuCell.swift */; };
+		5131FD5D1F7276AA00E0478B /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD561F7276AA00E0478B /* LeftMenuViewController.swift */; };
+		5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD571F7276AA00E0478B /* NavigationController.swift */; };
+		5131FD5F1F7276AA00E0478B /* TimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD581F7276AA00E0478B /* TimeSheetViewController.swift */; };
+		5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */; };
+		5131FD641F7276E400E0478B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD631F7276E400E0478B /* MainViewController.swift */; };
+		5131FD6B1F72772000E0478B /* MenuEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD6A1F72772000E0478B /* MenuEnum.swift */; };
+		5131FD701F7277AE00E0478B /* icon_hamburger_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5131FD6D1F7277AE00E0478B /* icon_hamburger_menu.png */; };
+		5131FD711F7277AE00E0478B /* icon_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 5131FD6E1F7277AE00E0478B /* icon_notification.png */; };
+		5131FD721F7277AE00E0478B /* icon_power.png in Resources */ = {isa = PBXBuildFile; fileRef = 5131FD6F1F7277AE00E0478B /* icon_power.png */; };
+		5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168BB461F7375BB00AA1287 /* UIColor.swift */; };
 		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
 		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
 		51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */; };
@@ -63,9 +78,24 @@
 		202ED9E61F6FCE0A00544A7D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		202ED9E81F6FCE3F00544A7D /* LoginControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerType.swift; sourceTree = "<group>"; };
 		202ED9EA1F6FCE8600544A7D /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
-		20FDE5591F6FD0C300D1D9C7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		20FDE55B1F6FD0CC00D1D9C7 /* HomeControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeControllerType.swift; sourceTree = "<group>"; };
 		2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wsm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5100D3AC1F73511500F44329 /* TimeSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetViewController.xib; sourceTree = "<group>"; };
+		5100D3AD1F73511500F44329 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuHeaderCell.xib; sourceTree = "<group>"; };
+		5100D3B41F73539400F44329 /* LeftMenuHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuHeaderCell.swift; sourceTree = "<group>"; };
+		5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuSectionCell.xib; sourceTree = "<group>"; };
+		5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuSectionCell.swift; sourceTree = "<group>"; };
+		5131FD551F7276AA00E0478B /* LeftMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
+		5131FD561F7276AA00E0478B /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		5131FD571F7276AA00E0478B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		5131FD581F7276AA00E0478B /* TimeSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetViewController.swift; sourceTree = "<group>"; };
+		5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		5131FD631F7276E400E0478B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Home/MainViewController.swift; sourceTree = "<group>"; };
+		5131FD6A1F72772000E0478B /* MenuEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuEnum.swift; sourceTree = "<group>"; };
+		5131FD6D1F7277AE00E0478B /* icon_hamburger_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_hamburger_menu.png; path = ../../../../../Downloads/icon_hamburger_menu.png; sourceTree = "<group>"; };
+		5131FD6E1F7277AE00E0478B /* icon_notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_notification.png; path = ../../../../../Downloads/icon_notification.png; sourceTree = "<group>"; };
+		5131FD6F1F7277AE00E0478B /* icon_power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_power.png; path = ../../../../../Downloads/icon_power.png; sourceTree = "<group>"; };
+		5168BB461F7375BB00AA1287 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
@@ -142,6 +172,8 @@
 		202ED9B91F6FC42200544A7D /* wsm */ = {
 			isa = PBXGroup;
 			children = (
+				5131FD6C1F72777500E0478B /* resources */,
+				5131FD691F72771300E0478B /* enums */,
 				B81AF6C11F7203EB00E579B2 /* libs */,
 				202ED9CD1F6FCBCB00544A7D /* api */,
 				202ED9D31F6FCBCB00544A7D /* base */,
@@ -191,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				202ED9E31F6FCD4900544A7D /* Extension.swift */,
+				5168BB461F7375BB00AA1287 /* UIColor.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -198,8 +231,12 @@
 		202ED9D51F6FCBCB00544A7D /* interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				5100D3AC1F73511500F44329 /* TimeSheetViewController.xib */,
+				5100D3AD1F73511500F44329 /* UserInfoViewController.xib */,
 				516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */,
 				516C32111F70B11E0001D1E8 /* Main.storyboard */,
+				5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */,
+				5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -225,7 +262,9 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
-				20FDE5581F6FD0B700D1D9C7 /* Home */,
+				5131FD751F7278BF00E0478B /* UserInfo */,
+				5131FD741F7278B200E0478B /* TimeSheet */,
+				5131FD731F72788B00E0478B /* SideMenu */,
 				202ED9E51F6FCE0A00544A7D /* Login */,
 			);
 			path = viewcontrollers;
@@ -240,15 +279,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		20FDE5581F6FD0B700D1D9C7 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				20FDE5591F6FD0C300D1D9C7 /* HomeViewController.swift */,
-				20FDE55B1F6FD0CC00D1D9C7 /* HomeControllerType.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		3CF31C3095D261BB05786693 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +286,53 @@
 				E357AF6EDD8FEAF08F129429 /* Pods-wsm.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5131FD691F72771300E0478B /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				5131FD6A1F72772000E0478B /* MenuEnum.swift */,
+			);
+			name = enums;
+			sourceTree = "<group>";
+		};
+		5131FD6C1F72777500E0478B /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5131FD6D1F7277AE00E0478B /* icon_hamburger_menu.png */,
+				5131FD6E1F7277AE00E0478B /* icon_notification.png */,
+				5131FD6F1F7277AE00E0478B /* icon_power.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		5131FD731F72788B00E0478B /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */,
+				5100D3B41F73539400F44329 /* LeftMenuHeaderCell.swift */,
+				5131FD631F7276E400E0478B /* MainViewController.swift */,
+				5131FD551F7276AA00E0478B /* LeftMenuCell.swift */,
+				5131FD561F7276AA00E0478B /* LeftMenuViewController.swift */,
+				5131FD571F7276AA00E0478B /* NavigationController.swift */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		5131FD741F7278B200E0478B /* TimeSheet */ = {
+			isa = PBXGroup;
+			children = (
+				5131FD581F7276AA00E0478B /* TimeSheetViewController.swift */,
+			);
+			name = TimeSheet;
+			sourceTree = "<group>";
+		};
+		5131FD751F7278BF00E0478B /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */,
+			);
+			name = UserInfo;
 			sourceTree = "<group>";
 		};
 		B81AF6C11F7203EB00E579B2 /* libs */ = {
@@ -379,10 +456,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B81AF72B1F72096A00E579B2 /* Info.plist in Resources */,
-
 				516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */,
+				5100D3B31F73535900F44329 /* LeftMenuHeaderCell.xib in Resources */,
+				5100D3B91F7356E100F44329 /* LeftMenuSectionCell.xib in Resources */,
+				5131FD701F7277AE00E0478B /* icon_hamburger_menu.png in Resources */,
 				202ED9C21F6FC42200544A7D /* Assets.xcassets in Resources */,
+				5131FD721F7277AE00E0478B /* icon_power.png in Resources */,
 				516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */,
+				5131FD711F7277AE00E0478B /* icon_notification.png in Resources */,
+				5100D3AF1F73511500F44329 /* UserInfoViewController.xib in Resources */,
+				5100D3AE1F73511500F44329 /* TimeSheetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,8 +578,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B81AF7261F72096A00E579B2 /* FSCalendarHeaderView.m in Sources */,
+				5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */,
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
 				B81AF7211F72096A00E579B2 /* FSCalendarCollectionView.m in Sources */,
+				5131FD6B1F72772000E0478B /* MenuEnum.swift in Sources */,
 				B81AF7201F72096A00E579B2 /* FSCalendar+Deprecated.m in Sources */,
 				51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */,
 				202ED9DB1F6FCBCB00544A7D /* HomeProvider.swift in Sources */,
@@ -507,26 +592,32 @@
 				B81AF71F1F72096A00E579B2 /* FSCalendarDelegationFactory.m in Sources */,
 				B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
+				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
 				202ED9D91F6FCBCB00544A7D /* API.swift in Sources */,
 				51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */,
+				5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */,
 				202ED9E41F6FCD4900544A7D /* Extension.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
 				202ED9DC1F6FCBCB00544A7D /* LoginProvider.swift in Sources */,
+				5131FD5D1F7276AA00E0478B /* LeftMenuViewController.swift in Sources */,
+				5131FD641F7276E400E0478B /* MainViewController.swift in Sources */,
+				5131FD5C1F7276AA00E0478B /* LeftMenuCell.swift in Sources */,
 				B81AF7221F72096A00E579B2 /* FSCalendarCollectionViewLayout.m in Sources */,
 				B81AF7241F72096A00E579B2 /* FSCalendarDelegationProxy.m in Sources */,
 				202ED9E01F6FCD0C00544A7D /* BaseViewController.swift in Sources */,
+				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
 				202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */,
 				B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
 				B81AF7231F72096A00E579B2 /* FSCalendarConstants.m in Sources */,
-				20FDE55A1F6FD0C300D1D9C7 /* HomeViewController.swift in Sources */,
-				20FDE55C1F6FD0CC00D1D9C7 /* HomeControllerType.swift in Sources */,
 				202ED9DE1F6FCBF000544A7D /* User.swift in Sources */,
 				B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */,
 				B81AF7271F72096A00E579B2 /* FSCalendarScopeHandle.m in Sources */,
 				51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */,
+				5131FD5F1F7276AA00E0478B /* TimeSheetViewController.swift in Sources */,
+				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

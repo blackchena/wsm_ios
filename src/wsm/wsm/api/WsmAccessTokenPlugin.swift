@@ -10,15 +10,15 @@ import Foundation
 import Moya
 
 public struct WsmAccessTokenPlugin: PluginType {
-    
+
     /// The access token to be applied in the header.
     public let token: String
-    
+
     private var authVal: String {
         return token
         //return token
     }
-    
+
     /**
      Initialize a new `AccessTokenPlugin`.
      
@@ -28,7 +28,7 @@ public struct WsmAccessTokenPlugin: PluginType {
     public init(token: String) {
         self.token = token
     }
-    
+
     /**
      Prepare a request by adding an authorization header if necessary.
      
@@ -41,13 +41,13 @@ public struct WsmAccessTokenPlugin: PluginType {
         if let authorizable = target as? AccessTokenAuthorizable, authorizable.shouldAuthorize == false {
             return request
         }
-        
+
         let languageSupport = ["vi", "en", "ja"]
         var deviceLanguage = Locale.preferredLanguages[0]
         if !languageSupport.contains(deviceLanguage) {
             deviceLanguage = "en"
         }
-        
+
         var request = request
         request.addValue(authVal, forHTTPHeaderField: "WSM-AUTH-TOKEN")
         request.addValue(deviceLanguage, forHTTPHeaderField: "WSM-LOCALE")

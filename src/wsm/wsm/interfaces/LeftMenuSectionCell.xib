@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="KGk-i7-Jjw" customClass="LeftMenuSectionCell" customModule="wsm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="298" height="51"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="298" height="51"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0U0-8o-o0l">
+                        <rect key="frame" x="15" y="8" width="268" height="34.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdH-RZ-0Qh">
+                        <rect key="frame" x="0.0" y="0.0" width="298" height="0.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="zlA-bY-xNm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="0U0-8o-o0l" secondAttribute="bottom" id="2Bb-OC-sTn"/>
+                    <constraint firstItem="0U0-8o-o0l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="3Iy-of-Ndi"/>
+                    <constraint firstItem="0U0-8o-o0l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Bf0-Rl-7Ep"/>
+                    <constraint firstAttribute="trailing" secondItem="0U0-8o-o0l" secondAttribute="trailing" constant="15" id="Cfu-XI-IZK"/>
+                    <constraint firstItem="IdH-RZ-0Qh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PlZ-Pp-RPF"/>
+                    <constraint firstItem="IdH-RZ-0Qh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sih-kc-LE7"/>
+                    <constraint firstAttribute="trailing" secondItem="IdH-RZ-0Qh" secondAttribute="trailing" id="zXI-KB-Riv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="headerLabel" destination="0U0-8o-o0l" id="sTP-ok-dae"/>
+            </connections>
+            <point key="canvasLocation" x="14" y="55.5"/>
+        </tableViewCell>
+    </objects>
+</document>
