@@ -8,7 +8,38 @@
 
 import Foundation
 import UIKit
+import LGSideMenuController
 
 class BaseViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        let menuImage = UIImage(named: "icon_hamburger_menu")
+        let tintedMenuImage = menuImage?.withRenderingMode(.alwaysTemplate)
+        let leftButton = UIButton(type: .custom)
+        leftButton.setImage(tintedMenuImage, for: .normal)
+        leftButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        leftButton.addTarget(self, action: #selector(self.showLeftMenu), for: .touchUpInside)
+        leftButton.tintColor = UIColor.appTintColor
+        let leftBarButton = UIBarButtonItem(customView: leftButton)
+        navigationItem.leftBarButtonItem = leftBarButton
+
+        let notificationImage = UIImage(named: "icon_notification")
+        let tintedNotificationImage = notificationImage?.withRenderingMode(.alwaysTemplate)
+        let rightButton = UIButton(type: .custom)
+        rightButton.setImage(tintedNotificationImage, for: .normal)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        rightButton.addTarget(self, action: #selector(self.showNotification), for: .touchUpInside)
+        rightButton.tintColor = UIColor.appTintColor
+        let rightBarButton = UIBarButtonItem(customView: rightButton)
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+
+    @objc private func showLeftMenu() {
+        sideMenuController?.showLeftView(animated: true, delay: 0.0, completionHandler: nil)
+    }
+
+    @objc private func showNotification() {
+        print("Show notification screen")
+    }
 }

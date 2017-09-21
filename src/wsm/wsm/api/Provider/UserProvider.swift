@@ -14,11 +14,11 @@ import Moya
 import Himotoki
 
 final class UserProvider {
-    
+
     typealias UserProfileSignal = SignalProducer<UserProfile, RequestErrorType>
-    
+
     static var userProfile: UserProfile?
-    
+
     static func getProfile(userId: Int) -> UserProfileSignal {
         return UserProfileSignal { observer, _ in
             ApiProvider.shared.request(

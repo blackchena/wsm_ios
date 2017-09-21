@@ -15,7 +15,6 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         //dummy
         emailTextField.text = "nguyen.le.si.nguyen@framgia.com.edev"
         passwordTextField.text = "123456"
@@ -25,7 +24,6 @@ class LoginViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     @IBAction func loginButtonClick(_ sender: Any) {
         login(with: emailTextField.text!, password: passwordTextField.text!)
     }
@@ -33,8 +31,29 @@ class LoginViewController: BaseViewController {
 
 extension LoginViewController: LoginControllerType {
     func didLogin(with user: User?) {
-        print(user?.authenToken ?? "Faild")
-        
-        getProfile(userId: 482)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController")
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        let timeSheetVc = TimeSheetViewController(nibName: "TimeSheetViewController", bundle: nil)
+
+        guard let mainNav = navigationController as? NavigationController else {
+            return
+        }
+
+        mainNav.setViewControllers([timeSheetVc], animated: false)
+
+        guard let mainVc = mainViewController as? MainViewController else {
+            return
+        }
+
+        mainVc.rootViewController = mainNav
+
+        if let window = UIApplication.shared.delegate?.window {
+            window!.rootViewController = mainViewController
+            UIView.transition(with: window!,
+                              duration: 0.3,
+                              options: [.transitionCrossDissolve],
+                              animations: nil, completion: nil)
+        }
     }
 }
