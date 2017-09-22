@@ -15,7 +15,7 @@ class LeftMenuCell: UITableViewCell {
     @IBOutlet weak var menuTitle: UILabel!
 
     func updateCell(item: MenuItem) {
-        menuTitle.text = item.title.rawValue
+        menuTitle.text = item.title
         menuTitle.textColor = UIColor.darkGray
         menuTitle.highlightedTextColor = UIColor.appBarTintColor
 

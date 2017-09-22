@@ -12,9 +12,6 @@ class UserInfoViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.title = "Thông tin cá nhân"
     }
 
     override func didReceiveMemoryWarning() {

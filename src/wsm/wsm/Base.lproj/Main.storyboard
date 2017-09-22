@@ -30,7 +30,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-Q1-zdT">
                                 <rect key="frame" x="0.0" y="258" width="375" height="150"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Waz-qi-Wj9">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Waz-qi-Wj9" customClass="LocalizableTextField" customModule="InAppLocalize">
                                         <rect key="frame" x="20" y="69" width="335" height="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -50,16 +50,16 @@
                                             <constraint firstAttribute="height" constant="2" id="C8G-wi-gNx"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="One-P3-0dr">
-                                        <rect key="frame" x="243" y="113" width="112" height="30"/>
-                                        <state key="normal" title="Quên mật khẩu?">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="One-P3-0dr" customClass="LocalizableButton" customModule="InAppLocalize">
+                                        <rect key="frame" x="240" y="113" width="115" height="30"/>
+                                        <state key="normal" title="forgot_password">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="forgotButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lGt-K0-U3R"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6w6-Ze-uKW">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6w6-Ze-uKW" customClass="LocalizableTextField" customModule="InAppLocalize">
                                         <rect key="frame" x="20" y="20" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="mFt-C3-5HJ"/>
@@ -90,14 +90,14 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="yA8-pt-P0X"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-BI-ohJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-BI-ohJ" customClass="LocalizableButton" customModule="InAppLocalize">
                                 <rect key="frame" x="20" y="438" width="335" height="44"/>
                                 <color key="backgroundColor" red="0.1335625946521759" green="0.51126598649554778" blue="0.51476544141769409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="BSd-2h-fgS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Đăng nhập">
+                                <state key="normal" title="log_in">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -190,7 +190,7 @@
                                                         <constraint firstAttribute="width" constant="20" id="ftV-jn-9ze"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F4-iD-PTw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F4-iD-PTw" customClass="LocalizableLabel" customModule="InAppLocalize">
                                                     <rect key="frame" x="58" y="16.5" width="294" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="843.32833583208401"/>
         </scene>
-        <!--User Info View Controller-->
+        <!--personal_information-->
         <scene sceneID="epq-jR-7j6">
             <objects>
-                <viewController storyboardIdentifier="UserInfoViewController" id="mkq-mY-sQS" customClass="UserInfoViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserInfoViewController" title="personal_information" id="mkq-mY-sQS" customClass="UserInfoViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pT5-do-ZiR"/>
                         <viewControllerLayoutGuide type="bottom" id="TaS-1Z-CPC"/>
@@ -260,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="1732" y="123"/>
         </scene>
-        <!--Time Sheet View Controller-->
+        <!--working_calendar-->
         <scene sceneID="F4c-mJ-6iz">
             <objects>
-                <viewController storyboardIdentifier="TimeSheetViewController" id="jDh-pu-dLX" customClass="TimeSheetViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimeSheetViewController" title="working_calendar" id="jDh-pu-dLX" customClass="TimeSheetViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SgE-6j-8D2"/>
                         <viewControllerLayoutGuide type="bottom" id="tPq-8X-ZMr"/>

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import LGSideMenuController
+import InAppLocalize
 
 class BaseViewController: UIViewController {
     override func viewDidLoad() {
@@ -33,6 +34,10 @@ class BaseViewController: UIViewController {
         rightButton.tintColor = UIColor.appTintColor
         let rightBarButton = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightBarButton
+
+        if let title = self.title {
+            self.title = LocalizationHelper.shared.localized(title)
+        }
     }
 
     @objc private func showLeftMenu() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import InAppLocalize
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.appBarTintColor
         UINavigationBar.appearance().tintColor = UIColor.appTintColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appTintColor]
+
+        LocalizationHelper.shared.addSupportedLanguage(["vi", "en"])
+        if let langCode = Locale.current.languageCode {
+            LocalizationHelper.shared.setCurrentLanguage(langCode)
+        }
         return true
     }
 

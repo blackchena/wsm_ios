@@ -19,4 +19,5 @@ target 'wsm' do
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'SwiftLint'
+    pod 'InAppLocalize'
 end
