@@ -115,6 +115,8 @@
 		51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */; };
 		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
 		51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143761F70F5E700A8F6F7 /* UserProfile.swift */; };
+		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
+		51E63CBD1F74C3B7008B0C89 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBB1F74C3B7008B0C89 /* vi.lproj */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
 		B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FB1F72096A00E579B2 /* FSCalendar.m */; };
 		B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FD1F72096A00E579B2 /* FSCalendarAppearance.m */; };
@@ -247,6 +249,8 @@
 		51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		51E143761F70F5E700A8F6F7 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
+		51E63CBB1F74C3B7008B0C89 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
 		B81AF6F81F7204FD00E579B2 /* wsm-Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wsm-Bridge-Header.h"; sourceTree = "<group>"; };
 		B81AF6FA1F72096A00E579B2 /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = libs/FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
 		B81AF6FB1F72096A00E579B2 /* FSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendar.m; path = libs/FSCalendar/FSCalendar.m; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 		202ED9B91F6FC42200544A7D /* wsm */ = {
 			isa = PBXGroup;
 			children = (
+				51E63CB91F74C3A6008B0C89 /* localization */,
 				5168BC6C1F739D7900AA1287 /* resources */,
 				5131FD691F72771300E0478B /* enums */,
 				B81AF6C11F7203EB00E579B2 /* libs */,
@@ -554,6 +559,15 @@
 			name = resources;
 			sourceTree = "<group>";
 		};
+		51E63CB91F74C3A6008B0C89 /* localization */ = {
+			isa = PBXGroup;
+			children = (
+				51E63CBA1F74C3B7008B0C89 /* en.lproj */,
+				51E63CBB1F74C3B7008B0C89 /* vi.lproj */,
+			);
+			name = localization;
+			sourceTree = "<group>";
+		};
 		B81AF6C11F7203EB00E579B2 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +726,7 @@
 				5168BCF51F739DBF00AA1287 /* ic_personal_issue.png in Resources */,
 				5168BCE81F739DBF00AA1287 /* ic_star.png in Resources */,
 				5168BCF21F739DBF00AA1287 /* ic_request_off.png in Resources */,
+				51E63CBD1F74C3B7008B0C89 /* vi.lproj in Resources */,
 				5168BCE01F739DBF00AA1287 /* ic_placeholder_user.png in Resources */,
 				5168BCE41F739DBF00AA1287 /* ic_remove.png in Resources */,
 				5168BCC01F739DBF00AA1287 /* ic_right.png in Resources */,
@@ -738,6 +753,7 @@
 				5168BCB41F739DBF00AA1287 /* ic_overtime.png in Resources */,
 				5168BCC51F739DBF00AA1287 /* ic_contract.png in Resources */,
 				5168BCBA1F739DBF00AA1287 /* ic_status_forwards.png in Resources */,
+				51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */,
 				5168BCC11F739DBF00AA1287 /* ic_search_manage.png in Resources */,
 				5168BCF91F739DBF00AA1287 /* ic_group_notification.png in Resources */,
 				5168BCF01F739DBF00AA1287 /* ic_ro.png in Resources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import InAppLocalize
 
 class LeftMenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -21,14 +22,38 @@ class LeftMenuViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        menuItems.append(MenuItem(image: "ic_personal_information", title: .UserInfo, header: .UserInfo))
-        menuItems.append(MenuItem(image: "ic_setup_profile", title: .UserSetting, header: .UserInfo))
-        menuItems.append(MenuItem(image: "ic_calendar_timesheet", title: .TimeSheet, header: .UserData))
-        menuItems.append(MenuItem(image: "ic_holiday_calendar", title: .CalendarOff, header: .UserData))
-        menuItems.append(MenuItem(image: "ic_statistic_personal", title: .UserReport, header: .UserData))
-        menuItems.append(MenuItem(image: "ic_overtime", title: .RequestOt, header: .UserRequest))
-        menuItems.append(MenuItem(image: "ic_day_off", title: .RequestOff, header: .UserRequest))
-        menuItems.append(MenuItem(image: "ic_clock", title: .OtherRequest, header: .UserRequest))
+        menuItems.append(MenuItem(image: "ic_personal_information",
+                                  title: LocalizationHelper.shared.localized("personal_information"),
+                                  header: LocalizationHelper.shared.localized("profile"),
+                                  group: MenuGroup.userInfo))
+        menuItems.append(MenuItem(image: "ic_setup_profile",
+                                  title: LocalizationHelper.shared.localized("setup_profile"),
+                                  header: LocalizationHelper.shared.localized("profile"),
+                                  group: MenuGroup.userInfo))
+        menuItems.append(MenuItem(image: "ic_calendar_timesheet",
+                                  title: LocalizationHelper.shared.localized("working_calendar"),
+                                  header: LocalizationHelper.shared.localized("personal_data"),
+                                  group: MenuGroup.userData))
+        menuItems.append(MenuItem(image: "ic_holiday_calendar",
+                                  title: LocalizationHelper.shared.localized("holiday_calendar"),
+                                  header: LocalizationHelper.shared.localized("personal_data"),
+                                  group: MenuGroup.userData))
+        menuItems.append(MenuItem(image: "ic_statistic_personal",
+                                  title: LocalizationHelper.shared.localized("statistics_of_personal"),
+                                  header: LocalizationHelper.shared.localized("personal_data"),
+                                  group: MenuGroup.userData))
+        menuItems.append(MenuItem(image: "ic_overtime",
+                                  title: LocalizationHelper.shared.localized("overtime"),
+                                  header: LocalizationHelper.shared.localized("personal_request"),
+                                  group: MenuGroup.userRequest))
+        menuItems.append(MenuItem(image: "ic_day_off",
+                                  title: LocalizationHelper.shared.localized("day_off"),
+                                  header: LocalizationHelper.shared.localized("personal_request"),
+                                  group: MenuGroup.userRequest))
+        menuItems.append(MenuItem(image: "ic_clock",
+                                  title: LocalizationHelper.shared.localized("other"),
+                                  header: LocalizationHelper.shared.localized("personal_request"),
+                                  group: MenuGroup.userRequest))
 
         if let header = Bundle.main.loadNibNamed("LeftMenuHeaderCell", owner: self, options: nil)?.first
             as? LeftMenuHeaderCell {
@@ -112,11 +137,11 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
             as? LeftMenuSectionCell {
             switch section {
             case 0:
-                headerCell.headerLabel.text = MenuHeaderEnum.UserInfo.rawValue
+                headerCell.headerLabel.text = LocalizationHelper.shared.localized("profile")
             case 1:
-                headerCell.headerLabel.text = MenuHeaderEnum.UserData.rawValue
+                headerCell.headerLabel.text = LocalizationHelper.shared.localized("personal_data")
             case 2:
-                headerCell.headerLabel.text = MenuHeaderEnum.UserRequest.rawValue
+                headerCell.headerLabel.text = LocalizationHelper.shared.localized("personal_request")
             default:
                 headerCell.headerLabel.text = ""
             }
@@ -131,17 +156,17 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
         for item in menuItems {
             switch section {
             case 0:
-                if item.header == MenuHeaderEnum.UserInfo {
+                if item.group == MenuGroup.userInfo {
                     items.append(item)
                 }
                 break
             case 1:
-                if item.header == MenuHeaderEnum.UserData {
+                if item.group == MenuGroup.userData {
                     items.append(item)
                 }
                 break
             case 2:
-                if item.header == MenuHeaderEnum.UserRequest {
+                if item.group == MenuGroup.userRequest {
                     items.append(item)
                 }
                 break
@@ -155,6 +180,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
 
 struct MenuItem {
     var image: String
-    var title: MenuItemEnum
-    var header: MenuHeaderEnum
+    var title: String
+    var header: String
+    var group: MenuGroup
 }
