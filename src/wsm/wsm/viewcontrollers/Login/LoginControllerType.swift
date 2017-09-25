@@ -8,10 +8,10 @@
 
 import Foundation
 import UIKit
-import SwiftyUserDefaults
+import PromiseKit
 
 protocol LoginControllerType {
-    func didLogin(with loginResult: LoginModel?)
+    func didLoginSuccess()
 }
 
 extension LoginControllerType where Self: UIViewController {
@@ -19,22 +19,27 @@ extension LoginControllerType where Self: UIViewController {
 
         AlertHelper.showLoading()
 
-        //reset authToken
-        Defaults[.authToken] = nil
+        //reset authToken, all settings local data
+        UserServices.clearData()
 
         LoginProvider.login(email, password)
-            .then { loginResult in
-                self.didLogin(with: loginResult.loginData)
+            .then { loginResult -> UserProvider.AppSettingPromise in
+                //save authToken value
+                UserServices.saveAuthToken(token: loginResult.loginData?.authenToken)
+
+                //start async call apis setting for app
+                return UserProvider.getAllAppSettingsAsync(userId: (loginResult.loginData?.userId)!)
+            }.then { (userProfileResult, userSettingResult, listLeaveTypeSettingResult, listDayOffSettingResult) -> Void in
+
+                UserServices.saveUserSettings(userProfileResult: userProfileResult.userData,
+                                              userSettingResult: userSettingResult.userSetting,
+                                              listLeaveTypeResult: listLeaveTypeSettingResult.listLeaveTypeSetting,
+                                              listDayOffResult: listDayOffSettingResult.listDayOffSetting)
+                self.didLoginSuccess()
             }.catch { error in
                 AlertHelper.showError(error: error)
-        }
-    }
-    func getProfile(userId: Int) {
-        AlertHelper.showLoading()
-        UserProvider.getProfile(userId: userId).then { _ in
-            AlertHelper.hideLoading()
-            }.catch { error in
-                AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
         }
     }
 }

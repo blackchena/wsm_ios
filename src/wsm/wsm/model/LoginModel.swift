@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-final class LoginModel: BaseModel {
+class LoginModel: BaseModel {
 
     var authenToken: String?
     var isManager: Bool?

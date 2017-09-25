@@ -98,7 +98,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainViewController = sideMenuController!
         let rootViewController = mainViewController.rootViewController
-        let timeSheetViewController = getStoryboardController(identifier: "TimeSheetViewController")
+        let timeSheetViewController = UIViewController.getStoryboardController(identifier: "TimeSheetViewController")
 
         guard let navigationController = rootViewController as? NavigationController else {
             return
@@ -108,7 +108,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
 
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            selectedViewController = getStoryboardController(identifier: "UserInfoViewController")
+            selectedViewController = UIViewController.getStoryboardController(identifier: "UserInfoViewController")
         case (0, 1):
             break
         case (1, 0):

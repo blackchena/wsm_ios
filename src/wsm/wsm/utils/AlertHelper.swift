@@ -31,11 +31,24 @@ final class AlertHelper {
         }
     }
 
-    class func showError(error: Error?) {
-        showError(message: error?.localizedDescription)
+    /**
+     * Show error with message is "localizedDescription" property of "error" parameter
+     * Before show message will check the param makesureLoadingHidden if true -> call AlertHelper.hideLoading()
+     */
+    class func showError(error: Error?, makesureLoadingHidden: Bool = true) {
+        showError(message: error?.localizedDescription, makesureLoadingHidden: makesureLoadingHidden)
     }
 
-    class func showError(message: String?) {
+    /**
+     * Show error with "message" parameter
+     * Before show message will check the param makesureLoadingHidden if true -> call AlertHelper.hideLoading()
+    */
+    class func showError(message: String?, makesureLoadingHidden: Bool = true) {
+
+        if makesureLoadingHidden {
+            hideLoading()
+        }
+
         if let rootController = UIApplication.shared.delegate?.window??.rootViewController {
             let alertController = UIAlertController(title: "wsm", message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("CLOSE"),
@@ -57,7 +70,16 @@ final class AlertHelper {
         }
     }
 
-    class func showInfo(message: String?, handler: ((UIAlertAction) -> Swift.Void)? = nil) {
+    /**
+     * Show message dialog
+     * Before show message will check the param makesureLoadingHidden if true -> call AlertHelper.hideLoading()
+     */
+    class func showInfo(message: String?, makesureLoadingHidden: Bool = true, handler: ((UIAlertAction) -> Swift.Void)? = nil) {
+
+        if makesureLoadingHidden {
+            hideLoading()
+        }
+
         if let rootController = UIApplication.shared.delegate?.window??.rootViewController {
             let alertController = UIAlertController(title: "wsm", message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("CLOSE"),

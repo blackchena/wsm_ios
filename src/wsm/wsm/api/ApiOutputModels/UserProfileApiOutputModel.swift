@@ -9,8 +9,8 @@
 import UIKit
 import ObjectMapper
 
-class UserApiOutputModel: ResponseData {
-    var userData: UserModel?
+class UserProfileApiOutputModel: ResponseData {
+    var userData: UserProfileModel?
 
     override func mapping(map: Map) {
         super.mapping(map: map)

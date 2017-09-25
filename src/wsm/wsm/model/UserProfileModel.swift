@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 import AFDateHelper
 
-class UserModel: BaseModel {
+class UserProfileModel: BaseModel {
 
     var email: String?
     var gender: String?
@@ -32,10 +32,7 @@ class UserModel: BaseModel {
 
     var isManager: Bool?
 
-
-
     required init?(map: Map) {
-
     }
 
     public func mapping(map: Map) {
