@@ -12,13 +12,14 @@ target 'wsm' do
     pod 'Crashlytics'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
-    pod 'DateToolsSwift'
-    pod 'Himotoki'
-    pod 'ReactiveCocoa'
-    pod 'Permission/Location'
-    pod 'RxSwift'
-    pod 'RxCocoa'
+    
+    pod 'Permission/Location'    
     pod 'SwiftLint'
+
     pod 'InAppLocalize'
     pod "Floaty"
+    pod 'AFDateHelper', '~> 4.2.4'
+    pod 'ObjectMapper'
+    pod 'SwiftyUserDefaults'
+    pod "PromiseKit", "~> 4.4"
 end

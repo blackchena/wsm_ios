@@ -10,10 +10,7 @@
 		202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9BA1F6FC42200544A7D /* AppDelegate.swift */; };
 		202ED9C21F6FC42200544A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202ED9C11F6FC42200544A7D /* Assets.xcassets */; };
 		202ED9D91F6FCBCB00544A7D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9CE1F6FCBCB00544A7D /* API.swift */; };
-		202ED9DA1F6FCBCB00544A7D /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9CF1F6FCBCB00544A7D /* ApiHelper.swift */; };
-		202ED9DB1F6FCBCB00544A7D /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9D11F6FCBCB00544A7D /* HomeProvider.swift */; };
 		202ED9DC1F6FCBCB00544A7D /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9D21F6FCBCB00544A7D /* LoginProvider.swift */; };
-		202ED9DE1F6FCBF000544A7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9DD1F6FCBF000544A7D /* User.swift */; };
 		202ED9E01F6FCD0C00544A7D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9DF1F6FCD0C00544A7D /* BaseViewController.swift */; };
 		202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9E11F6FCD4200544A7D /* Utils.swift */; };
 		202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9E61F6FCE0A00544A7D /* LoginViewController.swift */; };
@@ -115,7 +112,6 @@
 		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
 		51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */; };
 		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
-		51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143761F70F5E700A8F6F7 /* UserProfile.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CBD1F74C3B7008B0C89 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBB1F74C3B7008B0C89 /* vi.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
@@ -137,6 +133,17 @@
 		B81AF7291F72096A00E579B2 /* FSCalendarTransitionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF7171F72096A00E579B2 /* FSCalendarTransitionCoordinator.m */; };
 		B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF7191F72096A00E579B2 /* FSCalendarWeekdayView.m */; };
 		B81AF72B1F72096A00E579B2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81AF71A1F72096A00E579B2 /* Info.plist */; };
+		B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81AF7301F7222BA00E579B2 /* BaseModel.swift */; };
+		B8503F121F7275F600258D0A /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8503F111F7275F600258D0A /* Response+ObjectMapper.swift */; };
+		B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */; };
+		B85E1D591F736DAF00329529 /* MoyaProvider+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D581F736DAF00329529 /* MoyaProvider+Promise.swift */; };
+		B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D5A1F73B12B00329529 /* LoginModel.swift */; };
+		B85E1D6A1F73C92A00329529 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */; };
+		B85E1D6C1F73C94000329529 /* WSMDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D6B1F73C94000329529 /* WSMDateTransform.swift */; };
+		B87C2FCC1F74F91400097F2C /* UserApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87C2FCB1F74F91400097F2C /* UserApiOutputModel.swift */; };
+		B87C2FCE1F74F92B00097F2C /* LoginApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */; };
+		B89BB9D51F74B03A008E547C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89BB9D41F74B03A008E547C /* UserModel.swift */; };
+		B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,10 +152,7 @@
 		202ED9C11F6FC42200544A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		202ED9C61F6FC42200544A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		202ED9CE1F6FCBCB00544A7D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		202ED9CF1F6FCBCB00544A7D /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
-		202ED9D11F6FCBCB00544A7D /* HomeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
 		202ED9D21F6FCBCB00544A7D /* LoginProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
-		202ED9DD1F6FCBF000544A7D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		202ED9DF1F6FCD0C00544A7D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		202ED9E11F6FCD4200544A7D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		202ED9E61F6FCE0A00544A7D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +255,6 @@
 		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
 		51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
-		51E143761F70F5E700A8F6F7 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CBB1F74C3B7008B0C89 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
@@ -289,6 +292,17 @@
 		B81AF7181F72096A00E579B2 /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarWeekdayView.h; path = libs/FSCalendar/FSCalendarWeekdayView.h; sourceTree = "<group>"; };
 		B81AF7191F72096A00E579B2 /* FSCalendarWeekdayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarWeekdayView.m; path = libs/FSCalendar/FSCalendarWeekdayView.m; sourceTree = "<group>"; };
 		B81AF71A1F72096A00E579B2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = libs/FSCalendar/Info.plist; sourceTree = "<group>"; };
+		B81AF7301F7222BA00E579B2 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		B8503F111F7275F600258D0A /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
+		B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMLocalStorageKeys.swift; path = storages/WSMLocalStorageKeys.swift; sourceTree = "<group>"; };
+		B85E1D581F736DAF00329529 /* MoyaProvider+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Promise.swift"; sourceTree = "<group>"; };
+		B85E1D5A1F73B12B00329529 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WsmAccessTokenPlugin.swift; path = Plugins/WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
+		B85E1D6B1F73C94000329529 /* WSMDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMDateTransform.swift; path = TransformTypes/WSMDateTransform.swift; sourceTree = "<group>"; };
+		B87C2FCB1F74F91400097F2C /* UserApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserApiOutputModel.swift; path = ApiOutputModels/UserApiOutputModel.swift; sourceTree = "<group>"; };
+		B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginApiOutputModel.swift; path = ApiOutputModels/LoginApiOutputModel.swift; sourceTree = "<group>"; };
+		B89BB9D41F74B03A008E547C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDebugPrinter.swift; sourceTree = "<group>"; };
 		DF322323208842894208499E /* Pods-wsm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.debug.xcconfig"; sourceTree = "<group>"; };
 		E357AF6EDD8FEAF08F129429 /* Pods-wsm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.release.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -327,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				51E63CB91F74C3A6008B0C89 /* localization */,
+				B85E1D551F735F5100329529 /* storages */,
 				5168BC6C1F739D7900AA1287 /* resources */,
 				5131FD691F72771300E0478B /* enums */,
 				B81AF6C11F7203EB00E579B2 /* libs */,
@@ -348,10 +363,13 @@
 		202ED9CD1F6FCBCB00544A7D /* api */ = {
 			isa = PBXGroup;
 			children = (
-				202ED9CE1F6FCBCB00544A7D /* API.swift */,
-				202ED9CF1F6FCBCB00544A7D /* ApiHelper.swift */,
-				51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */,
+				B87C2FC61F74F51F00097F2C /* ApiOutputModels */,
 				202ED9D01F6FCBCB00544A7D /* Provider */,
+				B85E1D681F73C92000329529 /* Plugins */,
+				B85E1D671F73C86500329529 /* TransformTypes */,
+				202ED9CE1F6FCBCB00544A7D /* API.swift */,
+				B85E1D581F736DAF00329529 /* MoyaProvider+Promise.swift */,
+				B8503F111F7275F600258D0A /* Response+ObjectMapper.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -359,7 +377,6 @@
 		202ED9D01F6FCBCB00544A7D /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				202ED9D11F6FCBCB00544A7D /* HomeProvider.swift */,
 				202ED9D21F6FCBCB00544A7D /* LoginProvider.swift */,
 				51E143741F70F55000A8F6F7 /* UserProvider.swift */,
 			);
@@ -369,6 +386,7 @@
 		202ED9D31F6FCBCB00544A7D /* base */ = {
 			isa = PBXGroup;
 			children = (
+				B81AF7301F7222BA00E579B2 /* BaseModel.swift */,
 				202ED9DF1F6FCD0C00544A7D /* BaseViewController.swift */,
 			);
 			path = base;
@@ -387,6 +405,7 @@
 				5168BD071F73A88200AA1287 /* UITextField.swift */,
 				5168BD091F73A89700AA1287 /* Sequence.swift */,
 				51754C6E1F7895DC00CFABE8 /* Floaty.swift */,
+				B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -405,8 +424,8 @@
 		202ED9D61F6FCBCB00544A7D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				202ED9DD1F6FCBF000544A7D /* User.swift */,
-				51E143761F70F5E700A8F6F7 /* UserProfile.swift */,
+				B89BB9D41F74B03A008E547C /* UserModel.swift */,
+				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -622,6 +641,39 @@
 			name = FSCalendar;
 			sourceTree = "<group>";
 		};
+		B85E1D551F735F5100329529 /* storages */ = {
+			isa = PBXGroup;
+			children = (
+				B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */,
+			);
+			name = storages;
+			sourceTree = "<group>";
+		};
+		B85E1D671F73C86500329529 /* TransformTypes */ = {
+			isa = PBXGroup;
+			children = (
+				B85E1D6B1F73C94000329529 /* WSMDateTransform.swift */,
+			);
+			name = TransformTypes;
+			sourceTree = "<group>";
+		};
+		B85E1D681F73C92000329529 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */,
+			);
+			name = Plugins;
+			sourceTree = "<group>";
+		};
+		B87C2FC61F74F51F00097F2C /* ApiOutputModels */ = {
+			isa = PBXGroup;
+			children = (
+				B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */,
+				B87C2FCB1F74F91400097F2C /* UserApiOutputModel.swift */,
+			);
+			name = ApiOutputModels;
+			sourceTree = "<group>";
+		};
 		E716D944208DF53FC79A9A96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,7 +784,6 @@
 				5168BCF51F739DBF00AA1287 /* ic_personal_issue.png in Resources */,
 				5168BCE81F739DBF00AA1287 /* ic_star.png in Resources */,
 				5168BCF21F739DBF00AA1287 /* ic_request_off.png in Resources */,
-				51E63CBD1F74C3B7008B0C89 /* vi.lproj in Resources */,
 				5168BCE01F739DBF00AA1287 /* ic_placeholder_user.png in Resources */,
 				5168BCE41F739DBF00AA1287 /* ic_remove.png in Resources */,
 				5168BCC01F739DBF00AA1287 /* ic_right.png in Resources */,
@@ -819,12 +870,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wsm-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			showEnvVarsInLog = 0;
 		};
 		DA12107119DA2A90C53A9282 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -833,45 +888,43 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-wsm/Pods-wsm-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFDateHelper/AFDateHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Himotoki/Himotoki.framework",
 				"${BUILT_PRODUCTS_DIR}/InAppLocalize/InAppLocalize.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFDateHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Himotoki.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppLocalize.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -890,14 +943,14 @@
 				B81AF7261F72096A00E579B2 /* FSCalendarHeaderView.m in Sources */,
 				5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */,
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
+				B87C2FCE1F74F92B00097F2C /* LoginApiOutputModel.swift in Sources */,
+				B85E1D591F736DAF00329529 /* MoyaProvider+Promise.swift in Sources */,
+				202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */,
+				B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */,
 				B81AF7211F72096A00E579B2 /* FSCalendarCollectionView.m in Sources */,
 				5131FD6B1F72772000E0478B /* MenuEnum.swift in Sources */,
 				B81AF7201F72096A00E579B2 /* FSCalendar+Deprecated.m in Sources */,
-				51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */,
-				202ED9DB1F6FCBCB00544A7D /* HomeProvider.swift in Sources */,
-				202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */,
 				B81AF71D1F72096A00E579B2 /* FSCalendarCalculator.m in Sources */,
-				202ED9DA1F6FCBCB00544A7D /* ApiHelper.swift in Sources */,
 				B81AF7291F72096A00E579B2 /* FSCalendarTransitionCoordinator.m in Sources */,
 				B81AF71F1F72096A00E579B2 /* FSCalendarDelegationFactory.m in Sources */,
 				B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */,
@@ -905,7 +958,9 @@
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
 				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
+				B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */,
 				202ED9D91F6FCBCB00544A7D /* API.swift in Sources */,
+				B85E1D6A1F73C92A00329529 /* WsmAccessTokenPlugin.swift in Sources */,
 				51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */,
 				5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
@@ -917,25 +972,29 @@
 				B81AF7241F72096A00E579B2 /* FSCalendarDelegationProxy.m in Sources */,
 				5168BD041F73A7C400AA1287 /* Array.swift in Sources */,
 				202ED9E01F6FCD0C00544A7D /* BaseViewController.swift in Sources */,
+				B8503F121F7275F600258D0A /* Response+ObjectMapper.swift in Sources */,
+				202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */,
+				B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */,
+				B85E1D6C1F73C94000329529 /* WSMDateTransform.swift in Sources */,
+				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
 				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
-				202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */,
 				5168BD081F73A88200AA1287 /* UITextField.swift in Sources */,
 				B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */,
 				5168BD001F73A78B00AA1287 /* String.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
 				B81AF7231F72096A00E579B2 /* FSCalendarConstants.m in Sources */,
-				202ED9DE1F6FCBF000544A7D /* User.swift in Sources */,
 				B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */,
 				B81AF7271F72096A00E579B2 /* FSCalendarScopeHandle.m in Sources */,
 				5168BCFE1F73A74D00AA1287 /* UIImageView.swift in Sources */,
 				5168BD0A1F73A89700AA1287 /* Sequence.swift in Sources */,
 				5168BD021F73A7AA00AA1287 /* Dictionary.swift in Sources */,
-				51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */,
 				5131FD5F1F7276AA00E0478B /* TimeSheetViewController.swift in Sources */,
+				B87C2FCC1F74F91400097F2C /* UserApiOutputModel.swift in Sources */,
 				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
+				B89BB9D51F74B03A008E547C /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

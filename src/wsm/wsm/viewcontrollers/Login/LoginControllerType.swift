@@ -8,32 +8,33 @@
 
 import Foundation
 import UIKit
+import SwiftyUserDefaults
 
 protocol LoginControllerType {
-    func didLogin(with user: User?)
+    func didLogin(with loginResult: LoginModel?)
 }
 
 extension LoginControllerType where Self: UIViewController {
     func login(with email: String, password: String) {
+
         AlertHelper.showLoading()
-        LoginProvider.login(with: email, password: password).on(failed: { (error) in
-            AlertHelper.hideLoading()
-            AlertHelper.showError(message: error.message)
-        }, completed: {
-            AlertHelper.hideLoading()
-        }, value: { (user) in
-            self.didLogin(with: user)
-        }).start()
+
+        //reset authToken
+        Defaults[.authToken] = nil
+
+        LoginProvider.login(email, password)
+            .then { loginResult in
+                self.didLogin(with: loginResult.loginData)
+            }.catch { error in
+                AlertHelper.showError(error: error)
+        }
     }
     func getProfile(userId: Int) {
         AlertHelper.showLoading()
-        UserProvider.getProfile(userId: userId).on(failed: { (error) in
+        UserProvider.getProfile(userId: userId).then { _ in
             AlertHelper.hideLoading()
-            AlertHelper.showError(message: error.message)
-        }, completed: {
-            AlertHelper.hideLoading()
-        }, value: { (profile) in
-            print(profile.email ?? "error")
-        }).start()
+            }.catch { error in
+                AlertHelper.showError(error: error)
+        }
     }
 }

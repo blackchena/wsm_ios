@@ -11,8 +11,7 @@ import Foundation
 extension UIImageView {
     func downloadImageFrom(link: String, contentMode: UIViewContentMode) {
         if let url = NSURL(string: link) {
-            URLSession.shared.dataTask( with: url as URL, completionHandler: {
-                (data, _, _) -> Void in
+            URLSession.shared.dataTask( with: url as URL, completionHandler: { (data, _, _) -> Void in
                 DispatchQueue.main.async {
                     self.contentMode =  contentMode
                     if let data = data { self.image = UIImage(data: data) }
