@@ -7,26 +7,33 @@
 //
 
 import UIKit
+import Floaty
+import InAppLocalize
 
-class TimeSheetViewController: BaseViewController {
+class TimeSheetViewController: BaseViewController, FloatyDelegate {
+
+    private let floaty = Floaty()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        createRequestButton()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
+    func createRequestButton() {
+        floaty.addButton(title: LocalizationHelper.shared.localized("create_others_request"), hexColor: "#35F128")
+        floaty.addButton(title: LocalizationHelper.shared.localized("create_request_leave"), hexColor: "#FA003F")
+        floaty.addButton(title: LocalizationHelper.shared.localized("create_request_ot"), hexColor: "#1564C0")
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        floaty.paddingX = floaty.paddingY
+        floaty.fabDelegate = self
+        floaty.buttonColor = UIColor.init(hexString: "#DB4336")
+        floaty.buttonImage = UIImage(named: "ic_add")
+
+        self.view.addSubview(floaty)
     }
-    */
-
 }

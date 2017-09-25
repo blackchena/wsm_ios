@@ -112,11 +112,13 @@
 		5168BD0A1F73A89700AA1287 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168BD091F73A89700AA1287 /* Sequence.swift */; };
 		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
 		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
+		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
 		51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */; };
 		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
 		51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143761F70F5E700A8F6F7 /* UserProfile.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CBD1F74C3B7008B0C89 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBB1F74C3B7008B0C89 /* vi.lproj */; };
+		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
 		B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FB1F72096A00E579B2 /* FSCalendar.m */; };
 		B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FD1F72096A00E579B2 /* FSCalendarAppearance.m */; };
@@ -246,11 +248,13 @@
 		5168BD091F73A89700AA1287 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
 		51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		51E143761F70F5E700A8F6F7 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CBB1F74C3B7008B0C89 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
+		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
 		B81AF6F81F7204FD00E579B2 /* wsm-Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wsm-Bridge-Header.h"; sourceTree = "<group>"; };
 		B81AF6FA1F72096A00E579B2 /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = libs/FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
 		B81AF6FB1F72096A00E579B2 /* FSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendar.m; path = libs/FSCalendar/FSCalendar.m; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				5168BD051F73A7E600AA1287 /* Formatter.swift */,
 				5168BD071F73A88200AA1287 /* UITextField.swift */,
 				5168BD091F73A89700AA1287 /* Sequence.swift */,
+				51754C6E1F7895DC00CFABE8 /* Floaty.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 		5168BC6C1F739D7900AA1287 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				51E63CC01F750A45008B0C89 /* ic_add.png */,
 				5168BC6D1F739DBF00AA1287 /* ic_overtime.png */,
 				5168BC6E1F739DBF00AA1287 /* ic_read_all.png */,
 				5168BC6F1F739DBF00AA1287 /* ic_search_2.png */,
@@ -753,6 +759,7 @@
 				5168BCB41F739DBF00AA1287 /* ic_overtime.png in Resources */,
 				5168BCC51F739DBF00AA1287 /* ic_contract.png in Resources */,
 				5168BCBA1F739DBF00AA1287 /* ic_status_forwards.png in Resources */,
+				51E63CC11F750A45008B0C89 /* ic_add.png in Resources */,
 				51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */,
 				5168BCC11F739DBF00AA1287 /* ic_search_manage.png in Resources */,
 				5168BCF91F739DBF00AA1287 /* ic_group_notification.png in Resources */,
@@ -828,6 +835,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-wsm/Pods-wsm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Himotoki/Himotoki.framework",
 				"${BUILT_PRODUCTS_DIR}/InAppLocalize/InAppLocalize.framework",
@@ -849,6 +857,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Himotoki.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppLocalize.framework",
@@ -926,6 +935,7 @@
 				51E143771F70F5E700A8F6F7 /* UserProfile.swift in Sources */,
 				5131FD5F1F7276AA00E0478B /* TimeSheetViewController.swift in Sources */,
 				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
+				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
