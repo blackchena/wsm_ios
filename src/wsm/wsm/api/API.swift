@@ -7,71 +7,51 @@
 //
 
 import Foundation
-import ReactiveCocoa
-import ReactiveSwift
 import Moya
 import Alamofire
-import DateToolsSwift
+import ObjectMapper
+import SwiftyUserDefaults
 
-public enum RequestErrorCode: Equatable {
-    case unauthorized
-    case notFound
-    case parseError
+public enum APIError: Swift.Error {
+    case noStatusCode
+
+    case invalidData
+    case unknown(statusCode: Int?)
+
+    case notModified // 304
+    case invalidRequest // 400
+    case unauthorized // 401
+    case accessDenied // 403
+    case notFound  // 404
+    case methodNotAllowed  // 405
+    case serverError // 500
+    case badGateway // 502
+    case serviceUnavailable // 503
+    case gatewayTimeout // 504
     case networkError
-    case unknown
-}
+    case apiFailure(message: String?)
 
-public func==(lhs: RequestErrorCode, rhs: RequestErrorCode) -> Bool {
-    switch (lhs, rhs) {
-    case (.unauthorized, .unauthorized): return true
-    case (.notFound, .notFound): return true
-    case (.parseError, .parseError): return true
-    case (.networkError, .networkError): return true
-    default: return false
+    public var localizedDescription: String {
+        //TODOs: fill message match with APIError on Localize text
+        return ""
     }
 }
 
-public struct RequestErrorType: Swift.Error, Equatable {
-    var code: RequestErrorCode
+public class ResponseData: Mappable {
+    var status: Int?
     var message: String?
 
-    init(_ message: String? = nil, _ code: RequestErrorCode = .parseError) {
-        self.message = message
-        self.code = code
-    }
+    required public init?(map: Map) {
 
-    static let failure = RequestErrorType("failed", .unknown)
-    static let unauthorized = RequestErrorType("unauthorized", .unauthorized)
-    static let notFound = RequestErrorType("notFound", .notFound)
-    static let parseError = RequestErrorType("parseError", .parseError)
-    static let networkError = RequestErrorType("networkError", .networkError)
-    static let unknown = RequestErrorType("unknown", .unknown)
-}
-
-public func==(lhs: RequestErrorType, rhs: RequestErrorType) -> Bool {
-    return lhs.code == rhs.code
-}
-
-public struct ResponseData {
-    var status: Int
-    var message: String?
-    var data: Any?
-
-    init(_ status: Int, _ message: String?, _ data: Any?) {
-        self.status = status
-        self.message = message
-        self.data = data
     }
 
     func isSucceeded() -> Bool {
         return status == 200
     }
 
-    func string(forKey key: String) -> String? {
-        if let data = data as? [String: Any] {
-            return data[key] as? String
-        }
-        return nil
+    public func mapping(map: Map) {
+        status <- map["status"]
+        message <- map["message"]
     }
 }
 
@@ -79,21 +59,29 @@ public enum API {
     case login(String, String)
     case logout
     case getProfile(userId: Int)
+    case getTimeSheets
+}
+
+extension TargetType {
+
+    static var debugMode: Bool {
+        return true
+    }
+
+    public var baseURL: URL {
+        return URL(string: API.debugMode ? "http://edev.framgia.vn" : "http://wsm.framgia.vn")!
+    }
+
+    public var parameterEncoding: ParameterEncoding {
+        if method == .get {
+            return URLEncoding.default
+        }
+        return JSONEncoding.default
+    }
+
 }
 
 extension API: TargetType {
-    static var debugMode = true
-
-    static let baseURLStringProd = "http://wsm.framgia.vn"
-
-    static let baseURLStringDebug = "http://edev.framgia.vn"
-
-    public var baseURL: URL {
-        if API.debugMode {
-            return URL(string: API.baseURLStringDebug)!
-        }
-        return URL(string: API.baseURLStringProd)!
-    }
 
     public var path: String {
         switch self {
@@ -103,6 +91,8 @@ extension API: TargetType {
             return "/api/sign_out"
         case .getProfile(let userId):
             return "/api/dashboard/users/\(userId)"
+        case .getTimeSheets:
+            return "/api/dashboard/request_ots"
         }
     }
 
@@ -111,9 +101,14 @@ extension API: TargetType {
         case .login,
              .logout:
             return .post
-        case .getProfile:
+        case .getProfile,
+             .getTimeSheets:
             return .get
         }
+    }
+
+    fileprivate func createParameters<T: BaseMappable>(dataModel: T) -> [String: Any] {
+        return dataModel.toJSON()
     }
 
     public var parameters: [String: Any]? {
@@ -126,18 +121,11 @@ extension API: TargetType {
                 ]
             ]
             return params
-        case .logout:
-            return nil
-        case .getProfile:
+        case .logout,
+             .getProfile,
+             .getTimeSheets:
             return nil
         }
-    }
-
-    public var parameterEncoding: ParameterEncoding {
-        if method == .get {
-            return URLEncoding.default
-        }
-        return JSONEncoding.default
     }
 
     public var sampleData: Data {
@@ -171,21 +159,9 @@ public struct ApiProvider {
 
     fileprivate static func getDefaultProvider() -> MoyaProvider<API> {
         let plugins: [PluginType] = [
-            NetworkLoggerPlugin(verbose: true, output: debugLog),
-            NetworkActivityPlugin(networkActivityClosure: networkActivityClosure)
-        ]
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15
-        let newManager = Alamofire.SessionManager(configuration: configuration)
-
-        return MoyaProvider<API>(endpointClosure: endpointClosure, manager: newManager, plugins: plugins)
-    }
-
-    fileprivate static func getAuthenticatedProvider(_ token: String) -> MoyaProvider<API> {
-        let plugins: [PluginType] = [
-            NetworkLoggerPlugin(verbose: true, output: debugLog),
+            NetworkLoggerPlugin(verbose: true, output: debugLog, responseDataFormatter: JSONResponseDataFormatter),
             NetworkActivityPlugin(networkActivityClosure: networkActivityClosure),
-            WsmAccessTokenPlugin(token: token)
+            WsmAccessTokenPlugin()
         ]
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 15
@@ -194,32 +170,25 @@ public struct ApiProvider {
         return MoyaProvider<API>(endpointClosure: endpointClosure, manager: newManager, plugins: plugins)
     }
 
-    fileprivate static var authenticatedProvider: MoyaProvider<API>?
     fileprivate static let defaultProvider = getDefaultProvider()
-    fileprivate static var _accessToken: String?
-    public static var accessToken: String? {
-        get {
-            return _accessToken
-        }
-        set (value) {
-            _accessToken = value
-            if let token = _accessToken {
-                authenticatedProvider = getAuthenticatedProvider(token)
-            } else {
-                authenticatedProvider = nil
-            }
-        }
-    }
+
     public static var shared: MoyaProvider<API> {
-        if let authenticatedProvider = authenticatedProvider {
-            return authenticatedProvider
-        }
         return defaultProvider
     }
 }
 
 public func url(_ route: TargetType) -> String {
     return route.baseURL.appendingPathComponent(route.path).absoluteString
+}
+
+private func JSONResponseDataFormatter(_ data: Data) -> Data {
+    do {
+        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
+        let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
+        return prettyData
+    } catch {
+        return data // fallback to original data if it can't be serialized.
+    }
 }
 
 private func debugLog(separator: String, terminator: String, items: Any...) {

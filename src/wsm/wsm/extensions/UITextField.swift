@@ -10,7 +10,6 @@ import Foundation
 
 extension UITextField {
     var string: String { return text ?? "" }
-    
     func setLeftImage(size: CGFloat, image: String, color: UIColor) {
         let lView = UIView(frame: CGRect(x: 0, y: 0, width: size, height: size))
         let image = UIImage(named: image)

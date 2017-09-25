@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIViewController {
-    func getStoryboardController(storyboardName: String = "Main", identifier: String) -> UIViewController{
+    func getStoryboardController(storyboardName: String = "Main", identifier: String) -> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: identifier)
     }

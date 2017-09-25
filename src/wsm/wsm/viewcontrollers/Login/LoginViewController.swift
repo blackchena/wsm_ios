@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class LoginViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -17,7 +18,7 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
 
         //dummy
-        emailTextField.text = "nguyen.le.si.nguyen@framgia.com.edev"
+        emailTextField.text = "le.quang.dao@framgia.com.edev"
         passwordTextField.text = "123456"
 
         let gradientLayer = CAGradientLayer()
@@ -44,28 +45,31 @@ class LoginViewController: BaseViewController {
     @IBAction func loginButtonClick(_ sender: Any) {
         login(with: emailTextField.text!, password: passwordTextField.text!)
     }
-    
     @IBAction func forgotButtonClick(_ sender: Any) {
     }
 }
 
 extension LoginViewController: LoginControllerType {
-    func didLogin(with user: User?) {
+    func didLogin(with loginResult: LoginModel?) {
         let navigationController = getStoryboardController(identifier: "NavigationController")
         let mainViewController = getStoryboardController(identifier: "MainViewController")
         let timeSheetVc = getStoryboardController(identifier: "TimeSheetViewController")
 
         guard let mainNav = navigationController as? NavigationController else {
+            AlertHelper.hideLoading()
             return
         }
 
         mainNav.setViewControllers([timeSheetVc], animated: false)
 
         guard let mainVc = mainViewController as? MainViewController else {
+            AlertHelper.hideLoading()
             return
         }
 
         mainVc.rootViewController = mainNav
+
+        AlertHelper.hideLoading()
 
         if let window = UIApplication.shared.delegate?.window {
             window!.rootViewController = mainViewController

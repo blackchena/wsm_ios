@@ -31,6 +31,10 @@ final class AlertHelper {
         }
     }
 
+    class func showError(error: Error?) {
+        showError(message: error?.localizedDescription)
+    }
+
     class func showError(message: String?) {
         if let rootController = UIApplication.shared.delegate?.window??.rootViewController {
             let alertController = UIAlertController(title: "wsm", message: message, preferredStyle: .alert)

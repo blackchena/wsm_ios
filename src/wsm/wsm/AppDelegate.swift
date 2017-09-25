@@ -8,6 +8,7 @@
 
 import UIKit
 import InAppLocalize
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+
+        //Change background color of SVProgressHUD dialog
+        SVProgressHUD.setDefaultMaskType(.black)
         UINavigationBar.appearance().barTintColor = UIColor.appBarTintColor
         UINavigationBar.appearance().tintColor = UIColor.appTintColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appTintColor]
