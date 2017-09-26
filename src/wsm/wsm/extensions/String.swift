@@ -27,4 +27,10 @@ extension String {
     func urlDecoded() -> String {
         return self.removingPercentEncoding ?? self
     }
+
+    func toDate(dateFormat: String) -> Date? {
+        let formater = DateFormatter()
+        formater.dateFormat = dateFormat
+        return formater.date(from: self)
+    }
 }

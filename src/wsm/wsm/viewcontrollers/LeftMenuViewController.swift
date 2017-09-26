@@ -14,7 +14,11 @@ class LeftMenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let rowHeight: CGFloat = 44.0
+    let sectionHeight: CGFloat = 44.0
+    let sectionNumber = 4
     var menuItems = [MenuItem]()
+
+    let currentUser = UserServices.getLocalUserProfile()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,37 +26,42 @@ class LeftMenuViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
+        //user
         menuItems.append(MenuItem(image: "ic_personal_information",
                                   title: LocalizationHelper.shared.localized("personal_information"),
-                                  header: LocalizationHelper.shared.localized("profile"),
                                   group: MenuGroup.userInfo))
         menuItems.append(MenuItem(image: "ic_setup_profile",
                                   title: LocalizationHelper.shared.localized("setup_profile"),
-                                  header: LocalizationHelper.shared.localized("profile"),
                                   group: MenuGroup.userInfo))
+        //manage request
+        menuItems.append(MenuItem(image: "ic_overtime",
+                                  title: LocalizationHelper.shared.localized("manage_request_overtime"),
+                                  group: MenuGroup.manageRequest))
+        menuItems.append(MenuItem(image: "ic_day_off",
+                                  title: LocalizationHelper.shared.localized("manage_request_day_off"),
+                                  group: MenuGroup.manageRequest))
+        menuItems.append(MenuItem(image: "ic_clock",
+                                  title: LocalizationHelper.shared.localized("manage_request_others"),
+                                  group: MenuGroup.manageRequest))
+        //user data
         menuItems.append(MenuItem(image: "ic_calendar_timesheet",
                                   title: LocalizationHelper.shared.localized("working_calendar"),
-                                  header: LocalizationHelper.shared.localized("personal_data"),
                                   group: MenuGroup.userData))
         menuItems.append(MenuItem(image: "ic_holiday_calendar",
                                   title: LocalizationHelper.shared.localized("holiday_calendar"),
-                                  header: LocalizationHelper.shared.localized("personal_data"),
                                   group: MenuGroup.userData))
         menuItems.append(MenuItem(image: "ic_statistic_personal",
                                   title: LocalizationHelper.shared.localized("statistics_of_personal"),
-                                  header: LocalizationHelper.shared.localized("personal_data"),
                                   group: MenuGroup.userData))
+        //user requset
         menuItems.append(MenuItem(image: "ic_overtime",
                                   title: LocalizationHelper.shared.localized("overtime"),
-                                  header: LocalizationHelper.shared.localized("personal_request"),
                                   group: MenuGroup.userRequest))
         menuItems.append(MenuItem(image: "ic_day_off",
                                   title: LocalizationHelper.shared.localized("day_off"),
-                                  header: LocalizationHelper.shared.localized("personal_request"),
                                   group: MenuGroup.userRequest))
         menuItems.append(MenuItem(image: "ic_clock",
                                   title: LocalizationHelper.shared.localized("other"),
-                                  header: LocalizationHelper.shared.localized("personal_request"),
                                   group: MenuGroup.userRequest))
 
         if let header = Bundle.main.loadNibNamed("LeftMenuHeaderCell", owner: self, options: nil)?.first
@@ -66,7 +75,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeftMenuCell", for: indexPath)
             as? LeftMenuCell else {
-            return UITableViewCell()
+                return UITableViewCell()
         }
 
         let items = self.getMenuItemsForSection(section: indexPath.section)
@@ -80,7 +89,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return sectionNumber
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,11 +97,17 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            return currentUser?.isManager ?? false ? rowHeight : 0.0
+        }
         return rowHeight
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return rowHeight
+        if section == 1 {
+            return currentUser?.isManager ?? false ? sectionHeight : 0.0
+        }
+        return sectionHeight
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -107,21 +122,31 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
         var selectedViewController: UIViewController!
 
         switch (indexPath.section, indexPath.row) {
+        //user profile
         case (0, 0):
             selectedViewController = UIViewController.getStoryboardController(identifier: "UserInfoViewController")
         case (0, 1):
             break
+        //manage request
         case (1, 0):
-            selectedViewController = timeSheetViewController
+            break
         case (1, 1):
             break
         case (1, 2):
             break
+        //user data
         case (2, 0):
-            selectedViewController = UIViewController.getStoryboardController(identifier: "ListReuqestOtViewController")
+            selectedViewController = timeSheetViewController
         case (2, 1):
             break
         case (2, 2):
+            break
+        //user request
+        case (3, 0):
+            selectedViewController = UIViewController.getStoryboardController(identifier: "ListReuqestOtViewController")
+        case (3, 1):
+            break
+        case (3, 2):
             break
         default:
             break
@@ -139,8 +164,10 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
             case 0:
                 headerCell.headerLabel.text = LocalizationHelper.shared.localized("profile")
             case 1:
-                headerCell.headerLabel.text = LocalizationHelper.shared.localized("personal_data")
+                headerCell.headerLabel.text = LocalizationHelper.shared.localized("manage_requests")
             case 2:
+                headerCell.headerLabel.text = LocalizationHelper.shared.localized("personal_data")
+            case 3:
                 headerCell.headerLabel.text = LocalizationHelper.shared.localized("personal_request")
             default:
                 headerCell.headerLabel.text = ""
@@ -159,17 +186,19 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
                 if item.group == MenuGroup.userInfo {
                     items.append(item)
                 }
-                break
             case 1:
-                if item.group == MenuGroup.userData {
+                if item.group == MenuGroup.manageRequest {
                     items.append(item)
                 }
                 break
             case 2:
+                if item.group == MenuGroup.userData {
+                    items.append(item)
+                }
+            case 3:
                 if item.group == MenuGroup.userRequest {
                     items.append(item)
                 }
-                break
             default:
                 break
             }
@@ -181,6 +210,5 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
 struct MenuItem {
     var image: String
     var title: String
-    var header: String
     var group: MenuGroup
 }
