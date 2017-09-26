@@ -15,6 +15,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
+
         let menuImage = UIImage(named: "ic_menu_nav")
         let tintedMenuImage = menuImage?.withRenderingMode(.alwaysTemplate)
         let leftButton = UIButton(type: .custom)
@@ -46,10 +48,5 @@ class BaseViewController: UIViewController {
 
     @objc private func showNotification() {
         print("Show notification screen")
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
     }
 }

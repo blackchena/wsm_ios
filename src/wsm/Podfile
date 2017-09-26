@@ -22,4 +22,5 @@ target 'wsm' do
     pod 'ObjectMapper'
     pod 'SwiftyUserDefaults'
     pod "PromiseKit", "~> 4.4"
+    pod "TextFieldEffects"
 end
