@@ -10,6 +10,7 @@ import Foundation
 
 enum MenuGroup {
     case userInfo
+    case manageRequest
     case userData
     case userRequest
 }

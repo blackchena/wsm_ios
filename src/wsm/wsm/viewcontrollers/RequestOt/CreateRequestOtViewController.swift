@@ -25,9 +25,10 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
     private let fromDatePicker = UIDatePicker()
     private let toDatePicker = UIDatePicker()
 
+    let requestModel = RequestOtModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         registerKeyboardNotifications()
     }
 
@@ -46,12 +47,14 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
     }
 
     @objc private func setFromText() {
-        self.fromText.text = fromDatePicker.date.toString("yyyy/MM/dd hh:mm")
+        self.fromText.text = fromDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
+        requestModel.fromTime = self.fromText.text
         self.view.endEditing(true)
     }
 
     @objc private func setToText() {
-        self.toText.text = toDatePicker.date.toString("yyyy/MM/dd hh:mm")
+        self.toText.text = toDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
+        requestModel.endTime = self.toText.text
         self.view.endEditing(true)
     }
 
@@ -68,7 +71,7 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
 
     func keyboardWillShow(notification: NSNotification) {
         let userInfo: NSDictionary = notification.userInfo! as NSDictionary
-        guard let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
+        guard let keyboardInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
         let keyboardSize = keyboardInfo.cgRectValue.size
@@ -80,5 +83,12 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
     func keyboardWillHide(notification: Notification) {
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
+    }
+    @IBAction func nextBtnClick(_ sender: Any) {
+        if let confirmOtVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOtViewController")
+            as? ConfirmCreateRequestOtViewController {
+            confirmOtVc.requestModel = self.requestModel
+            self.navigationController?.pushViewController(confirmOtVc, animated: true)
+        }
     }
 }

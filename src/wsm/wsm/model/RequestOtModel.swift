@@ -17,6 +17,9 @@ class RequestOtModel: BaseModel {
     var endTime: String?
     var reason: String?
 
+    init() {
+    }
+
     required init?(map: Map) {
     }
 

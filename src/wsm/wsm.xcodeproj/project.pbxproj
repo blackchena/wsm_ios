@@ -116,13 +116,17 @@
 		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
 		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
 		51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */; };
-		51754C741F78A73100CFABE8 /* CreateRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C731F78A73100CFABE8 /* CreateRequestOtViewController.swift */; };
 		51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */; };
 		51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C771F78B32F00CFABE8 /* WsmTextField.swift */; };
 		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
 		51FBBA141F79F0F8004C32BD /* UserProfileApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA131F79F0F8004C32BD /* UserProfileApiOutputModel.swift */; };
+		51FBBA161F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA151F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift */; };
+		51FBBA181F79FE8B004C32BD /* CreateRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */; };
+		51FBBA1A1F7A06CD004C32BD /* ConfirmCreateOtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA191F7A06CD004C32BD /* ConfirmCreateOtCell.swift */; };
+		51FBBA1C1F7A3A99004C32BD /* ic_id_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */; };
+		51FBBA1E1F7A4B26004C32BD /* ic_project.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FBBA1D1F7A4B26004C32BD /* ic_project.png */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
 		B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FB1F72096A00E579B2 /* FSCalendar.m */; };
 		B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FD1F72096A00E579B2 /* FSCalendarAppearance.m */; };
@@ -273,13 +277,17 @@
 		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
 		51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOtViewController.swift; path = RequestOt/ListRequestOtViewController.swift; sourceTree = "<group>"; };
-		51754C731F78A73100CFABE8 /* CreateRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRequestOtViewController.swift; sourceTree = "<group>"; };
 		51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMenuBaseViewController.swift; sourceTree = "<group>"; };
 		51754C771F78B32F00CFABE8 /* WsmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmTextField.swift; sourceTree = "<group>"; };
 		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
 		51FBBA131F79F0F8004C32BD /* UserProfileApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileApiOutputModel.swift; path = ApiOutputModels/UserProfileApiOutputModel.swift; sourceTree = "<group>"; };
+		51FBBA151F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestOtViewController.swift; path = RequestOt/ConfirmCreateRequestOtViewController.swift; sourceTree = "<group>"; };
+		51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestOtViewController.swift; path = RequestOt/CreateRequestOtViewController.swift; sourceTree = "<group>"; };
+		51FBBA191F7A06CD004C32BD /* ConfirmCreateOtCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateOtCell.swift; path = RequestOt/ConfirmCreateOtCell.swift; sourceTree = "<group>"; };
+		51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_id_card.png; path = resources/ic_id_card.png; sourceTree = "<group>"; };
+		51FBBA1D1F7A4B26004C32BD /* ic_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_project.png; path = resources/ic_project.png; sourceTree = "<group>"; };
 		B81AF6F81F7204FD00E579B2 /* wsm-Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wsm-Bridge-Header.h"; sourceTree = "<group>"; };
 		B81AF6FA1F72096A00E579B2 /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = libs/FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
 		B81AF6FB1F72096A00E579B2 /* FSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendar.m; path = libs/FSCalendar/FSCalendar.m; sourceTree = "<group>"; };
@@ -555,6 +563,8 @@
 		5168BC6C1F739D7900AA1287 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				51FBBA1D1F7A4B26004C32BD /* ic_project.png */,
+				51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */,
 				51E63CC01F750A45008B0C89 /* ic_add.png */,
 				5168BC6D1F739DBF00AA1287 /* ic_overtime.png */,
 				5168BC6E1F739DBF00AA1287 /* ic_read_all.png */,
@@ -634,8 +644,10 @@
 		51754C701F78A6D200CFABE8 /* RequestOt */ = {
 			isa = PBXGroup;
 			children = (
+				51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */,
 				51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */,
-				51754C731F78A73100CFABE8 /* CreateRequestOtViewController.swift */,
+				51FBBA151F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift */,
+				51FBBA191F7A06CD004C32BD /* ConfirmCreateOtCell.swift */,
 			);
 			name = RequestOt;
 			sourceTree = "<group>";
@@ -808,6 +820,7 @@
 				5168BCD21F739DBF00AA1287 /* ic_being_handled_by.png in Resources */,
 				5168BCE11F739DBF00AA1287 /* ic_accept_circle.png in Resources */,
 				5168BCB61F739DBF00AA1287 /* ic_search_2.png in Resources */,
+				51FBBA1E1F7A4B26004C32BD /* ic_project.png in Resources */,
 				5168BCF71F739DBF00AA1287 /* ic_lock_time_sheet.png in Resources */,
 				5168BCE31F739DBF00AA1287 /* ic_reason.png in Resources */,
 				5168BCE91F739DBF00AA1287 /* ic_statistic_personal.png in Resources */,
@@ -842,6 +855,7 @@
 				5168BCBF1F739DBF00AA1287 /* ic_over_time.png in Resources */,
 				5168BCBB1F739DBF00AA1287 /* ic_accept_all.png in Resources */,
 				5168BCF51F739DBF00AA1287 /* ic_personal_issue.png in Resources */,
+				51FBBA1C1F7A3A99004C32BD /* ic_id_card.png in Resources */,
 				5168BCE81F739DBF00AA1287 /* ic_star.png in Resources */,
 				5168BCF21F739DBF00AA1287 /* ic_request_off.png in Resources */,
 				5168BCE01F739DBF00AA1287 /* ic_placeholder_user.png in Resources */,
@@ -1001,6 +1015,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B81AF7261F72096A00E579B2 /* FSCalendarHeaderView.m in Sources */,
+				51FBBA161F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift in Sources */,
 				5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */,
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
 				B87C2FCE1F74F92B00097F2C /* LoginApiOutputModel.swift in Sources */,
@@ -1016,6 +1031,7 @@
 				B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */,
 				5168BCFC1F73A73600AA1287 /* UIViewController.swift in Sources */,
 				B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */,
+				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateOtCell.swift in Sources */,
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
 				B8FA28311F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift in Sources */,
@@ -1024,6 +1040,7 @@
 				5154D9DE1F79EB9100A6A1B2 /* RequestOtModel.swift in Sources */,
 				B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */,
 				B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */,
+				51FBBA181F79FE8B004C32BD /* CreateRequestOtViewController.swift in Sources */,
 				202ED9D91F6FCBCB00544A7D /* API.swift in Sources */,
 				51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */,
 				51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */,
@@ -1046,7 +1063,6 @@
 				B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
 				51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */,
-				51754C741F78A73100CFABE8 /* CreateRequestOtViewController.swift in Sources */,
 				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
 				5168BD081F73A88200AA1287 /* UITextField.swift in Sources */,
