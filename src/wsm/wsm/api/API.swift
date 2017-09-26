@@ -59,7 +59,10 @@ public enum API {
     case login(String, String)
     case logout
     case getProfile(userId: Int)
-    case getTimeSheets
+    case getUserSettings
+    case getListLeaveTypesSettings
+    case getListDayOffSettings
+    //    case getTimeSheets
 }
 
 extension TargetType {
@@ -91,8 +94,12 @@ extension API: TargetType {
             return "/api/sign_out"
         case .getProfile(let userId):
             return "/api/dashboard/users/\(userId)"
-        case .getTimeSheets:
-            return "/api/dashboard/request_ots"
+        case .getUserSettings:
+            return "api/dashboard/user_settings"
+        case .getListLeaveTypesSettings:
+            return "/api/dashboard/leave_types"
+        case .getListDayOffSettings:
+            return "/api/dashboard/dayoff_settings"
         }
     }
 
@@ -102,7 +109,9 @@ extension API: TargetType {
              .logout:
             return .post
         case .getProfile,
-             .getTimeSheets:
+             .getUserSettings,
+             .getListLeaveTypesSettings,
+             .getListDayOffSettings:
             return .get
         }
     }
@@ -123,7 +132,9 @@ extension API: TargetType {
             return params
         case .logout,
              .getProfile,
-             .getTimeSheets:
+             .getUserSettings,
+             .getListLeaveTypesSettings,
+             .getListDayOffSettings:
             return nil
         }
     }

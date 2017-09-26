@@ -42,7 +42,7 @@ public struct WsmAccessTokenPlugin: PluginType {
         }
 
         var request = request
-        if let token = Defaults[.authToken] {
+        if let token = UserServices.getAuthToken() {
             request.addValue(token, forHTTPHeaderField: "WSM-AUTH-TOKEN")
         }
 

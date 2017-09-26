@@ -110,10 +110,8 @@
 		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
 		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
 		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
-		51E143731F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */; };
 		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
-		51E63CBD1F74C3B7008B0C89 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBB1F74C3B7008B0C89 /* vi.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
 		B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FB1F72096A00E579B2 /* FSCalendar.m */; };
@@ -140,10 +138,18 @@
 		B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D5A1F73B12B00329529 /* LoginModel.swift */; };
 		B85E1D6A1F73C92A00329529 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */; };
 		B85E1D6C1F73C94000329529 /* WSMDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D6B1F73C94000329529 /* WSMDateTransform.swift */; };
-		B87C2FCC1F74F91400097F2C /* UserApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87C2FCB1F74F91400097F2C /* UserApiOutputModel.swift */; };
+		B87C2FCC1F74F91400097F2C /* UserProfileApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87C2FCB1F74F91400097F2C /* UserProfileApiOutputModel.swift */; };
 		B87C2FCE1F74F92B00097F2C /* LoginApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */; };
-		B89BB9D51F74B03A008E547C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89BB9D41F74B03A008E547C /* UserModel.swift */; };
+		B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89BB9D41F74B03A008E547C /* UserProfileModel.swift */; };
 		B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */; };
+		B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8AFCC1F79401D0063E687 /* UserServices.swift */; };
+		B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA28241F78BE29004E16CB /* UserSettingModel.swift */; };
+		B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */; };
+		B8FA28291F78C0AE004E16CB /* UserSettingApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA28281F78C0AE004E16CB /* UserSettingApiOutputModel.swift */; };
+		B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */; };
+		B8FA282D1F78E23B004E16CB /* ListLeaveTypeSettingApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA282C1F78E23B004E16CB /* ListLeaveTypeSettingApiOutputModel.swift */; };
+		B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA282E1F78E400004E16CB /* DayOffModel.swift */; };
+		B8FA28311F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA28301F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -253,7 +259,6 @@
 		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
-		51E143721F70F28100A8F6F7 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CBB1F74C3B7008B0C89 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
@@ -299,10 +304,18 @@
 		B85E1D5A1F73B12B00329529 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WsmAccessTokenPlugin.swift; path = Plugins/WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		B85E1D6B1F73C94000329529 /* WSMDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMDateTransform.swift; path = TransformTypes/WSMDateTransform.swift; sourceTree = "<group>"; };
-		B87C2FCB1F74F91400097F2C /* UserApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserApiOutputModel.swift; path = ApiOutputModels/UserApiOutputModel.swift; sourceTree = "<group>"; };
+		B87C2FCB1F74F91400097F2C /* UserProfileApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileApiOutputModel.swift; path = ApiOutputModels/UserProfileApiOutputModel.swift; sourceTree = "<group>"; };
 		B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginApiOutputModel.swift; path = ApiOutputModels/LoginApiOutputModel.swift; sourceTree = "<group>"; };
-		B89BB9D41F74B03A008E547C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B89BB9D41F74B03A008E547C /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDebugPrinter.swift; sourceTree = "<group>"; };
+		B8F8AFCC1F79401D0063E687 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServices.swift; path = services/UserServices.swift; sourceTree = "<group>"; };
+		B8FA28241F78BE29004E16CB /* UserSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingModel.swift; sourceTree = "<group>"; };
+		B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifySettingModel.swift; sourceTree = "<group>"; };
+		B8FA28281F78C0AE004E16CB /* UserSettingApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingApiOutputModel.swift; path = ApiOutputModels/UserSettingApiOutputModel.swift; sourceTree = "<group>"; };
+		B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveTypeModel.swift; sourceTree = "<group>"; };
+		B8FA282C1F78E23B004E16CB /* ListLeaveTypeSettingApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListLeaveTypeSettingApiOutputModel.swift; path = ApiOutputModels/ListLeaveTypeSettingApiOutputModel.swift; sourceTree = "<group>"; };
+		B8FA282E1F78E400004E16CB /* DayOffModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOffModel.swift; sourceTree = "<group>"; };
+		B8FA28301F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListDayOffSettingApiOutputModel.swift; path = ApiOutputModels/ListDayOffSettingApiOutputModel.swift; sourceTree = "<group>"; };
 		DF322323208842894208499E /* Pods-wsm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.debug.xcconfig"; sourceTree = "<group>"; };
 		E357AF6EDD8FEAF08F129429 /* Pods-wsm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.release.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -350,6 +363,7 @@
 				202ED9D41F6FCBCB00544A7D /* extensions */,
 				202ED9D51F6FCBCB00544A7D /* interfaces */,
 				202ED9D61F6FCBCB00544A7D /* model */,
+				B8F8AFCB1F793FDE0063E687 /* services */,
 				202ED9D71F6FCBCB00544A7D /* utils */,
 				202ED9D81F6FCBCB00544A7D /* viewcontrollers */,
 				202ED9BA1F6FC42200544A7D /* AppDelegate.swift */,
@@ -424,8 +438,12 @@
 		202ED9D61F6FCBCB00544A7D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				B89BB9D41F74B03A008E547C /* UserModel.swift */,
 				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
+				B89BB9D41F74B03A008E547C /* UserProfileModel.swift */,
+				B8FA28241F78BE29004E16CB /* UserSettingModel.swift */,
+				B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */,
+				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
+				B8FA282E1F78E400004E16CB /* DayOffModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -669,9 +687,20 @@
 			isa = PBXGroup;
 			children = (
 				B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */,
-				B87C2FCB1F74F91400097F2C /* UserApiOutputModel.swift */,
+				B87C2FCB1F74F91400097F2C /* UserProfileApiOutputModel.swift */,
+				B8FA28281F78C0AE004E16CB /* UserSettingApiOutputModel.swift */,
+				B8FA282C1F78E23B004E16CB /* ListLeaveTypeSettingApiOutputModel.swift */,
+				B8FA28301F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift */,
 			);
 			name = ApiOutputModels;
+			sourceTree = "<group>";
+		};
+		B8F8AFCB1F793FDE0063E687 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				B8F8AFCC1F79401D0063E687 /* UserServices.swift */,
+			);
+			name = services;
 			sourceTree = "<group>";
 		};
 		E716D944208DF53FC79A9A96 /* Frameworks */ = {
@@ -955,9 +984,13 @@
 				B81AF71F1F72096A00E579B2 /* FSCalendarDelegationFactory.m in Sources */,
 				B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */,
 				5168BCFC1F73A73600AA1287 /* UIViewController.swift in Sources */,
+				B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */,
+				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
+				B8FA28311F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift in Sources */,
 				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
+				B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */,
 				B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */,
 				202ED9D91F6FCBCB00544A7D /* API.swift in Sources */,
 				B85E1D6A1F73C92A00329529 /* WsmAccessTokenPlugin.swift in Sources */,
@@ -977,24 +1010,28 @@
 				B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */,
 				B85E1D6C1F73C94000329529 /* WSMDateTransform.swift in Sources */,
 				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
+				B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
 				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
 				5168BD081F73A88200AA1287 /* UITextField.swift in Sources */,
 				B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */,
 				5168BD001F73A78B00AA1287 /* String.swift in Sources */,
+				B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
 				B81AF7231F72096A00E579B2 /* FSCalendarConstants.m in Sources */,
 				B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */,
+				B8FA282D1F78E23B004E16CB /* ListLeaveTypeSettingApiOutputModel.swift in Sources */,
 				B81AF7271F72096A00E579B2 /* FSCalendarScopeHandle.m in Sources */,
 				5168BCFE1F73A74D00AA1287 /* UIImageView.swift in Sources */,
 				5168BD0A1F73A89700AA1287 /* Sequence.swift in Sources */,
 				5168BD021F73A7AA00AA1287 /* Dictionary.swift in Sources */,
 				5131FD5F1F7276AA00E0478B /* TimeSheetViewController.swift in Sources */,
-				B87C2FCC1F74F91400097F2C /* UserApiOutputModel.swift in Sources */,
+				B87C2FCC1F74F91400097F2C /* UserProfileApiOutputModel.swift in Sources */,
 				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
-				B89BB9D51F74B03A008E547C /* UserModel.swift in Sources */,
+				B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */,
+				B8FA28291F78C0AE004E16CB /* UserSettingApiOutputModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

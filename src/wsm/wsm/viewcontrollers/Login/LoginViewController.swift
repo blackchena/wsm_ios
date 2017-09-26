@@ -50,33 +50,7 @@ class LoginViewController: BaseViewController {
 }
 
 extension LoginViewController: LoginControllerType {
-    func didLogin(with loginResult: LoginModel?) {
-        let navigationController = getStoryboardController(identifier: "NavigationController")
-        let mainViewController = getStoryboardController(identifier: "MainViewController")
-        let timeSheetVc = getStoryboardController(identifier: "TimeSheetViewController")
-
-        guard let mainNav = navigationController as? NavigationController else {
-            AlertHelper.hideLoading()
-            return
-        }
-
-        mainNav.setViewControllers([timeSheetVc], animated: false)
-
-        guard let mainVc = mainViewController as? MainViewController else {
-            AlertHelper.hideLoading()
-            return
-        }
-
-        mainVc.rootViewController = mainNav
-
-        AlertHelper.hideLoading()
-
-        if let window = UIApplication.shared.delegate?.window {
-            window!.rootViewController = mainViewController
-            UIView.transition(with: window!,
-                              duration: 0.3,
-                              options: [.transitionCrossDissolve],
-                              animations: nil, completion: nil)
-        }
+    func didLoginSuccess() {
+        AppDelegate.initRootViewControllerIfDidLogin()
     }
 }

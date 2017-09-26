@@ -9,7 +9,9 @@
 import UIKit
 import SwiftyUserDefaults
 
+/**
+ * Put some keys here to save/get data with NSUserDefault
+ */
 extension DefaultsKeys {
-    static let authToken = DefaultsKey<String?>("WSM-AUTH-TOKEN")
-    static let currentLocale = DefaultsKey<String?>("WSM-LOCALE")
+
 }
