@@ -27,6 +27,11 @@
 		5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */; };
 		5131FD641F7276E400E0478B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD631F7276E400E0478B /* MainViewController.swift */; };
 		5131FD6B1F72772000E0478B /* MenuEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD6A1F72772000E0478B /* MenuEnum.swift */; };
+		5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154D9DB1F79DD6100A6A1B2 /* Date.swift */; };
+		5154D9DE1F79EB9100A6A1B2 /* RequestOtModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154D9DD1F79EB9100A6A1B2 /* RequestOtModel.swift */; };
+		51561F331F7908C700619723 /* UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51561F321F7908C700619723 /* UIToolbar.swift */; };
+		51561F351F79141E00619723 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51561F341F79141E00619723 /* vi.lproj */; };
+		51561F3E1F79190F00619723 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51561F3D1F79190F00619723 /* WsmAccessTokenPlugin.swift */; };
 		5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168BB461F7375BB00AA1287 /* UIColor.swift */; };
 		5168BCB41F739DBF00AA1287 /* ic_overtime.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BC6D1F739DBF00AA1287 /* ic_overtime.png */; };
 		5168BCB51F739DBF00AA1287 /* ic_read_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BC6E1F739DBF00AA1287 /* ic_read_all.png */; };
@@ -110,9 +115,14 @@
 		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
 		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
 		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
+		51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */; };
+		51754C741F78A73100CFABE8 /* CreateRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C731F78A73100CFABE8 /* CreateRequestOtViewController.swift */; };
+		51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */; };
+		51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C771F78B32F00CFABE8 /* WsmTextField.swift */; };
 		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
+		51FBBA141F79F0F8004C32BD /* UserProfileApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA131F79F0F8004C32BD /* UserProfileApiOutputModel.swift */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
 		B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FB1F72096A00E579B2 /* FSCalendar.m */; };
 		B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FD1F72096A00E579B2 /* FSCalendarAppearance.m */; };
@@ -136,9 +146,7 @@
 		B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */; };
 		B85E1D591F736DAF00329529 /* MoyaProvider+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D581F736DAF00329529 /* MoyaProvider+Promise.swift */; };
 		B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D5A1F73B12B00329529 /* LoginModel.swift */; };
-		B85E1D6A1F73C92A00329529 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */; };
 		B85E1D6C1F73C94000329529 /* WSMDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D6B1F73C94000329529 /* WSMDateTransform.swift */; };
-		B87C2FCC1F74F91400097F2C /* UserProfileApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87C2FCB1F74F91400097F2C /* UserProfileApiOutputModel.swift */; };
 		B87C2FCE1F74F92B00097F2C /* LoginApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */; };
 		B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89BB9D41F74B03A008E547C /* UserProfileModel.swift */; };
 		B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */; };
@@ -176,6 +184,11 @@
 		5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		5131FD631F7276E400E0478B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Home/MainViewController.swift; sourceTree = "<group>"; };
 		5131FD6A1F72772000E0478B /* MenuEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuEnum.swift; sourceTree = "<group>"; };
+		5154D9DB1F79DD6100A6A1B2 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5154D9DD1F79EB9100A6A1B2 /* RequestOtModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOtModel.swift; sourceTree = "<group>"; };
+		51561F321F7908C700619723 /* UIToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIToolbar.swift; sourceTree = "<group>"; };
+		51561F341F79141E00619723 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
+		51561F3D1F79190F00619723 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WsmAccessTokenPlugin.swift; path = plugins/WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		5168BB461F7375BB00AA1287 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5168BC6D1F739DBF00AA1287 /* ic_overtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_overtime.png; path = resources/ic_overtime.png; sourceTree = "<group>"; };
 		5168BC6E1F739DBF00AA1287 /* ic_read_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_read_all.png; path = resources/ic_read_all.png; sourceTree = "<group>"; };
@@ -259,10 +272,14 @@
 		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
+		51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOtViewController.swift; path = RequestOt/ListRequestOtViewController.swift; sourceTree = "<group>"; };
+		51754C731F78A73100CFABE8 /* CreateRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRequestOtViewController.swift; sourceTree = "<group>"; };
+		51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMenuBaseViewController.swift; sourceTree = "<group>"; };
+		51754C771F78B32F00CFABE8 /* WsmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmTextField.swift; sourceTree = "<group>"; };
 		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
-		51E63CBB1F74C3B7008B0C89 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
+		51FBBA131F79F0F8004C32BD /* UserProfileApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileApiOutputModel.swift; path = ApiOutputModels/UserProfileApiOutputModel.swift; sourceTree = "<group>"; };
 		B81AF6F81F7204FD00E579B2 /* wsm-Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wsm-Bridge-Header.h"; sourceTree = "<group>"; };
 		B81AF6FA1F72096A00E579B2 /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = libs/FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
 		B81AF6FB1F72096A00E579B2 /* FSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendar.m; path = libs/FSCalendar/FSCalendar.m; sourceTree = "<group>"; };
@@ -302,9 +319,7 @@
 		B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMLocalStorageKeys.swift; path = storages/WSMLocalStorageKeys.swift; sourceTree = "<group>"; };
 		B85E1D581F736DAF00329529 /* MoyaProvider+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Promise.swift"; sourceTree = "<group>"; };
 		B85E1D5A1F73B12B00329529 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WsmAccessTokenPlugin.swift; path = Plugins/WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		B85E1D6B1F73C94000329529 /* WSMDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMDateTransform.swift; path = TransformTypes/WSMDateTransform.swift; sourceTree = "<group>"; };
-		B87C2FCB1F74F91400097F2C /* UserProfileApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileApiOutputModel.swift; path = ApiOutputModels/UserProfileApiOutputModel.swift; sourceTree = "<group>"; };
 		B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginApiOutputModel.swift; path = ApiOutputModels/LoginApiOutputModel.swift; sourceTree = "<group>"; };
 		B89BB9D41F74B03A008E547C /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDebugPrinter.swift; sourceTree = "<group>"; };
@@ -377,9 +392,9 @@
 		202ED9CD1F6FCBCB00544A7D /* api */ = {
 			isa = PBXGroup;
 			children = (
+				51561F3C1F7918FC00619723 /* Plugins */,
 				B87C2FC61F74F51F00097F2C /* ApiOutputModels */,
 				202ED9D01F6FCBCB00544A7D /* Provider */,
-				B85E1D681F73C92000329529 /* Plugins */,
 				B85E1D671F73C86500329529 /* TransformTypes */,
 				202ED9CE1F6FCBCB00544A7D /* API.swift */,
 				B85E1D581F736DAF00329529 /* MoyaProvider+Promise.swift */,
@@ -402,6 +417,8 @@
 			children = (
 				B81AF7301F7222BA00E579B2 /* BaseModel.swift */,
 				202ED9DF1F6FCD0C00544A7D /* BaseViewController.swift */,
+				51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */,
+				51754C771F78B32F00CFABE8 /* WsmTextField.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -420,6 +437,8 @@
 				5168BD091F73A89700AA1287 /* Sequence.swift */,
 				51754C6E1F7895DC00CFABE8 /* Floaty.swift */,
 				B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */,
+				51561F321F7908C700619723 /* UIToolbar.swift */,
+				5154D9DB1F79DD6100A6A1B2 /* Date.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -439,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
+				5154D9DD1F79EB9100A6A1B2 /* RequestOtModel.swift */,
 				B89BB9D41F74B03A008E547C /* UserProfileModel.swift */,
 				B8FA28241F78BE29004E16CB /* UserSettingModel.swift */,
 				B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */,
@@ -460,6 +480,7 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				51754C701F78A6D200CFABE8 /* RequestOt */,
 				5131FD751F7278BF00E0478B /* UserInfo */,
 				5131FD741F7278B200E0478B /* TimeSheet */,
 				5131FD731F72788B00E0478B /* SideMenu */,
@@ -521,6 +542,14 @@
 				5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */,
 			);
 			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		51561F3C1F7918FC00619723 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				51561F3D1F79190F00619723 /* WsmAccessTokenPlugin.swift */,
+			);
+			name = Plugins;
 			sourceTree = "<group>";
 		};
 		5168BC6C1F739D7900AA1287 /* resources */ = {
@@ -602,11 +631,20 @@
 			name = resources;
 			sourceTree = "<group>";
 		};
+		51754C701F78A6D200CFABE8 /* RequestOt */ = {
+			isa = PBXGroup;
+			children = (
+				51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */,
+				51754C731F78A73100CFABE8 /* CreateRequestOtViewController.swift */,
+			);
+			name = RequestOt;
+			sourceTree = "<group>";
+		};
 		51E63CB91F74C3A6008B0C89 /* localization */ = {
 			isa = PBXGroup;
 			children = (
+				51561F341F79141E00619723 /* vi.lproj */,
 				51E63CBA1F74C3B7008B0C89 /* en.lproj */,
-				51E63CBB1F74C3B7008B0C89 /* vi.lproj */,
 			);
 			name = localization;
 			sourceTree = "<group>";
@@ -675,19 +713,11 @@
 			name = TransformTypes;
 			sourceTree = "<group>";
 		};
-		B85E1D681F73C92000329529 /* Plugins */ = {
-			isa = PBXGroup;
-			children = (
-				B85E1D691F73C92A00329529 /* WsmAccessTokenPlugin.swift */,
-			);
-			name = Plugins;
-			sourceTree = "<group>";
-		};
 		B87C2FC61F74F51F00097F2C /* ApiOutputModels */ = {
 			isa = PBXGroup;
 			children = (
+				51FBBA131F79F0F8004C32BD /* UserProfileApiOutputModel.swift */,
 				B87C2FCD1F74F92B00097F2C /* LoginApiOutputModel.swift */,
-				B87C2FCB1F74F91400097F2C /* UserProfileApiOutputModel.swift */,
 				B8FA28281F78C0AE004E16CB /* UserSettingApiOutputModel.swift */,
 				B8FA282C1F78E23B004E16CB /* ListLeaveTypeSettingApiOutputModel.swift */,
 				B8FA28301F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift */,
@@ -803,6 +833,7 @@
 				5168BCF31F739DBF00AA1287 /* ic_reject_red.png in Resources */,
 				5168BCE61F739DBF00AA1287 /* ic_search.png in Resources */,
 				5168BCDE1F739DBF00AA1287 /* ic_not_found_data.png in Resources */,
+				51561F351F79141E00619723 /* vi.lproj in Resources */,
 				5168BCD41F739DBF00AA1287 /* ic_filter.png in Resources */,
 				5168BCEB1F739DBF00AA1287 /* ic_calendar_timesheet.png in Resources */,
 				5168BCB71F739DBF00AA1287 /* ic_view.png in Resources */,
@@ -919,7 +950,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-wsm/Pods-wsm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFDateHelper/AFDateHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/InAppLocalize/InAppLocalize.framework",
@@ -934,13 +964,13 @@
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFDateHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppLocalize.framework",
@@ -955,6 +985,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -990,10 +1021,11 @@
 				B8FA28311F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift in Sources */,
 				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
+				5154D9DE1F79EB9100A6A1B2 /* RequestOtModel.swift in Sources */,
 				B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */,
 				B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */,
 				202ED9D91F6FCBCB00544A7D /* API.swift in Sources */,
-				B85E1D6A1F73C92A00329529 /* WsmAccessTokenPlugin.swift in Sources */,
+				51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */,
 				51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */,
 				5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
@@ -1001,6 +1033,7 @@
 				5131FD5D1F7276AA00E0478B /* LeftMenuViewController.swift in Sources */,
 				5131FD641F7276E400E0478B /* MainViewController.swift in Sources */,
 				5131FD5C1F7276AA00E0478B /* LeftMenuCell.swift in Sources */,
+				51561F331F7908C700619723 /* UIToolbar.swift in Sources */,
 				B81AF7221F72096A00E579B2 /* FSCalendarCollectionViewLayout.m in Sources */,
 				B81AF7241F72096A00E579B2 /* FSCalendarDelegationProxy.m in Sources */,
 				5168BD041F73A7C400AA1287 /* Array.swift in Sources */,
@@ -1012,11 +1045,15 @@
 				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
 				B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
+				51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */,
+				51754C741F78A73100CFABE8 /* CreateRequestOtViewController.swift in Sources */,
 				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
 				5168BD081F73A88200AA1287 /* UITextField.swift in Sources */,
+				51FBBA141F79F0F8004C32BD /* UserProfileApiOutputModel.swift in Sources */,
 				B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */,
 				5168BD001F73A78B00AA1287 /* String.swift in Sources */,
+				51561F3E1F79190F00619723 /* WsmAccessTokenPlugin.swift in Sources */,
 				B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
 				B81AF7231F72096A00E579B2 /* FSCalendarConstants.m in Sources */,
@@ -1027,7 +1064,8 @@
 				5168BD0A1F73A89700AA1287 /* Sequence.swift in Sources */,
 				5168BD021F73A7AA00AA1287 /* Dictionary.swift in Sources */,
 				5131FD5F1F7276AA00E0478B /* TimeSheetViewController.swift in Sources */,
-				B87C2FCC1F74F91400097F2C /* UserProfileApiOutputModel.swift in Sources */,
+				5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */,
+				51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */,
 				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
 				B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */,

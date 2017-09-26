@@ -247,6 +247,334 @@
             </objects>
             <point key="canvasLocation" x="1732" y="843"/>
         </scene>
+        <!--overtime-->
+        <scene sceneID="Tj3-lR-ZTI">
+            <objects>
+                <viewController storyboardIdentifier="ListReuqestOtViewController" title="overtime" id="5Al-gd-0Y3" customClass="ListReuqestOtViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u04-TQ-ald"/>
+                        <viewControllerLayoutGuide type="bottom" id="9sc-oF-OtD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EXj-Oc-wB7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUv-Og-cRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2489" y="842"/>
+        </scene>
+        <!--create_request_ot-->
+        <scene sceneID="SOw-Fb-Jhr">
+            <objects>
+                <viewController storyboardIdentifier="CreateRequestOtViewController" title="create_request_ot" id="OfG-2A-Y0P" customClass="CreateRequestOtViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cra-qA-61h"/>
+                        <viewControllerLayoutGuide type="bottom" id="OmA-sw-frd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T5j-sv-JTX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qJ-l0-b3C" customClass="LocalizableButton" customModule="InAppLocalize">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LBT-uh-fDB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgN-0C-Nqj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCD-Uq-wbQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nguyen Le Si Nguyen" placeholder="employee_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ti5-oC-cAd" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="0.0" width="334.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="RVM-rH-yqg"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="B120728" placeholder="employee_code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CgS-rg-IGf" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="50" width="334.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="9ro-Jy-HUZ"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Da Nang Office" placeholder="branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-GF-Z4s" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="20.5" y="100" width="334.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="f39-he-aS2"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CV7-Kc-Agr" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="150" width="334.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Ymt-Gv-ezc"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="project_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkh-vT-FaQ" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="200" width="334.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="mZ8-tW-aZ9"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="reason" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POT-8U-0tI" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="308" width="334.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="9Rm-Rb-aWj"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="from" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chu-oV-Ybc" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="250" width="159" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="GQS-hQ-kf1"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="selectFrom:" destination="OfG-2A-Y0P" eventType="editingDidBegin" id="zeY-OD-69o"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="to" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N3i-d8-IrN" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                <rect key="frame" x="195.5" y="250" width="159" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="sJs-8o-ngh"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="selectTo:" destination="OfG-2A-Y0P" eventType="editingDidBegin" id="Sjy-gs-5Gu"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ti5-oC-cAd" secondAttribute="trailing" constant="20" id="1ix-Ln-Xn8"/>
+                                            <constraint firstItem="CgS-rg-IGf" firstAttribute="width" secondItem="ti5-oC-cAd" secondAttribute="width" id="4IA-kL-SpD"/>
+                                            <constraint firstItem="N3i-d8-IrN" firstAttribute="width" secondItem="ti5-oC-cAd" secondAttribute="width" multiplier="9.5:20" id="C9k-Yg-tgA"/>
+                                            <constraint firstAttribute="height" constant="400" id="E1v-dk-mFM"/>
+                                            <constraint firstItem="chu-oV-Ybc" firstAttribute="top" secondItem="hkh-vT-FaQ" secondAttribute="bottom" id="Fbr-fY-ky2"/>
+                                            <constraint firstItem="POT-8U-0tI" firstAttribute="top" secondItem="chu-oV-Ybc" secondAttribute="bottom" constant="8" id="G1p-aT-fSR"/>
+                                            <constraint firstItem="POT-8U-0tI" firstAttribute="width" secondItem="ti5-oC-cAd" secondAttribute="width" id="MI8-qi-boy"/>
+                                            <constraint firstItem="chu-oV-Ybc" firstAttribute="leading" secondItem="ti5-oC-cAd" secondAttribute="leading" id="V90-iM-J1r"/>
+                                            <constraint firstItem="chu-oV-Ybc" firstAttribute="width" secondItem="ti5-oC-cAd" secondAttribute="width" multiplier="9.5:20" id="Z3e-ah-vd2"/>
+                                            <constraint firstItem="CV7-Kc-Agr" firstAttribute="top" secondItem="Uxv-GF-Z4s" secondAttribute="bottom" id="cBf-gH-sRG"/>
+                                            <constraint firstItem="hkh-vT-FaQ" firstAttribute="width" secondItem="ti5-oC-cAd" secondAttribute="width" id="cuO-3s-lTj"/>
+                                            <constraint firstItem="CgS-rg-IGf" firstAttribute="centerX" secondItem="ti5-oC-cAd" secondAttribute="centerX" id="dIT-9H-AFC"/>
+                                            <constraint firstItem="Uxv-GF-Z4s" firstAttribute="centerX" secondItem="CgS-rg-IGf" secondAttribute="centerX" id="dmV-mC-fwY"/>
+                                            <constraint firstItem="CV7-Kc-Agr" firstAttribute="centerX" secondItem="ti5-oC-cAd" secondAttribute="centerX" id="eic-4S-ohH"/>
+                                            <constraint firstItem="hkh-vT-FaQ" firstAttribute="centerX" secondItem="ti5-oC-cAd" secondAttribute="centerX" id="erW-4p-jHc"/>
+                                            <constraint firstItem="Uxv-GF-Z4s" firstAttribute="top" secondItem="CgS-rg-IGf" secondAttribute="bottom" id="fWt-fq-k7W"/>
+                                            <constraint firstItem="CgS-rg-IGf" firstAttribute="top" secondItem="ti5-oC-cAd" secondAttribute="bottom" id="mcO-fj-59V"/>
+                                            <constraint firstItem="ti5-oC-cAd" firstAttribute="leading" secondItem="cCD-Uq-wbQ" secondAttribute="leading" constant="20" id="rB6-MY-S8k"/>
+                                            <constraint firstItem="N3i-d8-IrN" firstAttribute="trailing" secondItem="ti5-oC-cAd" secondAttribute="trailing" id="svr-oD-msr"/>
+                                            <constraint firstItem="CV7-Kc-Agr" firstAttribute="width" secondItem="ti5-oC-cAd" secondAttribute="width" id="ulB-P9-4v5"/>
+                                            <constraint firstItem="POT-8U-0tI" firstAttribute="centerX" secondItem="ti5-oC-cAd" secondAttribute="centerX" id="uxt-QN-uM3"/>
+                                            <constraint firstItem="Uxv-GF-Z4s" firstAttribute="width" secondItem="ti5-oC-cAd" secondAttribute="width" id="wcl-gj-U7c"/>
+                                            <constraint firstItem="N3i-d8-IrN" firstAttribute="top" secondItem="hkh-vT-FaQ" secondAttribute="bottom" id="xOT-Wy-a2n"/>
+                                            <constraint firstItem="hkh-vT-FaQ" firstAttribute="top" secondItem="CV7-Kc-Agr" secondAttribute="bottom" id="zQ5-kj-OFX"/>
+                                            <constraint firstItem="ti5-oC-cAd" firstAttribute="top" secondItem="cCD-Uq-wbQ" secondAttribute="top" id="znL-w0-CWM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cCD-Uq-wbQ" firstAttribute="leading" secondItem="bgN-0C-Nqj" secondAttribute="leading" id="BHe-HI-Vn2"/>
+                                    <constraint firstAttribute="trailing" secondItem="cCD-Uq-wbQ" secondAttribute="trailing" id="CTU-Zj-Lij"/>
+                                    <constraint firstAttribute="bottom" secondItem="cCD-Uq-wbQ" secondAttribute="bottom" id="YMT-FG-MjE"/>
+                                    <constraint firstItem="cCD-Uq-wbQ" firstAttribute="width" secondItem="bgN-0C-Nqj" secondAttribute="width" id="xDa-n6-49V"/>
+                                    <constraint firstItem="cCD-Uq-wbQ" firstAttribute="top" secondItem="bgN-0C-Nqj" secondAttribute="top" id="yne-eP-btK"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7qJ-l0-b3C" firstAttribute="leading" secondItem="T5j-sv-JTX" secondAttribute="leading" id="Ch6-gU-4dh"/>
+                            <constraint firstItem="bgN-0C-Nqj" firstAttribute="top" secondItem="Cra-qA-61h" secondAttribute="bottom" id="EPJ-ba-TQq"/>
+                            <constraint firstItem="7qJ-l0-b3C" firstAttribute="top" secondItem="bgN-0C-Nqj" secondAttribute="bottom" id="NOw-yc-uFG"/>
+                            <constraint firstItem="bgN-0C-Nqj" firstAttribute="leading" secondItem="T5j-sv-JTX" secondAttribute="leading" id="gWB-IC-IZt"/>
+                            <constraint firstAttribute="trailing" secondItem="bgN-0C-Nqj" secondAttribute="trailing" id="lex-aC-nvK"/>
+                            <constraint firstItem="OmA-sw-frd" firstAttribute="top" secondItem="7qJ-l0-b3C" secondAttribute="bottom" id="lqb-RA-lhq"/>
+                            <constraint firstAttribute="trailing" secondItem="7qJ-l0-b3C" secondAttribute="trailing" id="waU-DV-aUY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="branchText" destination="Uxv-GF-Z4s" id="7Ub-VL-Noe"/>
+                        <outlet property="contentView" destination="cCD-Uq-wbQ" id="4qr-HM-QUQ"/>
+                        <outlet property="empCodeText" destination="CgS-rg-IGf" id="uFW-kf-Fn0"/>
+                        <outlet property="empNameText" destination="ti5-oC-cAd" id="ZLD-t4-SxJ"/>
+                        <outlet property="fromText" destination="chu-oV-Ybc" id="sdR-p2-u0k"/>
+                        <outlet property="groupText" destination="CV7-Kc-Agr" id="qP0-6S-yAe"/>
+                        <outlet property="projectText" destination="hkh-vT-FaQ" id="yHg-xJ-kmp"/>
+                        <outlet property="reasonText" destination="POT-8U-0tI" id="oMF-1n-5nK"/>
+                        <outlet property="scrollView" destination="bgN-0C-Nqj" id="9uw-xp-qjk"/>
+                        <outlet property="toText" destination="N3i-d8-IrN" id="Sa8-Z7-5Mr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WGD-SC-dK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3221.5999999999999" y="842.42878560719646"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="McF-0g-0f1">
             <objects>
@@ -276,7 +604,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azp-mo-NiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2577" y="123"/>
+            <point key="canvasLocation" x="2490" y="123"/>
         </scene>
     </scenes>
     <resources>
