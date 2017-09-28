@@ -10,77 +10,13 @@ import Foundation
 import UIKit
 import InAppLocalize
 
-class CreateRequestOtViewController: NoMenuBaseViewController {
+class CreateRequestOtViewController: RequestBaseViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var fromTextField: WsmTextField!
     @IBOutlet weak var toTextField: WsmTextField!
-    @IBOutlet weak var empNameTextField: WsmTextField!
-    @IBOutlet weak var empCodeTextField: WsmTextField!
-    @IBOutlet weak var projectNameTextField: WsmTextField!
-    @IBOutlet weak var branchTextField: WsmTextField!
-    @IBOutlet weak var groupTextField: WsmTextField!
-    @IBOutlet weak var reasonTextField: WsmTextField!
-
-    fileprivate let fromDatePicker = UIDatePicker()
-    fileprivate let toDatePicker = UIDatePicker()
-    fileprivate let branchPicker = UIPickerView()
-    fileprivate let groupPicker = UIPickerView()
 
     fileprivate let requestModel = RequestOtApiInputModel()
-    fileprivate let currentUser = UserServices.getLocalUserProfile()
-    fileprivate var workSpaces = [UserWorkSpace]()
-    fileprivate var groups = [UserGroup]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        registerKeyboardNotifications()
-
-        workSpaces = currentUser?.workSpaces ?? [UserWorkSpace]()
-        groups = currentUser?.groups ?? [UserGroup]()
-        bindData()
-        setupPicker()
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    func setupPicker() {
-        branchPicker.delegate = self
-        groupPicker.delegate = self
-
-        branchTextField.inputView = branchPicker
-        branchTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setBranchText))
-
-        groupTextField.inputView = groupPicker
-        groupTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setGroupText))
-    }
-
-    func bindData() {
-        empNameTextField.text = currentUser?.name
-        empCodeTextField.text = currentUser?.employeeCode
-
-        if workSpaces.count > 0 {
-            let defaultBranchId = UserServices.getLocalUserSetting()?.workSpaceDefault
-            if let i = workSpaces.index(where: {$0.id == defaultBranchId}) {
-                branchPicker.selectRow(i, inComponent: 0, animated: true)
-            } else {
-                branchPicker.selectRow(0, inComponent: 0, animated: true)
-            }
-            setBranchText()
-        }
-        if groups.count > 0 {
-            let defaultGroupId = UserServices.getLocalUserSetting()?.groupDefault
-            if let i = groups.index(where: {$0.id == defaultGroupId}) {
-                groupPicker.selectRow(i, inComponent: 0, animated: true)
-            } else {
-                groupPicker.selectRow(0, inComponent: 0, animated: true)
-            }
-            setGroupText()
-        }
-    }
 
     @IBAction func selectFrom(_ sender: UITextField) {
         sender.inputView = fromDatePicker
@@ -106,21 +42,18 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
         if requestModel.fromTime != nil && !validateDate() {
             return
         }
-
         self.toTextField.text = toDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
         requestModel.endTime = self.toTextField.text
     }
 
-    @objc private func setBranchText() {
-        self.view.endEditing(true)
-        branchTextField.text = workSpaces[branchPicker.selectedRow(inComponent: 0)].name
+    override func setBranchText() {
+        super.setBranchText()
         requestModel.workspaceId = workSpaces[branchPicker.selectedRow(inComponent: 0)].id
     }
 
-    @objc private func setGroupText() {
-        groupTextField.text = groups[groupPicker.selectedRow(inComponent: 0)].fullName
+    override func setGroupText() {
+        super.setGroupText()
         requestModel.groupId = groups[groupPicker.selectedRow(inComponent: 0)].id
-        self.view.endEditing(true)
     }
     
     @IBAction func textEditingEnd(_ sender: WsmTextField) {
@@ -157,11 +90,11 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
             fromTextField.showErrorWithText(errorText: error)
             result = false
         }
-        if fromTextField.isEmpty() {
+        if toTextField.isEmpty() {
             toTextField.showErrorWithText(errorText: error)
             result = false
         }
-        if fromTextField.isEmpty() {
+        if reasonTextField.isEmpty() {
             reasonTextField.showErrorWithText(errorText: error)
             result = false
         }
@@ -176,48 +109,5 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
             confirmOtVc.requestModel = self.requestModel
             self.navigationController?.pushViewController(confirmOtVc, animated: true)
         }
-    }
-}
-
-extension CreateRequestOtViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerView === branchPicker ? workSpaces.count : groups.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerView === branchPicker ? workSpaces[row].name : groups[row].fullName
-    }
-}
-
-extension CreateRequestOtViewController {
-    func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow(notification:)),
-                                               name: NSNotification.Name.UIKeyboardWillShow,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide(notification:)),
-                                               name: NSNotification.Name.UIKeyboardWillHide,
-                                               object: nil)
-    }
-
-    func keyboardWillShow(notification: NSNotification) {
-        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
-        guard let keyboardInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
-            return
-        }
-        let keyboardSize = keyboardInfo.cgRectValue.size
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-    }
-    
-    func keyboardWillHide(notification: Notification) {
-        scrollView.contentInset = .zero
-        scrollView.scrollIndicatorInsets = .zero
     }
 }
