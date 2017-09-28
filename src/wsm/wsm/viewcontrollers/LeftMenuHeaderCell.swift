@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 
 class LeftMenuHeaderCell: UIView {
 
@@ -17,7 +18,6 @@ class LeftMenuHeaderCell: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
 
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = backgroundView.frame
@@ -27,9 +27,15 @@ class LeftMenuHeaderCell: UIView {
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         backgroundView.layer.addSublayer(gradientLayer)
 
+        let currentUser = UserServices.getLocalUserProfile ()
+        nameLabel.text = currentUser?.name
+        emailLabel.text = currentUser?.email
+
         avatarImageView.circleImage()
         avatarImageView.backgroundColor = UIColor.white
-        avatarImageView.image = UIImage(named: "ic_user")
+        if let url = currentUser?.getAvatarURL() {
+            avatarImageView.downloadImageFrom(url: url, contentMode: avatarImageView.contentMode)
+        }
     }
 
     @IBAction func logoutBtnClick(_ sender: Any) {

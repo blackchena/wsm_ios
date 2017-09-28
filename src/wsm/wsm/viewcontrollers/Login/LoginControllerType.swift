@@ -24,13 +24,16 @@ extension LoginControllerType where Self: UIViewController {
 
         LoginProvider.login(email, password)
             .then { loginResult -> UserProvider.AppSettingPromise in
+
                 //save authToken value
                 UserServices.saveAuthToken(token: loginResult.loginData?.authenToken)
+
+                //save user on local
+                UserServices.saveUserLogin(loginModel: loginResult.loginData)
 
                 //start async call apis setting for app
                 return UserProvider.getAllAppSettingsAsync(userId: (loginResult.loginData?.userId)!)
             }.then { (userProfileResult, userSettingResult, listLeaveTypeSettingResult, listDayOffSettingResult) -> Void in
-
                 UserServices.saveUserSettings(userProfileResult: userProfileResult.userData,
                                               userSettingResult: userSettingResult.userSetting,
                                               listLeaveTypeResult: listLeaveTypeSettingResult.listLeaveTypeSetting,

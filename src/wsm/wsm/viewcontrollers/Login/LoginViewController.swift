@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyUserDefaults
+import InAppLocalize
 
 class LoginViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,20 +22,24 @@ class LoginViewController: BaseViewController {
         emailTextField.text = "le.quang.dao@framgia.com.edev"
         passwordTextField.text = "123456"
 
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = backgroundView.frame
-        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.colors = [UIColor.init(hexString: "#67BBB4").cgColor,
-                                UIColor.init(hexString: "#228E83").cgColor]
-        backgroundView.layer.addSublayer(gradientLayer)
-
         emailTextField.setLeftImage(size: emailTextField.frame.height,
                                     image: "ic_personal_information",
                                     color: UIColor.white)
         passwordTextField.setLeftImage(size: emailTextField.frame.height,
                                     image: "ic_password",
                                     color: UIColor.white)
+
+        addBackgroundLayer()
+    }
+
+    func addBackgroundLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.frame
+        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.colors = [UIColor.init(hexString: "#67BBB4").cgColor,
+                                UIColor.init(hexString: "#228E83").cgColor]
+        backgroundView.layer.addSublayer(gradientLayer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +50,7 @@ class LoginViewController: BaseViewController {
     @IBAction func loginButtonClick(_ sender: Any) {
         login(with: emailTextField.text!, password: passwordTextField.text!)
     }
+
     @IBAction func forgotButtonClick(_ sender: Any) {
     }
 }

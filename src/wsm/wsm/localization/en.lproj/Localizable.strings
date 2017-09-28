@@ -291,6 +291,8 @@
 "s" = "s";
 "curen_day" = "Current Day";
 "end_time_can_not_greater_than_end_time" = "End time can not less than start time";
+
+"enter_full_info" = "Please enter full information!";
 "branch_is_emty" = "Please select the branch to create the request!";
 "group_is_emty" = "Please select the group to create the request!";
 "accept_all" = "Accept All";

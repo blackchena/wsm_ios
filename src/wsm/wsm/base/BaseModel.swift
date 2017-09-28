@@ -11,5 +11,4 @@ import ObjectMapper
 import AFDateHelper
 
 protocol BaseModel: Mappable {
-
 }

@@ -8,13 +8,14 @@
 
 import Foundation
 import InAppLocalize
+import ObjectMapper
 
 class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
     fileprivate var confirmReqOtItems = [ConfirmRequestOtItem]()
-    var requestModel = RequestOtModel()
+    var requestModel = RequestOtApiInputModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,15 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
             return
         }
 
+        var branchName = ""
+        if let branches = currentUser.workSpaces, let i = branches.index(where: {$0.id == requestModel.workspaceId}) {
+            branchName = branches[i].name ?? ""
+        }
+        var groupName = ""
+        if let groups = currentUser.groups, let i = groups.index(where: {$0.id == requestModel.groupId}) {
+            groupName = groups[i].fullName ?? ""
+        }
+
         confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_placeholder_user",
                                                   header: LocalizationHelper.shared.localized("employee_name"),
                                                   value: currentUser.name))
@@ -34,10 +44,10 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
                                                   value: currentUser.employeeCode))
         confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_branch",
                                                   header: LocalizationHelper.shared.localized("branch"),
-                                                  value: "\(String(describing: requestModel.workspaceId))"))
+                                                  value: branchName))
         confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_group",
                                                   header: LocalizationHelper.shared.localized("group"),
-                                                  value: "\(String(describing: requestModel.groupId))"))
+                                                  value: groupName))
         confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_project",
                                                   header: LocalizationHelper.shared.localized("project_name"),
                                                   value: requestModel.projectName))
@@ -49,10 +59,14 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
                                                   value: requestModel.endTime))
         confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_clock",
                                                   header: LocalizationHelper.shared.localized("number_of_overtime"),
-                                                  value: "3,00"))//dummy
+                                                  value: requestModel.getOtTime()))
         confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_reason",
                                                   header: LocalizationHelper.shared.localized("reason"),
                                                   value: requestModel.reason))
+    }
+
+    @IBAction func submitBtnClick(_ sender: Any) {
+        submitRequestOt(requestModel: requestModel)
     }
 }
 
@@ -70,6 +84,13 @@ extension ConfirmCreateRequestOtViewController: UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return confirmReqOtItems.count
+    }
+}
+
+extension ConfirmCreateRequestOtViewController: ConfirmCreateRequestOtViewControllerType {
+    
+    func didSubmitRequestSuccess() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 

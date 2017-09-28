@@ -19,6 +19,7 @@ class LeftMenuViewController: UIViewController {
     var menuItems = [MenuItem]()
 
     let currentUser = UserServices.getLocalUserProfile()
+    let isManager = UserServices.getLocalUserLogin()?.isManager ?? false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,14 +99,14 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
-            return currentUser?.isManager ?? false ? rowHeight : 0.0
+            return isManager ? rowHeight : 0.0
         }
         return rowHeight
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 {
-            return currentUser?.isManager ?? false ? sectionHeight : 0.0
+            return isManager ? sectionHeight : 0.0
         }
         return sectionHeight
     }

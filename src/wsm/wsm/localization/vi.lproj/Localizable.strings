@@ -288,6 +288,7 @@
 "accept_all_success" = "Chấp nhận thành công";
 "accept_all_unsuccess" = "Chấp nhận không thành công";
 
+"enter_full_info" = "Vui lòng nhập đầy đủ thông tin!";
 "branch_is_emty" = "Vui lòng chọn chi nhánh để tạo yêu cầu!";
 "group_is_emty" = "Vui lòng chọn phòng ban để tạo yêu cầu!";
 "please_enter_email" = "Nhập địa chỉ email của bạn, và chúng tôi sẽ gửi cho bạn một liên kết để bạn có thể đặt lại mật khẩu !";
