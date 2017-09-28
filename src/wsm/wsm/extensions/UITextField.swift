@@ -24,4 +24,8 @@ extension UITextField {
         leftView = lView
         leftViewMode = .always
     }
+
+    func isEmpty() -> Bool {
+        return (self.text ?? "").isEmpty
+    }
 }

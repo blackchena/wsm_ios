@@ -9,8 +9,9 @@
 import Foundation
 import InAppLocalize
 import TextFieldEffects
+import ACFloatingTextfield_Swift
 
-class WsmTextField: HoshiTextField {
+class WsmTextField: ACFloatingTextfield {
     private var localizeKey: String?
 
     override open var placeholder:String?  {

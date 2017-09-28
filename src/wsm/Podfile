@@ -23,4 +23,5 @@ target 'wsm' do
     pod 'SwiftyUserDefaults'
     pod "PromiseKit", "~> 4.4"
     pod "TextFieldEffects"
+    pod 'ACFloatingTextfield-Swift'
 end
