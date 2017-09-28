@@ -148,7 +148,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
         case (3, 1):
             break
         case (3, 2):
-            break
+            selectedViewController = UIViewController.getStoryboardController(identifier: "ListReuqestLeaveViewController")
         default:
             break
         }

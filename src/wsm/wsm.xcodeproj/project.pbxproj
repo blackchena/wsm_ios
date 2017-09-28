@@ -118,6 +118,9 @@
 		5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168BD051F73A7E600AA1287 /* Formatter.swift */; };
 		5168BD081F73A88200AA1287 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168BD071F73A88200AA1287 /* UITextField.swift */; };
 		5168BD0A1F73A89700AA1287 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168BD091F73A89700AA1287 /* Sequence.swift */; };
+		51692C911F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */; };
+		51692C931F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */; };
+		51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */; };
 		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
 		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
 		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
@@ -285,6 +288,9 @@
 		5168BD051F73A7E600AA1287 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		5168BD071F73A88200AA1287 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		5168BD091F73A89700AA1287 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestLeaveViewController.swift; path = RequestLeave/ListRequestLeaveViewController.swift; sourceTree = "<group>"; };
+		51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestLeaveViewController.swift; path = RequestLeave/CreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
+		51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBaseViewController.swift; sourceTree = "<group>"; };
 		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
@@ -440,6 +446,7 @@
 				B81AF7301F7222BA00E579B2 /* BaseModel.swift */,
 				202ED9DF1F6FCD0C00544A7D /* BaseViewController.swift */,
 				51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */,
+				51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */,
 				51754C771F78B32F00CFABE8 /* WsmTextField.swift */,
 			);
 			path = base;
@@ -504,6 +511,7 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				51692C8F1F7CCC0400DE6248 /* RequestLeave */,
 				51754C701F78A6D200CFABE8 /* RequestOt */,
 				5131FD751F7278BF00E0478B /* UserInfo */,
 				5131FD741F7278B200E0478B /* TimeSheet */,
@@ -663,6 +671,15 @@
 				5168BCB31F739DBF00AA1287 /* ic_current_day.png */,
 			);
 			name = resources;
+			sourceTree = "<group>";
+		};
+		51692C8F1F7CCC0400DE6248 /* RequestLeave */ = {
+			isa = PBXGroup;
+			children = (
+				51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */,
+				51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */,
+			);
+			name = RequestLeave;
 			sourceTree = "<group>";
 		};
 		51754C701F78A6D200CFABE8 /* RequestOt */ = {
@@ -1065,6 +1082,7 @@
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
 				B8FA28311F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift in Sources */,
+				51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */,
 				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
 				B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */,
@@ -1084,6 +1102,7 @@
 				B81AF7241F72096A00E579B2 /* FSCalendarDelegationProxy.m in Sources */,
 				5168BD041F73A7C400AA1287 /* Array.swift in Sources */,
 				202ED9E01F6FCD0C00544A7D /* BaseViewController.swift in Sources */,
+				51692C931F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift in Sources */,
 				51221C0E1F7B6132002F17E0 /* RequestOtApiInputModel.swift in Sources */,
 				B8503F121F7275F600258D0A /* Response+ObjectMapper.swift in Sources */,
 				202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */,
@@ -1091,6 +1110,7 @@
 				B85E1D6C1F73C94000329529 /* WSMDateTransform.swift in Sources */,
 				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
 				B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */,
+				51692C911F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
 				51221C071F7B3720002F17E0 /* UserWorkSpace.swift in Sources */,
 				51221C051F7B370F002F17E0 /* UserGroup.swift in Sources */,
