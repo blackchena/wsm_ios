@@ -33,7 +33,12 @@ public enum APIError: Swift.Error {
 
     public var localizedDescription: String {
         //TODOs: fill message match with APIError on Localize text
-        return ""
+        switch self {
+        case .apiFailure(let message):
+            return message ?? ""
+        default:
+            return ""
+        }
     }
 }
 
@@ -51,7 +56,7 @@ public class ResponseData: Mappable {
 
     public func mapping(map: Map) {
         status <- map["status"]
-        message <- map["message"]
+        message <- map["messages"]
     }
 }
 
@@ -62,17 +67,29 @@ public enum API {
     case getUserSettings
     case getListLeaveTypesSettings
     case getListDayOffSettings
-    //    case getTimeSheets
+    case submitRequestOt(jsonParam: [String: Any])
 }
 
 extension TargetType {
+
+    static var debugAPIBaseUrl: String {
+        return "http://edev.framgia.vn"
+    }
+    
+    static var productAPIBaseUrl: String {
+        return "http://wsm.framgia.vn"
+    }
 
     static var debugMode: Bool {
         return true
     }
 
     public var baseURL: URL {
-        return URL(string: API.debugMode ? "http://edev.framgia.vn" : "http://wsm.framgia.vn")!
+        return URL(string: Self.baseURLString)!
+    }
+
+    public static var baseURLString: String {
+        return API.debugMode ? debugAPIBaseUrl : productAPIBaseUrl
     }
 
     public var parameterEncoding: ParameterEncoding {
@@ -81,7 +98,6 @@ extension TargetType {
         }
         return JSONEncoding.default
     }
-
 }
 
 extension API: TargetType {
@@ -100,13 +116,16 @@ extension API: TargetType {
             return "/api/dashboard/leave_types"
         case .getListDayOffSettings:
             return "/api/dashboard/dayoff_settings"
+        case .submitRequestOt:
+            return "/api/dashboard/request_ots"
         }
     }
 
     public var method: Moya.Method {
         switch self {
         case .login,
-             .logout:
+             .logout,
+             .submitRequestOt:
             return .post
         case .getProfile,
              .getUserSettings,
@@ -130,6 +149,10 @@ extension API: TargetType {
                 ]
             ]
             return params
+        case .submitRequestOt(let jsonParam):
+            return [
+                "request_ot": jsonParam
+            ]
         case .logout,
              .getProfile,
              .getUserSettings,

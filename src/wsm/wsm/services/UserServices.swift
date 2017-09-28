@@ -13,6 +13,7 @@ import SwiftyUserDefaults
 class UserServices {
 
     //Put those keys here to prevent interactive with those key outside of this class
+    private static let userLogin = DefaultsKey<String?>("WSM-userLogin")
     private static let userProfile = DefaultsKey<String?>("WSM-userProfile")
     private static let userSetting = DefaultsKey<String?>("WSM-userSetting")
     private static let listDayOffSetting = DefaultsKey<String?>("WSM-listDayOffSetting")
@@ -37,6 +38,12 @@ class UserServices {
         return Defaults[authToken]
     }
 
+    public static func saveUserLogin(loginModel: LoginModel?) {
+        if let jsonString = loginModel?.toJSONString() {
+            Defaults[userLogin] = jsonString
+        }
+    }
+
     public static func saveUserSettings(userProfileResult: UserProfileModel?,
                                         userSettingResult: UserSettingModel?,
                                         listLeaveTypeResult: [LeaveTypeModel]?,
@@ -46,6 +53,14 @@ class UserServices {
         Defaults[userSetting] = userSettingResult?.toJSONString()
         Defaults[listDayOffSetting] = listLeaveTypeResult?.toJSONString()
         Defaults[listLeaveTypeSetting] = listDayOffResult?.toJSONString()
+    }
+
+    public static func getLocalUserLogin() -> LoginModel? {
+        guard let dataRaw = Defaults[userLogin] else {
+            return nil
+        }
+
+        return LoginModel(JSONString: dataRaw)
     }
 
     public static func getLocalUserProfile() -> UserProfileModel? {

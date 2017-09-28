@@ -18,8 +18,8 @@ class UserProfileModel: BaseModel {
     var company: [String: Any]?
     var contractDate: Date?
     var avatar: String?
-    var workSpaces: [[String: Any]]?
-    var groups: [[String: Any]]?
+    var workSpaces: [UserWorkSpace]?
+    var groups: [UserGroup]?
     var startProbationDate: Date?
     var endProbationDate: Date?
     var individualCode: String?
@@ -58,5 +58,12 @@ class UserProfileModel: BaseModel {
         id <- map["id"]
         employeeCode <- map["employee_code"]
         name <- map["name"]
+    }
+
+    func getAvatarURL() -> URL? {
+        if let avatarUrl = avatar {
+            return URL(string: API.baseURLString + avatarUrl)
+        }
+        return nil
     }
 }

@@ -297,7 +297,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCD-Uq-wbQ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nguyen Le Si Nguyen" placeholder="employee_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ti5-oC-cAd" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ti5-oC-cAd" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="0.0" width="334.5" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="RVM-rH-yqg"/>
@@ -323,7 +323,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="B120728" placeholder="employee_code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CgS-rg-IGf" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CgS-rg-IGf" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="50" width="334.5" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="9ro-Jy-HUZ"/>
@@ -349,7 +349,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Da Nang Office" placeholder="branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-GF-Z4s" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-GF-Z4s" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
                                                 <rect key="frame" x="20.5" y="100" width="334.5" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="f39-he-aS2"/>
@@ -426,6 +426,9 @@
                                                         <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="textEditingEnd:" destination="OfG-2A-Y0P" eventType="editingDidEnd" id="r16-Xt-4Qu"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="reason" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POT-8U-0tI" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="308" width="334.5" height="50"/>
@@ -452,6 +455,9 @@
                                                         <color key="value" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="textEditingEnd:" destination="OfG-2A-Y0P" eventType="editingDidEnd" id="5wy-G4-EYm"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="from" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chu-oV-Ybc" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="250" width="159" height="50"/>
@@ -603,6 +609,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextBtnClick:" destination="OfG-2A-Y0P" eventType="touchUpInside" id="WhB-hZ-QJC"/>
+                                    <action selector="submitBtnClick:" destination="XLI-2h-v81" eventType="touchUpInside" id="8NO-Ia-52e"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="139" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0JV-gl-LlG">
