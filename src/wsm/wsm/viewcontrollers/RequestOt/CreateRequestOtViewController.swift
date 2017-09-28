@@ -14,14 +14,14 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var fromText: WsmTextField!
-    @IBOutlet weak var toText: WsmTextField!
-    @IBOutlet weak var empNameText: WsmTextField!
-    @IBOutlet weak var empCodeText: WsmTextField!
-    @IBOutlet weak var projectText: WsmTextField!
-    @IBOutlet weak var branchText: WsmTextField!
-    @IBOutlet weak var groupText: WsmTextField!
-    @IBOutlet weak var reasonText: WsmTextField!
+    @IBOutlet weak var fromTextField: WsmTextField!
+    @IBOutlet weak var toTextField: WsmTextField!
+    @IBOutlet weak var empNameTextField: WsmTextField!
+    @IBOutlet weak var empCodeTextField: WsmTextField!
+    @IBOutlet weak var projectNameTextField: WsmTextField!
+    @IBOutlet weak var branchTextField: WsmTextField!
+    @IBOutlet weak var groupTextField: WsmTextField!
+    @IBOutlet weak var reasonTextField: WsmTextField!
 
     fileprivate let fromDatePicker = UIDatePicker()
     fileprivate let toDatePicker = UIDatePicker()
@@ -51,16 +51,16 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
         branchPicker.delegate = self
         groupPicker.delegate = self
 
-        branchText.inputView = branchPicker
-        branchText.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setBranchText))
+        branchTextField.inputView = branchPicker
+        branchTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setBranchText))
 
-        groupText.inputView = groupPicker
-        groupText.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setGroupText))
+        groupTextField.inputView = groupPicker
+        groupTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setGroupText))
     }
 
     func bindData() {
-        empNameText.text = currentUser?.name
-        empCodeText.text = currentUser?.employeeCode
+        empNameTextField.text = currentUser?.name
+        empCodeTextField.text = currentUser?.employeeCode
 
         if workSpaces.count > 0 {
             let defaultBranchId = UserServices.getLocalUserSetting()?.workSpaceDefault
@@ -97,8 +97,8 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
         if requestModel.endTime != nil && !validateDate(){
             return
         }
-        self.fromText.text = fromDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
-        requestModel.fromTime = self.fromText.text
+        self.fromTextField.text = fromDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
+        requestModel.fromTime = self.fromTextField.text
     }
 
     @objc private func setToText() {
@@ -107,27 +107,34 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
             return
         }
 
-        self.toText.text = toDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
-        requestModel.endTime = self.toText.text
+        self.toTextField.text = toDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
+        requestModel.endTime = self.toTextField.text
     }
 
     @objc private func setBranchText() {
         self.view.endEditing(true)
-        branchText.text = workSpaces[branchPicker.selectedRow(inComponent: 0)].name
+        branchTextField.text = workSpaces[branchPicker.selectedRow(inComponent: 0)].name
         requestModel.workspaceId = workSpaces[branchPicker.selectedRow(inComponent: 0)].id
     }
 
     @objc private func setGroupText() {
-        groupText.text = groups[groupPicker.selectedRow(inComponent: 0)].fullName
+        groupTextField.text = groups[groupPicker.selectedRow(inComponent: 0)].fullName
         requestModel.groupId = groups[groupPicker.selectedRow(inComponent: 0)].id
         self.view.endEditing(true)
     }
     
-    @IBAction func textEditingEnd(_ sender: UITextField) {
-        if sender === reasonText {
-            requestModel.reason = reasonText.text
-        } else if sender === projectText {
-            requestModel.projectName = projectText.text
+    @IBAction func textEditingEnd(_ sender: WsmTextField) {
+        if sender.isEmpty() {
+            sender.showErrorWithText(errorText: LocalizationHelper.shared.localized("is_empty"))
+        } else {
+            switch sender {
+            case reasonTextField:
+                requestModel.reason = sender.text
+            case projectNameTextField:
+                requestModel.projectName = sender.text
+            default:
+                break
+            }
         }
     }
 
@@ -137,6 +144,38 @@ class CreateRequestOtViewController: NoMenuBaseViewController {
             return false
         }
         return true
+    }
+
+    func isValid() -> Bool {
+        var result = true
+        let error = LocalizationHelper.shared.localized("is_empty")
+        if projectNameTextField.isEmpty() {
+            projectNameTextField.showErrorWithText(errorText: error)
+            result = false
+        }
+        if fromTextField.isEmpty() {
+            fromTextField.showErrorWithText(errorText: error)
+            result = false
+        }
+        if fromTextField.isEmpty() {
+            toTextField.showErrorWithText(errorText: error)
+            result = false
+        }
+        if fromTextField.isEmpty() {
+            reasonTextField.showErrorWithText(errorText: error)
+            result = false
+        }
+        return result
+    }
+
+    @IBAction func nextBtnClick(_ sender: Any) {
+        if isValid() && requestModel.isValid(),
+            let confirmOtVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOtViewController") as? ConfirmCreateRequestOtViewController {
+            self.requestModel.projectName = projectNameTextField.text
+            self.requestModel.reason = reasonTextField.text
+            confirmOtVc.requestModel = self.requestModel
+            self.navigationController?.pushViewController(confirmOtVc, animated: true)
+        }
     }
 }
 
@@ -151,18 +190,6 @@ extension CreateRequestOtViewController: UIPickerViewDelegate, UIPickerViewDataS
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerView === branchPicker ? workSpaces[row].name : groups[row].fullName
-    }
-
-    @IBAction func nextBtnClick(_ sender: Any) {
-
-        if requestModel.isValid(), let confirmOtVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOtViewController") as? ConfirmCreateRequestOtViewController {
-            self.requestModel.projectName = projectText.text
-            self.requestModel.reason = reasonText.text
-            confirmOtVc.requestModel = self.requestModel
-            self.navigationController?.pushViewController(confirmOtVc, animated: true)
-        } else {
-            AlertHelper.showInfo(message: LocalizationHelper.shared.localized("enter_full_info"))
-        }
     }
 }
 
