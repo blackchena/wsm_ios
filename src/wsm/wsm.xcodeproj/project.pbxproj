@@ -121,19 +121,26 @@
 		51692C911F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */; };
 		51692C931F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */; };
 		51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */; };
+		51692C971F7CE3CC00DE6248 /* RequestLeaveApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C961F7CE3CC00DE6248 /* RequestLeaveApiInputModel.swift */; };
+		51692C991F7CE6A900DE6248 /* RequestLeaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */; };
+		51692C9B1F7CE78800DE6248 /* RequestLeaveProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C9A1F7CE78800DE6248 /* RequestLeaveProvider.swift */; };
+		51692C9D1F7CE7CC00DE6248 /* CreateRequestLeaveApiOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C9C1F7CE7CC00DE6248 /* CreateRequestLeaveApiOutModel.swift */; };
 		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
 		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
 		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
 		51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */; };
 		51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */; };
 		51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C771F78B32F00CFABE8 /* WsmTextField.swift */; };
+		5195300E1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5195300D1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift */; };
+		519530101F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */; };
+		51A281141F7CFB7700D4BFD0 /* LeaveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A281131F7CFB7700D4BFD0 /* LeaveType.swift */; };
 		51E143751F70F55000A8F6F7 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E143741F70F55000A8F6F7 /* UserProvider.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
 		51FBBA141F79F0F8004C32BD /* UserProfileApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA131F79F0F8004C32BD /* UserProfileApiOutputModel.swift */; };
 		51FBBA161F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA151F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift */; };
 		51FBBA181F79FE8B004C32BD /* CreateRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */; };
-		51FBBA1A1F7A06CD004C32BD /* ConfirmCreateOtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA191F7A06CD004C32BD /* ConfirmCreateOtCell.swift */; };
+		51FBBA1A1F7A06CD004C32BD /* ConfirmCreateRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBBA191F7A06CD004C32BD /* ConfirmCreateRequestCell.swift */; };
 		51FBBA1C1F7A3A99004C32BD /* ic_id_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */; };
 		51FBBA1E1F7A4B26004C32BD /* ic_project.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FBBA1D1F7A4B26004C32BD /* ic_project.png */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
@@ -291,19 +298,26 @@
 		51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestLeaveViewController.swift; path = RequestLeave/ListRequestLeaveViewController.swift; sourceTree = "<group>"; };
 		51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestLeaveViewController.swift; path = RequestLeave/CreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
 		51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBaseViewController.swift; sourceTree = "<group>"; };
+		51692C961F7CE3CC00DE6248 /* RequestLeaveApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestLeaveApiInputModel.swift; path = ApiInputModels/RequestLeaveApiInputModel.swift; sourceTree = "<group>"; };
+		51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLeaveModel.swift; sourceTree = "<group>"; };
+		51692C9A1F7CE78800DE6248 /* RequestLeaveProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLeaveProvider.swift; sourceTree = "<group>"; };
+		51692C9C1F7CE7CC00DE6248 /* CreateRequestLeaveApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestLeaveApiOutModel.swift; path = ApiOutputModels/CreateRequestLeaveApiOutModel.swift; sourceTree = "<group>"; };
 		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
 		51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOtViewController.swift; path = RequestOt/ListRequestOtViewController.swift; sourceTree = "<group>"; };
 		51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMenuBaseViewController.swift; sourceTree = "<group>"; };
 		51754C771F78B32F00CFABE8 /* WsmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmTextField.swift; sourceTree = "<group>"; };
+		5195300D1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
+		5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCreateRequestLeaveViewControllerType.swift; sourceTree = "<group>"; };
+		51A281131F7CFB7700D4BFD0 /* LeaveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaveType.swift; path = enums/LeaveType.swift; sourceTree = "<group>"; };
 		51E143741F70F55000A8F6F7 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
 		51FBBA131F79F0F8004C32BD /* UserProfileApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileApiOutputModel.swift; path = ApiOutputModels/UserProfileApiOutputModel.swift; sourceTree = "<group>"; };
 		51FBBA151F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestOtViewController.swift; path = RequestOt/ConfirmCreateRequestOtViewController.swift; sourceTree = "<group>"; };
 		51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestOtViewController.swift; path = RequestOt/CreateRequestOtViewController.swift; sourceTree = "<group>"; };
-		51FBBA191F7A06CD004C32BD /* ConfirmCreateOtCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateOtCell.swift; path = RequestOt/ConfirmCreateOtCell.swift; sourceTree = "<group>"; };
+		51FBBA191F7A06CD004C32BD /* ConfirmCreateRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestCell.swift; path = RequestOt/ConfirmCreateRequestCell.swift; sourceTree = "<group>"; };
 		51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_id_card.png; path = resources/ic_id_card.png; sourceTree = "<group>"; };
 		51FBBA1D1F7A4B26004C32BD /* ic_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_project.png; path = resources/ic_project.png; sourceTree = "<group>"; };
 		B81AF6F81F7204FD00E579B2 /* wsm-Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wsm-Bridge-Header.h"; sourceTree = "<group>"; };
@@ -435,6 +449,7 @@
 			children = (
 				202ED9D21F6FCBCB00544A7D /* LoginProvider.swift */,
 				51221C0A1F7B5CE9002F17E0 /* RequestOtProvider.swift */,
+				51692C9A1F7CE78800DE6248 /* RequestLeaveProvider.swift */,
 				51E143741F70F55000A8F6F7 /* UserProvider.swift */,
 			);
 			path = Provider;
@@ -495,6 +510,7 @@
 				51221C041F7B370F002F17E0 /* UserGroup.swift */,
 				51221C061F7B3720002F17E0 /* UserWorkSpace.swift */,
 				51221C0F1F7B6287002F17E0 /* RequestOtModel.swift */,
+				51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -543,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				51221C0D1F7B6132002F17E0 /* RequestOtApiInputModel.swift */,
+				51692C961F7CE3CC00DE6248 /* RequestLeaveApiInputModel.swift */,
 			);
 			name = ApiInputModels;
 			sourceTree = "<group>";
@@ -551,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				5131FD6A1F72772000E0478B /* MenuEnum.swift */,
+				51A281131F7CFB7700D4BFD0 /* LeaveType.swift */,
 			);
 			name = enums;
 			sourceTree = "<group>";
@@ -678,6 +696,8 @@
 			children = (
 				51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */,
 				51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */,
+				5195300D1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift */,
+				5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */,
 			);
 			name = RequestLeave;
 			sourceTree = "<group>";
@@ -688,7 +708,7 @@
 				51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */,
 				51FBBA151F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift */,
 				51221C081F7B5852002F17E0 /* ConfirmCreateRequestOtViewControllerType.swift */,
-				51FBBA191F7A06CD004C32BD /* ConfirmCreateOtCell.swift */,
+				51FBBA191F7A06CD004C32BD /* ConfirmCreateRequestCell.swift */,
 				51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */,
 			);
 			name = RequestOt;
@@ -776,6 +796,7 @@
 				B8FA282C1F78E23B004E16CB /* ListLeaveTypeSettingApiOutputModel.swift */,
 				B8FA28301F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift */,
 				51221C111F7B6329002F17E0 /* CreateRequestOtApiOutModel.swift */,
+				51692C9C1F7CE7CC00DE6248 /* CreateRequestLeaveApiOutModel.swift */,
 			);
 			name = ApiOutputModels;
 			sourceTree = "<group>";
@@ -1070,6 +1091,7 @@
 				B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */,
 				B81AF7211F72096A00E579B2 /* FSCalendarCollectionView.m in Sources */,
 				51221C101F7B6287002F17E0 /* RequestOtModel.swift in Sources */,
+				51692C9D1F7CE7CC00DE6248 /* CreateRequestLeaveApiOutModel.swift in Sources */,
 				5131FD6B1F72772000E0478B /* MenuEnum.swift in Sources */,
 				B81AF7201F72096A00E579B2 /* FSCalendar+Deprecated.m in Sources */,
 				B81AF71D1F72096A00E579B2 /* FSCalendarCalculator.m in Sources */,
@@ -1078,8 +1100,9 @@
 				B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */,
 				5168BCFC1F73A73600AA1287 /* UIViewController.swift in Sources */,
 				B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */,
-				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateOtCell.swift in Sources */,
+				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateRequestCell.swift in Sources */,
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
+				51692C971F7CE3CC00DE6248 /* RequestLeaveApiInputModel.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
 				B8FA28311F78E549004E16CB /* ListDayOffSettingApiOutputModel.swift in Sources */,
 				51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */,
@@ -1094,6 +1117,7 @@
 				5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
 				202ED9DC1F6FCBCB00544A7D /* LoginProvider.swift in Sources */,
+				5195300E1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift in Sources */,
 				5131FD5D1F7276AA00E0478B /* LeftMenuViewController.swift in Sources */,
 				5131FD641F7276E400E0478B /* MainViewController.swift in Sources */,
 				5131FD5C1F7276AA00E0478B /* LeftMenuCell.swift in Sources */,
@@ -1103,13 +1127,16 @@
 				5168BD041F73A7C400AA1287 /* Array.swift in Sources */,
 				202ED9E01F6FCD0C00544A7D /* BaseViewController.swift in Sources */,
 				51692C931F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift in Sources */,
+				51692C991F7CE6A900DE6248 /* RequestLeaveModel.swift in Sources */,
 				51221C0E1F7B6132002F17E0 /* RequestOtApiInputModel.swift in Sources */,
 				B8503F121F7275F600258D0A /* Response+ObjectMapper.swift in Sources */,
 				202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */,
 				B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */,
+				51692C9B1F7CE78800DE6248 /* RequestLeaveProvider.swift in Sources */,
 				B85E1D6C1F73C94000329529 /* WSMDateTransform.swift in Sources */,
 				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
 				B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */,
+				51A281141F7CFB7700D4BFD0 /* LeaveType.swift in Sources */,
 				51692C911F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
 				51221C071F7B3720002F17E0 /* UserWorkSpace.swift in Sources */,
@@ -1138,6 +1165,7 @@
 				51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */,
 				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
+				519530101F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */,
 				B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */,
 				B8FA28291F78C0AE004E16CB /* UserSettingApiOutputModel.swift in Sources */,
 			);

@@ -11,24 +11,25 @@ import UIKit
 import InAppLocalize
 
 class CreateRequestOtViewController: RequestBaseViewController {
-
-    @IBOutlet weak var contentView: UIView!
+    
     @IBOutlet weak var fromTextField: WsmTextField!
     @IBOutlet weak var toTextField: WsmTextField!
 
     fileprivate let requestModel = RequestOtApiInputModel()
+    let fromDatePicker = UIDatePicker()
+    let toDatePicker = UIDatePicker()
 
     @IBAction func selectFrom(_ sender: UITextField) {
         sender.inputView = fromDatePicker
-        sender.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setFromText))
+        sender.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onFromDateSelected))
     }
 
     @IBAction func selectTo(_ sender: UITextField) {
         sender.inputView = toDatePicker
-        sender.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setToText))
+        sender.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onToDateSelected))
     }
 
-    @objc private func setFromText() {
+    @objc private func onFromDateSelected() {
         self.view.endEditing(true)
         if requestModel.endTime != nil && !validateDate(){
             return
@@ -37,7 +38,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
         requestModel.fromTime = self.fromTextField.text
     }
 
-    @objc private func setToText() {
+    @objc private func onToDateSelected() {
         self.view.endEditing(true)
         if requestModel.fromTime != nil && !validateDate() {
             return
@@ -46,13 +47,13 @@ class CreateRequestOtViewController: RequestBaseViewController {
         requestModel.endTime = self.toTextField.text
     }
 
-    override func setBranchText() {
-        super.setBranchText()
+    override func onBranchSelected() {
+        super.onBranchSelected()
         requestModel.workspaceId = workSpaces[branchPicker.selectedRow(inComponent: 0)].id
     }
 
-    override func setGroupText() {
-        super.setGroupText()
+    override func onGroupSelected() {
+        super.onGroupSelected()
         requestModel.groupId = groups[groupPicker.selectedRow(inComponent: 0)].id
     }
     

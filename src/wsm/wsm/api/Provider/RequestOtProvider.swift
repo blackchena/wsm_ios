@@ -18,6 +18,6 @@ final class RequestOtProvider {
     static var listRequests = [RequestOtModel]()
 
     static func submitRequestOt(requestModel: RequestOtApiInputModel) -> Promise<CreateRequestOtApiOutModel> {
-        return ApiProvider.shared.requestPromise(target: .submitRequestOt(jsonParam: requestModel.toJSON()))
+        return ApiProvider.shared.requestPromise(target: .submitRequestOt(requestModel: requestModel))
     }
 }

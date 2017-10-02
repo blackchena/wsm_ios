@@ -14,7 +14,7 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    fileprivate var confirmReqOtItems = [ConfirmRequestOtItem]()
+    fileprivate var confirmReqOtItems = [ConfirmRequestItem]()
     var requestModel = RequestOtApiInputModel()
 
     override func viewDidLoad() {
@@ -36,31 +36,31 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
             groupName = groups[i].fullName ?? ""
         }
 
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_placeholder_user",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user",
                                                   header: LocalizationHelper.shared.localized("employee_name"),
                                                   value: currentUser.name))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_id_card",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_id_card",
                                                   header: LocalizationHelper.shared.localized("employee_code"),
                                                   value: currentUser.employeeCode))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_branch",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_branch",
                                                   header: LocalizationHelper.shared.localized("branch"),
                                                   value: branchName))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_group",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_group",
                                                   header: LocalizationHelper.shared.localized("group"),
                                                   value: groupName))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_project",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_project",
                                                   header: LocalizationHelper.shared.localized("project_name"),
                                                   value: requestModel.projectName))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_clock_2",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("from"),
                                                   value: requestModel.fromTime))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_clock_2",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("to"),
                                                   value: requestModel.endTime))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_clock",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock",
                                                   header: LocalizationHelper.shared.localized("number_of_overtime"),
                                                   value: requestModel.getOtTime()))
-        confirmReqOtItems.append(ConfirmRequestOtItem(imageName: "ic_reason",
+        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_reason",
                                                   header: LocalizationHelper.shared.localized("reason"),
                                                   value: requestModel.reason))
     }
@@ -74,7 +74,7 @@ extension ConfirmCreateRequestOtViewController: UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmCreateOtCell", for: indexPath)
-            as? ConfirmCreateOtCell else {
+            as? ConfirmCreateRequestCell else {
                 return UITableViewCell()
         }
 
@@ -94,7 +94,7 @@ extension ConfirmCreateRequestOtViewController: ConfirmCreateRequestOtViewContro
     }
 }
 
-struct ConfirmRequestOtItem {
+struct ConfirmRequestItem {
     var imageName: String
     var header: String
     var value: String?

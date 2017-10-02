@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmCreateOtCell: UITableViewCell {
+class ConfirmCreateRequestCell: UITableViewCell {
     
     @IBOutlet weak var iconImgView: UIImageView!
     @IBOutlet weak var headerLabel: UILabel!
@@ -25,7 +25,7 @@ class ConfirmCreateOtCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func updateCell(item: ConfirmRequestOtItem) {
+    func updateCell(item: ConfirmRequestItem) {
         headerLabel.text = item.header
         valueLabel.text = item.value
 

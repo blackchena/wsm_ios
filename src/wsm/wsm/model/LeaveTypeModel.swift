@@ -16,8 +16,8 @@ class LeaveTypeModel: BaseModel {
     var code: String?
     var limitTimes: Int?
     var isEnable: Bool?
-    var compensationKind: String?
-    var trackingTimeType: String?
+    var compensationKind = CompensationKind.require
+    var trackingTimeType = TrackingTimeType.both
     var typeLoop: String?
     var siblingId: String?
     var companyId: String?

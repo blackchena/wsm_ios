@@ -51,8 +51,8 @@ class UserServices {
 
         Defaults[userProfile] = userProfileResult?.toJSONString()
         Defaults[userSetting] = userSettingResult?.toJSONString()
-        Defaults[listDayOffSetting] = listLeaveTypeResult?.toJSONString()
-        Defaults[listLeaveTypeSetting] = listDayOffResult?.toJSONString()
+        Defaults[listDayOffSetting] = listDayOffResult?.toJSONString()
+        Defaults[listLeaveTypeSetting] = listLeaveTypeResult?.toJSONString()
     }
 
     public static func getLocalUserLogin() -> LoginModel? {
