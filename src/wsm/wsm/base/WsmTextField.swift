@@ -14,7 +14,7 @@ import ACFloatingTextfield_Swift
 class WsmTextField: ACFloatingTextfield {
     private var localizeKey: String?
 
-    override open var placeholder:String?  {
+    override open var placeholder: String? {
         set (newValue) {
             self.localizeKey = newValue
             if let key = newValue {

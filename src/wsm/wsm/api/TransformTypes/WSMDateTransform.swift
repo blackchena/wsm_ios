@@ -8,7 +8,7 @@
 
 import UIKit
 import ObjectMapper
-import AFDateHelper
+//import AFDateHelper
 
 public class WSMDateTransform: TransformType {
     public typealias Object = Date
@@ -26,7 +26,8 @@ public class WSMDateTransform: TransformType {
 
     open func transformFromJSON(_ value: Any?) -> Date? {
         if let dateAsString = value as? String {
-            return Date(fromString: dateAsString, format: formatFromJsonType)
+//            return Date(fromString: dateAsString, format: formatFromJsonType)
+            return Date(fromString: dateAsString, format: formatToJsonType, timeZone: .useOfCurrentCalendar)
         }
 
         return nil
@@ -34,7 +35,7 @@ public class WSMDateTransform: TransformType {
 
     open func transformToJSON(_ value: Date?) -> String? {
         if let date = value {
-            return date.toString(format: formatToJsonType)
+            return date.toString(format: formatToJsonType, timeZone: .utc)
         }
         return nil
     }

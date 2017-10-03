@@ -1,6 +1,5 @@
 PODS:
   - ACFloatingTextfield-Swift (1.3)
-  - AFDateHelper (4.2.4)
   - Alamofire (4.5.1)
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
@@ -36,6 +35,8 @@ PODS:
   - InAppLocalize (0.1.0)
   - Kingfisher (3.12.2)
   - LGSideMenuController (2.1.1)
+  - MaterialComponents/ShadowElevations (35.0.0)
+  - MaterialComponents/ShadowLayer (35.0.0)
   - Moya (8.0.5):
     - Moya/Core (= 8.0.5)
   - Moya/Core (8.0.5):
@@ -71,7 +72,6 @@ PODS:
 
 DEPENDENCIES:
   - ACFloatingTextfield-Swift
-  - AFDateHelper (~> 4.2.4)
   - Crashlytics
   - Fabric
   - Firebase/Core
@@ -80,6 +80,8 @@ DEPENDENCIES:
   - InAppLocalize
   - Kingfisher (~> 3.12.2)
   - LGSideMenuController
+  - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShadowLayer
   - Moya (~> 8.0.5)
   - ObjectMapper
   - Permission/Location
@@ -92,7 +94,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ACFloatingTextfield-Swift: 9588c2157016cbcee11afde9077e22c273e15e56
-  AFDateHelper: fbbf706fc7ef3b12efb8c25493c8dc5b9d18f86a
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
@@ -106,6 +107,7 @@ SPEC CHECKSUMS:
   InAppLocalize: bdee44c374762f9c61ef801bd0c4edb11d9ae968
   Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
+  MaterialComponents: c45311601868f5df6dc307feb4ce24db20ca3e9e
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
@@ -119,6 +121,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 8706f53525f1ce51c8921b7af32237caab50c467
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
 
-PODFILE CHECKSUM: 03e2f18c7f565ef04667a9ab6b7a4b6873184a20
+PODFILE CHECKSUM: 9514a205e29c2a7fd5a0fa90769c9685ebb31d44
 
 COCOAPODS: 1.3.1

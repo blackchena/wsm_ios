@@ -1,4 +1,3 @@
-//
 //  UserProfile.swift
 //  wsm
 //
@@ -8,14 +7,14 @@
 
 import Foundation
 import ObjectMapper
-import AFDateHelper
+//import AFDateHelper
 
 class UserProfileModel: BaseModel {
 
     var email: String?
     var gender: String?
     var birthday: Date?
-    var company: [String: Any]?
+    var company: CompanyModel?
     var contractDate: Date?
     var avatar: String?
     var workSpaces: [UserWorkSpace]?
@@ -37,13 +36,13 @@ class UserProfileModel: BaseModel {
 
     public func mapping(map: Map) {
 
-        let normalDateTransform = WSMDateTransform()
+        let defaultDateTransform = WSMDateTransform()
         let iosDateTransform = WSMDateTransform(formatFromJson: DateFormatType.isoDate,
                                                 formatToJson: DateFormatType.isoDate)
 
         email <- map["email"]
         gender <- map["gender"]
-        birthday <- (map["birthday"], normalDateTransform)
+        birthday <- (map["birthday"], defaultDateTransform)
         company <- map["company"]
         contractDate <- (map["contract_date"], iosDateTransform)
         avatar <- map["avatar"]

@@ -275,6 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
 IB_DESIGNABLE
 @interface FSCalendar : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame withCalendar:(NSCalendar *) calendar;
+
 /**
  * The object that acts as the delegate of the calendar.
  */

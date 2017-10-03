@@ -27,4 +27,14 @@ extension UIImageView {
         layer.cornerRadius = frame.height/2
         clipsToBounds = true
     }
+
+    func setImage(image: UIImage?, withColor: UIColor? = nil) {
+        if let image = image {
+            let tintedImage = image.withRenderingMode(.alwaysTemplate)
+            self.image = tintedImage
+            if let withColor = withColor {
+                self.tintColor = withColor
+            }
+        }
+    }
 }

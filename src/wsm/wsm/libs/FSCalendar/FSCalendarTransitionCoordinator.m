@@ -182,6 +182,10 @@
                 CGFloat maxTranslation = CGRectGetHeight(self.pendingAttributes.targetBounds) - CGRectGetHeight(self.pendingAttributes.sourceBounds);
                 translation = MIN(maxTranslation, translation);
                 translation = MAX(0, translation);
+
+                //FIXED: makesure maxTranslation not = 0
+                maxTranslation = maxTranslation == 0 ? 1 : maxTranslation;
+
                 CGFloat progress = translation/maxTranslation;
                 progress;
             });

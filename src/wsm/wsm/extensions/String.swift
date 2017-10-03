@@ -33,4 +33,24 @@ extension String {
         formater.dateFormat = dateFormat
         return formater.date(from: self)
     }
+
+    subscript (i: Int) -> Character {
+        return self.isEmpty ? Character("") : self[self.characters.index(self.startIndex, offsetBy: i)]
+    }
+
+    subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+
+    subscript (r: Range<Int>) -> String {
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        let end = index(startIndex, offsetBy: r.upperBound)
+        return self[start..<end]
+    }
+
+    subscript (r: ClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        let end = index(startIndex, offsetBy: r.upperBound)
+        return self[start...end]
+    }
 }

@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.hideKeyboardWhenTappedAround()
+        //self.hideKeyboardWhenTappedAround()
 
         let menuImage = UIImage(named: "ic_menu_nav")
         let tintedMenuImage = menuImage?.withRenderingMode(.alwaysTemplate)

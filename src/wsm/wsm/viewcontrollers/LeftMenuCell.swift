@@ -19,10 +19,9 @@ class LeftMenuCell: UITableViewCell {
         menuTitle.textColor = UIColor.darkGray
         menuTitle.highlightedTextColor = UIColor.appBarTintColor
 
-        let image = UIImage(named: item.image)
-        let tintedImage = image?.withRenderingMode(.alwaysTemplate)
-        menuImage.image = tintedImage
-        menuImage.tintColor = UIColor.darkGray
+        if let image = UIImage(named: item.image) {
+            menuImage.setImage(image: image, withColor: UIColor.darkGray)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

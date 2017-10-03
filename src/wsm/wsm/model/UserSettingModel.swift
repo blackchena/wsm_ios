@@ -8,7 +8,7 @@
 
 import UIKit
 import ObjectMapper
-import AFDateHelper
+//import AFDateHelper
 
 class UserSettingModel: BaseModel {
 
@@ -27,8 +27,7 @@ class UserSettingModel: BaseModel {
     }
 
     func mapping(map: Map) {
-        let iosDateTransform = WSMDateTransform(formatFromJson: DateFormatType.isoDate,
-                                                formatToJson: DateFormatType.isoDate)
+        let defaultDateTransform = WSMDateTransform()
 
         id <- map["id"]
         userId <- map["user_id"]
@@ -37,7 +36,7 @@ class UserSettingModel: BaseModel {
         notificationSetting <- map["notification_setting"]
         emailSetting <- map["email_setting"]
         language <- map["language"]
-        createdAt <- (map["created_at"], iosDateTransform)
-        updateAt <- (map["updated_at"], iosDateTransform)
+        createdAt <- (map["created_at"], defaultDateTransform)
+        updateAt <- (map["updated_at"], defaultDateTransform)
     }
 }
