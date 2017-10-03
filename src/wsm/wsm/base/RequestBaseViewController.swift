@@ -13,6 +13,7 @@ import InAppLocalize
 class RequestBaseViewController: NoMenuBaseViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var empNameTextField: WsmTextField!
     @IBOutlet weak var empCodeTextField: WsmTextField!
     @IBOutlet weak var branchTextField: WsmTextField!
@@ -20,8 +21,7 @@ class RequestBaseViewController: NoMenuBaseViewController {
     @IBOutlet weak var projectNameTextField: WsmTextField!
     @IBOutlet weak var reasonTextField: WsmTextField!
 
-    let fromDatePicker = UIDatePicker()
-    let toDatePicker = UIDatePicker()
+    
     let branchPicker = UIPickerView()
     let groupPicker = UIPickerView()
 
@@ -48,10 +48,10 @@ class RequestBaseViewController: NoMenuBaseViewController {
         groupPicker.delegate = self
 
         branchTextField.inputView = branchPicker
-        branchTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setBranchText))
+        branchTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onBranchSelected))
 
         groupTextField.inputView = groupPicker
-        groupTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(setGroupText))
+        groupTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onGroupSelected))
     }
 
     func bindData() {
@@ -65,7 +65,7 @@ class RequestBaseViewController: NoMenuBaseViewController {
             } else {
                 branchPicker.selectRow(0, inComponent: 0, animated: true)
             }
-            setBranchText()
+            onBranchSelected()
         }
         if groups.count > 0 {
             let defaultGroupId = UserServices.getLocalUserSetting()?.groupDefault
@@ -74,16 +74,16 @@ class RequestBaseViewController: NoMenuBaseViewController {
             } else {
                 groupPicker.selectRow(0, inComponent: 0, animated: true)
             }
-            setGroupText()
+            onGroupSelected()
         }
     }
 
-    @objc func setBranchText() {
+    @objc func onBranchSelected() {
         self.view.endEditing(true)
         branchTextField.text = workSpaces[branchPicker.selectedRow(inComponent: 0)].name
     }
 
-    @objc func setGroupText() {
+    @objc func onGroupSelected() {
         self.view.endEditing(true)
         groupTextField.text = groups[groupPicker.selectedRow(inComponent: 0)].fullName
     }

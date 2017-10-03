@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class RequestOtApiInputModel: BaseModel {
+public class RequestOtApiInputModel: BaseModel {
     var workspaceId: Int?
     var groupId: Int?
     var projectName: String?
@@ -20,10 +20,10 @@ class RequestOtApiInputModel: BaseModel {
     init() {
     }
 
-    required init?(map: Map) {
+    required public init?(map: Map) {
     }
 
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         workspaceId <- map["workspace_id"]
         groupId <- map["group_id"]
         projectName <- map["project_name"]
@@ -34,8 +34,7 @@ class RequestOtApiInputModel: BaseModel {
 
     func getOtTime() -> String {
         if let from = endTime?.toDate(dateFormat: Date.dateTimeFormat),
-            let to = fromTime?.toDate(dateFormat: Date.dateTimeFormat)
-        {
+            let to = fromTime?.toDate(dateFormat: Date.dateTimeFormat) {
             let duration = from.timeIntervalSince(to)
             return String(format: "%.2f", duration / 3600)
         }

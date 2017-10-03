@@ -67,7 +67,8 @@ public enum API {
     case getUserSettings
     case getListLeaveTypesSettings
     case getListDayOffSettings
-    case submitRequestOt(jsonParam: [String: Any])
+    case submitRequestOt(requestModel: RequestOtApiInputModel)
+    case submitRequestLeave(requestModel: RequestLeaveApiInputModel)
 }
 
 extension TargetType {
@@ -75,7 +76,7 @@ extension TargetType {
     static var debugAPIBaseUrl: String {
         return "http://edev.framgia.vn"
     }
-    
+
     static var productAPIBaseUrl: String {
         return "http://wsm.framgia.vn"
     }
@@ -118,6 +119,8 @@ extension API: TargetType {
             return "/api/dashboard/dayoff_settings"
         case .submitRequestOt:
             return "/api/dashboard/request_ots"
+        case .submitRequestLeave:
+            return "/api/dashboard/request_leaves"
         }
     }
 
@@ -125,7 +128,8 @@ extension API: TargetType {
         switch self {
         case .login,
              .logout,
-             .submitRequestOt:
+             .submitRequestOt,
+             .submitRequestLeave:
             return .post
         case .getProfile,
              .getUserSettings,
@@ -149,9 +153,13 @@ extension API: TargetType {
                 ]
             ]
             return params
-        case .submitRequestOt(let jsonParam):
+        case .submitRequestOt(let requestModel):
             return [
-                "request_ot": jsonParam
+                "request_ot": requestModel.toJSON()
+            ]
+        case .submitRequestLeave(let requestModel):
+            return [
+                "request_leave": requestModel.toJSON()
             ]
         case .logout,
              .getProfile,
