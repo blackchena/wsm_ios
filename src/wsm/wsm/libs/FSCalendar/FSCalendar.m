@@ -148,6 +148,19 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame withCalendar:(NSCalendar *) calendar
+{
+    self = [self initWithFrame: frame];
+
+    _gregorian = calendar;
+    _timeZone = calendar.timeZone;
+    _locale = calendar.locale;
+    _firstWeekday = calendar.firstWeekday;
+    [self invalidateDateTools];
+
+    return self;
+}
+
 - (void)initialize
 {   
     _appearance = [[FSCalendarAppearance alloc] init];
@@ -157,8 +170,11 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     _components = [[NSDateComponents alloc] init];
     _formatter = [[NSDateFormatter alloc] init];
     _formatter.dateFormat = @"yyyy-MM-dd";
+//    _locale = [NSLocale localeWithLocaleIdentifier: @"America/New_York"];
+//    _timeZone = [NSTimeZone timeZoneWithName: @"America/New_York"];
     _locale = [NSLocale currentLocale];
     _timeZone = [NSTimeZone localTimeZone];
+
     _firstWeekday = 1;
     [self invalidateDateTools];
     

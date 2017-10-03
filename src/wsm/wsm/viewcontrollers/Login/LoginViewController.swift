@@ -19,7 +19,7 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
 
         //dummy
-        emailTextField.text = "le.quang.dao@framgia.com.edev"
+        emailTextField.text = "huynh.thi.diem.quynh@framgia.com.edev"
         passwordTextField.text = "123456"
 
         emailTextField.setLeftImage(size: emailTextField.frame.height,

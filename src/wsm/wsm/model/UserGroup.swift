@@ -8,7 +8,6 @@
 
 import Foundation
 import ObjectMapper
-import AFDateHelper
 
 class UserGroup: BaseModel {
     var id: Int?

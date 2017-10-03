@@ -47,6 +47,7 @@ public struct WsmAccessTokenPlugin: PluginType {
         }
 
         request.addValue(deviceLanguage, forHTTPHeaderField: "WSM-LOCALE")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         return request
     }
 }

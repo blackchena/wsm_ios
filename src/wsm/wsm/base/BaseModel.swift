@@ -8,7 +8,6 @@
 
 import UIKit
 import ObjectMapper
-import AFDateHelper
 
 protocol BaseModel: Mappable {
 }

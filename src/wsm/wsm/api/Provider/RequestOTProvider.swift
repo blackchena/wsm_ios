@@ -1,9 +1,9 @@
 //
-//  LoginProvider.swift
+//  RequestOTProvider.swift
 //  wsm
 //
-//  Created by nguyen.van.hung on 6/30/17.
-//  Copyright © 2017 nguyen.van.hung. All rights reserved.
+//  Created by Lê Thanh Quang on 9/26/17.
+//  Copyright © 2017 framgia. All rights reserved.
 //
 
 import Foundation

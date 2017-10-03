@@ -48,11 +48,10 @@ class UserServices {
                                         userSettingResult: UserSettingModel?,
                                         listLeaveTypeResult: [LeaveTypeModel]?,
                                         listDayOffResult: [DayOffModel]?) {
-
-        Defaults[userProfile] = userProfileResult?.toJSONString()
-        Defaults[userSetting] = userSettingResult?.toJSONString()
-        Defaults[listDayOffSetting] = listDayOffResult?.toJSONString()
-        Defaults[listLeaveTypeSetting] = listLeaveTypeResult?.toJSONString()
+        saveUserProfile(userProfileResult: userProfileResult)
+        saveUserSetting(userSettingResult: userSettingResult)
+        saveLeaveTypeSettings(listLeaveTypeResult: listLeaveTypeResult)
+        saveDayOffSettings(listDayOffResult: listDayOffResult)
     }
 
     public static func getLocalUserLogin() -> LoginModel? {
@@ -61,6 +60,22 @@ class UserServices {
         }
 
         return LoginModel(JSONString: dataRaw)
+    }
+
+    public static func saveUserProfile(userProfileResult: UserProfileModel?) {
+        Defaults[userProfile] = userProfileResult?.toJSONString()
+    }
+
+    public static func saveUserSetting(userSettingResult: UserSettingModel?) {
+        Defaults[userSetting] = userSettingResult?.toJSONString()
+    }
+
+    public static func saveDayOffSettings(listDayOffResult: [DayOffModel]?) {
+        Defaults[listDayOffSetting] = listDayOffResult?.toJSONString()
+    }
+
+    public static func saveLeaveTypeSettings(listLeaveTypeResult: [LeaveTypeModel]?) {
+        Defaults[listLeaveTypeSetting] = listLeaveTypeResult?.toJSONString()
     }
 
     public static func getLocalUserProfile() -> UserProfileModel? {
@@ -91,7 +106,7 @@ class UserServices {
         guard let dataRaw = Defaults[listLeaveTypeSetting] else {
             return nil
         }
-
+        
         return [LeaveTypeModel](JSONString: dataRaw)
     }
 }

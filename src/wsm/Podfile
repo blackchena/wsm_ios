@@ -18,10 +18,12 @@ target 'wsm' do
 
     pod 'InAppLocalize'
     pod "Floaty"
-    pod 'AFDateHelper', '~> 4.2.4'
+#    pod 'AFDateHelper', '~> 4.2.4'
     pod 'ObjectMapper'
     pod 'SwiftyUserDefaults'
     pod "PromiseKit", "~> 4.4"
     pod "TextFieldEffects"
     pod 'ACFloatingTextfield-Swift'
+    pod 'MaterialComponents/ShadowElevations'
+    pod 'MaterialComponents/ShadowLayer'
 end

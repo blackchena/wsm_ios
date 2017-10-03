@@ -16,7 +16,6 @@ class LoginModel: BaseModel {
     var userId: Int?
 
     required init?(map: Map) {
-
     }
 
     public func mapping(map: Map) {

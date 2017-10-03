@@ -69,6 +69,10 @@ public enum API {
     case getListDayOffSettings
     case submitRequestOt(requestModel: RequestOtApiInputModel)
     case submitRequestLeave(requestModel: RequestLeaveApiInputModel)
+    case getListRequestLeaves
+    case getListRequestOts
+    case getListRequestOff
+    case getTimeSheets(month: Int, year: Int)
 }
 
 extension TargetType {
@@ -121,6 +125,14 @@ extension API: TargetType {
             return "/api/dashboard/request_ots"
         case .submitRequestLeave:
             return "/api/dashboard/request_leaves"
+        case .getListRequestLeaves:
+            return "/api/dashboard/request_leaves"
+        case .getListRequestOts:
+            return "/api/dashboard/request_ots"
+        case .getListRequestOff:
+            return "/api/dashboard/request_offs"
+        case .getTimeSheets:
+            return "/api/dashboard/user_timesheets"
         }
     }
 
@@ -131,10 +143,7 @@ extension API: TargetType {
              .submitRequestOt,
              .submitRequestLeave:
             return .post
-        case .getProfile,
-             .getUserSettings,
-             .getListLeaveTypesSettings,
-             .getListDayOffSettings:
+        default:
             return .get
         }
     }
@@ -161,11 +170,11 @@ extension API: TargetType {
             return [
                 "request_leave": requestModel.toJSON()
             ]
-        case .logout,
-             .getProfile,
-             .getUserSettings,
-             .getListLeaveTypesSettings,
-             .getListDayOffSettings:
+        case .getProfile(let userId):
+            return ["user_id": userId]
+        case .getTimeSheets(let month, let year):
+            return ["month": month, "year": year]
+        default:
             return nil
         }
     }
@@ -201,7 +210,7 @@ public struct ApiProvider {
 
     fileprivate static func getDefaultProvider() -> MoyaProvider<API> {
         let plugins: [PluginType] = [
-            NetworkLoggerPlugin(verbose: true, output: debugLog, responseDataFormatter: JSONResponseDataFormatter),
+//            NetworkLoggerPlugin(verbose: true, output: debugLog, responseDataFormatter: JSONResponseDataFormatter),
             NetworkActivityPlugin(networkActivityClosure: networkActivityClosure),
             WsmAccessTokenPlugin()
         ]
