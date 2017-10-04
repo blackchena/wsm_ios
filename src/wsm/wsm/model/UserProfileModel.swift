@@ -61,7 +61,7 @@ class UserProfileModel: BaseModel {
 
     func getAvatarURL() -> URL? {
         if let avatarUrl = avatar {
-            return URL(string: API.baseURLString + avatarUrl)
+            return URL(string: ApiProvider.baseURLString + avatarUrl)
         }
         return nil
     }
