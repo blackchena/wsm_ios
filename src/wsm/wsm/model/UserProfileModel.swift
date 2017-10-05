@@ -24,10 +24,10 @@ class UserProfileModel: BaseModel {
     var individualCode: String?
     var namePosition: String?
     var nameStaffType: String?
-    var special: String?
     var id: Int?
     var employeeCode: String?
     var name: String?
+    var special = UserSpecial.normal
 
     var isManager: Bool?
 

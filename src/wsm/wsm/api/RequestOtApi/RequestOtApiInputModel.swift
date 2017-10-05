@@ -33,8 +33,8 @@ public class RequestOtApiInputModel: BaseModel {
     }
 
     func getOtTime() -> String {
-        if let from = endTime?.toDate(dateFormat: Date.dateTimeFormat),
-            let to = fromTime?.toDate(dateFormat: Date.dateTimeFormat) {
+        if let from = endTime?.toDate(dateFormat: AppConstant.requestDateFormat),
+            let to = fromTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
             let duration = from.timeIntervalSince(to)
             return String(format: "%.2f", duration / 3600)
         }

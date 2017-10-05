@@ -26,9 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.appTintColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appTintColor]
 
-        LocalizationHelper.shared.addSupportedLanguage(["vi", "en"])
-        if let langCode = Locale.current.languageCode {
+        LocalizationHelper.shared.addSupportedLanguage(AppConstant.supportLanguages)
+        if let langCode = Locale.current.languageCode,
+            AppConstant.supportLanguages.contains(langCode) {
             LocalizationHelper.shared.setCurrentLanguage(langCode)
+        } else {
+            LocalizationHelper.shared.setCurrentLanguage(AppConstant.defaultLanguage)
         }
 
         AppDelegate.initRootView()
