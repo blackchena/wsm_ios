@@ -90,7 +90,7 @@ extension ConfirmCreateRequestOtViewController: UITableViewDelegate, UITableView
 extension ConfirmCreateRequestOtViewController: ConfirmCreateRequestOtViewControllerType {
     
     func didSubmitRequestSuccess() {
-        navigationController?.popToRootViewController(animated: true)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
 }
 

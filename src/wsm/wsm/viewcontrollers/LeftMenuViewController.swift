@@ -68,6 +68,9 @@ class LeftMenuViewController: UIViewController {
         if let header = Bundle.main.loadNibNamed("LeftMenuHeaderCell", owner: self, options: nil)?.first
             as? LeftMenuHeaderCell {
             tableView.tableHeaderView = header
+            header.logoutAction = { [weak self] in
+                    self?.logout()
+            }
         }
     }
 }
@@ -205,6 +208,23 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         return items
+    }
+}
+
+extension LeftMenuViewController {
+    func logout() {
+        AlertHelper.showLoading()
+        LoginProvider.logout()
+            .then{ _ -> Void in
+                UserServices.clearAllUserData()
+                AppDelegate.showLoginPage()
+            }
+            .always {
+                AlertHelper.hideLoading()
+        }
+            .catch { error in
+                AlertHelper.showError(error: error)
+        }
     }
 }
 

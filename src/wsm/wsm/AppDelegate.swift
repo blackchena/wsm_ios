@@ -31,36 +31,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             LocalizationHelper.shared.setCurrentLanguage(langCode)
         }
 
-        AppDelegate.initRootViewControllerIfDidLogin()
+        AppDelegate.initRootView()
 
         return true
     }
-
-    static func initRootViewControllerIfDidLogin() {
+    
+    static func initRootView() {
         if UserServices.isAlreadyLogin {
-            let navigationController = UIViewController.getStoryboardController(identifier: "NavigationController")
-            let mainViewController = UIViewController.getStoryboardController(identifier: "MainViewController")
-            let timeSheetVc = UIViewController.getStoryboardController(identifier: "TimeSheetViewController")
+            showHomePage()
+        }
+        else {
+            showLoginPage()
+        }
+    }
 
-            guard let mainNav = navigationController as? NavigationController else {
-                return
-            }
-
-            mainNav.setViewControllers([timeSheetVc], animated: false)
-
-            guard let mainVc = mainViewController as? MainViewController else {
-                return
-            }
-
-            mainVc.rootViewController = mainNav
-
-            if let window = UIApplication.shared.delegate?.window {
-                window!.rootViewController = mainViewController
-                UIView.transition(with: window!,
-                                  duration: 0.3,
-                                  options: [.transitionCrossDissolve],
-                                  animations: nil, completion: nil)
-            }
+    static func showHomePage() {
+        let navigationController = UIViewController.getStoryboardController(identifier: "NavigationController")
+        let mainViewController = UIViewController.getStoryboardController(identifier: "MainViewController")
+        let timeSheetVc = UIViewController.getStoryboardController(identifier: "TimeSheetViewController")
+        
+        guard let mainNav = navigationController as? NavigationController else {
+            return
+        }
+        
+        mainNav.setViewControllers([timeSheetVc], animated: false)
+        
+        guard let mainVc = mainViewController as? MainViewController else {
+            return
+        }
+        
+        mainVc.rootViewController = mainNav
+        
+        if let window = UIApplication.shared.delegate?.window {
+            window!.rootViewController = mainViewController
+            UIView.transition(with: window!,
+                              duration: 0.3,
+                              options: [.transitionCrossDissolve],
+                              animations: nil, completion: nil)
+        }
+    }
+    
+    static func showLoginPage() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = mainStoryboard.instantiateInitialViewController()
+        
+        if let window = UIApplication.shared.delegate?.window {
+            window!.rootViewController = loginViewController
+            UIView.transition(with: window!,
+                              duration: 0.3,
+                              options: [.transitionCrossDissolve],
+                              animations: nil, completion: nil)
         }
     }
 
