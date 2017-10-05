@@ -28,9 +28,10 @@ fileprivate enum LoginApiEndpoint: BaseApiTargetType {
 
     public var method: Moya.Method {
         switch self {
-        case .login,
-             .logout:
+        case .login:
             return .post
+        case .logout:
+            return .delete
         }
     }
 

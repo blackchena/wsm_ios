@@ -33,6 +33,10 @@ class UserServices {
     public static func saveAuthToken(token: String?) {
         Defaults[authToken] = token
     }
+    
+    static func clearToken() {
+         Defaults[authToken] = nil
+    }
 
     public static func getAuthToken() -> String? {
         return Defaults[authToken]
@@ -65,17 +69,33 @@ class UserServices {
     public static func saveUserProfile(userProfileResult: UserProfileModel?) {
         Defaults[userProfile] = userProfileResult?.toJSONString()
     }
+    
+    public static func clearUserProfile() {
+        Defaults[userProfile] = nil
+    }
 
     public static func saveUserSetting(userSettingResult: UserSettingModel?) {
         Defaults[userSetting] = userSettingResult?.toJSONString()
+    }
+    
+    public static func clearUserSetting() {
+        Defaults[userSetting] = nil
     }
 
     public static func saveDayOffSettings(listDayOffResult: [DayOffModel]?) {
         Defaults[listDayOffSetting] = listDayOffResult?.toJSONString()
     }
+    
+    public static func clearDayOffSettings() {
+        Defaults[listDayOffSetting] = nil
+    }
 
     public static func saveLeaveTypeSettings(listLeaveTypeResult: [LeaveTypeModel]?) {
         Defaults[listLeaveTypeSetting] = listLeaveTypeResult?.toJSONString()
+    }
+    
+    public static func clearLeaveTypeSettings() {
+        Defaults[listLeaveTypeSetting] = nil
     }
 
     public static func getLocalUserProfile() -> UserProfileModel? {
@@ -108,5 +128,13 @@ class UserServices {
         }
         
         return [LeaveTypeModel](JSONString: dataRaw)
+    }
+    
+     static func clearAllUserData() {
+        clearToken()
+        clearUserProfile()
+        clearUserSetting()
+        clearDayOffSettings()
+        clearLeaveTypeSettings()
     }
 }

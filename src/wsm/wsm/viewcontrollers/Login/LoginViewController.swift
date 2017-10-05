@@ -57,6 +57,6 @@ class LoginViewController: BaseViewController {
 
 extension LoginViewController: LoginControllerType {
     func didLoginSuccess() {
-        AppDelegate.initRootViewControllerIfDidLogin()
+        AppDelegate.initRootView()
     }
 }

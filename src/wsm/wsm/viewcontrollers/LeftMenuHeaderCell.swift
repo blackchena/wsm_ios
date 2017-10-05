@@ -15,6 +15,7 @@ class LeftMenuHeaderCell: UIView {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    var logoutAction: (() -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,5 +40,6 @@ class LeftMenuHeaderCell: UIView {
     }
 
     @IBAction func logoutBtnClick(_ sender: Any) {
+        logoutAction?()
     }
 }

@@ -157,6 +157,6 @@ extension ConfirmCreateRequestLeaveViewController: UITableViewDelegate, UITableV
 extension ConfirmCreateRequestLeaveViewController: ConfirmCreateRequestLeaveViewControllerType {
     
     func didSubmitRequestSuccess() {
-        navigationController?.popToRootViewController(animated: true)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
 }
