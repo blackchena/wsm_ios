@@ -31,13 +31,11 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     @IBOutlet weak var checkOutLabel: LocalizableLabel!
     @IBOutlet weak var checkInExampleLabel: LocalizableLabel!
     @IBOutlet weak var checkOutExampleLabel: LocalizableLabel!
-    @IBOutlet weak var checkInViewFullWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var checkInViewHalfWidthConstraint: NSLayoutConstraint!
 
+    fileprivate let emptyError = LocalizationHelper.shared.localized("is_empty")
     fileprivate let requestModel = RequestLeaveApiInputModel()
     fileprivate let leaveTypes = UserServices.getLocalLeaveTypeSettings() ?? [LeaveTypeModel]()
 
-    fileprivate let halfWidth: CGFloat = 0.475
     fileprivate let leaveTypePicker = UIPickerView()
     fileprivate let trackingDatePicker = UIDatePicker()
     fileprivate let checkInDatePicker = UIDatePicker()
@@ -49,13 +47,24 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         onLeaveTypeSelected()
+
+        requestModel.companyId = currentUser?.company?.id
+
+        trackingTextField.isRequired = true
+        checkInTextField.isRequired = true
+        checkOutTextField.isRequired = true
+        compensationFromTextField.isRequired = true
+        compensationToTextField.isRequired = true
+        reasonTextField.isRequired = true
     }
 
     override func setupPicker() {
         super.setupPicker()
 
         leaveTypePicker.delegate = self
+        leaveTypeTextField.isPicker = true
         leaveTypeTextField.inputView = leaveTypePicker
         leaveTypeTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onLeaveTypeSelected))
     }
@@ -69,6 +78,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
         }
     }
 
+
     override func onBranchSelected() {
         super.onBranchSelected()
         requestModel.workspaceId = workSpaces[branchPicker.selectedRow(inComponent: 0)].id
@@ -77,6 +87,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     override func onGroupSelected() {
         super.onGroupSelected()
         requestModel.groupId = groups[groupPicker.selectedRow(inComponent: 0)].id
+        clearTrackingTimes()
     }
 
     @objc func onLeaveTypeSelected() {
@@ -84,6 +95,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
         let typeSelected = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
         leaveTypeTextField.text = typeSelected.name
         requestModel.leaveTypeId = typeSelected.id
+        clearTrackingTimes()
 
         switch typeSelected.trackingTimeType {
         case .checkOut:
@@ -118,59 +130,106 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     }
 
     @IBAction func nextButtonClick(_ sender: Any) {
-        if /*isValid() && requestModel.isValid(),*/
-            let confirmVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestLeaveViewController") as? ConfirmCreateRequestLeaveViewController {
+        if isRequestValid(),
+            let confirmVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestLeaveViewController")
+                as? ConfirmCreateRequestLeaveViewController {
+
             self.requestModel.projectName = projectNameTextField.text
             self.requestModel.reason = reasonTextField.text
             confirmVc.requestModel = self.requestModel
             self.navigationController?.pushViewController(confirmVc, animated: true)
         }
-
     }
 
     @objc private func onTrackingDateSelected() {
         self.view.endEditing(true)
-        self.trackingTextField.text = trackingDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
 
-        let trackingType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)].trackingTimeType
-        switch trackingType {
+        var isValid = false
+        var isCheckout = false
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
+
+        trackingView.isHidden = leaveType.trackingTimeType == .both
+        trackingBothView.isHidden = !trackingView.isHidden
+        trackingTextField.text = trackingDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
+
+        switch leaveType.trackingTimeType {
         case .checkOut:
-            requestModel.checkoutTime = self.trackingTextField.text
-            break
-        case .checkInM,
-             .checkIn,
-             .checkInA:
-            requestModel.checkinTime = self.trackingTextField.text
+            if isCheckOutValid(leaveTypeId: leaveType.id) {
+                requestModel.checkoutTime = trackingTextField.text
+                autoFillCompensationForInLate()
+            } else {
+                trackingTextField.text = ""
+            }
+            isCheckout = true
+        case .checkIn:
+            isValid = true
+        case .checkInM:
+            isValid = isInLateTimeValid()
+        case .checkInA:
+            isValid = isInLateAfternoonTimeValid()
         default:
             break
         }
 
-        trackingView.isHidden = trackingType == .both
-        trackingBothView.isHidden = !trackingView.isHidden
+        if !isCheckout {
+            if isValid {
+                requestModel.checkinTime = trackingTextField.text
+                autoFillCompensationForInLate()
+            } else {
+                trackingTextField.text = ""
+            }
+        }
     }
 
     @objc private func onCheckInDateSelected() {
         self.view.endEditing(true)
-        self.checkInTextField.text = checkInDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
-        requestModel.checkinTime = self.checkInTextField.text
+        self.checkInTextField.text = checkInDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
+        var isValid = false
+
+        if leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)].compensationKind == CompensationKind.require {
+            isValid = isLeaveOutFromValid()
+        } else {
+            isValid = true
+        }
+
+        if isValid {
+            requestModel.checkinTime = self.checkInTextField.text
+            clearCompensationTimes()
+        } else {
+            self.checkInTextField.text = ""
+        }
     }
 
     @objc private func onCheckOutDateSelected() {
         self.view.endEditing(true)
-        self.checkOutTextField.text = checkOutDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
-        requestModel.checkoutTime = self.checkOutTextField.text
+
+        if isCheckInEmpty() {
+            return
+        }
+
+        self.checkOutTextField.text = checkOutDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
+        var isValid = false
+
+        if leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)].compensationKind == CompensationKind.require {
+            isValid = isLeaveOutToValid()
+        } else {
+            isValid = isForgotCheckOutTimeValid()
+        }
+
+        if isValid {
+            requestModel.checkoutTime = self.checkOutTextField.text
+            autoFillCompensationForInLate()
+        } else {
+            clearCompensationTimes()
+        }
     }
 
     @objc private func onConpensationFromDateSelected() {
         self.view.endEditing(true)
-        self.compensationFromTextField.text = compensationFromDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
+        self.compensationFromTextField.text = compensationFromDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
         requestModel.compensationAttributes.compensationFrom = self.compensationFromTextField.text
-    }
 
-    @objc private func onConpensationToDateSelected() {
-        self.view.endEditing(true)
-        self.compensationToTextField.text = compensationToDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
-        requestModel.compensationAttributes.compensationTo = self.compensationToTextField.text
+        autoFillCompensationForInLate()
     }
 
     @IBAction func selectTrackingDate(_ sender: UITextField) {
@@ -184,8 +243,10 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     }
 
     @IBAction func selectCheckOutDate(_ sender: UITextField) {
-        checkOutTextField.inputView = checkOutDatePicker
-        checkOutTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onCheckOutDateSelected))
+        if !isCheckInEmpty() {
+            checkOutTextField.inputView = checkOutDatePicker
+            checkOutTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onCheckOutDateSelected))
+        }
     }
 
     @IBAction func selectCompensationFromDate(_ sender: UITextField) {
@@ -194,8 +255,25 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     }
 
     @IBAction func selectCompensationToDate(_ sender: UITextField) {
-        compensationToTextField.inputView = compensationToDatePicker
-        compensationToTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onConpensationToDateSelected))
+        AlertHelper.showInfo(message: LocalizationHelper.shared.localized("you_just_need_choose_the_compensation_from_time"))
+    }
+
+    func clearTrackingTimes() {
+        trackingTextField.text = ""
+        checkInTextField.text = ""
+        reasonTextField.text = ""
+        requestModel.checkinTime = ""
+        requestModel.reason = ""
+        clearCompensationTimes()
+    }
+
+    func clearCompensationTimes() {
+        checkOutTextField.text = ""
+        compensationToTextField.text = ""
+        compensationFromTextField.text = ""
+        requestModel.checkoutTime = ""
+        requestModel.compensationAttributes.compensationFrom = ""
+        requestModel.compensationAttributes.compensationTo = ""
     }
 }
 
@@ -225,5 +303,417 @@ extension CreateRequestLeaveViewController {
         default:
             return ""
         }
+    }
+}
+
+// MARK: validate
+extension CreateRequestLeaveViewController {
+
+    func isRequestValid() -> Bool {
+        var result = true
+        let error = LocalizationHelper.shared.localized("is_empty")
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
+        switch leaveType.trackingTimeType {
+        case .both:
+            if checkInTextField.isEmpty() {
+                checkInTextField.showErrorWithText(errorText: error)
+                result = false
+            }
+            if checkOutTextField.isEmpty() {
+                checkOutTextField.showErrorWithText(errorText: error)
+                result = false
+            }
+        case .checkIn,
+             .checkInA,
+             .checkInM,
+             .checkOut:
+            if trackingTextField.isEmpty() {
+                trackingTextField.showErrorWithText(errorText: error)
+                result = false
+            }
+        }
+
+        if leaveType.compensationKind == .require {
+            if compensationFromTextField.isEmpty() {
+                compensationFromTextField.showErrorWithText(errorText: error)
+                result = false
+            }
+            if compensationToTextField.isEmpty() {
+                compensationToTextField.showErrorWithText(errorText: error)
+                result = false
+            }
+            if reasonTextField.isEmpty() {
+                reasonTextField.showErrorWithText(errorText: error)
+                result = false
+            }
+        }
+
+        return result
+    }
+
+    func isInLateTimeValid() -> Bool{
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let selectedDate = trackingDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeIn = workspace.shifts[0].timeIn,
+            let timeLunch = workspace.shifts[0].timeLunch,
+            let maxComeLate = workspace.shifts[0].maxComeLate,
+            let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
+            let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
+                return false
+        }
+
+        if selectedDate <= inDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("this_is_form_request_late_time_in_is_incorrect"))
+            return false
+        }
+
+        if !(selectedDate < luchDate && selectedDate > inDate) {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("check_in_time_must_be_in_morning_shift"))
+            return false
+        }
+
+        let duration = selectedDate.timeIntervalSince(inDate)
+        if Int(duration) > maxComeLate * 3600{
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
+            return false
+        }
+
+        return true
+    }
+
+    func isInLateAfternoonTimeValid() -> Bool{
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let selectedDate = trackingDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeout = workspace.shifts[0].timeOut,
+            let timeAfternoon = workspace.shifts[0].timeAfternoon,
+            let maxComeLate = workspace.shifts[0].maxComeLate,
+            let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
+            let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
+                return false
+        }
+
+        if selectedDate <= inDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("this_is_form_request_late_time_in_is_incorrect"))
+            return false
+        }
+
+        if !(selectedDate < outDate && selectedDate > inDate) {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("check_in_time_must_be_in_afternoon_shift"))
+            return false
+        }
+
+        let duration = selectedDate.timeIntervalSince(inDate)
+        if Int(duration) > maxComeLate * 3600 || Int(duration) * -1 > maxComeLate * 3600{
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
+            return false
+        }
+
+        return true
+    }
+
+    func isLeaveEarlyTimeValid() -> Bool {
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let selectedDate = trackingDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeIn = workspace.shifts[0].timeIn,
+            let timeLunch = workspace.shifts[0].timeLunch,
+            let maxLevesEarly = workspace.shifts[0].maxLevesEarly,
+            let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
+            let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
+                return false
+        }
+
+        if selectedDate <= inDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_be_sooner_than_time_in_of_company"))
+            return false
+        }
+
+        if !(selectedDate < luchDate && selectedDate > inDate) {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("check_in_time_must_be_in_morning_shift"))
+            return false
+        }
+
+        let duration = luchDate.timeIntervalSince(selectedDate)
+        if Int(duration) > maxLevesEarly * 3600 {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
+            return false
+        }
+
+        return true
+    }
+
+    func isLeaveEarlyAfternoonTimeValid() -> Bool {
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let selectedDate = trackingDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeout = workspace.shifts[0].timeOut,
+            let timeAfternoon = workspace.shifts[0].timeAfternoon,
+            let maxLevesEarly = workspace.shifts[0].maxLevesEarly,
+            let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
+            let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
+                return false
+        }
+
+        if selectedDate <= inDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_be_sooner_than_time_in_of_company"))
+            return false
+        }
+
+        if !(selectedDate < outDate && selectedDate > inDate) {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("check_in_time_must_be_in_afternoon_shift"))
+            return false
+        }
+
+        let duration = outDate.timeIntervalSince(selectedDate)
+        if Int(duration) > maxLevesEarly * 3600 {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
+            return false
+        }
+
+        return true
+    }
+
+    func isCheckOutTimeValid() -> Bool {
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let selectedDate = trackingDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeIn = workspace.shifts[0].timeIn,
+            let timeLunch = workspace.shifts[0].timeLunch,
+            let maxComeLate = workspace.shifts[0].maxComeLate,
+            let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
+            let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
+                return false
+        }
+
+        if selectedDate <= inDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("this_is_form_request_late_time_in_is_incorrect"))
+            return false
+        }
+
+        if !(selectedDate < luchDate && selectedDate > inDate) {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("check_in_time_must_be_in_morning_shift"))
+            return false
+        }
+
+        let duration = inDate.timeIntervalSince(selectedDate)
+        if Int(duration) > maxComeLate * 3600 || Int(duration) * -1 > maxComeLate * 3600{
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
+            return false
+        }
+        return true
+    }
+
+    func isLeaveOutFromValid() -> Bool {
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let selectedDate = checkInDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeIn = workspace.shifts[0].timeIn,
+            let timeLunch = workspace.shifts[0].timeLunch,
+            let timeAfternoon = workspace.shifts[0].timeAfternoon,
+            let timeOut = workspace.shifts[0].timeOut,
+            let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
+            let afternoonDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
+            let lunchDate = selectedDate.createDateFromTimeOf(date: timeLunch),
+            let outDate = selectedDate.createDateFromTimeOf(date: timeOut) else {
+                return false
+        }
+
+        if selectedDate >= lunchDate && selectedDate <= afternoonDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_in_lunch_break_time_of_company"))
+            return false
+        }
+
+        if selectedDate < inDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_be_sooner_than_time_in_of_company"))
+            return false
+        }
+
+        if selectedDate >= outDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_be_later_than_time_out_company"))
+            return false
+        }
+
+        return true
+    }
+
+    func isCheckInEmpty () -> Bool {
+        if checkInTextField.isEmpty() {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("you_have_to_choose_the_check_in_time_first"))
+            return true
+        }
+        return false
+    }
+
+    func isLeaveOutToValid() -> Bool {
+        if isCheckInEmpty() {
+            return false
+        }
+
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let checkInDate = checkInDatePicker.date
+        let selectedDate = checkOutDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeIn = workspace.shifts[0].timeIn,
+            let timeLunch = workspace.shifts[0].timeLunch,
+            let timeAfternoon = workspace.shifts[0].timeAfternoon,
+            let timeOut = workspace.shifts[0].timeOut,
+            let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
+            let afternoonDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
+            let lunchDate = selectedDate.createDateFromTimeOf(date: timeLunch),
+            let outDate = selectedDate.createDateFromTimeOf(date: timeOut),
+            let maxLevesEarly = workspace.shifts[0].maxLevesEarly else {
+                return false
+        }
+
+        if selectedDate >= lunchDate && selectedDate <= afternoonDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_in_lunch_break_time_of_company"))
+            return false
+        }
+
+        if selectedDate <= checkInDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("request_time_to_can_not_greater_than_request_time_from"))
+            return false
+        }
+
+        if selectedDate < inDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_be_sooner_than_time_in_of_company"))
+            return false
+        }
+
+        if selectedDate > outDate {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_be_later_than_time_out_company"))
+            return false
+        }
+
+        var lunchBreakTime = 0
+        if checkInDate < lunchDate && selectedDate > afternoonDate {
+            lunchBreakTime = Int(afternoonDate.timeIntervalSince(lunchDate))
+        }
+
+        let duration = selectedDate.timeIntervalSince(checkInDate)
+        if Int(duration) - lunchBreakTime > maxLevesEarly * 3600 {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
+            return false
+        }
+
+        return true
+    }
+
+    func isForgotCheckOutTimeValid() -> Bool {
+        if isCheckInEmpty() {
+            return false
+        }
+
+        if checkOutDatePicker.date <= checkInDatePicker.date {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("request_time_to_can_not_greater_than_request_time_from"))
+            return false
+        }
+
+        return true
+    }
+
+    func isCheckOutValid(leaveTypeId: Int?) -> Bool {
+        if let id = leaveTypeId {
+            switch id {
+            case TrackingCheckOutTypeId.leaveEarlyM.rawValue,
+                 TrackingCheckOutTypeId.leaveEarlyWomanM.rawValue:
+                return isLeaveEarlyTimeValid()
+            case TrackingCheckOutTypeId.leaveEarlyA.rawValue,
+                 TrackingCheckOutTypeId.leaveEarlyWomanA.rawValue:
+                return isLeaveEarlyAfternoonTimeValid()
+            default:
+                return true
+            }
+        }
+        return false
+    }
+}
+
+// Mark: Compensation
+extension CreateRequestLeaveViewController {
+    func autoFillCompensationForInLate() {
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
+        if leaveType.compensationKind == .notRequire {
+            return
+        }
+
+        let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let trackingDate = trackingDatePicker.date
+        let checkOutDate = checkOutDatePicker.date
+        let checkInDate = checkInDatePicker.date
+        guard workspace.shifts.count > 0,
+            let timeIn = workspace.shifts[0].timeIn,
+            let timeLunch = workspace.shifts[0].timeLunch,
+            let timeAfternoon = workspace.shifts[0].timeAfternoon,
+            let timeOut = workspace.shifts[0].timeOut,
+            let inDate = checkInDate.createDateFromTimeOf(date: timeIn),
+            let afternoonDate = checkInDate.createDateFromTimeOf(date: timeAfternoon),
+            let lunchDate = checkInDate.createDateFromTimeOf(date: timeLunch),
+            let outDate = checkInDate.createDateFromTimeOf(date: timeOut) else {
+                return
+        }
+
+        if compensationFromTextField.isEmpty() {
+            compensationFromDatePicker.date = outDate
+            compensationFromTextField.text = outDate.toString(dateFormat: AppConstant.requestDateFormat)
+            requestModel.compensationAttributes.compensationFrom = compensationFromTextField.text
+        }
+
+        //compensation duration
+        var compensationDuration = 0.0
+        switch leaveType.trackingTimeType {
+        case .checkOut:
+            if leaveType.id == TrackingCheckOutTypeId.leaveEarlyM.rawValue {
+                compensationDuration = lunchDate.timeIntervalSince(trackingDate)
+            } else if leaveType.id == TrackingCheckOutTypeId.leaveEarlyA.rawValue {
+                compensationDuration = outDate.timeIntervalSince(trackingDate)
+            }
+        case .checkInM:
+            compensationDuration = trackingDate.timeIntervalSince(inDate)
+            break
+        case .checkInA:
+            compensationDuration = trackingDate.timeIntervalSince(afternoonDate)
+            break
+        case .both:
+            compensationDuration = checkOutDate.timeIntervalSince(checkInDate)
+        default:
+            break
+        }
+
+        var compensationEndDate: Date?
+        if let blockMinutes = leaveType.blockMinutes, blockMinutes > 0 {
+            let blockSeconds = blockMinutes * 60
+            let surplus = Int(compensationDuration) % blockSeconds
+            var multiple = Int(compensationDuration) / blockSeconds
+            if surplus > 0 {
+                multiple += 1
+            }
+            compensationEndDate = Calendar.current.date(byAdding: .minute, value: multiple*blockMinutes, to: compensationFromDatePicker.date)
+
+        } else {
+            compensationEndDate = Calendar.current.date(byAdding: .second, value: Int(compensationDuration), to: compensationFromDatePicker.date)
+        }
+
+        if let special = currentUser?.special, let date = compensationEndDate {
+            switch special {
+            case .children:
+                if let correctDate = Calendar.current.date(byAdding: .minute, value: -15, to: date),
+                    correctDate > compensationFromDatePicker.date {
+                    compensationEndDate = correctDate
+                }
+            case .baby:
+                if let correctDate = Calendar.current.date(byAdding: .hour, value: -1, to: date),
+                    correctDate > compensationFromDatePicker.date {
+                    compensationEndDate = correctDate
+                }
+            default:
+                break
+            }
+        }
+
+        compensationToTextField.text = compensationEndDate?.toString(dateFormat: AppConstant.requestDateFormat)
+        requestModel.compensationAttributes.compensationTo = compensationToTextField.text
     }
 }

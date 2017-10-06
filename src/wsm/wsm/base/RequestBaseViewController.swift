@@ -47,9 +47,11 @@ class RequestBaseViewController: NoMenuBaseViewController {
         branchPicker.delegate = self
         groupPicker.delegate = self
 
+        branchTextField.isPicker = true
         branchTextField.inputView = branchPicker
         branchTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onBranchSelected))
 
+        groupTextField.isPicker = true
         groupTextField.inputView = groupPicker
         groupTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onGroupSelected))
     }

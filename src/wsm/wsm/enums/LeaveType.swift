@@ -20,3 +20,11 @@ public enum CompensationKind: String {
     case require = "is_require"
     case notRequire = "not_require"
 }
+
+public enum TrackingCheckOutTypeId: Int {
+    case leaveEarlyM = 2
+    case leaveEarlyA = 14
+    case leaveEarlyWomanM = 16
+    case leaveEarlyWomanA = 17
+}
+

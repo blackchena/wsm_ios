@@ -35,8 +35,8 @@ PODS:
   - InAppLocalize (0.1.0)
   - Kingfisher (3.12.2)
   - LGSideMenuController (2.1.1)
-  - MaterialComponents/ShadowElevations (35.0.0)
-  - MaterialComponents/ShadowLayer (35.0.0)
+  - MaterialComponents/ShadowElevations (34.0.2)
+  - MaterialComponents/ShadowLayer (34.0.2)
   - Moya (8.0.5):
     - Moya/Core (= 8.0.5)
   - Moya/Core (8.0.5):
@@ -107,7 +107,7 @@ SPEC CHECKSUMS:
   InAppLocalize: bdee44c374762f9c61ef801bd0c4edb11d9ae968
   Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
-  MaterialComponents: c45311601868f5df6dc307feb4ce24db20ca3e9e
+  MaterialComponents: 44db9edded1a9b5c3be5af286bd0b1be47b66b74
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958

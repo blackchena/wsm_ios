@@ -18,6 +18,8 @@
 		5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100D3B41F73539400F44329 /* LeftMenuHeaderCell.swift */; };
 		5100D3B91F7356E100F44329 /* LeftMenuSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */; };
 		5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */; };
+		5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */; };
+		5117021F1F83382C001BC69A /* UserSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117021E1F83382C001BC69A /* UserSpecial.swift */; };
 		51221C051F7B370F002F17E0 /* UserGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51221C041F7B370F002F17E0 /* UserGroup.swift */; };
 		51221C071F7B3720002F17E0 /* UserWorkSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51221C061F7B3720002F17E0 /* UserWorkSpace.swift */; };
 		51221C091F7B5852002F17E0 /* ConfirmCreateRequestOtViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51221C081F7B5852002F17E0 /* ConfirmCreateRequestOtViewControllerType.swift */; };
@@ -27,7 +29,7 @@
 		5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD571F7276AA00E0478B /* NavigationController.swift */; };
 		5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */; };
 		5131FD641F7276E400E0478B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD631F7276E400E0478B /* MainViewController.swift */; };
-		5131FD6B1F72772000E0478B /* MenuEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD6A1F72772000E0478B /* MenuEnum.swift */; };
+		5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD6A1F72772000E0478B /* MenuGroup.swift */; };
 		5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154D9DB1F79DD6100A6A1B2 /* Date.swift */; };
 		51561F331F7908C700619723 /* UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51561F321F7908C700619723 /* UIToolbar.swift */; };
 		51561F351F79141E00619723 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51561F341F79141E00619723 /* vi.lproj */; };
@@ -209,6 +211,8 @@
 		5100D3B41F73539400F44329 /* LeftMenuHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuHeaderCell.swift; sourceTree = "<group>"; };
 		5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuSectionCell.xib; sourceTree = "<group>"; };
 		5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuSectionCell.swift; sourceTree = "<group>"; };
+		5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpaceShift.swift; sourceTree = "<group>"; };
+		5117021E1F83382C001BC69A /* UserSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSpecial.swift; path = enums/UserSpecial.swift; sourceTree = "<group>"; };
 		51221C041F7B370F002F17E0 /* UserGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGroup.swift; sourceTree = "<group>"; };
 		51221C061F7B3720002F17E0 /* UserWorkSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserWorkSpace.swift; sourceTree = "<group>"; };
 		51221C081F7B5852002F17E0 /* ConfirmCreateRequestOtViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCreateRequestOtViewControllerType.swift; sourceTree = "<group>"; };
@@ -218,7 +222,7 @@
 		5131FD571F7276AA00E0478B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		5131FD631F7276E400E0478B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Home/MainViewController.swift; sourceTree = "<group>"; };
-		5131FD6A1F72772000E0478B /* MenuEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuEnum.swift; sourceTree = "<group>"; };
+		5131FD6A1F72772000E0478B /* MenuGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuGroup.swift; sourceTree = "<group>"; };
 		5154D9DB1F79DD6100A6A1B2 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		51561F321F7908C700619723 /* UIToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIToolbar.swift; sourceTree = "<group>"; };
 		51561F341F79141E00619723 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 				51221C061F7B3720002F17E0 /* UserWorkSpace.swift */,
 				51221C0F1F7B6287002F17E0 /* RequestOtModel.swift */,
 				51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */,
+				5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */,
 				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
 				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
 				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
@@ -579,8 +584,9 @@
 		5131FD691F72771300E0478B /* enums */ = {
 			isa = PBXGroup;
 			children = (
-				5131FD6A1F72772000E0478B /* MenuEnum.swift */,
+				5131FD6A1F72772000E0478B /* MenuGroup.swift */,
 				51A281131F7CFB7700D4BFD0 /* LeaveType.swift */,
+				5117021E1F83382C001BC69A /* UserSpecial.swift */,
 				B833CCCB1F7B87B200D0F1ED /* TimeSheetSpecialCaseEnum.swift */,
 				B833CCCD1F7B90D500D0F1ED /* TimeSheetDayOffTypeEnum.swift */,
 			);
@@ -1149,7 +1155,8 @@
 				B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */,
 				B81AF7211F72096A00E579B2 /* FSCalendarCollectionView.m in Sources */,
 				51221C101F7B6287002F17E0 /* RequestOtModel.swift in Sources */,
-				5131FD6B1F72772000E0478B /* MenuEnum.swift in Sources */,
+				51692C9D1F7CE7CC00DE6248 /* CreateRequestLeaveApiOutModel.swift in Sources */,
+				5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */,
 				B81AF7201F72096A00E579B2 /* FSCalendar+Deprecated.m in Sources */,
 				B81AF71D1F72096A00E579B2 /* FSCalendarCalculator.m in Sources */,
 				B8C47F241F84BFCC0024F865 /* WsmAccessTokenPlugin.swift in Sources */,
@@ -1181,6 +1188,7 @@
 				5131FD641F7276E400E0478B /* MainViewController.swift in Sources */,
 				5131FD5C1F7276AA00E0478B /* LeftMenuCell.swift in Sources */,
 				51561F331F7908C700619723 /* UIToolbar.swift in Sources */,
+				5117021F1F83382C001BC69A /* UserSpecial.swift in Sources */,
 				B81AF7221F72096A00E579B2 /* FSCalendarCollectionViewLayout.m in Sources */,
 				B81AF7241F72096A00E579B2 /* FSCalendarDelegationProxy.m in Sources */,
 				5168BD041F73A7C400AA1287 /* Array.swift in Sources */,
@@ -1214,6 +1222,7 @@
 				B8C47F021F84BF010024F865 /* CreateRequestOtApiOutModel.swift in Sources */,
 				B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
+				5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */,
 				B83516951F79FCD8006B536E /* TimeSheetDayModel.swift in Sources */,
 				B81AF7231F72096A00E579B2 /* FSCalendarConstants.m in Sources */,
 				B833CCCE1F7B90D500D0F1ED /* TimeSheetDayOffTypeEnum.swift in Sources */,

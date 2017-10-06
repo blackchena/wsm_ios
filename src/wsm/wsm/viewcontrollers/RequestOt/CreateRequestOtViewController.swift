@@ -19,6 +19,14 @@ class CreateRequestOtViewController: RequestBaseViewController {
     let fromDatePicker = UIDatePicker()
     let toDatePicker = UIDatePicker()
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        projectNameTextField.isRequired = true
+        fromTextField.isRequired = true
+        toTextField.isRequired = true
+        reasonTextField.isRequired = true
+    }
+
     @IBAction func selectFrom(_ sender: UITextField) {
         sender.inputView = fromDatePicker
         sender.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onFromDateSelected))
@@ -34,7 +42,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
         if requestModel.endTime != nil && !validateDate(){
             return
         }
-        self.fromTextField.text = fromDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
+        self.fromTextField.text = fromDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
         requestModel.fromTime = self.fromTextField.text
     }
 
@@ -43,7 +51,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
         if requestModel.fromTime != nil && !validateDate() {
             return
         }
-        self.toTextField.text = toDatePicker.date.toString(dateFormat: Date.dateTimeFormat)
+        self.toTextField.text = toDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
         requestModel.endTime = self.toTextField.text
     }
 

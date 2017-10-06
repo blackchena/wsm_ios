@@ -12,6 +12,7 @@ import ObjectMapper
 class UserWorkSpace: BaseModel {
     var id: Int?
     var name: String?
+    var shifts = [WorkSpaceShift]()
 
     required init?(map: Map) {
     }
@@ -19,5 +20,8 @@ class UserWorkSpace: BaseModel {
     public func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
+        shifts <- map["shifts"]
     }
 }
+
+
