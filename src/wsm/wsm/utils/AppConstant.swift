@@ -20,4 +20,5 @@ class AppConstant {
     public static let TimeFormat24HDisplay = "HH:mm"
     public static let requestDateFormat = "yyyy/MM/dd HH:mm"
     public static let onlyDateFormat = "yyyy/MM/dd"
+    public static let onlyTime = "HH:mm"
 }
