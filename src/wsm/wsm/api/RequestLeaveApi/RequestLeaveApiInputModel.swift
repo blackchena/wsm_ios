@@ -38,21 +38,3 @@ public class RequestLeaveApiInputModel: BaseModel {
         companyId <- map["company_id"]
     }
 }
-
-class CompensationAttribute: BaseModel {
-    var compensationFrom: String?
-    var compensationTo: String?
-
-    init() {
-    }
-
-    required init?(map: Map) {
-    }
-
-    func mapping(map: Map) {
-        compensationFrom <- map["compensation_from"]
-        compensationTo <- map["compensation_to"]
-    }
-}
-
-

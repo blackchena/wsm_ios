@@ -29,7 +29,8 @@ class WsmTextField: ACFloatingTextfield {
     var isPicker: Bool = false {
         willSet {
             if newValue {
-                rightViewWith(text: "▼", color: UIColor.black)
+                tintColor = .clear
+                rightViewWith(text: "▼", color: .black)
             } else {
                 self.rightView = nil
                 self.rightViewMode = .never

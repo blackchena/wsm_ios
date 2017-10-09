@@ -129,6 +129,15 @@ class UserServices {
         
         return [LeaveTypeModel](JSONString: dataRaw)
     }
+
+    public static func findLocalLeaveTypeSetting(id: Int?) -> LeaveTypeModel? {
+        if let leavevTypes = getLocalLeaveTypeSettings(),
+            let i = leavevTypes.index(where: {$0.id == id}) {
+            return leavevTypes[i]
+        } else {
+            return nil
+        }
+    }
     
      static func clearAllUserData() {
         clearToken()

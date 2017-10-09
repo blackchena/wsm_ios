@@ -20,7 +20,7 @@ extension ConfirmCreateRequestLeaveViewControllerType where Self: UIViewControll
         AlertHelper.showLoading()
         RequestLeaveProvider.submitRequestLeave(requestModel: requestModel)
             .then { apiOutput -> Void in
-                RequestLeaveProvider.listRequests.append(apiOutput.requestModel!)
+                RequestLeaveProvider.shared.listRequests.append(apiOutput.requestModel!)
                 self.didSubmitRequestSuccess()
             }.catch { error in
                 AlertHelper.showError(error: error)
