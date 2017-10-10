@@ -18,6 +18,7 @@ class RequestLeaveCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         circleView.layer.cornerRadius = circleView.frame.height/2
     }
 

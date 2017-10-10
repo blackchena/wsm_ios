@@ -17,6 +17,7 @@ fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
 
     case submitRequestLeave(requestModel: RequestLeaveApiInputModel)
     case getListRequestLeaves(page: Int?, month: String?, status: Int?)
+    case deleteRequestLeave(int: Int)
 
     public var path: String {
         switch self {
@@ -24,6 +25,8 @@ fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
             return "/api/dashboard/request_leaves"
         case .getListRequestLeaves:
             return "/api/dashboard/request_leaves"
+        case .deleteRequestLeave(let id):
+            return "/api/dashboard/request_leaves/\(id)"
         }
     }
 
@@ -33,6 +36,8 @@ fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
             return .post
         case .getListRequestLeaves:
             return .get
+        case .deleteRequestLeave:
+            return .delete
         }
     }
 
@@ -44,6 +49,8 @@ fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
             ]
         case .getListRequestLeaves(let page, let month, let status):
             return ["page": page ?? "", "month": month ?? "", "q[status_eq]": status ?? ""]
+        default:
+            return nil
         }
     }
 }
@@ -59,5 +66,9 @@ final class RequestLeaveProvider {
 
     static func getListRequestLeaves(page: Int?, month: String?, status: Int?) -> Promise<ListRequestLeaveApiOutModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestLeaveApiEndpoint.getListRequestLeaves(page: page, month: month, status: status)))
+    }
+
+    static func deleteRequestLeave(id: Int) -> Promise<ResponseData> {
+        return ApiProvider.shared.requestPromise(target: MultiTarget(RequestLeaveApiEndpoint.deleteRequestLeave(int: id)))
     }
 }
