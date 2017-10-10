@@ -33,26 +33,26 @@ class CreateRequestOtViewController: RequestBaseViewController {
     }
 
     @IBAction func selectTo(_ sender: UITextField) {
-        sender.inputView = toDatePicker
-        sender.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onToDateSelected))
+        if !isFromDateEmpty() {
+            sender.inputView = toDatePicker
+            sender.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onToDateSelected))
+        }
     }
 
     @objc private func onFromDateSelected() {
         self.view.endEditing(true)
-        if requestModel.endTime != nil && !validateDate(){
-            return
-        }
-        self.fromTextField.text = fromDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
+        fromTextField.text = fromDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
+        toTextField.text = ""
         requestModel.fromTime = self.fromTextField.text
+        requestModel.endTime = ""
     }
 
     @objc private func onToDateSelected() {
         self.view.endEditing(true)
-        if requestModel.fromTime != nil && !validateDate() {
-            return
+        if isRequestTimeValid() {
+            self.toTextField.text = toDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
+            requestModel.endTime = self.toTextField.text
         }
-        self.toTextField.text = toDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
-        requestModel.endTime = self.toTextField.text
     }
 
     override func onBranchSelected() {
@@ -66,9 +66,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
     }
     
     @IBAction func textEditingEnd(_ sender: WsmTextField) {
-        if sender.isEmpty() {
-            sender.showErrorWithText(errorText: LocalizationHelper.shared.localized("is_empty"))
-        } else {
+        if !sender.isEmpty() {
             switch sender {
             case reasonTextField:
                 requestModel.reason = sender.text
@@ -80,15 +78,19 @@ class CreateRequestOtViewController: RequestBaseViewController {
         }
     }
 
-    func validateDate() -> Bool {
-        if toDatePicker.date < fromDatePicker.date {
-            AlertHelper.showInfo(message: LocalizationHelper.shared.localized("end_time_is_less_than_start_time"))
-            return false
+    @IBAction func nextBtnClick(_ sender: Any) {
+        if isRequestValid() && requestModel.isValid(),
+            let confirmOtVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOtViewController") as? ConfirmCreateRequestOtViewController {
+            self.requestModel.projectName = projectNameTextField.text
+            self.requestModel.reason = reasonTextField.text
+            confirmOtVc.requestModel = self.requestModel
+            self.navigationController?.pushViewController(confirmOtVc, animated: true)
         }
-        return true
     }
+}
 
-    func isValid() -> Bool {
+extension CreateRequestOtViewController {
+    func isRequestValid() -> Bool {
         var result = true
         let error = LocalizationHelper.shared.localized("is_empty")
         if projectNameTextField.isEmpty() {
@@ -110,13 +112,19 @@ class CreateRequestOtViewController: RequestBaseViewController {
         return result
     }
 
-    @IBAction func nextBtnClick(_ sender: Any) {
-        if isValid() && requestModel.isValid(),
-            let confirmOtVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOtViewController") as? ConfirmCreateRequestOtViewController {
-            self.requestModel.projectName = projectNameTextField.text
-            self.requestModel.reason = reasonTextField.text
-            confirmOtVc.requestModel = self.requestModel
-            self.navigationController?.pushViewController(confirmOtVc, animated: true)
+    func isRequestTimeValid() -> Bool {
+        if toDatePicker.date < fromDatePicker.date {
+            AlertHelper.showInfo(message: LocalizationHelper.shared.localized("end_time_is_less_than_start_time"))
+            return false
         }
+        return true
+    }
+
+    func isFromDateEmpty () -> Bool {
+        if fromTextField.isEmpty() {
+            AlertHelper.showError(message: LocalizationHelper.shared.localized("you_have_to_choose_the_from_time_first"))
+            return true
+        }
+        return false
     }
 }
