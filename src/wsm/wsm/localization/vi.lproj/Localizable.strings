@@ -103,9 +103,9 @@
 "from" = "Từ";
 "to" = "Đến";
 "pending" = "Đang chờ";
-"accepted" = "Chấp nhận";
-"rejected" = "Từ chối";
-"forwarded" = "Chuyển tiếp";
+"approve" = "Chấp nhận";
+"discard" = "Từ chối";
+"forward" = "Chuyển tiếp";
 "leave_type" = "Hình thức xin nghỉ";
 "compensation_time" = "Đăng ký thời gian làm bù";
 "example_time_from" = "Ví dụ: 2017/05/20 17:30";
@@ -343,7 +343,7 @@
 "november" = "Tháng 11";
 "december" = "Tháng 12";
 "current_month" = "Tháng hiện tại";
-"canceld" = "Hủy bỏ";
+"cancel" = "Hủy bỏ";
 "format_date_mm_dd_yyyy" = "dd/MM/yyyy";
 "your_age_is_under_employment" = "Bạn chưa đủ tuổi lao động";
 "change_password_success" = "Mật khẩu của bạn đã được thay đổi thành công!";
@@ -355,6 +355,6 @@
 "request_information" = "Chi tiết yêu cầu";
 "can_not_load_data" = "Không tải được dữ liệu. Vui lòng kiểm tra lại!";
 "can_not_find_request" = "Không tìm thấy yêu cầu!";
-"approve" = "Chấp nhận";
 "number_hour" = "Số giờ OT";
 "no_network_connection" = "Không có kết nối mạng !";
+"close" = "Đóng";

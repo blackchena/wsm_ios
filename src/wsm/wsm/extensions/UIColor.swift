@@ -9,8 +9,13 @@
 import Foundation
 
 extension UIColor {
-    static let appBarTintColor = UIColor(red: 0, green: 150/255, blue: 136/255, alpha: 1)
+    static let appBarTintColor = UIColor(red: 0, green: 150, blue: 136)
     static let appTintColor = UIColor.white
+    static let discardColor = UIColor(red: 203, green: 39, blue: 46)
+    static let forwardColor = UIColor(red: 0, green: 88, blue: 185)
+    static let pendingColor = UIColor(red: 60, green: 136, blue: 250)
+    static let cancelColor = UIColor(red: 4, green: 44, blue: 145)
+    static let approveColor = UIColor(red: 62, green: 177, blue: 86)
 
     convenience init(red: Int, green: Int, blue: Int) {
         self.init(red: CGFloat(red)/CGFloat(255.0),

@@ -27,6 +27,9 @@ class RequestLeaveModel: BaseModel {
     var handleByGroupName: String?
     var canApproveRejectRequest: Bool?
 
+    init() {
+    }
+
     required init?(map: Map) {
 
     }

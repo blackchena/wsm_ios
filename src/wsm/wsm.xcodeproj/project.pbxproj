@@ -34,6 +34,7 @@
 		513B326F1F8B338000D0D770 /* RequestFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 513B326E1F8B338000D0D770 /* RequestFilterView.xib */; };
 		513B32731F8B3AAF00D0D770 /* ic_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 513B32721F8B3AAF00D0D770 /* ic_clear.png */; };
 		513B32761F8B441300D0D770 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B32751F8B441300D0D770 /* MonthYearPickerView.swift */; };
+		513B32781F8B68F100D0D770 /* RequestLeaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */; };
 		5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154D9DB1F79DD6100A6A1B2 /* Date.swift */; };
 		51561F331F7908C700619723 /* UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51561F321F7908C700619723 /* UIToolbar.swift */; };
 		51561F351F79141E00619723 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51561F341F79141E00619723 /* vi.lproj */; };
@@ -236,6 +237,7 @@
 		513B326E1F8B338000D0D770 /* RequestFilterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestFilterView.xib; sourceTree = "<group>"; };
 		513B32721F8B3AAF00D0D770 /* ic_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_clear.png; sourceTree = "<group>"; };
 		513B32751F8B441300D0D770 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthYearPickerView.swift; path = customviews/MonthYearPickerView.swift; sourceTree = "<group>"; };
+		513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestLeaveDetailViewController.swift; path = RequestLeave/RequestLeaveDetailViewController.swift; sourceTree = "<group>"; };
 		5154D9DB1F79DD6100A6A1B2 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		51561F321F7908C700619723 /* UIToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIToolbar.swift; sourceTree = "<group>"; };
 		51561F341F79141E00619723 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 				5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */,
 				51E94E931F871EC6002368D3 /* RequestLeaveCell.swift */,
 				513B326C1F8B336000D0D770 /* RequestFilterView.swift */,
+				513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */,
 			);
 			name = RequestLeave;
 			sourceTree = "<group>";
@@ -1239,6 +1242,7 @@
 				51692C991F7CE6A900DE6248 /* RequestLeaveModel.swift in Sources */,
 				B835169B1F7A0C32006B536E /* TimeSheetViewCell.swift in Sources */,
 				202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */,
+				513B32781F8B68F100D0D770 /* RequestLeaveDetailViewController.swift in Sources */,
 				B8C47F081F84BF0D0024F865 /* ListDayOffSettingApiOutputModel.swift in Sources */,
 				B8C47F101F84BF150024F865 /* RequestLeaveApiInputModel.swift in Sources */,
 				B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */,

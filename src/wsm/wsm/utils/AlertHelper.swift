@@ -59,25 +59,11 @@ final class AlertHelper {
             hideLoading()
         }
 
-        if let rootController = UIApplication.shared.delegate?.window??.rootViewController {
-            let alertController = UIAlertController(title: "wsm", message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("CLOSE"),
-                                                    style: .default,
-                                                    handler: nil))
-            if let presentedController = rootController.presentedViewController as? UINavigationController {
-                if let controller = presentedController.viewControllers.last {
-                    controller.present(alertController, animated: true, completion: nil)
-                }
-            } else if let presentedController = rootController.presentedViewController {
-                if let topMostPresentedController = presentedController.presentedViewController {
-                    topMostPresentedController.present(alertController, animated: true, completion: nil)
-                } else {
-                    presentedController.present(alertController, animated: true, completion: nil)
-                }
-            } else {
-                rootController.present(alertController, animated: true, completion: nil)
-            }
-        }
+        let alertController = UIAlertController(title: LocalizationHelper.shared.localized("app_name"), message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("close"),
+                                                style: .default,
+                                                handler: nil))
+        UIViewController.getTopViewController()?.present(alertController, animated: true, completion: nil)
     }
 
     /**
@@ -92,25 +78,11 @@ final class AlertHelper {
                 hideLoading()
             }
 
-            if let rootController = UIApplication.shared.delegate?.window??.rootViewController {
-                let alertController = UIAlertController(title: "wsm", message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("CLOSE"),
-                                                        style: .default,
-                                                        handler: nil))
-                if let presentedController = rootController.presentedViewController as? UINavigationController {
-                    if let controller = presentedController.viewControllers.last {
-                        controller.present(alertController, animated: true, completion: nil)
-                    }
-                } else if let presentedController = rootController.presentedViewController {
-                    if let topMostPresentedController = presentedController.presentedViewController {
-                        topMostPresentedController.present(alertController, animated: true, completion: nil)
-                    } else {
-                        presentedController.present(alertController, animated: true, completion: nil)
-                    }
-                } else {
-                    rootController.present(alertController, animated: true, completion: nil)
-                }
-            }
+            let alertController = UIAlertController(title: LocalizationHelper.shared.localized("app_name"), message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("close"),
+                                                    style: .default,
+                                                    handler: nil))
+            UIViewController.getTopViewController()?.present(alertController, animated: true, completion: nil)
 
             let when = DispatchTime.now() + DispatchTimeInterval.milliseconds(withDelayInMilliseconds)
             DispatchQueue.main.asyncAfter(deadline: when, execute: {
@@ -118,7 +90,6 @@ final class AlertHelper {
             })
         }
     }
-
 
     /**
      * Show message dialog
@@ -129,25 +100,29 @@ final class AlertHelper {
         if makesureLoadingHidden {
             hideLoading()
         }
+        let alertController = UIAlertController(title: LocalizationHelper.shared.localized("app_name"), message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("close"),
+                                                style: .default,
+                                                handler: handler))
 
-        if let rootController = UIApplication.shared.delegate?.window??.rootViewController {
-            let alertController = UIAlertController(title: "wsm", message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("CLOSE"),
-                                                    style: .default,
-                                                    handler: handler))
-            if let presentedController = rootController.presentedViewController as? UINavigationController {
-                if let controller = presentedController.viewControllers.last {
-                    controller.present(alertController, animated: true, completion: nil)
-                }
-            } else if let presentedController = rootController.presentedViewController {
-                if let topMostPresentedController = presentedController.presentedViewController {
-                    topMostPresentedController.present(alertController, animated: true, completion: nil)
-                } else {
-                    presentedController.present(alertController, animated: true, completion: nil)
-                }
-            } else {
-                rootController.present(alertController, animated: true, completion: nil)
-            }
+        UIViewController.getTopViewController()?.present(alertController, animated: true, completion: nil)
+    }
+
+    class func showConfirm(message: String?, makesureLoadingHidden: Bool = true, handler: ((UIAlertAction) -> Swift.Void)? = nil) {
+
+        if makesureLoadingHidden {
+            hideLoading()
         }
+        let alertController = UIAlertController(title: LocalizationHelper.shared.localized("app_name"),
+                                                message: message,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("disagree"),
+                                                style: .default,
+                                                handler: nil))
+        alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("agree"),
+                                                style: .default,
+                                                handler: handler))
+
+        UIViewController.getTopViewController()?.present(alertController, animated: true, completion: nil)
     }
 }

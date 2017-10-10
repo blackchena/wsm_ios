@@ -104,6 +104,6 @@ extension RequestFilterView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return listStatus[row].rawValue
+        return listStatus[row].localizedString()
     }
 }

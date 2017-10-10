@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import InAppLocalize
 
 enum RequestStatus: String {
     case pending
@@ -27,6 +28,25 @@ enum RequestStatus: String {
             return 3
         case .cancel:
             return 4
+        }
+    }
+
+    func localizedString() -> String {
+        return LocalizationHelper.shared.localized(self.rawValue)
+    }
+
+    func getColor() -> UIColor {
+        switch self {
+        case .pending:
+            return UIColor.pendingColor
+        case .approve:
+            return UIColor.approveColor
+        case .discard:
+            return UIColor.discardColor
+        case .forward:
+            return UIColor.forwardColor
+        case .cancel:
+            return UIColor.cancelColor
         }
     }
 }

@@ -111,10 +111,10 @@
 "from" = "From";
 "to" = "To";
 "pending" = "Pending";
-"accepted" = "Accepted";
-"rejected" = "Rejected";
-"forwarded" = "Forwarded";
-"canceld" = "Canceled";
+"approve" = "Accepted";
+"discard" = "Rejected";
+"forward" = "Forwarded";
+"cancel" = "Canceled";
 "leave_type" = "Leave type";
 "compensation_time" = "Compensation time";
 "example_time_from" = "Ex: 2017/05/20 17:30";
@@ -366,6 +366,6 @@
 "edit_others_request" = "Edit others request";
 "can_not_load_data" = "Can\'t load data. Please check again !";
 "can_not_find_request" = "Can\'t find request!";
-"approve" = "Approve";
 "number_hour" = "Number hours";
 "no_network_connection" = "No Network Connection !";
+"close" = "Close";

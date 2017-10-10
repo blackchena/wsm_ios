@@ -126,4 +126,13 @@ extension ListReuqestLeaveViewController: UITableViewDelegate, UITableViewDataSo
             getListRequests(page: currentPage + 1)
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRequest = RequestLeaveProvider.shared.listRequests[indexPath.row]
+        if let detailtVc = UIViewController.getStoryboardController(identifier: "RequestLeaveDetailViewController")
+                as? RequestLeaveDetailViewController {
+            detailtVc.selectedRequest = selectedRequest
+            self.navigationController?.pushViewController(detailtVc, animated: true)
+        }
+    }
 }

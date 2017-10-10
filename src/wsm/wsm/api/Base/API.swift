@@ -132,7 +132,7 @@ public struct ApiProvider {
 
     fileprivate static func getDefaultProvider() -> MoyaProvider<MultiTarget> {
         let plugins: [PluginType] = [
-//            NetworkLoggerPlugin(verbose: true, output: debugLog, responseDataFormatter: JSONResponseDataFormatter),
+            NetworkLoggerPlugin(verbose: true, output: debugLog, responseDataFormatter: JSONResponseDataFormatter),
             NetworkActivityPlugin(networkActivityClosure: networkActivityClosure),
             WsmAccessTokenPlugin()
         ]
