@@ -1124,39 +1124,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZKO-Ae-2np">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gjx-dI-ABI" id="gk6-r9-OaI"/>
                                     <outlet property="delegate" destination="gjx-dI-ABI" id="9KH-uf-OmP"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8y-VW-DSs">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.15809866786003113" green="0.64368665218353271" blue="0.59878093004226685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OV8-sy-Rjo" customClass="RequestFilterView" customModule="wsm" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="W57-9W-eGo"/>
+                                    <constraint firstAttribute="height" constant="50" id="h9u-2p-z4P"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="P8y-VW-DSs" firstAttribute="top" secondItem="a50-77-AvJ" secondAttribute="bottom" id="43e-BK-0Td"/>
-                            <constraint firstItem="P8y-VW-DSs" firstAttribute="leading" secondItem="gjx-dI-ABI" secondAttribute="leading" id="Bta-GF-eFb"/>
+                            <constraint firstItem="OV8-sy-Rjo" firstAttribute="leading" secondItem="gjx-dI-ABI" secondAttribute="leading" id="6vm-Wo-irp"/>
                             <constraint firstItem="ZKO-Ae-2np" firstAttribute="leading" secondItem="gjx-dI-ABI" secondAttribute="leading" id="MyZ-WM-99v"/>
+                            <constraint firstAttribute="trailing" secondItem="OV8-sy-Rjo" secondAttribute="trailing" id="Vtx-l6-BQN"/>
                             <constraint firstItem="ci5-RC-DAR" firstAttribute="top" secondItem="ZKO-Ae-2np" secondAttribute="bottom" id="Vwy-ra-umy"/>
                             <constraint firstAttribute="trailing" secondItem="ZKO-Ae-2np" secondAttribute="trailing" id="Z0e-TQ-FZi"/>
-                            <constraint firstAttribute="trailing" secondItem="P8y-VW-DSs" secondAttribute="trailing" id="iXS-gi-Eea"/>
-                            <constraint firstItem="ZKO-Ae-2np" firstAttribute="top" secondItem="P8y-VW-DSs" secondAttribute="bottom" id="kf2-BC-se1"/>
+                            <constraint firstItem="OV8-sy-Rjo" firstAttribute="top" secondItem="a50-77-AvJ" secondAttribute="bottom" id="ZZa-ON-htg"/>
+                            <constraint firstItem="ZKO-Ae-2np" firstAttribute="top" secondItem="OV8-sy-Rjo" secondAttribute="bottom" id="arg-rU-mh4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filterView" destination="OV8-sy-Rjo" id="NbH-7F-Rl6"/>
                         <outlet property="tableView" destination="ZKO-Ae-2np" id="OXm-yq-Fd2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAN-gz-0Z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.59999999999999" y="1477.5112443778112"/>
+            <point key="canvasLocation" x="214" y="1518"/>
         </scene>
         <!--create_others_request-->
         <scene sceneID="ax8-V5-pZg">

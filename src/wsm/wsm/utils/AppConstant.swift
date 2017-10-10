@@ -12,6 +12,7 @@ class AppConstant {
 
     public static let supportLanguages = ["en", "vi"]
     public static let defaultLanguage = "en"
+    public static let defaultLocale = Locale(identifier: "en_US")
 
     public static let debugAPIBaseUrl = "http://edev.framgia.vn"
     public static let productAPIBaseUrl = "http://wsm.framgia.vn"
@@ -20,5 +21,6 @@ class AppConstant {
     public static let TimeFormat24HDisplay = "HH:mm"
     public static let requestDateFormat = "yyyy/MM/dd HH:mm"
     public static let onlyDateFormat = "yyyy/MM/dd"
-    public static let onlyTime = "HH:mm"
+    public static let onlyTimeFormat = "HH:mm"
+    public static let monthYearFormat = "MM/yyyy"
 }
