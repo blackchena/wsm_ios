@@ -12,6 +12,7 @@ import Floaty
 class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var filterView: RequestFilterView!
 
     fileprivate let floaty = Floaty()
     fileprivate var currentPage = 1
@@ -43,6 +44,10 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
 
         getListRequests(page: currentPage)
         createRequestButton()
+
+        filterView.filterAction = { [weak self] in
+            self?.getListRequests()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,14 +71,16 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
         getListRequests()
     }
 
-    func getListRequests(page: Int = 1, month: String? = nil, status: String? = nil) {
+    func getListRequests(page: Int = 1) {
         if isLoading {
             return
         }
         print("Load requests")
         AlertHelper.showLoading()
         isLoading = true
-        RequestLeaveProvider.getListRequestLeaves(page: page, month: month, status: status)
+        RequestLeaveProvider.getListRequestLeaves(page: page,
+                                                  month: self.filterView.getMonthYearSelectedString(),
+                                                  status: self.filterView.getStatusSelected())
             .then { apiOutput -> Void in
                 if page > 1 {
                     if apiOutput.listRequestLeaves.count > 0 {

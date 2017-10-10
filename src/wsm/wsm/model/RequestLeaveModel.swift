@@ -60,7 +60,7 @@ class RequestLeaveModel: BaseModel {
         switch leaveType.trackingTimeType {
         case .both:
             if let checkInTime = checkInTime, let checkOutTime = checkOutTime {
-                return "\(checkInTime.toString(dateFormat: AppConstant.requestDateFormat)) - \(checkOutTime.toString(dateFormat: AppConstant.onlyTime))"
+                return "\(checkInTime.toString(dateFormat: AppConstant.requestDateFormat)) - \(checkOutTime.toString(dateFormat: AppConstant.onlyTimeFormat))"
             }
         case .checkIn,
              .checkInM,

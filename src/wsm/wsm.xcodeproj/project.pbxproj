@@ -30,6 +30,10 @@
 		5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */; };
 		5131FD641F7276E400E0478B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD631F7276E400E0478B /* MainViewController.swift */; };
 		5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FD6A1F72772000E0478B /* MenuGroup.swift */; };
+		513B326D1F8B336000D0D770 /* RequestFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B326C1F8B336000D0D770 /* RequestFilterView.swift */; };
+		513B326F1F8B338000D0D770 /* RequestFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 513B326E1F8B338000D0D770 /* RequestFilterView.xib */; };
+		513B32731F8B3AAF00D0D770 /* ic_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 513B32721F8B3AAF00D0D770 /* ic_clear.png */; };
+		513B32761F8B441300D0D770 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B32751F8B441300D0D770 /* MonthYearPickerView.swift */; };
 		5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154D9DB1F79DD6100A6A1B2 /* Date.swift */; };
 		51561F331F7908C700619723 /* UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51561F321F7908C700619723 /* UIToolbar.swift */; };
 		51561F351F79141E00619723 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51561F341F79141E00619723 /* vi.lproj */; };
@@ -228,6 +232,10 @@
 		5131FD5A1F7276AA00E0478B /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		5131FD631F7276E400E0478B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Home/MainViewController.swift; sourceTree = "<group>"; };
 		5131FD6A1F72772000E0478B /* MenuGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuGroup.swift; sourceTree = "<group>"; };
+		513B326C1F8B336000D0D770 /* RequestFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestFilterView.swift; path = RequestLeave/RequestFilterView.swift; sourceTree = "<group>"; };
+		513B326E1F8B338000D0D770 /* RequestFilterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestFilterView.xib; sourceTree = "<group>"; };
+		513B32721F8B3AAF00D0D770 /* ic_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_clear.png; sourceTree = "<group>"; };
+		513B32751F8B441300D0D770 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthYearPickerView.swift; path = customviews/MonthYearPickerView.swift; sourceTree = "<group>"; };
 		5154D9DB1F79DD6100A6A1B2 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		51561F321F7908C700619723 /* UIToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIToolbar.swift; sourceTree = "<group>"; };
 		51561F341F79141E00619723 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
@@ -382,7 +390,7 @@
 		B85E1D5A1F73B12B00329529 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		B86B843A1F7E52D3009D178D /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		B87CDBF31F833CE1008A8D0E /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
-		B88E77F31F82433500E61374 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B88E77F31F82433500E61374 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = base/CardView.swift; sourceTree = "<group>"; };
 		B88E77F51F824BEA00E61374 /* TimeSheetDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetDetailViewCell.swift; path = TimeSheet/TimeSheetDetailViewCell.swift; sourceTree = "<group>"; };
 		B89BB9D41F74B03A008E547C /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDebugPrinter.swift; sourceTree = "<group>"; };
@@ -450,6 +458,7 @@
 		202ED9B91F6FC42200544A7D /* wsm */ = {
 			isa = PBXGroup;
 			children = (
+				513B32741F8B43F400D0D770 /* customviews */,
 				51E63CB91F74C3A6008B0C89 /* localization */,
 				B85E1D551F735F5100329529 /* storages */,
 				5168BC6C1F739D7900AA1287 /* resources */,
@@ -493,7 +502,6 @@
 				51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */,
 				51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */,
 				51754C771F78B32F00CFABE8 /* WsmTextField.swift */,
-				B88E77F31F82433500E61374 /* CardView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -526,6 +534,7 @@
 				5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */,
 				5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */,
 				51E94E941F871EC6002368D3 /* RequestLeaveCell.xib */,
+				513B326E1F8B338000D0D770 /* RequestFilterView.xib */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -638,9 +647,19 @@
 			name = UserInfo;
 			sourceTree = "<group>";
 		};
+		513B32741F8B43F400D0D770 /* customviews */ = {
+			isa = PBXGroup;
+			children = (
+				513B32751F8B441300D0D770 /* MonthYearPickerView.swift */,
+				B88E77F31F82433500E61374 /* CardView.swift */,
+			);
+			name = customviews;
+			sourceTree = "<group>";
+		};
 		5168BC6C1F739D7900AA1287 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				513B32721F8B3AAF00D0D770 /* ic_clear.png */,
 				51FBBA1D1F7A4B26004C32BD /* ic_project.png */,
 				51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */,
 				51E63CC01F750A45008B0C89 /* ic_add.png */,
@@ -727,6 +746,7 @@
 				5195300D1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift */,
 				5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */,
 				51E94E931F871EC6002368D3 /* RequestLeaveCell.swift */,
+				513B326C1F8B336000D0D770 /* RequestFilterView.swift */,
 			);
 			name = RequestLeave;
 			sourceTree = "<group>";
@@ -1031,9 +1051,11 @@
 				5168BCCA1F739DBF00AA1287 /* ic_camera.png in Resources */,
 				516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */,
 				5168BCD61F739DBF00AA1287 /* ic_forgot_password.png in Resources */,
+				513B326F1F8B338000D0D770 /* RequestFilterView.xib in Resources */,
 				5168BCF61F739DBF00AA1287 /* ic_help_blue_a400_36dp.png in Resources */,
 				5168BCD71F739DBF00AA1287 /* ic_group.png in Resources */,
 				5168BCEE1F739DBF00AA1287 /* ic_user.png in Resources */,
+				513B32731F8B3AAF00D0D770 /* ic_clear.png in Resources */,
 				5168BCC91F739DBF00AA1287 /* ic_calendar.png in Resources */,
 				5168BCF11F739DBF00AA1287 /* ic_request_overtime.png in Resources */,
 				5168BCC41F739DBF00AA1287 /* ic_status_pending.png in Resources */,
@@ -1179,6 +1201,7 @@
 				B81AF7291F72096A00E579B2 /* FSCalendarTransitionCoordinator.m in Sources */,
 				51E94EA01F8767B9002368D3 /* RequestStatus.swift in Sources */,
 				B81AF71F1F72096A00E579B2 /* FSCalendarDelegationFactory.m in Sources */,
+				513B326D1F8B336000D0D770 /* RequestFilterView.swift in Sources */,
 				B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */,
 				5168BCFC1F73A73600AA1287 /* UIViewController.swift in Sources */,
 				B88E77F61F824BEA00E61374 /* TimeSheetDetailViewCell.swift in Sources */,
@@ -1263,6 +1286,7 @@
 				B83516931F79FC2D006B536E /* TimeSheetModel.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
 				519530101F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */,
+				513B32761F8B441300D0D770 /* MonthYearPickerView.swift in Sources */,
 				B858E7971F7CDAEB00080052 /* DateHelper.swift in Sources */,
 				B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */,
 				B8C47F0E1F84BF150024F865 /* RequestLeaveProvider.swift in Sources */,

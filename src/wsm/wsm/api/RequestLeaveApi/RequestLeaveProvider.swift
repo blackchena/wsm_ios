@@ -16,7 +16,7 @@ import PromiseKit
 fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
 
     case submitRequestLeave(requestModel: RequestLeaveApiInputModel)
-    case getListRequestLeaves(page: Int?, month: String?, status: String?)
+    case getListRequestLeaves(page: Int?, month: String?, status: Int?)
 
     public var path: String {
         switch self {
@@ -43,7 +43,7 @@ fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
                 "request_leave": createParameters(fromDataModel: requestModel)
             ]
         case .getListRequestLeaves(let page, let month, let status):
-            return ["page": page, "month": month, "q[status_eq]": status]
+            return ["page": page ?? "", "month": month ?? "", "q[status_eq]": status ?? ""]
         }
     }
 }
@@ -57,7 +57,7 @@ final class RequestLeaveProvider {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestLeaveApiEndpoint.submitRequestLeave(requestModel: requestModel)))
     }
 
-    static func getListRequestLeaves(page: Int?, month: String?, status: String?) -> Promise<ListRequestLeaveApiOutModel> {
+    static func getListRequestLeaves(page: Int?, month: String?, status: Int?) -> Promise<ListRequestLeaveApiOutModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestLeaveApiEndpoint.getListRequestLeaves(page: page, month: month, status: status)))
     }
 }
