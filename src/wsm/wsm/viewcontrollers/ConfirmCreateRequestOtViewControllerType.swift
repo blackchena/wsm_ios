@@ -20,7 +20,9 @@ extension ConfirmCreateRequestOtViewControllerType where Self: UIViewController 
         AlertHelper.showLoading()
         RequestOtProvider.submitRequestOt(requestModel: requestModel)
             .then { apiOutput -> Void in
-                RequestOtProvider.listRequests.append(apiOutput.requestModel!)
+                if let requestModel = apiOutput.requestModel {
+                    RequestOtProvider.shared.listRequestOts.append(requestModel)
+                }
                 self.didSubmitRequestSuccess()
             }.catch { error in
                 AlertHelper.showError(error: error)
