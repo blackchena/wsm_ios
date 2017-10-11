@@ -16,6 +16,8 @@ class UserGroup: BaseModel {
     var description: String?
     var closestParentId: Int?
     var parentPath: [Int]?
+    var groupType: String?
+    var image: String?
 
     required init?(map: Map) {
     }
@@ -27,5 +29,7 @@ class UserGroup: BaseModel {
         description <- map["description"]
         closestParentId <- map["closest_parent_id"]
         parentPath <- map["parent_path"]
+        groupType <- map["group_type"]
+        image <- map["image"]
     }
 }

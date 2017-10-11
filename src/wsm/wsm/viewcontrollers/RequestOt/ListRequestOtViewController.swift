@@ -9,19 +9,39 @@
 import Foundation
 import Floaty
 
-class ListReuqestOtViewController: BaseViewController, FloatyDelegate {
+class ListRequestOtViewController: BaseViewController, FloatyDelegate {
+    @IBOutlet weak var tableView: UITableView!
+    
     private let floaty = Floaty()
-
+    private let refreshControl = UIRefreshControl()
+    fileprivate var currentPage = 1
+    private var isLoading = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "RequestOTCell", bundle: nil), forCellReuseIdentifier: "RequestOTCell")
+        
+        // Add Refresh control to TableView
+        refreshControl.addTarget(self, action: #selector(pullToRefreshHandler(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor.appBarTintColor
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        
+        getListRequestOts();
+        
         createRequestButton()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     func createRequestButton() {
         floaty.paddingX = floaty.paddingY
         floaty.fabDelegate = self
@@ -29,9 +49,64 @@ class ListReuqestOtViewController: BaseViewController, FloatyDelegate {
         floaty.buttonImage = UIImage(named: "ic_add")
         self.view.addSubview(floaty)
     }
-
+    
     func emptyFloatySelected(_ floaty: Floaty) {
         let createOtVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController")
         self.navigationController?.pushViewController(createOtVc, animated: true)
+    }
+    
+    func getListRequestOts(page: Int = 1, month: String = "", status: String = "") {
+        if isLoading {
+            return
+        }
+        print("Load requests")
+        AlertHelper.showLoading()
+        isLoading = true
+        RequestOtProvider.getListRequestOts(page: page, month: month, status: status)
+            .then {
+                    apiOutput -> Void in
+                if page > 1 {
+                    if apiOutput.listRequestOts.count > 0 {
+                        RequestOtProvider.shared.listRequestOts.append(contentsOf: apiOutput.listRequestOts)
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    RequestOtProvider.shared.listRequestOts = apiOutput.listRequestOts
+                    self.tableView.reloadData()
+                }
+                self.currentPage = page
+            }.recover { error in
+                AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
+                self.refreshControl.endRefreshing()
+                self.isLoading = false
+        }
+    }
+    
+    @objc private func pullToRefreshHandler(_: Any) {
+        getListRequestOts()
+    }
+}
+
+extension ListRequestOtViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestOTCell", for: indexPath) as! RequestOTCell
+        cell.updateCell(request: RequestOtProvider.shared.listRequestOts[indexPath.row])
+        return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return RequestOtProvider.shared.listRequestOts.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == RequestOtProvider.shared.listRequestOts.count - 1 {
+            getListRequestOts(page: currentPage + 1)
+        }
     }
 }

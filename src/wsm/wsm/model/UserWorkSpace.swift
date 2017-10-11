@@ -13,6 +13,12 @@ class UserWorkSpace: BaseModel {
     var id: Int?
     var name: String?
     var shifts = [WorkSpaceShift]()
+    var description: String?
+    var openTime: String?
+    var closeTime: String?
+    var image: String?
+    var timezone: String?
+    var status: Bool?
 
     required init?(map: Map) {
     }
@@ -21,6 +27,12 @@ class UserWorkSpace: BaseModel {
         id <- map["id"]
         name <- map["name"]
         shifts <- map["shifts"]
+        description <- map["description"]
+        openTime <- map["open_time"]
+        closeTime <- map["close_time"]
+        image <- map["image"]
+        timezone <- map["timezone"]
+        status <- map["status"]
     }
 }
 

@@ -23,4 +23,5 @@ class AppConstant {
     public static let onlyDateFormat = "yyyy/MM/dd"
     public static let onlyTimeFormat = "HH:mm"
     public static let monthYearFormat = "MM/yyyy"
+    public static let requestDateTimeFormat = "HH:mm - dd/MM/yyyy"
 }
