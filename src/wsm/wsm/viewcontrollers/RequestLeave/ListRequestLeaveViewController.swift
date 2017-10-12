@@ -50,6 +50,15 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if RequestLeaveProvider.shared.isNeedRefreshList {
+            filterView.resetConditions()
+            getListRequests(page: 1)
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -84,9 +93,7 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
             .then { apiOutput -> Void in
                 if page > 1 {
                     if apiOutput.listRequestLeaves.count > 0 {
-                        for request in apiOutput.listRequestLeaves {
-                            RequestLeaveProvider.shared.listRequests.append(request)
-                        }
+                        RequestLeaveProvider.shared.listRequests.append(contentsOf: apiOutput.listRequestLeaves)
                         self.tableView.reloadData()
                     }
                 } else {
@@ -98,6 +105,7 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
                 AlertHelper.showError(error: error)
             }.always {
                 AlertHelper.hideLoading()
+                RequestLeaveProvider.shared.isNeedRefreshList = false
                 self.refreshControl.endRefreshing()
                 self.isLoading = false
                 self.tableView.tableFooterView = nil

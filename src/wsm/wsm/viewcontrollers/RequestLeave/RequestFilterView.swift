@@ -87,6 +87,13 @@ class RequestFilterView: UIView {
             return nil
         }
     }
+
+    func resetConditions() {
+        monthPicker.selectCurrentMonth()
+        monthTextField.text = monthPicker.getMonthYearSelectedString()
+        statusTextField.text = ""
+    }
+
     @IBAction func clearButtonClick(_ sender: Any) {
         monthTextField.text = ""
         statusTextField.text = ""
