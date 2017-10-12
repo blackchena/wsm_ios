@@ -25,4 +25,10 @@ extension Date {
         let dateString = ("\(self.toString(dateFormat: AppConstant.onlyDateFormat)) \(date.getComponent(.hour)):\(date.getComponent(.minute))")
         return dateString.toDate(dateFormat: AppConstant.requestDateFormat)
     }
+
+    func zeroSecond() -> Date? {
+        let calender = Calendar.current
+        let dateComponents = calender.dateComponents([.year, .month, .day, .hour, .minute], from: self)
+        return calender.date(from: dateComponents)
+    }
 }

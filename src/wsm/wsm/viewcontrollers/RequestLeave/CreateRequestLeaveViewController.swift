@@ -32,8 +32,8 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     @IBOutlet weak var checkInExampleLabel: LocalizableLabel!
     @IBOutlet weak var checkOutExampleLabel: LocalizableLabel!
 
+    var requestModel = RequestLeaveApiInputModel()
     fileprivate let emptyError = LocalizationHelper.shared.localized("is_empty")
-    fileprivate let requestModel = RequestLeaveApiInputModel()
     fileprivate let leaveTypes = UserServices.getLocalLeaveTypeSettings() ?? [LeaveTypeModel]()
 
     fileprivate let leaveTypePicker = UIPickerView()
@@ -44,11 +44,10 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     fileprivate let compensationToDatePicker = UIDatePicker()
     fileprivate var contentSizeNoCompensation: CGSize!
     fileprivate var contentSizeWithCompensation: CGSize!
+    fileprivate var isBinding = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        onLeaveTypeSelected()
 
         requestModel.companyId = currentUser?.company?.id
 
@@ -64,7 +63,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
         super.setupPicker()
 
         leaveTypePicker.delegate = self
-        leaveTypeTextField.isPicker = true
+        leaveTypeTextField.isPicker = requestModel.id == nil ? true : false
         leaveTypeTextField.inputView = leaveTypePicker
         leaveTypeTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onLeaveTypeSelected))
     }
@@ -72,12 +71,57 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     override func bindData() {
         super.bindData()
 
-        if leaveTypes.count > 0 {
-            leaveTypePicker.selectRow(0, inComponent: 0, animated: true)
-            onLeaveTypeSelected()
+        if requestModel.id == nil {
+            isBinding = false
+            if leaveTypes.count > 0 {
+                leaveTypePicker.selectRow(0, inComponent: 0, animated: true)
+                onLeaveTypeSelected()
+            }
+        } else {
+            bindDataEdit()
         }
     }
 
+    func bindDataEdit() {
+
+        title = LocalizationHelper.shared.localized("edit_others_request")
+
+        branchTextField.isEnabled = false
+        groupTextField.isEnabled = false
+        leaveTypeTextField.isEnabled = false
+
+        branchTextField.textColor = UIColor.lightGray
+        groupTextField.textColor = UIColor.lightGray
+        leaveTypeTextField.textColor = UIColor.lightGray
+
+        branchTextField.text = requestModel.workspace?.name
+        groupTextField.text = requestModel.group?.name
+        projectNameTextField.text = requestModel.projectName
+
+        if let i = leaveTypes.index(where: {$0.id == requestModel.leaveTypeId}) {
+            leaveTypePicker.selectRow(i, inComponent: 0, animated: false)
+            onLeaveTypeSelected()
+        }
+
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
+        switch leaveType.trackingTimeType {
+        case .both:
+            checkInTextField.text = requestModel.checkinTime
+            checkOutTextField.text = requestModel.checkoutTime
+        case .checkOut:
+            trackingTextField.text = requestModel.checkoutTime
+        default:
+            trackingTextField.text = requestModel.checkinTime
+        }
+
+        if leaveType.compensationKind == .require {
+            compensationToTextField.text = requestModel.compensationAttributes.compensationTo?.toString(dateFormat: AppConstant.requestDateFormat)
+            compensationFromTextField.text = requestModel.compensationAttributes.compensationFrom?.toString(dateFormat: AppConstant.requestDateFormat)
+            reasonTextField.text = requestModel.reason
+        }
+
+        isBinding = false
+    }
 
     override func onBranchSelected() {
         super.onBranchSelected()
@@ -174,9 +218,11 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
         if !isCheckout {
             if isValid {
                 requestModel.checkinTime = trackingTextField.text
+                clearCompensationTimes()
                 autoFillCompensationForInLate()
             } else {
                 trackingTextField.text = ""
+                clearCompensationTimes()
             }
         }
     }
@@ -194,10 +240,11 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
 
         if isValid {
             requestModel.checkinTime = self.checkInTextField.text
-            clearCompensationTimes()
         } else {
             self.checkInTextField.text = ""
         }
+
+        clearCompensationTimes()
     }
 
     @objc private func onCheckOutDateSelected() {
@@ -227,7 +274,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     @objc private func onConpensationFromDateSelected() {
         self.view.endEditing(true)
         self.compensationFromTextField.text = compensationFromDatePicker.date.toString(dateFormat: AppConstant.requestDateFormat)
-        requestModel.compensationAttributes.compensationFrom = self.compensationFromTextField.text
+        requestModel.compensationAttributes.compensationFrom = compensationFromDatePicker.date
 
         autoFillCompensationForInLate()
     }
@@ -257,14 +304,16 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     @IBAction func selectCompensationToDate(_ sender: UITextField) {
         AlertHelper.showInfo(message: LocalizationHelper.shared.localized("you_just_need_choose_the_compensation_from_time"))
     }
-
+    
     func clearTrackingTimes() {
-        trackingTextField.text = ""
-        checkInTextField.text = ""
-        reasonTextField.text = ""
-        requestModel.checkinTime = ""
-        requestModel.reason = ""
-        clearCompensationTimes()
+        if !isBinding {
+            trackingTextField.text = ""
+            checkInTextField.text = ""
+            reasonTextField.text = ""
+            requestModel.checkinTime = ""
+            requestModel.reason = ""
+            clearCompensationTimes()
+        }
     }
 
     func clearCompensationTimes() {
@@ -272,8 +321,8 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
         compensationToTextField.text = ""
         compensationFromTextField.text = ""
         requestModel.checkoutTime = ""
-        requestModel.compensationAttributes.compensationFrom = ""
-        requestModel.compensationAttributes.compensationTo = ""
+        requestModel.compensationAttributes.compensationFrom = nil
+        requestModel.compensationAttributes.compensationTo = nil
     }
 }
 
@@ -353,8 +402,8 @@ extension CreateRequestLeaveViewController {
 
     func isInLateTimeValid() -> Bool{
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let selectedDate = trackingDatePicker.date
         guard workspace.shifts.count > 0,
+            let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
             let maxComeLate = workspace.shifts[0].maxComeLate,
@@ -384,8 +433,8 @@ extension CreateRequestLeaveViewController {
 
     func isInLateAfternoonTimeValid() -> Bool{
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let selectedDate = trackingDatePicker.date
         guard workspace.shifts.count > 0,
+            let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeout = workspace.shifts[0].timeOut,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
             let maxComeLate = workspace.shifts[0].maxComeLate,
@@ -415,8 +464,8 @@ extension CreateRequestLeaveViewController {
 
     func isLeaveEarlyTimeValid() -> Bool {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let selectedDate = trackingDatePicker.date
         guard workspace.shifts.count > 0,
+            let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
             let maxLevesEarly = workspace.shifts[0].maxLevesEarly,
@@ -446,8 +495,8 @@ extension CreateRequestLeaveViewController {
 
     func isLeaveEarlyAfternoonTimeValid() -> Bool {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let selectedDate = trackingDatePicker.date
         guard workspace.shifts.count > 0,
+            let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeout = workspace.shifts[0].timeOut,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
             let maxLevesEarly = workspace.shifts[0].maxLevesEarly,
@@ -477,8 +526,8 @@ extension CreateRequestLeaveViewController {
 
     func isCheckOutTimeValid() -> Bool {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let selectedDate = trackingDatePicker.date
         guard workspace.shifts.count > 0,
+            let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
             let maxComeLate = workspace.shifts[0].maxComeLate,
@@ -507,8 +556,8 @@ extension CreateRequestLeaveViewController {
 
     func isLeaveOutFromValid() -> Bool {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let selectedDate = checkInDatePicker.date
         guard workspace.shifts.count > 0,
+            let selectedDate = checkInDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
@@ -552,9 +601,9 @@ extension CreateRequestLeaveViewController {
         }
 
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let checkInDate = checkInDatePicker.date
-        let selectedDate = checkOutDatePicker.date
         guard workspace.shifts.count > 0,
+            let checkInDate = checkInDatePicker.date.zeroSecond(),
+            let selectedDate = checkOutDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
@@ -606,7 +655,9 @@ extension CreateRequestLeaveViewController {
             return false
         }
 
-        if checkOutDatePicker.date <= checkInDatePicker.date {
+        if let checkOut = checkOutDatePicker.date.zeroSecond(),
+            let checkIn = checkInDatePicker.date.zeroSecond(),
+            checkOut <= checkIn {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("request_time_to_can_not_greater_than_request_time_from"))
             return false
         }
@@ -640,10 +691,11 @@ extension CreateRequestLeaveViewController {
         }
 
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        let trackingDate = trackingDatePicker.date
-        let checkOutDate = checkOutDatePicker.date
-        let checkInDate = checkInDatePicker.date
+
         guard workspace.shifts.count > 0,
+            let trackingDate = trackingDatePicker.date.zeroSecond(),
+            let checkOutDate = checkOutDatePicker.date.zeroSecond(),
+            let checkInDate = checkInDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
@@ -658,7 +710,7 @@ extension CreateRequestLeaveViewController {
         if compensationFromTextField.isEmpty() {
             compensationFromDatePicker.date = outDate
             compensationFromTextField.text = outDate.toString(dateFormat: AppConstant.requestDateFormat)
-            requestModel.compensationAttributes.compensationFrom = compensationFromTextField.text
+            requestModel.compensationAttributes.compensationFrom = outDate
         }
 
         //compensation duration
@@ -714,6 +766,6 @@ extension CreateRequestLeaveViewController {
         }
 
         compensationToTextField.text = compensationEndDate?.toString(dateFormat: AppConstant.requestDateFormat)
-        requestModel.compensationAttributes.compensationTo = compensationToTextField.text
+        requestModel.compensationAttributes.compensationTo = compensationEndDate
     }
 }

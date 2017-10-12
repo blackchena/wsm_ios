@@ -16,6 +16,7 @@ import PromiseKit
 fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
 
     case submitRequestLeave(requestModel: RequestLeaveApiInputModel)
+    case editRequestLeave(requestModel: RequestLeaveApiInputModel)
     case getListRequestLeaves(page: Int?, month: String?, status: Int?)
     case deleteRequestLeave(int: Int)
 
@@ -23,6 +24,11 @@ fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
         switch self {
         case .submitRequestLeave:
             return "/api/dashboard/request_leaves"
+        case .editRequestLeave(let requestModel):
+            if let id = requestModel.id {
+                return "/api/dashboard/request_leaves/\(id)"
+            }
+            return ""
         case .getListRequestLeaves:
             return "/api/dashboard/request_leaves"
         case .deleteRequestLeave(let id):
@@ -34,19 +40,21 @@ fileprivate enum RequestLeaveApiEndpoint: BaseApiTargetType {
         switch self {
         case .submitRequestLeave:
             return .post
+        case .editRequestLeave:
+            return .put
         case .getListRequestLeaves:
             return .get
         case .deleteRequestLeave:
             return .delete
+
         }
     }
 
     public var parameters: [String: Any]? {
         switch self {
-        case .submitRequestLeave(let requestModel):
-            return [
-                "request_leave": createParameters(fromDataModel: requestModel)
-            ]
+        case .submitRequestLeave(let requestModel),
+             .editRequestLeave(let requestModel):
+            return ["request_leave" : createParameters(fromDataModel: requestModel)]
         case .getListRequestLeaves(let page, let month, let status):
             return ["page": page ?? "", "month": month ?? "", "q[status_eq]": status ?? ""]
         default:
@@ -59,9 +67,14 @@ final class RequestLeaveProvider {
 
     static let shared  = RequestLeaveProvider()
     var listRequests = [RequestLeaveModel]()
+    var isNeedRefreshList = false
 
     static func submitRequestLeave(requestModel: RequestLeaveApiInputModel) -> Promise<CreateRequestLeaveApiOutModel> {
-        return ApiProvider.shared.requestPromise(target: MultiTarget(RequestLeaveApiEndpoint.submitRequestLeave(requestModel: requestModel)))
+        if requestModel.id == nil {
+            return ApiProvider.shared.requestPromise(target: MultiTarget(RequestLeaveApiEndpoint.submitRequestLeave(requestModel: requestModel)))
+        } else {
+            return ApiProvider.shared.requestPromise(target: MultiTarget(RequestLeaveApiEndpoint.editRequestLeave(requestModel: requestModel)))
+        }
     }
 
     static func getListRequestLeaves(page: Int?, month: String?, status: Int?) -> Promise<ListRequestLeaveApiOutModel> {

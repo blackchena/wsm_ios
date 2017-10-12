@@ -10,8 +10,8 @@ import ObjectMapper
 
 class CompensationAttribute: BaseModel {
     var id: Int?
-    var compensationFrom: String?
-    var compensationTo: String?
+    var compensationFrom: Date?
+    var compensationTo: Date?
 
     init() {
     }
@@ -20,8 +20,10 @@ class CompensationAttribute: BaseModel {
     }
 
     func mapping(map: Map) {
+        let iosDateTransform = WSMDateTransform(formatFromJson: DateFormatType.isoDateTimeMilliSec,
+                                                formatToJson: DateFormatType.custom(AppConstant.requestDateFormat))
         id <- map["id"]
-        compensationFrom <- map["compensation_from"]
-        compensationTo <- map["compensation_to"]
+        compensationFrom <- (map["compensation_from"], iosDateTransform)
+        compensationTo <- (map["compensation_to"], iosDateTransform)
     }
 }

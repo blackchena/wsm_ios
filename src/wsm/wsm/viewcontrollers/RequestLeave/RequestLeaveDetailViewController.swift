@@ -72,6 +72,9 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
         detailItems.append(ConfirmRequestItem(imageName: "ic_project",
                                                header: LocalizationHelper.shared.localized("type_leave"),
                                                value: leaveType?.name))
+        detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                                              header: LocalizationHelper.shared.localized("created_at"),
+                                              value: selectedRequest.createAt?.toString(dateFormat: AppConstant.requestDateFormat)))
     }
 
     func appendTrackingItem() {
@@ -110,10 +113,10 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
         if leaveType?.compensationKind == .require {
             detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("from"),
-                                                  value: selectedRequest.compensation?.compensationFrom))
+                                                  value: selectedRequest.compensation?.compensationFrom?.toString(dateFormat: AppConstant.requestDateFormat)))
             detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("to"),
-                                                  value: selectedRequest.compensation?.compensationTo))
+                                                  value: selectedRequest.compensation?.compensationTo?.toString(dateFormat: AppConstant.requestDateFormat)))
             detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
                                                   header: LocalizationHelper.shared.localized("reason"),
                                                   value: selectedRequest.reason))
@@ -127,7 +130,11 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
     }
 
     @IBAction func editButtonClick(_ sender: Any) {
-
+        if let editVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
+            as? CreateRequestLeaveViewController {
+            editVc.requestModel = selectedRequest.toApiInputModel()
+            self.navigationController?.pushViewController(editVc, animated: true)
+        }
     }
 
     func deleteRequest() {

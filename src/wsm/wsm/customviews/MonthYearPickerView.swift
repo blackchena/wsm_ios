@@ -12,6 +12,7 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
 
     var months = [String]()
     var years = [Int]()
+    let startYear = 2000
 
     var month: Int = 0 {
         didSet {
@@ -44,7 +45,7 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
         let currentYear = Date().getComponent(.year)
         var years = [Int]()
         if years.count == 0 {
-            for year in 2000...currentYear + 1 {
+            for year in startYear...currentYear + 1 {
                 years.append(year)
             }
         }
@@ -70,6 +71,15 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
         self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
 
         self.year  = currentYear
+        self.month = currentMonth
+    }
+
+    func selectCurrentMonth() {
+        let currentMonth = Date().getComponent(.month)
+        let currentYear = Date().getComponent(.year)
+        self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
+        self.selectRow(currentYear - startYear, inComponent: 1, animated: false)
+        self.year = currentYear
         self.month = currentMonth
     }
 

@@ -101,4 +101,21 @@ class RequestLeaveModel: BaseModel {
 
         return UIImage(named: imageName)
     }
+
+    func toApiInputModel() -> RequestLeaveApiInputModel {
+        let model = RequestLeaveApiInputModel()
+        model.id = id
+        model.workspaceId = workspace?.id
+        model.groupId = group?.id
+        model.projectName = projectName
+        model.leaveTypeId = leaveType?.id
+        model.checkinTime = checkInTime?.toString(dateFormat: AppConstant.requestDateFormat)
+        model.checkoutTime = checkOutTime?.toString(dateFormat: AppConstant.requestDateFormat)
+        model.compensationAttributes = compensation ?? CompensationAttribute()
+        model.reason = reason
+        model.group = group
+        model.leaveType = leaveType
+        model.workspace = workspace
+        return model
+    }
 }

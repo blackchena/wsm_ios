@@ -104,7 +104,7 @@
 		5168BCF31F739DBF00AA1287 /* ic_reject_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCAC1F739DBF00AA1287 /* ic_reject_red.png */; };
 		5168BCF41F739DBF00AA1287 /* ic_request_leave.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCAD1F739DBF00AA1287 /* ic_request_leave.png */; };
 		5168BCF51F739DBF00AA1287 /* ic_personal_issue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCAE1F739DBF00AA1287 /* ic_personal_issue.png */; };
-		5168BCF61F739DBF00AA1287 /* ic_help_blue_a400_36dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCAF1F739DBF00AA1287 /* ic_help_blue_a400_36dp.png */; };
+		5168BCF61F739DBF00AA1287 /* ic_help.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCAF1F739DBF00AA1287 /* ic_help.png */; };
 		5168BCF71F739DBF00AA1287 /* ic_lock_time_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCB01F739DBF00AA1287 /* ic_lock_time_sheet.png */; };
 		5168BCF81F739DBF00AA1287 /* ic_forwards.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCB11F739DBF00AA1287 /* ic_forwards.png */; };
 		5168BCF91F739DBF00AA1287 /* ic_group_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168BCB21F739DBF00AA1287 /* ic_group_notification.png */; };
@@ -310,7 +310,7 @@
 		5168BCAC1F739DBF00AA1287 /* ic_reject_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_reject_red.png; path = resources/ic_reject_red.png; sourceTree = "<group>"; };
 		5168BCAD1F739DBF00AA1287 /* ic_request_leave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_request_leave.png; path = resources/ic_request_leave.png; sourceTree = "<group>"; };
 		5168BCAE1F739DBF00AA1287 /* ic_personal_issue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_personal_issue.png; path = resources/ic_personal_issue.png; sourceTree = "<group>"; };
-		5168BCAF1F739DBF00AA1287 /* ic_help_blue_a400_36dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_help_blue_a400_36dp.png; path = resources/ic_help_blue_a400_36dp.png; sourceTree = "<group>"; };
+		5168BCAF1F739DBF00AA1287 /* ic_help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_help.png; path = resources/ic_help.png; sourceTree = "<group>"; };
 		5168BCB01F739DBF00AA1287 /* ic_lock_time_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_lock_time_sheet.png; path = resources/ic_lock_time_sheet.png; sourceTree = "<group>"; };
 		5168BCB11F739DBF00AA1287 /* ic_forwards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_forwards.png; path = resources/ic_forwards.png; sourceTree = "<group>"; };
 		5168BCB21F739DBF00AA1287 /* ic_group_notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_group_notification.png; path = resources/ic_group_notification.png; sourceTree = "<group>"; };
@@ -684,21 +684,16 @@
 				5168BC871F739DBF00AA1287 /* ic_clock_2.png */,
 				5168BC751F739DBF00AA1287 /* ic_clock.png */,
 				5168BC7E1F739DBF00AA1287 /* ic_contract.png */,
-				5168BCB31F739DBF00AA1287 /* ic_current_day.png */,
 				5168BC761F739DBF00AA1287 /* ic_day_off.png */,
 				5168BC881F739DBF00AA1287 /* ic_edit.png */,
 				5168BC8C1F739DBF00AA1287 /* ic_email.png */,
 				5168BC8D1F739DBF00AA1287 /* ic_filter.png */,
 				5168BC8F1F739DBF00AA1287 /* ic_forgot_password.png */,
-				5168BCB11F739DBF00AA1287 /* ic_forwards.png */,
-				5168BCB21F739DBF00AA1287 /* ic_group_notification.png */,
 				5168BC901F739DBF00AA1287 /* ic_group.png */,
-				5168BCAF1F739DBF00AA1287 /* ic_help_blue_a400_36dp.png */,
 				5168BC911F739DBF00AA1287 /* ic_holiday_calendar.png */,
 				51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */,
 				5168BC771F739DBF00AA1287 /* ic_information.png */,
 				5168BC921F739DBF00AA1287 /* ic_leave_type.png */,
-				5168BCB01F739DBF00AA1287 /* ic_lock_time_sheet.png */,
 				5168BC711F739DBF00AA1287 /* ic_logo_login.png */,
 				5168BC931F739DBF00AA1287 /* ic_logout.png */,
 				5168BC941F739DBF00AA1287 /* ic_menu_left.png */,
@@ -712,22 +707,15 @@
 				5168BC981F739DBF00AA1287 /* ic_password.png */,
 				5168BC891F739DBF00AA1287 /* ic_pending_blue.png */,
 				5168BC9B1F739DBF00AA1287 /* ic_personal_information.png */,
-				5168BCAE1F739DBF00AA1287 /* ic_personal_issue.png */,
 				5168BC991F739DBF00AA1287 /* ic_placeholder_user.png */,
 				51FBBA1D1F7A4B26004C32BD /* ic_project.png */,
 				5168BC6E1F739DBF00AA1287 /* ic_read_all.png */,
 				5168BC9C1F739DBF00AA1287 /* ic_reason.png */,
-				5168BCAC1F739DBF00AA1287 /* ic_reject_red.png */,
 				5168BC9D1F739DBF00AA1287 /* ic_remove.png */,
 				5168BC9E1F739DBF00AA1287 /* ic_request_come_late_leave_early.png */,
-				5168BCAD1F739DBF00AA1287 /* ic_request_leave.png */,
-				5168BCAB1F739DBF00AA1287 /* ic_request_off.png */,
-				5168BCAA1F739DBF00AA1287 /* ic_request_overtime.png */,
 				5168BC801F739DBF00AA1287 /* ic_required.png */,
-				5168BCA91F739DBF00AA1287 /* ic_ro.png */,
 				5168BC6F1F739DBF00AA1287 /* ic_search_2.png */,
 				5168BC7A1F739DBF00AA1287 /* ic_search_manage.png */,
-				5168BCA81F739DBF00AA1287 /* ic_search_png.png */,
 				5168BC9F1F739DBF00AA1287 /* ic_search.png */,
 				5168BCA01F739DBF00AA1287 /* ic_setup_profile.png */,
 				5168BCA11F739DBF00AA1287 /* ic_star.png */,
@@ -743,6 +731,18 @@
 				5168BC8A1F739DBF00AA1287 /* ic_users.png */,
 				5168BC701F739DBF00AA1287 /* ic_view.png */,
 				5168BCA51F739DBF00AA1287 /* ic_workspace_notification.png */,
+				5168BCA81F739DBF00AA1287 /* ic_search_png.png */,
+				5168BCA91F739DBF00AA1287 /* ic_ro.png */,
+				5168BCAA1F739DBF00AA1287 /* ic_request_overtime.png */,
+				5168BCAB1F739DBF00AA1287 /* ic_request_off.png */,
+				5168BCAC1F739DBF00AA1287 /* ic_reject_red.png */,
+				5168BCAD1F739DBF00AA1287 /* ic_request_leave.png */,
+				5168BCAE1F739DBF00AA1287 /* ic_personal_issue.png */,
+				5168BCAF1F739DBF00AA1287 /* ic_help.png */,
+				5168BCB01F739DBF00AA1287 /* ic_lock_time_sheet.png */,
+				5168BCB11F739DBF00AA1287 /* ic_forwards.png */,
+				5168BCB21F739DBF00AA1287 /* ic_group_notification.png */,
+				5168BCB31F739DBF00AA1287 /* ic_current_day.png */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -1064,7 +1064,7 @@
 				516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */,
 				5168BCD61F739DBF00AA1287 /* ic_forgot_password.png in Resources */,
 				513B326F1F8B338000D0D770 /* RequestFilterView.xib in Resources */,
-				5168BCF61F739DBF00AA1287 /* ic_help_blue_a400_36dp.png in Resources */,
+				5168BCF61F739DBF00AA1287 /* ic_help.png in Resources */,
 				5168BCD71F739DBF00AA1287 /* ic_group.png in Resources */,
 				5168BCEE1F739DBF00AA1287 /* ic_user.png in Resources */,
 				513B32731F8B3AAF00D0D770 /* ic_clear.png in Resources */,
@@ -1145,6 +1145,7 @@
 				"${BUILT_PRODUCTS_DIR}/InAppLocalize/InAppLocalize.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -1167,6 +1168,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppLocalize.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",

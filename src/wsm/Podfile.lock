@@ -35,8 +35,55 @@ PODS:
   - InAppLocalize (0.1.0)
   - Kingfisher (3.12.2)
   - LGSideMenuController (2.1.1)
+  - MaterialComponents/Buttons (34.0.2):
+    - MaterialComponents/Buttons/ColorThemer (= 34.0.2)
+    - MaterialComponents/Buttons/Component (= 34.0.2)
+    - MaterialComponents/Buttons/TitleColorAccessibilityMutator (= 34.0.2)
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFTextAccessibility
+  - MaterialComponents/Buttons/ColorThemer (34.0.2):
+    - MaterialComponents/Buttons/Component
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Themes
+    - MaterialComponents/Typography
+    - MDFTextAccessibility
+  - MaterialComponents/Buttons/Component (34.0.2):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFTextAccessibility
+  - MaterialComponents/Buttons/TitleColorAccessibilityMutator (34.0.2):
+    - MaterialComponents/Buttons/Component
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (34.0.2):
+    - MaterialComponents/Ink/ColorThemer (= 34.0.2)
+    - MaterialComponents/Ink/Component (= 34.0.2)
+  - MaterialComponents/Ink/ColorThemer (34.0.2):
+    - MaterialComponents/Ink/Component
+    - MaterialComponents/Themes
+  - MaterialComponents/Ink/Component (34.0.2)
+  - MaterialComponents/private/Application (34.0.2)
+  - MaterialComponents/private/Math (34.0.2)
   - MaterialComponents/ShadowElevations (34.0.2)
   - MaterialComponents/ShadowLayer (34.0.2)
+  - MaterialComponents/Themes (34.0.2)
+  - MaterialComponents/Typography (34.0.2):
+    - MaterialComponents/private/Application
+  - MDFTextAccessibility (1.2.0)
   - Moya (8.0.5):
     - Moya/Core (= 8.0.5)
   - Moya/Core (8.0.5):
@@ -80,6 +127,7 @@ DEPENDENCIES:
   - InAppLocalize
   - Kingfisher (~> 3.12.2)
   - LGSideMenuController
+  - MaterialComponents/Buttons
   - MaterialComponents/ShadowElevations
   - MaterialComponents/ShadowLayer
   - Moya (~> 8.0.5)
@@ -108,6 +156,7 @@ SPEC CHECKSUMS:
   Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   MaterialComponents: 44db9edded1a9b5c3be5af286bd0b1be47b66b74
+  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
@@ -121,6 +170,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 8706f53525f1ce51c8921b7af32237caab50c467
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
 
-PODFILE CHECKSUM: 9514a205e29c2a7fd5a0fa90769c9685ebb31d44
+PODFILE CHECKSUM: 62864c4e3030165cf2a48d4f26d4bc2cdd675f0e
 
 COCOAPODS: 1.3.1

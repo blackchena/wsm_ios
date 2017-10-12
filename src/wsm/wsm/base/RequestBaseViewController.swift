@@ -35,8 +35,8 @@ class RequestBaseViewController: NoMenuBaseViewController {
 
         workSpaces = currentUser?.workSpaces ?? [UserWorkSpace]()
         groups = currentUser?.groups ?? [UserGroup]()
-        bindData()
         setupPicker()
+        bindData()
     }
 
     deinit {
@@ -59,6 +59,12 @@ class RequestBaseViewController: NoMenuBaseViewController {
     func bindData() {
         empNameTextField.text = currentUser?.name
         empCodeTextField.text = currentUser?.employeeCode
+
+        empNameTextField.isEnabled = false
+        empCodeTextField.isEnabled = false
+
+        empNameTextField.textColor = UIColor.lightGray
+        empCodeTextField.textColor = UIColor.lightGray
 
         if workSpaces.count > 0 {
             let defaultBranchId = UserServices.getLocalUserSetting()?.workSpaceDefault

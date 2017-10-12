@@ -24,6 +24,10 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if requestModel.id != nil {
+            title = LocalizationHelper.shared.localized("confirm_edit_others_request")
+        }
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
@@ -95,10 +99,10 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
         if leaveType?.compensationKind == .require {
             confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                                    header: LocalizationHelper.shared.localized("from"),
-                                                   value: requestModel.compensationAttributes.compensationFrom))
+                                                   value: requestModel.compensationAttributes.compensationFrom?.toString(dateFormat: AppConstant.requestDateFormat)))
             confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                                    header: LocalizationHelper.shared.localized("to"),
-                                                   value: requestModel.compensationAttributes.compensationTo))
+                                                   value: requestModel.compensationAttributes.compensationTo?.toString(dateFormat: AppConstant.requestDateFormat)))
             confirmItems.append(ConfirmRequestItem(imageName: "ic_reason",
                                                    header: LocalizationHelper.shared.localized("reason"),
                                                    value: requestModel.reason))

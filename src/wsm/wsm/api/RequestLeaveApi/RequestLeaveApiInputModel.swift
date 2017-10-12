@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 public class RequestLeaveApiInputModel: BaseModel {
+    var id: Int?
     var companyId: Int?
     var workspaceId: Int?
     var groupId: Int?
@@ -19,11 +20,15 @@ public class RequestLeaveApiInputModel: BaseModel {
     var checkinTime: String?
     var reason: String?
     var compensationAttributes = CompensationAttribute()
+    var workspace: UserWorkSpace?
+    var group: UserGroup?
+    var leaveType: LeaveTypeModel?
 
     init() {
     }
 
     required public init?(map: Map) {
+        map.shouldIncludeNilValues = true
     }
 
     public func mapping(map: Map) {
