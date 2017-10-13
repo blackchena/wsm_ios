@@ -10,10 +10,20 @@ import Foundation
 import Floaty
 
 class ListRequestOtViewController: BaseViewController, FloatyDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var filterView: RequestFilterView!
     
     private let floaty = Floaty()
     private let refreshControl = UIRefreshControl()
+    lazy fileprivate var spiner: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        indicatorView.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: self.tableView.bounds.width, height: CGFloat(44))
+        indicatorView.color = UIColor.appBarTintColor
+        indicatorView.startAnimating()
+        return indicatorView
+    }()
+    
     fileprivate var currentPage = 1
     private var isLoading = false
     
@@ -23,6 +33,7 @@ class ListRequestOtViewController: BaseViewController, FloatyDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "RequestOTCell", bundle: nil), forCellReuseIdentifier: "RequestOTCell")
+        tableView.tableFooterView?.isHidden = false
         
         // Add Refresh control to TableView
         refreshControl.addTarget(self, action: #selector(pullToRefreshHandler(_:)), for: .valueChanged)
@@ -36,6 +47,10 @@ class ListRequestOtViewController: BaseViewController, FloatyDelegate {
         getListRequestOts();
         
         createRequestButton()
+        
+        filterView.filterAction = { [weak self] in
+            self?.getListRequestOts()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,14 +70,14 @@ class ListRequestOtViewController: BaseViewController, FloatyDelegate {
         self.navigationController?.pushViewController(createOtVc, animated: true)
     }
     
-    func getListRequestOts(page: Int = 1, month: String = "", status: String = "") {
+    func getListRequestOts(page: Int = 1) {
         if isLoading {
             return
         }
         print("Load requests")
         AlertHelper.showLoading()
         isLoading = true
-        RequestOtProvider.getListRequestOts(page: page, month: month, status: status)
+        RequestOtProvider.getListRequestOts(page: page, month: self.filterView.getMonthYearSelectedString(), status: self.filterView.getStatusSelected())
             .then {
                     apiOutput -> Void in
                 if page > 1 {
@@ -81,6 +96,7 @@ class ListRequestOtViewController: BaseViewController, FloatyDelegate {
                 AlertHelper.hideLoading()
                 self.refreshControl.endRefreshing()
                 self.isLoading = false
+                self.tableView.tableFooterView = nil
         }
     }
     
@@ -106,6 +122,7 @@ extension ListRequestOtViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == RequestOtProvider.shared.listRequestOts.count - 1 {
+            self.tableView.tableFooterView = spiner
             getListRequestOts(page: currentPage + 1)
         }
     }

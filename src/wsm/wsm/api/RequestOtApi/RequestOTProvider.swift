@@ -15,7 +15,7 @@ import PromiseKit
 
 fileprivate enum RequestOtApiEndpoint: BaseApiTargetType {
     case submitRequestOt(requestModel: RequestOtApiInputModel)
-    case getListRequestOts(page:Int, month:String, status: String)
+    case getListRequestOts(page:Int, month:String?, status: Int?)
 
     public var path: String {
         switch self {
@@ -43,7 +43,7 @@ fileprivate enum RequestOtApiEndpoint: BaseApiTargetType {
                 "request_ot": createParameters(fromDataModel: requestModel)
             ]
         case .getListRequestOts(let page, let month, let status):
-            return ["page": page, "month": month, "q[status_eq]": status]
+            return ["page": page, "month": month ?? "", "q[status_eq]": status ?? ""]
         }
     }
 }
@@ -56,7 +56,7 @@ final class RequestOtProvider {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOtApiEndpoint.submitRequestOt(requestModel: requestModel)))
     }
     
-    static func getListRequestOts(page: Int, month: String, status: String) -> Promise<ListRequestOTApiOutModel> {
+    static func getListRequestOts(page: Int, month: String?, status: Int?) -> Promise<ListRequestOTApiOutModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOtApiEndpoint.getListRequestOts(page: page, month: month, status: status)))
     }
 }
