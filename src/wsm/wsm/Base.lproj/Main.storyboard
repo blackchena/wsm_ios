@@ -259,26 +259,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2J-Eg-L2M">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykX-qk-nYk" customClass="RequestFilterView" customModule="wsm" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="R9B-hj-S0n"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2J-Eg-L2M">
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9sc-oF-OtD" firstAttribute="top" secondItem="I2J-Eg-L2M" secondAttribute="bottom" id="AQf-F7-1aS"/>
-                            <constraint firstItem="I2J-Eg-L2M" firstAttribute="top" secondItem="u04-TQ-ald" secondAttribute="bottom" id="BtG-sJ-BCN"/>
-                            <constraint firstAttribute="trailing" secondItem="I2J-Eg-L2M" secondAttribute="trailing" id="GqQ-XU-eCz"/>
-                            <constraint firstItem="I2J-Eg-L2M" firstAttribute="leading" secondItem="EXj-Oc-wB7" secondAttribute="leading" id="u52-MX-XyC"/>
+                            <constraint firstItem="ykX-qk-nYk" firstAttribute="leading" secondItem="EXj-Oc-wB7" secondAttribute="leading" id="1jc-R8-Qe7"/>
+                            <constraint firstItem="I2J-Eg-L2M" firstAttribute="leading" secondItem="ykX-qk-nYk" secondAttribute="leading" id="3bp-kl-Umt"/>
+                            <constraint firstItem="I2J-Eg-L2M" firstAttribute="trailing" secondItem="ykX-qk-nYk" secondAttribute="trailing" id="W3I-uR-NeH"/>
+                            <constraint firstItem="I2J-Eg-L2M" firstAttribute="top" secondItem="ykX-qk-nYk" secondAttribute="bottom" constant="2" id="ac1-Lx-8ls"/>
+                            <constraint firstItem="ykX-qk-nYk" firstAttribute="top" secondItem="u04-TQ-ald" secondAttribute="bottom" id="cQS-v1-O9M"/>
+                            <constraint firstAttribute="trailing" secondItem="ykX-qk-nYk" secondAttribute="trailing" id="hJ1-wl-UCL"/>
+                            <constraint firstItem="I2J-Eg-L2M" firstAttribute="bottom" secondItem="9sc-oF-OtD" secondAttribute="top" id="sFm-EM-HC5"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filterView" destination="ykX-qk-nYk" id="e97-aS-ZpH"/>
                         <outlet property="tableView" destination="I2J-Eg-L2M" id="auQ-Gp-DN0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUv-Og-cRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="803"/>
+            <point key="canvasLocation" x="213.59999999999999" y="802.848575712144"/>
         </scene>
         <!--create_request_ot-->
         <scene sceneID="SOw-Fb-Jhr">

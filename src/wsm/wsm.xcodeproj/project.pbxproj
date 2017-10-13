@@ -755,8 +755,8 @@
 				51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */,
 				51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */,
 				513B326C1F8B336000D0D770 /* RequestFilterView.swift */,
-				513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */,
 				51E94E931F871EC6002368D3 /* RequestLeaveCell.swift */,
+				513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */,
 			);
 			name = RequestLeave;
 			sourceTree = "<group>";
@@ -1145,7 +1145,6 @@
 				"${BUILT_PRODUCTS_DIR}/InAppLocalize/InAppLocalize.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -1168,7 +1167,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppLocalize.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
