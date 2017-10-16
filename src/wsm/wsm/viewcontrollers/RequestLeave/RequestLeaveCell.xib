@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="294" height="79"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="294" height="78.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="294" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFQ-88-TEL" customClass="CardView" customModule="wsm" customModuleProvider="target">
@@ -104,6 +104,9 @@
                 <outlet property="circleView" destination="9Pp-g6-fNY" id="CIH-5C-g1m"/>
                 <outlet property="leaveTypeLabel" destination="0nA-VA-VrZ" id="cWp-fw-dAv"/>
                 <outlet property="requestTimeLabel" destination="8KY-vL-Lwi" id="Sac-tn-rL3"/>
+                <outlet property="requestTimeTitleLabel" destination="WSP-Se-u60" id="fWm-1y-BQn"/>
+                <outlet property="requestTypeImageView" destination="KJQ-ds-60k" id="xZJ-Gm-BoX"/>
+                <outlet property="seperatorLineView" destination="b9Z-d6-tv2" id="MWJ-C6-gak"/>
                 <outlet property="statusImageView" destination="jWb-MJ-5rH" id="mnI-xe-KXp"/>
             </connections>
             <point key="canvasLocation" x="12" y="69.5"/>

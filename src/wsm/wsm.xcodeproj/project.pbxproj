@@ -18,6 +18,12 @@
 		5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100D3B41F73539400F44329 /* LeftMenuHeaderCell.swift */; };
 		5100D3B91F7356E100F44329 /* LeftMenuSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */; };
 		5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */; };
+		511600B51F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B31F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift */; };
+		511600B61F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B41F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift */; };
+		511600B81F9055F700B13102 /* ListRequestOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B71F9055F700B13102 /* ListRequestOffViewController.swift */; };
+		511600BA1F905DA900B13102 /* RequestOffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B91F905DA900B13102 /* RequestOffModel.swift */; };
+		511600BC1F905F0200B13102 /* ListRequestOffApiOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */; };
+		511600BE1F907B5400B13102 /* RequestOffDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600BD1F907B5400B13102 /* RequestOffDetailViewController.swift */; };
 		5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */; };
 		5117021F1F83382C001BC69A /* UserSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117021E1F83382C001BC69A /* UserSpecial.swift */; };
 		51221C051F7B370F002F17E0 /* UserGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51221C041F7B370F002F17E0 /* UserGroup.swift */; };
@@ -127,8 +133,6 @@
 		51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */; };
 		51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */; };
 		51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C771F78B32F00CFABE8 /* WsmTextField.swift */; };
-		5195300E1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5195300D1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift */; };
-		519530101F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */; };
 		51A281141F7CFB7700D4BFD0 /* LeaveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A281131F7CFB7700D4BFD0 /* LeaveType.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
@@ -224,6 +228,12 @@
 		5100D3B41F73539400F44329 /* LeftMenuHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuHeaderCell.swift; sourceTree = "<group>"; };
 		5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuSectionCell.xib; sourceTree = "<group>"; };
 		5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuSectionCell.swift; sourceTree = "<group>"; };
+		511600B31F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewController.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
+		511600B41F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewControllerType.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewControllerType.swift; sourceTree = "<group>"; };
+		511600B71F9055F700B13102 /* ListRequestOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffViewController.swift; path = RequestOff/ListRequestOffViewController.swift; sourceTree = "<group>"; };
+		511600B91F905DA900B13102 /* RequestOffModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOffModel.swift; sourceTree = "<group>"; };
+		511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffApiOutModel.swift; path = RequestOffApi/ListRequestOffApiOutModel.swift; sourceTree = "<group>"; };
+		511600BD1F907B5400B13102 /* RequestOffDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOffDetailViewController.swift; path = RequestOff/RequestOffDetailViewController.swift; sourceTree = "<group>"; };
 		5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpaceShift.swift; sourceTree = "<group>"; };
 		5117021E1F83382C001BC69A /* UserSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSpecial.swift; path = enums/UserSpecial.swift; sourceTree = "<group>"; };
 		51221C041F7B370F002F17E0 /* UserGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGroup.swift; sourceTree = "<group>"; };
@@ -333,8 +343,6 @@
 		51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOtViewController.swift; path = RequestOt/ListRequestOtViewController.swift; sourceTree = "<group>"; };
 		51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMenuBaseViewController.swift; sourceTree = "<group>"; };
 		51754C771F78B32F00CFABE8 /* WsmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmTextField.swift; sourceTree = "<group>"; };
-		5195300D1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
-		5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmCreateRequestLeaveViewControllerType.swift; sourceTree = "<group>"; };
 		51A281131F7CFB7700D4BFD0 /* LeaveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaveType.swift; path = enums/LeaveType.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
@@ -567,6 +575,7 @@
 				B8FA28241F78BE29004E16CB /* UserSettingModel.swift */,
 				51221C061F7B3720002F17E0 /* UserWorkSpace.swift */,
 				5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */,
+				511600B91F905DA900B13102 /* RequestOffModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -584,6 +593,7 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				511600B21F90549900B13102 /* RequestOff */,
 				51692C8F1F7CCC0400DE6248 /* RequestLeave */,
 				51754C701F78A6D200CFABE8 /* RequestOt */,
 				5131FD751F7278BF00E0478B /* UserInfo */,
@@ -610,6 +620,15 @@
 				E357AF6EDD8FEAF08F129429 /* Pods-wsm.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		511600B21F90549900B13102 /* RequestOff */ = {
+			isa = PBXGroup;
+			children = (
+				511600B71F9055F700B13102 /* ListRequestOffViewController.swift */,
+				511600BD1F907B5400B13102 /* RequestOffDetailViewController.swift */,
+			);
+			name = RequestOff;
 			sourceTree = "<group>";
 		};
 		5131FD691F72771300E0478B /* enums */ = {
@@ -750,8 +769,8 @@
 		51692C8F1F7CCC0400DE6248 /* RequestLeave */ = {
 			isa = PBXGroup;
 			children = (
-				5195300D1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift */,
-				5195300F1F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift */,
+				511600B31F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift */,
+				511600B41F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift */,
 				51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */,
 				51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */,
 				513B326C1F8B336000D0D770 /* RequestFilterView.swift */,
@@ -875,6 +894,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C47F061F84BF0D0024F865 /* ListDayOffSettingApiOutputModel.swift */,
+				511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */,
 				B8C47F051F84BF0D0024F865 /* RequestOffProvider.swift */,
 			);
 			name = RequestOffApi;
@@ -885,8 +905,8 @@
 			children = (
 				B8C47EFF1F84BF010024F865 /* CreateRequestOtApiOutModel.swift */,
 				B8C47F001F84BF010024F865 /* RequestOtApiInputModel.swift */,
-				B8C47EFE1F84BF010024F865 /* RequestOTProvider.swift */,
 				BF5947E51F8C672D003593C0 /* ListRequestOTApiOutModel.swift */,
+				B8C47EFE1F84BF010024F865 /* RequestOTProvider.swift */,
 			);
 			name = RequestOtApi;
 			sourceTree = "<group>";
@@ -1201,6 +1221,7 @@
 				51FBBA161F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift in Sources */,
 				5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */,
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
+				511600B51F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift in Sources */,
 				202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */,
 				B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */,
 				51E94E951F871EC6002368D3 /* RequestLeaveCell.swift in Sources */,
@@ -1209,6 +1230,7 @@
 				5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */,
 				B81AF7201F72096A00E579B2 /* FSCalendar+Deprecated.m in Sources */,
 				B81AF71D1F72096A00E579B2 /* FSCalendarCalculator.m in Sources */,
+				511600BC1F905F0200B13102 /* ListRequestOffApiOutModel.swift in Sources */,
 				B8C47F241F84BFCC0024F865 /* WsmAccessTokenPlugin.swift in Sources */,
 				B81AF7291F72096A00E579B2 /* FSCalendarTransitionCoordinator.m in Sources */,
 				51E94EA01F8767B9002368D3 /* RequestStatus.swift in Sources */,
@@ -1222,6 +1244,7 @@
 				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateRequestCell.swift in Sources */,
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
+				511600B81F9055F700B13102 /* ListRequestOffViewController.swift in Sources */,
 				B8C47EFD1F84BEF80024F865 /* TimesheetProvider.swift in Sources */,
 				51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */,
 				B83516991F7A0C1B006B536E /* TimeSheetViewController.swift in Sources */,
@@ -1234,7 +1257,6 @@
 				51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */,
 				5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
-				5195300E1F820F2A00E55F02 /* ConfirmCreateRequestLeaveViewController.swift in Sources */,
 				5131FD5D1F7276AA00E0478B /* LeftMenuViewController.swift in Sources */,
 				B8C47F0F1F84BF150024F865 /* CreateRequestLeaveApiOutModel.swift in Sources */,
 				5131FD641F7276E400E0478B /* MainViewController.swift in Sources */,
@@ -1256,6 +1278,7 @@
 				513B32781F8B68F100D0D770 /* RequestLeaveDetailViewController.swift in Sources */,
 				B8C47F081F84BF0D0024F865 /* ListDayOffSettingApiOutputModel.swift in Sources */,
 				B8C47F101F84BF150024F865 /* RequestLeaveApiInputModel.swift in Sources */,
+				511600BA1F905DA900B13102 /* RequestOffModel.swift in Sources */,
 				B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */,
 				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
 				B8C47F211F84BFC30024F865 /* MoyaProvider+Promise.swift in Sources */,
@@ -1270,6 +1293,7 @@
 				51221C071F7B3720002F17E0 /* UserWorkSpace.swift in Sources */,
 				51221C051F7B370F002F17E0 /* UserGroup.swift in Sources */,
 				51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */,
+				511600BE1F907B5400B13102 /* RequestOffDetailViewController.swift in Sources */,
 				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
 				5168BD081F73A88200AA1287 /* UITextField.swift in Sources */,
@@ -1297,11 +1321,11 @@
 				B8C47F201F84BFC30024F865 /* API.swift in Sources */,
 				5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */,
 				B833CCCC1F7B87B200D0F1ED /* TimeSheetSpecialCaseEnum.swift in Sources */,
+				511600B61F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */,
 				51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */,
 				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
 				B83516931F79FC2D006B536E /* TimeSheetModel.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
-				519530101F8213BE00E55F02 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */,
 				513B32761F8B441300D0D770 /* MonthYearPickerView.swift in Sources */,
 				B858E7971F7CDAEB00080052 /* DateHelper.swift in Sources */,
 				B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */,
