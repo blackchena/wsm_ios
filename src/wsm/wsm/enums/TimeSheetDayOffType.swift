@@ -1,5 +1,5 @@
 //
-//  TimeSheetDayOffTypeEnum.swift
+//  TimeSheetDayOffType.swift
 //  wsm
 //
 //  Created by Lê Thanh Quang on 9/27/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TimeSheetDayOffTypeEnum: String {
+enum TimeSheetDayOffType: String {
 
     case none = ""
     case typeP = "P"

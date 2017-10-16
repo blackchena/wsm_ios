@@ -12,7 +12,7 @@ import Alamofire
 import ObjectMapper
 import SwiftyUserDefaults
 
-public enum APIError: Swift.Error {
+public enum APIError: Swift.Error, LocalizedError {
     case noStatusCode
 
     case invalidData
@@ -31,7 +31,7 @@ public enum APIError: Swift.Error {
     case networkError
     case apiFailure(message: String?)
 
-    public var localizedDescription: String {
+    public var errorDescription: String? {
         //TODOs: fill message match with APIError on Localize text
         switch self {
         case .apiFailure(let message):

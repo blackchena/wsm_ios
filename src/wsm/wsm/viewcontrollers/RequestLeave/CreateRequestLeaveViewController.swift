@@ -163,13 +163,16 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
         switch typeSelected.compensationKind {
         case .require:
             compensationView.isHidden = false
-            scrollView.contentSize = CGSize(width:scrollView.contentSize.width,
-                                            height: compensationView.frame.maxY)
-
+            if let scrollView = scrollView {
+                scrollView.contentSize = CGSize(width:scrollView.contentSize.width,
+                                                height: compensationView.frame.maxY)
+            }
         case .notRequire:
             compensationView.isHidden = true
-            scrollView.contentSize = CGSize(width: scrollView.contentSize.width,
-                                            height: compensationView.frame.minY + 10)
+            if let scrollView = scrollView {
+                scrollView.contentSize = CGSize(width: scrollView.contentSize.width,
+                                                height: compensationView.frame.minY + 10)
+            }
         }
     }
 

@@ -55,8 +55,8 @@
 "day_off_half_ro" = "Ro/2";
 "day_off_p" = "P";
 "day_off_half_p" = "P/2";
-"time_in" = "Time in: %s";
-"time_out" = "Time out: %s";
+"time_in" = "Time in: %@";
+"time_out" = "Time out: %@";
 
 "employee_name" = "Employee name";
 "employee_code" = "Employee code";
@@ -80,16 +80,16 @@
 "you_are_unauthorized_to_access" = "You are unauthorized to access!";
 
 "off_type" = "Off type";
-"annual_leave" = "Annual leave (%s days)";
-"leave_for_marriage" = "Leave for marriage (%s days)";
-"leave_for_child_marriage" = "Leave for child\'s marriage (%s days)";
-"funeral_leave" = "Funeral leave (%s days)";
-"leave_for_care_of_sick_child" = "Leave for care of sick child (%s days)";
-"pregnancy_examination_leave" = "Pregnancy examination leave (%s days)";
-"sick_leave" = "Sick leave (%s days)";
-"miscarriage_leave" = "Miscarriage leave (%s days)";
-"maternity_leave" = "Maternity leave (%s days)";
-"wife_labor_leave" = "Wife’s labor leave (%s days)";
+"annual_leave" = "Annual leave (%@ days)";
+"leave_for_marriage" = "Leave for marriage (%@ days)";
+"leave_for_child_marriage" = "Leave for child\'s marriage (%@ days)";
+"funeral_leave" = "Funeral leave (%@ days)";
+"leave_for_care_of_sick_child" = "Leave for care of sick child (%@ days)";
+"pregnancy_examination_leave" = "Pregnancy examination leave (%@ days)";
+"sick_leave" = "Sick leave (%@ days)";
+"miscarriage_leave" = "Miscarriage leave (%@ days)";
+"maternity_leave" = "Maternity leave (%@ days)";
+"wife_labor_leave" = "Wife’s labor leave (%@ days)";
 "annual_leave_detail" = "Annual leave";
 "leave_for_marriage_detail" = "Leave for marriage";
 "leave_for_child_marriage_detail" = "Leave for child\'s marriage";
@@ -136,7 +136,7 @@
 "request_off" = "Request Off";
 "confirm_day_off_request" = "Confirm day off request";
 "confirm_edit_day_off_request" = "Confirm edit day off request";
-"note" = "Note: \u0020";
+"note" = "Note:";
 "am_pm" = "Morning: AM - AM;  Afternoon: PM - PM;  All day: AM - PM";
 "off_have_salary_from" = "Off have salary from";
 "off_have_salary_to" = "Off have salary to";
@@ -203,7 +203,7 @@
 "check_out_time_must_be_in_morning_shift" = "Check out time must be in morning shift";
 "check_out_time_must_be_in_afternoon_shift" = "Check out time must be in afternoon shift";
 "time_into_company_illegal" = "Time into company Illegal";
-"can_not_be_greater_than_hours_from_the_work_shift" = "The minimum time to create a request %s is %.1f hour";
+"can_not_be_greater_than_hours_from_the_work_shift" = "The minimum time to create a request %@ is %.1f hour";
 "your_time_can_not_be_sooner_than_time_in_of_company" = "Your time can not be sooner than time in of company";
 "your_time_can_not_in_lunch_break_time_of_company" = "Your time can not in lunch break time of company";
 "your_time_can_not_be_later_than_time_out_company" = "Your time can not be later than time out company";
@@ -228,16 +228,16 @@
 "datetime_have_salary_can_not_empty" = "Date time have salary can not be blank!";
 "datetime_no_salary_can_not_empty" = "Date time no salary can not be blank!";
 "time_must_be_a_working_date" = "Time must be a working day!";
-"annual_leave_error" = "Annual leave is not greater than %s days!";
-"leave_for_marriage_error" = "Leave for marriage is not greater than %s days!";
-"leave_for_child_marriage_error" = "Leave for child\'s marriage is not greater than %s day!";
-"funeral_leave_error" = "Funeral leave is not greater than %s days!";
-"leave_for_care_of_sick_error" = "Leave for care of sick child is not greater than %s days!";
-"pregnacy_examination_leave_error" = "Pregnancy examination leave is not greater than %s days!";
-"sick_leave_error" = "Sick leave is not greater than %s days!";
-"miscarriage_leave_error" = "Miscarriage leave is not greater than %s days!";
-"maternity_leave_error" = "Maternity leave is not greater than %s days!";
-"wife_labor_leave_error" = "Wife\'s labor leave is not greater than %s days!";
+"annual_leave_error" = "Annual leave is not greater than %@ days!";
+"leave_for_marriage_error" = "Leave for marriage is not greater than %@ days!";
+"leave_for_child_marriage_error" = "Leave for child\'s marriage is not greater than %@ day!";
+"funeral_leave_error" = "Funeral leave is not greater than %@ days!";
+"leave_for_care_of_sick_error" = "Leave for care of sick child is not greater than %@ days!";
+"pregnacy_examination_leave_error" = "Pregnancy examination leave is not greater than %@ days!";
+"sick_leave_error" = "Sick leave is not greater than %@ days!";
+"miscarriage_leave_error" = "Miscarriage leave is not greater than %@ days!";
+"maternity_leave_error" = "Maternity leave is not greater than %@ days!";
+"wife_labor_leave_error" = "Wife\'s labor leave is not greater than %@ days!";
 "detail_day_off_request" = "Detail day off request";
 "detail_overtime_request" = "Detail overtime request";
 "confirm_delete" = "Confirm delete";
@@ -369,3 +369,6 @@
 "number_hour" = "Number hours";
 "no_network_connection" = "No Network Connection !";
 "close" = "Close";
+
+"off_type_with_amount" = "%@ (%.1f %@)";
+"off_type_limit_error" = "Not greater than %.1f %@!";

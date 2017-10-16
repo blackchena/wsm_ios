@@ -23,7 +23,8 @@ target 'wsm' do
     pod 'SwiftyUserDefaults'
     pod "PromiseKit", "~> 4.4"
     pod "TextFieldEffects"
-    pod 'ACFloatingTextfield-Swift'
+#    pod 'ACFloatingTextfield-Swift'
     pod 'MaterialComponents/ShadowElevations'
     pod 'MaterialComponents/ShadowLayer'
+    pod 'Validator', '~> 2.1.1'
 end

@@ -37,7 +37,7 @@ extension LoginControllerType where Self: UIViewController {
                 UserServices.saveUserSettings(userProfileResult: userProfileResult.userData,
                                               userSettingResult: userSettingResult.userSetting,
                                               listLeaveTypeResult: listLeaveTypeSettingResult.listLeaveTypeSetting,
-                                              listDayOffResult: listDayOffSettingResult.listDayOffSetting)
+                                              listDayOffResult: listDayOffSettingResult)
                 self.didLoginSuccess()
             }.catch { error in
                 AlertHelper.showError(error: error)

@@ -9,9 +9,10 @@
 import Foundation
 import InAppLocalize
 import TextFieldEffects
-import ACFloatingTextfield_Swift
+import Validator
+import InAppLocalize
 
-class WsmTextField: ACFloatingTextfield {
+class WsmTextField: ACFloatingTextfield {   
     private var localizeKey: String?
     private let padding = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 10);
 
@@ -79,5 +80,37 @@ class WsmTextField: ACFloatingTextfield {
 
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)
+    }
+
+    public func setupPicker(picker: UIPickerView, selector: Selector, target: Any? = nil, currentValue: String = "") {
+        self.isPicker = true
+        self.inputView = picker
+        self.inputAccessoryView = UIToolbar().ToolbarPiker(selector: selector, target: target)
+        self.text = currentValue
+    }
+
+    public func setupDatePicker(picker: UIDatePicker, selector: Selector, target: Any? = nil, currentValue: String = "") {
+        self.isPicker = true
+        self.inputView = picker
+        self.inputAccessoryView = UIToolbar().ToolbarPiker(selector: selector, target: target)
+        self.text = currentValue
+    }
+}
+
+extension WsmTextField {
+    public func validate<R>(rule r: R, withShowError: Bool) -> Bool where R : ValidationRule, R.InputType == UITextField.InputType {
+        let result = self.validate(rule: r)
+        switch result {
+        case .invalid(let errors):
+            if withShowError,
+                let firstError = errors.first {
+                self.showErrorWithText(errorText: firstError.localizedDescription)
+            }
+            return false
+        default:
+            break
+        }
+        
+        return true
     }
 }

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequestBasicInfoHeaderView" customModule="wsm" customModuleProvider="target">
+            <connections>
+                <outlet property="branchTextField" destination="aHn-FL-RHi" id="VdJ-vu-KZU"/>
+                <outlet property="empCodeTextField" destination="Ki3-9p-z1l" id="6d6-D3-r1e"/>
+                <outlet property="empNameTextField" destination="sL0-Kq-fdv" id="Nzw-Gu-0RT"/>
+                <outlet property="groupTextField" destination="doi-uw-0av" id="HWR-yl-Hqa"/>
+                <outlet property="projectNameTextField" destination="EIR-yw-rEf" id="sx8-3o-s1x"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ki3-9p-z1l" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                    <rect key="frame" x="20" y="10" width="352" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BUE-bm-Ljf"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sL0-Kq-fdv" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                    <rect key="frame" x="20" y="60" width="352" height="40"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHn-FL-RHi" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                    <rect key="frame" x="20" y="110" width="352" height="40"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doi-uw-0av" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                    <rect key="frame" x="20" y="160" width="352" height="40"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="project_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIR-yw-rEf" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                    <rect key="frame" x="20" y="210" width="352" height="40"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ki3-9p-z1l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="1Go-06-6Ro"/>
+                <constraint firstItem="EIR-yw-rEf" firstAttribute="centerX" secondItem="doi-uw-0av" secondAttribute="centerX" id="2NO-Za-xeU"/>
+                <constraint firstItem="doi-uw-0av" firstAttribute="centerX" secondItem="aHn-FL-RHi" secondAttribute="centerX" id="5tq-ex-a8T"/>
+                <constraint firstItem="EIR-yw-rEf" firstAttribute="width" secondItem="doi-uw-0av" secondAttribute="width" id="6Xo-t0-DqW"/>
+                <constraint firstAttribute="trailing" secondItem="Ki3-9p-z1l" secondAttribute="trailing" constant="20" id="7aT-RU-Z6Q"/>
+                <constraint firstItem="aHn-FL-RHi" firstAttribute="width" secondItem="sL0-Kq-fdv" secondAttribute="width" id="Gp0-w3-Le4"/>
+                <constraint firstItem="sL0-Kq-fdv" firstAttribute="top" secondItem="Ki3-9p-z1l" secondAttribute="bottom" constant="10" id="JuX-NE-nKZ"/>
+                <constraint firstItem="EIR-yw-rEf" firstAttribute="top" secondItem="doi-uw-0av" secondAttribute="bottom" constant="10" id="Kaz-L2-CI3"/>
+                <constraint firstItem="doi-uw-0av" firstAttribute="top" secondItem="aHn-FL-RHi" secondAttribute="bottom" constant="10" id="XFd-0u-PVt"/>
+                <constraint firstItem="sL0-Kq-fdv" firstAttribute="width" secondItem="Ki3-9p-z1l" secondAttribute="width" id="bp1-qr-5ji"/>
+                <constraint firstItem="EIR-yw-rEf" firstAttribute="height" secondItem="doi-uw-0av" secondAttribute="height" id="cep-CM-VMq"/>
+                <constraint firstItem="aHn-FL-RHi" firstAttribute="top" secondItem="sL0-Kq-fdv" secondAttribute="bottom" constant="10" id="hkd-nx-r1O"/>
+                <constraint firstItem="aHn-FL-RHi" firstAttribute="height" secondItem="sL0-Kq-fdv" secondAttribute="height" id="i3c-id-L4B"/>
+                <constraint firstItem="doi-uw-0av" firstAttribute="width" secondItem="aHn-FL-RHi" secondAttribute="width" id="iiH-at-TJY"/>
+                <constraint firstItem="Ki3-9p-z1l" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="jK3-wZ-jXb"/>
+                <constraint firstItem="doi-uw-0av" firstAttribute="height" secondItem="aHn-FL-RHi" secondAttribute="height" id="kWp-Nw-yEg"/>
+                <constraint firstItem="aHn-FL-RHi" firstAttribute="centerX" secondItem="sL0-Kq-fdv" secondAttribute="centerX" id="mN7-z5-50u"/>
+                <constraint firstItem="sL0-Kq-fdv" firstAttribute="centerX" secondItem="Ki3-9p-z1l" secondAttribute="centerX" id="mfD-QS-k9s"/>
+                <constraint firstItem="sL0-Kq-fdv" firstAttribute="height" secondItem="Ki3-9p-z1l" secondAttribute="height" id="yqh-AM-Hqf"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-297" y="59"/>
+        </view>
+    </objects>
+</document>

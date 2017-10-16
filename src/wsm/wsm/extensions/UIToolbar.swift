@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIToolbar {
-    func ToolbarPiker(selector: Selector) -> UIToolbar {
+    func ToolbarPiker(selector: Selector, target: Any? = nil) -> UIToolbar {
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
@@ -17,10 +17,10 @@ extension UIToolbar {
         toolBar.sizeToFit()
 
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace,
-                                          target: nil,
+                                          target: target,
                                           action: nil)
         let doneButton  = UIBarButtonItem(barButtonSystemItem: .done,
-                                          target: nil,
+                                          target: target,
                                           action: selector)
 
         toolBar.setItems([spaceButton, doneButton], animated: false)
