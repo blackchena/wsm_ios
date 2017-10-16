@@ -80,28 +80,6 @@ class RequestLeaveModel: BaseModel {
         return nil
     }
 
-    func getStatusImage() -> UIImage? {
-        guard let status = status else {
-            return nil
-        }
-
-        var imageName = ""
-        switch status {
-        case .pending:
-            imageName = "ic_status_pending"
-        case .approve:
-            imageName = "ic_accept_circle"
-        case .discard:
-            imageName = "ic_reject_red"
-        case .forward:
-            imageName = "ic_status_forwards"
-        case .cancel:
-            imageName = "ic_status_cancel"
-        }
-
-        return UIImage(named: imageName)
-    }
-
     func toApiInputModel() -> RequestLeaveApiInputModel {
         let model = RequestLeaveApiInputModel()
         model.id = id

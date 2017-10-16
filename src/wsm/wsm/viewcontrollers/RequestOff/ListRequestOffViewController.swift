@@ -1,19 +1,20 @@
 //
-//  ListRequestLeaveViewController.swift
+//  ListRequestOffViewController.swift
 //  wsm
 //
-//  Created by framgia on 9/28/17.
+//  Created by framgia on 10/13/17.
 //  Copyright © 2017 framgia. All rights reserved.
 //
 
 import Foundation
 import Floaty
 
-class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
+class ListRequestOffViewController: BaseViewController, FloatyDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterView: RequestFilterView!
 
+    fileprivate let createRequestFloatyButton = Floaty()
     fileprivate let floaty = Floaty()
     fileprivate var currentPage = 1
     fileprivate var isLoading = false
@@ -54,7 +55,7 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if RequestLeaveProvider.shared.isNeedRefreshList {
+        if RequestOffProvider.shared.isNeedRefreshList {
             filterView.resetConditions()
             getListRequests(page: 1)
         }
@@ -65,16 +66,16 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
     }
 
     func createRequestButton() {
-        floaty.paddingX = floaty.paddingY
-        floaty.fabDelegate = self
-        floaty.buttonColor = UIColor.appBarTintColor
-        floaty.buttonImage = UIImage(named: "ic_add")
-        self.view.addSubview(floaty)
+        createRequestFloatyButton.paddingX = floaty.paddingY
+        createRequestFloatyButton.fabDelegate = self
+        createRequestFloatyButton.buttonColor = UIColor.appBarTintColor
+        createRequestFloatyButton.buttonImage = UIImage(named: "ic_add")
+        self.view.addSubview(createRequestFloatyButton)
     }
 
     func emptyFloatySelected(_ floaty: Floaty) {
-        let createOtVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
-        self.navigationController?.pushViewController(createOtVc, animated: true)
+        //        let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
+        //        self.navigationController?.pushViewController(createOffVc, animated: true)
     }
 
     @objc private func pullToRefreshHandler(_: Any) {
@@ -85,20 +86,20 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
         if isLoading {
             return
         }
-        print("Load requests")
+
         AlertHelper.showLoading()
         isLoading = true
-        RequestLeaveProvider.getListRequestLeaves(page: page,
-                                                  month: self.filterView.getMonthYearSelectedString(),
-                                                  status: self.filterView.getStatusSelected())
+        RequestOffProvider.getListRequestOff(page: page,
+                                             month: self.filterView.getMonthYearSelectedString(),
+                                             status: self.filterView.getStatusSelected())
             .then { apiOutput -> Void in
                 if page > 1 {
-                    if apiOutput.listRequestLeaves.count > 0 {
-                        RequestLeaveProvider.shared.listRequests.append(contentsOf: apiOutput.listRequestLeaves)
+                    if apiOutput.listRequestOff.count > 0 {
+                        RequestOffProvider.shared.listRequests.append(contentsOf: apiOutput.listRequestOff)
                         self.tableView.reloadData()
                     }
                 } else {
-                    RequestLeaveProvider.shared.listRequests = apiOutput.listRequestLeaves
+                    RequestOffProvider.shared.listRequests = apiOutput.listRequestOff
                     self.tableView.reloadData()
                 }
                 self.currentPage = page
@@ -106,7 +107,7 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
                 AlertHelper.showError(error: error)
             }.always {
                 AlertHelper.hideLoading()
-                RequestLeaveProvider.shared.isNeedRefreshList = false
+                RequestOffProvider.shared.isNeedRefreshList = false
                 self.refreshControl.endRefreshing()
                 self.isLoading = false
                 self.tableView.tableFooterView = nil
@@ -114,15 +115,15 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
     }
 }
 
-extension ListReuqestLeaveViewController: UITableViewDelegate, UITableViewDataSource {
+extension ListRequestOffViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestLeaveCell", for: indexPath) as! RequestLeaveCell
-        cell.updateRequestLeaveCell(request: RequestLeaveProvider.shared.listRequests[indexPath.row])
+        cell.updateRequestOffCell(request: RequestOffProvider.shared.listRequests[indexPath.row])
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RequestLeaveProvider.shared.listRequests.count
+        return RequestOffProvider.shared.listRequests.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -130,16 +131,16 @@ extension ListReuqestLeaveViewController: UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == RequestLeaveProvider.shared.listRequests.count - 1 {
+        if indexPath.row == RequestOffProvider.shared.listRequests.count - 1 {
             self.tableView.tableFooterView = spinner
             getListRequests(page: currentPage + 1)
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedRequest = RequestLeaveProvider.shared.listRequests[indexPath.row]
-        if let detailtVc = UIViewController.getStoryboardController(identifier: "RequestLeaveDetailViewController")
-                as? RequestLeaveDetailViewController {
+        let selectedRequest = RequestOffProvider.shared.listRequests[indexPath.row]
+        if let detailtVc = UIViewController.getStoryboardController(identifier: "RequestOffDetailViewController")
+            as? RequestOffDetailViewController {
             detailtVc.selectedRequest = selectedRequest
             self.navigationController?.pushViewController(detailtVc, animated: true)
         }

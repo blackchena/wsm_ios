@@ -146,6 +146,7 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
             .then { apiOutput -> Void in
                 if apiOutput.isSucceeded() {
                     AlertHelper.showInfo(message: apiOutput.message, makesureLoadingHidden: true, handler: { (alert) in
+                        RequestLeaveProvider.shared.isNeedRefreshList = true
                         self.navigationController?.popViewController(animated: true)
                     })
                 }
