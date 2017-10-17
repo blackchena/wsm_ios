@@ -24,6 +24,9 @@ class RequestOtModel: BaseModel {
     var status: RequestStatus?
     var handleBy: String?
     var canApproveRejectRequest: Bool?
+    
+    init() {
+    }
 
     required init?(map: Map) {
 
@@ -80,5 +83,9 @@ class RequestOtModel: BaseModel {
             imageName = "ic_status_cancel"
         }
         return UIImage(named: imageName)
+    }
+    
+    func getNumberHours() -> Float? {
+        return fromTime?.getDurationWithSpecificTime(date: endTime)
     }
 }
