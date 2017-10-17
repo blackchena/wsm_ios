@@ -125,4 +125,25 @@ final class AlertHelper {
 
         UIViewController.getTopViewController()?.present(alertController, animated: true, completion: nil)
     }
+
+    /**
+     * Show message dialog
+     * Before show message will check the param makesureLoadingHidden if true -> call AlertHelper.hideLoading()
+     */
+    class func showInfoWithPromise(message: String?, makesureLoadingHidden: Bool = true) -> Promise<Void> {
+
+        return Promise<Void> { fulfill, _ in
+            if makesureLoadingHidden {
+                hideLoading()
+            }
+
+            let alertController = UIAlertController(title: "wsm", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: LocalizationHelper.shared.localized("CLOSE"),
+                                                    style: .default,
+                                                    handler: { _ in fulfill() }))
+
+            UIViewController.getTopViewController()?.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
 }

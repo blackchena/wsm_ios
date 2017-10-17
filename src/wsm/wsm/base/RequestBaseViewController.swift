@@ -12,16 +12,20 @@ import InAppLocalize
 
 class RequestBaseViewController: NoMenuBaseViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIScrollView?
+    @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var contentView: UIView!
+
     @IBOutlet weak var empNameTextField: WsmTextField!
     @IBOutlet weak var empCodeTextField: WsmTextField!
     @IBOutlet weak var branchTextField: WsmTextField!
     @IBOutlet weak var groupTextField: WsmTextField!
     @IBOutlet weak var projectNameTextField: WsmTextField!
+
+    @IBOutlet weak var basicInfoHeaderView: RequestBasicInfoHeaderView!
     @IBOutlet weak var reasonTextField: WsmTextField!
 
-    
+
     let branchPicker = UIPickerView()
     let groupPicker = UIPickerView()
 
@@ -35,8 +39,14 @@ class RequestBaseViewController: NoMenuBaseViewController {
 
         workSpaces = currentUser?.workSpaces ?? [UserWorkSpace]()
         groups = currentUser?.groups ?? [UserGroup]()
-        setupPicker()
-        bindData()
+
+        if branchTextField != nil && groupTextField != nil{
+            setupPicker()
+        }
+
+        if empNameTextField != nil && empCodeTextField != nil {
+            bindData()
+        }
     }
 
     deinit {
@@ -130,12 +140,30 @@ extension RequestBaseViewController {
         }
         let keyboardSize = keyboardInfo.cgRectValue.size
         let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+
+        if let tableView = tableView {
+            tableView.contentInset = contentInsets
+            tableView.scrollIndicatorInsets = contentInsets
+        } else if let scrollView = self.scrollView {
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+
     }
 
     func keyboardWillHide(notification: Notification) {
-        scrollView.contentInset = .zero
-        scrollView.scrollIndicatorInsets = .zero
+        if let tableView = tableView {
+            tableView.contentInset = .zero
+            tableView.scrollIndicatorInsets = .zero
+        } else if let scrollView = self.scrollView {
+            scrollView.contentInset = .zero
+            scrollView.scrollIndicatorInsets = .zero
+        }
     }
 }
+
+//extension RequestBaseViewController {
+//    fileprivate func getCellSelectedIndexPath() -> IndexPath {
+//        
+//    }
+//}

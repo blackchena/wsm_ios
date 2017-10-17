@@ -22,6 +22,8 @@ class UserGroup: BaseModel {
     required init?(map: Map) {
     }
 
+    init() {}
+
     public func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]

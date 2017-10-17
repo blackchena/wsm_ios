@@ -51,7 +51,7 @@ class UserServices {
     public static func saveUserSettings(userProfileResult: UserProfileModel?,
                                         userSettingResult: UserSettingModel?,
                                         listLeaveTypeResult: [LeaveTypeModel]?,
-                                        listDayOffResult: [DayOffModel]?) {
+                                        listDayOffResult: ListDayOffSettingApiOutputModel?) {
         saveUserProfile(userProfileResult: userProfileResult)
         saveUserSetting(userSettingResult: userSettingResult)
         saveLeaveTypeSettings(listLeaveTypeResult: listLeaveTypeResult)
@@ -82,7 +82,7 @@ class UserServices {
         Defaults[userSetting] = nil
     }
 
-    public static func saveDayOffSettings(listDayOffResult: [DayOffModel]?) {
+    public static func saveDayOffSettings(listDayOffResult: ListDayOffSettingApiOutputModel?) {
         Defaults[listDayOffSetting] = listDayOffResult?.toJSONString()
     }
     
@@ -114,12 +114,12 @@ class UserServices {
         return UserSettingModel(JSONString: dataRaw)
     }
 
-    public static func getLocalDayOffSettings() -> [DayOffModel]? {
+    public static func getLocalDayOffSettings() -> ListDayOffSettingApiOutputModel? {
         guard let dataRaw = Defaults[listDayOffSetting] else {
             return nil
         }
 
-        return [DayOffModel](JSONString: dataRaw)
+        return ListDayOffSettingApiOutputModel(JSONString: dataRaw)
     }
 
     public static func getLocalLeaveTypeSettings() -> [LeaveTypeModel]? {

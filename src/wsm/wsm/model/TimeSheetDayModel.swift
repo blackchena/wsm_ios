@@ -24,7 +24,7 @@ class TimeSheetDayModel: BaseModel {
     var colorSpecialDate: UIColor?
 
     var isSpecialCase: Bool {
-        return TimeSheetSpecialCaseEnum(rawValue: textMorning ?? "") != nil && TimeSheetSpecialCaseEnum(rawValue: textAfternoon ?? "") != nil
+        return TimeSheetSpecialCase(rawValue: textMorning ?? "") != nil && TimeSheetSpecialCase(rawValue: textAfternoon ?? "") != nil
     }
 
     var morningColorDisplay: UIColor? {
@@ -32,7 +32,7 @@ class TimeSheetDayModel: BaseModel {
             date.compare(.isWeekend) && !(compensationHoliday ?? true) {
             return colorSpecialDate
         } else if let textMorning = textMorning,
-            let dayOffType = TimeSheetDayOffTypeEnum(rawValue: textMorning[0]) {
+            let dayOffType = TimeSheetDayOffType(rawValue: textMorning[0]) {
             return dayOffType.dayOffColor
         } else {
             return colorMorning
@@ -52,7 +52,7 @@ class TimeSheetDayModel: BaseModel {
             date.compare(.isWeekend) && !(compensationHoliday ?? true) {
             return colorSpecialDate
         } else if let textAfternoon = textAfternoon,
-            let dayOffType = TimeSheetDayOffTypeEnum(rawValue: textAfternoon[0]) {
+            let dayOffType = TimeSheetDayOffType(rawValue: textAfternoon[0]) {
             return dayOffType.dayOffColor
         } else {
             return colorAfternoon

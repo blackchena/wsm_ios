@@ -1,5 +1,5 @@
 //
-//  TimeSheetSpecialCaseEnum.swift
+//  TimeSheetSpecialCase.swift
 //  wsm
 //
 //  Created by Lê Thanh Quang on 9/27/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TimeSheetSpecialCaseEnum: String {
+enum TimeSheetSpecialCase: String {
     case na = "N/A"
     case ts = "TS"
     case os = "OS"

@@ -20,10 +20,10 @@
 		5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */; };
 		511600B51F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B31F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift */; };
 		511600B61F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B41F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift */; };
-		511600B81F9055F700B13102 /* ListRequestOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B71F9055F700B13102 /* ListRequestOffViewController.swift */; };
+		511600B81F9055F700B13102 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		511600BA1F905DA900B13102 /* RequestOffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B91F905DA900B13102 /* RequestOffModel.swift */; };
 		511600BC1F905F0200B13102 /* ListRequestOffApiOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */; };
-		511600BE1F907B5400B13102 /* RequestOffDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600BD1F907B5400B13102 /* RequestOffDetailViewController.swift */; };
+		511600BE1F907B5400B13102 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */; };
 		5117021F1F83382C001BC69A /* UserSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117021E1F83382C001BC69A /* UserSpecial.swift */; };
 		51221C051F7B370F002F17E0 /* UserGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51221C041F7B370F002F17E0 /* UserGroup.swift */; };
@@ -165,21 +165,24 @@
 		B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF7191F72096A00E579B2 /* FSCalendarWeekdayView.m */; };
 		B81AF72B1F72096A00E579B2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81AF71A1F72096A00E579B2 /* Info.plist */; };
 		B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81AF7301F7222BA00E579B2 /* BaseModel.swift */; };
-		B833CCCC1F7B87B200D0F1ED /* TimeSheetSpecialCaseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833CCCB1F7B87B200D0F1ED /* TimeSheetSpecialCaseEnum.swift */; };
-		B833CCCE1F7B90D500D0F1ED /* TimeSheetDayOffTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833CCCD1F7B90D500D0F1ED /* TimeSheetDayOffTypeEnum.swift */; };
+		B8259FD71F8764DE00E5891D /* DateOffType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8259FD61F8764DE00E5891D /* DateOffType.swift */; };
+		B8259FD91F876F1000E5891D /* RequestDayOffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */; };
+		B8259FDB1F87729B00E5891D /* TimeConventionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8259FDA1F87729B00E5891D /* TimeConventionType.swift */; };
 		B83516931F79FC2D006B536E /* TimeSheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83516921F79FC2D006B536E /* TimeSheetModel.swift */; };
 		B83516951F79FCD8006B536E /* TimeSheetDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */; };
 		B83516991F7A0C1B006B536E /* TimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83516981F7A0C1B006B536E /* TimeSheetViewController.swift */; };
 		B835169B1F7A0C32006B536E /* TimeSheetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835169A1F7A0C32006B536E /* TimeSheetViewCell.swift */; };
+		B84235401F94AB1D001D256B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842353F1F94AB1D001D256B /* Collection.swift */; };
 		B858E7971F7CDAEB00080052 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858E7961F7CDAEB00080052 /* DateHelper.swift */; };
 		B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */; };
 		B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D5A1F73B12B00329529 /* LoginModel.swift */; };
 		B86B843B1F7E52D3009D178D /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86B843A1F7E52D3009D178D /* CompanyModel.swift */; };
 		B87CDBF41F833CE1008A8D0E /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CDBF31F833CE1008A8D0E /* AppConstant.swift */; };
-		B88E77F41F82433500E61374 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E77F31F82433500E61374 /* CardView.swift */; };
 		B88E77F61F824BEA00E61374 /* TimeSheetDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E77F51F824BEA00E61374 /* TimeSheetDetailViewCell.swift */; };
 		B89BB9D51F74B03A008E547C /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89BB9D41F74B03A008E547C /* UserProfileModel.swift */; };
 		B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */; };
+		B8A608BD1F8F57A700376292 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A608BC1F8F57A700376292 /* UIView.swift */; };
+		B8C47EF21F84B6320024F865 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B8C47EFC1F84BEF80024F865 /* TimeSheetApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C47EFA1F84BEF80024F865 /* TimeSheetApiOutputModel.swift */; };
 		B8C47EFD1F84BEF80024F865 /* TimesheetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C47EFB1F84BEF80024F865 /* TimesheetProvider.swift */; };
 		B8C47F011F84BF010024F865 /* RequestOTProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C47EFE1F84BF010024F865 /* RequestOTProvider.swift */; };
@@ -201,12 +204,31 @@
 		B8C47F221F84BFC30024F865 /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C47F1F1F84BFC30024F865 /* Response+ObjectMapper.swift */; };
 		B8C47F241F84BFCC0024F865 /* WsmAccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C47F231F84BFCC0024F865 /* WsmAccessTokenPlugin.swift */; };
 		B8C47F271F84C0250024F865 /* WSMDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C47F261F84C0250024F865 /* WSMDateTransform.swift */; };
+		B8C606E71F86171000DF34D4 /* RequestBasicInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C606E61F86171000DF34D4 /* RequestBasicInfoHeaderView.xib */; };
+		B8C606E91F86187E00DF34D4 /* RequestBasicInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C606E81F86187E00DF34D4 /* RequestBasicInfoHeaderView.swift */; };
+		B8CCDB4B1F94C12500A00E02 /* CreateRequestOffTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDB461F94C12500A00E02 /* CreateRequestOffTimeCell.swift */; };
+		B8CCDB4C1F94C12500A00E02 /* CreateRequestOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDB471F94C12500A00E02 /* CreateRequestOffViewController.swift */; };
+		B8CCDB4D1F94C12500A00E02 /* CreateRequestOffViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDB481F94C12500A00E02 /* CreateRequestOffViewControllerType.swift */; };
+		B8CCDB4E1F94C12500A00E02 /* ListRequestOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDB491F94C12500A00E02 /* ListRequestOffViewController.swift */; };
+		B8CCDB4F1F94C12500A00E02 /* RequestOffDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDB4A1F94C12500A00E02 /* RequestOffDetailViewController.swift */; };
+		B8CCDB511F94C16C00A00E02 /* TimeSheetSpecialCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CCDB501F94C16C00A00E02 /* TimeSheetSpecialCase.swift */; };
+		B8CD7FA11F8DC0F800DC71B3 /* StringRequiredValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CD7FA01F8DC0F800DC71B3 /* StringRequiredValidator.swift */; };
+		B8CD7FA31F8E0D4200DC71B3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CD7FA21F8E0D4200DC71B3 /* CardView.swift */; };
+		B8D185C71F862A30000B6E3B /* RequestTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D185C51F862A30000B6E3B /* RequestTextFieldCell.swift */; };
+		B8D185CA1F862A4D000B6E3B /* RequestTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */; };
+		B8D185D01F863119000B6E3B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A5031F822AD200FD0890 /* TimeSheetSummaryViewCell.swift */; };
 		B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8AFCC1F79401D0063E687 /* UserServices.swift */; };
 		B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA28241F78BE29004E16CB /* UserSettingModel.swift */; };
 		B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */; };
 		B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */; };
-		B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA282E1F78E400004E16CB /* DayOffModel.swift */; };
+		B8FA282F1F78E400004E16CB /* DayOffSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */; };
+		B8FCEEBC1F8B201A0032136E /* RequestOffApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEBB1F8B201A0032136E /* RequestOffApiInputModel.swift */; };
+		B8FCEEBE1F8B30500032136E /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B8FCEEC01F8B5D000032136E /* TimeSheetDayOffType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEBF1F8B5D000032136E /* TimeSheetDayOffType.swift */; };
+		B8FCEEC31F8B6C1B0032136E /* ValidateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEC21F8B6C1B0032136E /* ValidateError.swift */; };
+		B8FCEEC71F8B719D0032136E /* FloatCompareValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEC61F8B719D0032136E /* FloatCompareValidator.swift */; };
+		B8FCEECB1F8B82590032136E /* ACFloatingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEECA1F8B82590032136E /* ACFloatingTextfield.swift */; };
 		BF5947E61F8C672D003593C0 /* ListRequestOTApiOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5947E51F8C672D003593C0 /* ListRequestOTApiOutModel.swift */; };
 		BF5947E81F8CCA5E003593C0 /* UICircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5947E71F8CCA5E003593C0 /* UICircleView.swift */; };
 		BFC037FD1F8B52F300DBE212 /* RequestOTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */; };
@@ -230,10 +252,8 @@
 		5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuSectionCell.swift; sourceTree = "<group>"; };
 		511600B31F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewController.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
 		511600B41F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewControllerType.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewControllerType.swift; sourceTree = "<group>"; };
-		511600B71F9055F700B13102 /* ListRequestOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffViewController.swift; path = RequestOff/ListRequestOffViewController.swift; sourceTree = "<group>"; };
 		511600B91F905DA900B13102 /* RequestOffModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOffModel.swift; sourceTree = "<group>"; };
 		511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffApiOutModel.swift; path = RequestOffApi/ListRequestOffApiOutModel.swift; sourceTree = "<group>"; };
-		511600BD1F907B5400B13102 /* RequestOffDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOffDetailViewController.swift; path = RequestOff/RequestOffDetailViewController.swift; sourceTree = "<group>"; };
 		5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpaceShift.swift; sourceTree = "<group>"; };
 		5117021E1F83382C001BC69A /* UserSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSpecial.swift; path = enums/UserSpecial.swift; sourceTree = "<group>"; };
 		51221C041F7B370F002F17E0 /* UserGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGroup.swift; sourceTree = "<group>"; };
@@ -391,21 +411,23 @@
 		B81AF7191F72096A00E579B2 /* FSCalendarWeekdayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarWeekdayView.m; path = libs/FSCalendar/FSCalendarWeekdayView.m; sourceTree = "<group>"; };
 		B81AF71A1F72096A00E579B2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = libs/FSCalendar/Info.plist; sourceTree = "<group>"; };
 		B81AF7301F7222BA00E579B2 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		B833CCCB1F7B87B200D0F1ED /* TimeSheetSpecialCaseEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetSpecialCaseEnum.swift; path = enums/TimeSheetSpecialCaseEnum.swift; sourceTree = "<group>"; };
-		B833CCCD1F7B90D500D0F1ED /* TimeSheetDayOffTypeEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetDayOffTypeEnum.swift; path = enums/TimeSheetDayOffTypeEnum.swift; sourceTree = "<group>"; };
+		B8259FD61F8764DE00E5891D /* DateOffType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateOffType.swift; path = enums/DateOffType.swift; sourceTree = "<group>"; };
+		B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDayOffModel.swift; sourceTree = "<group>"; };
+		B8259FDA1F87729B00E5891D /* TimeConventionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeConventionType.swift; path = enums/TimeConventionType.swift; sourceTree = "<group>"; };
 		B83516921F79FC2D006B536E /* TimeSheetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetModel.swift; sourceTree = "<group>"; };
 		B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetDayModel.swift; sourceTree = "<group>"; };
 		B83516981F7A0C1B006B536E /* TimeSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetViewController.swift; path = TimeSheet/TimeSheetViewController.swift; sourceTree = "<group>"; };
 		B835169A1F7A0C32006B536E /* TimeSheetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetViewCell.swift; path = TimeSheet/TimeSheetViewCell.swift; sourceTree = "<group>"; };
+		B842353F1F94AB1D001D256B /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		B858E7961F7CDAEB00080052 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = libs/DateHelper.swift; sourceTree = "<group>"; };
 		B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMLocalStorageKeys.swift; path = storages/WSMLocalStorageKeys.swift; sourceTree = "<group>"; };
 		B85E1D5A1F73B12B00329529 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		B86B843A1F7E52D3009D178D /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		B87CDBF31F833CE1008A8D0E /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
-		B88E77F31F82433500E61374 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = base/CardView.swift; sourceTree = "<group>"; };
 		B88E77F51F824BEA00E61374 /* TimeSheetDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetDetailViewCell.swift; path = TimeSheet/TimeSheetDetailViewCell.swift; sourceTree = "<group>"; };
 		B89BB9D41F74B03A008E547C /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDebugPrinter.swift; sourceTree = "<group>"; };
+		B8A608BC1F8F57A700376292 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8C47EFA1F84BEF80024F865 /* TimeSheetApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetApiOutputModel.swift; path = TimeSheetApi/TimeSheetApiOutputModel.swift; sourceTree = "<group>"; };
 		B8C47EFB1F84BEF80024F865 /* TimesheetProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimesheetProvider.swift; path = TimeSheetApi/TimesheetProvider.swift; sourceTree = "<group>"; };
 		B8C47EFE1F84BF010024F865 /* RequestOTProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOTProvider.swift; path = RequestOtApi/RequestOTProvider.swift; sourceTree = "<group>"; };
@@ -427,12 +449,29 @@
 		B8C47F1F1F84BFC30024F865 /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Response+ObjectMapper.swift"; path = "Base/Response+ObjectMapper.swift"; sourceTree = "<group>"; };
 		B8C47F231F84BFCC0024F865 /* WsmAccessTokenPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WsmAccessTokenPlugin.swift; path = Base/Plugins/WsmAccessTokenPlugin.swift; sourceTree = "<group>"; };
 		B8C47F261F84C0250024F865 /* WSMDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMDateTransform.swift; path = Base/TransformTypes/WSMDateTransform.swift; sourceTree = "<group>"; };
+		B8C606E61F86171000DF34D4 /* RequestBasicInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestBasicInfoHeaderView.xib; sourceTree = "<group>"; };
+		B8C606E81F86187E00DF34D4 /* RequestBasicInfoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBasicInfoHeaderView.swift; sourceTree = "<group>"; };
+		B8CCDB461F94C12500A00E02 /* CreateRequestOffTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestOffTimeCell.swift; path = RequestOff/CreateRequestOffTimeCell.swift; sourceTree = "<group>"; };
+		B8CCDB471F94C12500A00E02 /* CreateRequestOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestOffViewController.swift; path = RequestOff/CreateRequestOffViewController.swift; sourceTree = "<group>"; };
+		B8CCDB481F94C12500A00E02 /* CreateRequestOffViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRequestOffViewControllerType.swift; path = RequestOff/CreateRequestOffViewControllerType.swift; sourceTree = "<group>"; };
+		B8CCDB491F94C12500A00E02 /* ListRequestOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffViewController.swift; path = RequestOff/ListRequestOffViewController.swift; sourceTree = "<group>"; };
+		B8CCDB4A1F94C12500A00E02 /* RequestOffDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOffDetailViewController.swift; path = RequestOff/RequestOffDetailViewController.swift; sourceTree = "<group>"; };
+		B8CCDB501F94C16C00A00E02 /* TimeSheetSpecialCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetSpecialCase.swift; path = enums/TimeSheetSpecialCase.swift; sourceTree = "<group>"; };
+		B8CD7FA01F8DC0F800DC71B3 /* StringRequiredValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringRequiredValidator.swift; sourceTree = "<group>"; };
+		B8CD7FA21F8E0D4200DC71B3 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = customviews/CardView.swift; sourceTree = "<group>"; };
+		B8D185C51F862A30000B6E3B /* RequestTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTextFieldCell.swift; sourceTree = "<group>"; };
+		B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestTextFieldCell.xib; sourceTree = "<group>"; };
 		B8F7A5031F822AD200FD0890 /* TimeSheetSummaryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetSummaryViewCell.swift; path = TimeSheet/TimeSheetSummaryViewCell.swift; sourceTree = "<group>"; };
 		B8F8AFCC1F79401D0063E687 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServices.swift; path = services/UserServices.swift; sourceTree = "<group>"; };
 		B8FA28241F78BE29004E16CB /* UserSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingModel.swift; sourceTree = "<group>"; };
 		B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifySettingModel.swift; sourceTree = "<group>"; };
 		B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaveTypeModel.swift; sourceTree = "<group>"; };
-		B8FA282E1F78E400004E16CB /* DayOffModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOffModel.swift; sourceTree = "<group>"; };
+		B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayOffSettingModel.swift; sourceTree = "<group>"; };
+		B8FCEEBB1F8B201A0032136E /* RequestOffApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOffApiInputModel.swift; path = RequestOffApi/RequestOffApiInputModel.swift; sourceTree = "<group>"; };
+		B8FCEEBF1F8B5D000032136E /* TimeSheetDayOffType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetDayOffType.swift; path = enums/TimeSheetDayOffType.swift; sourceTree = "<group>"; };
+		B8FCEEC21F8B6C1B0032136E /* ValidateError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValidateError.swift; path = errors/ValidateError.swift; sourceTree = "<group>"; };
+		B8FCEEC61F8B719D0032136E /* FloatCompareValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatCompareValidator.swift; sourceTree = "<group>"; };
+		B8FCEECA1F8B82590032136E /* ACFloatingTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ACFloatingTextfield.swift; path = libs/ACFloatingTextfield.swift; sourceTree = "<group>"; };
 		BF5947E51F8C672D003593C0 /* ListRequestOTApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOTApiOutModel.swift; path = RequestOtApi/ListRequestOTApiOutModel.swift; sourceTree = "<group>"; };
 		BF5947E71F8CCA5E003593C0 /* UICircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircleView.swift; sourceTree = "<group>"; };
 		BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOTCell.swift; path = ../interfaces/RequestOTCell.swift; sourceTree = "<group>"; };
@@ -475,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				513B32741F8B43F400D0D770 /* customviews */,
+				B8FCEEC11F8B6BEF0032136E /* errors */,
 				51E63CB91F74C3A6008B0C89 /* localization */,
 				B85E1D551F735F5100329529 /* storages */,
 				5168BC6C1F739D7900AA1287 /* resources */,
@@ -516,8 +556,10 @@
 				B81AF7301F7222BA00E579B2 /* BaseModel.swift */,
 				202ED9DF1F6FCD0C00544A7D /* BaseViewController.swift */,
 				51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */,
-				51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */,
 				51754C771F78B32F00CFABE8 /* WsmTextField.swift */,
+				51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */,
+				B8C606E81F86187E00DF34D4 /* RequestBasicInfoHeaderView.swift */,
+				B8D185C51F862A30000B6E3B /* RequestTextFieldCell.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -525,20 +567,22 @@
 		202ED9D41F6FCBCB00544A7D /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5168BB461F7375BB00AA1287 /* UIColor.swift */,
-				5168BCFB1F73A73600AA1287 /* UIViewController.swift */,
-				5168BCFD1F73A74D00AA1287 /* UIImageView.swift */,
-				5168BCFF1F73A78B00AA1287 /* String.swift */,
-				5168BD011F73A7AA00AA1287 /* Dictionary.swift */,
 				5168BD031F73A7C400AA1287 /* Array.swift */,
-				5168BD051F73A7E600AA1287 /* Formatter.swift */,
-				5168BD071F73A88200AA1287 /* UITextField.swift */,
-				5168BD091F73A89700AA1287 /* Sequence.swift */,
-				51754C6E1F7895DC00CFABE8 /* Floaty.swift */,
-				B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */,
-				51561F321F7908C700619723 /* UIToolbar.swift */,
+				B842353F1F94AB1D001D256B /* Collection.swift */,
 				5154D9DB1F79DD6100A6A1B2 /* Date.swift */,
+				5168BD011F73A7AA00AA1287 /* Dictionary.swift */,
+				B8A20B601F7698C800C63979 /* ErrorDebugPrinter.swift */,
+				51754C6E1F7895DC00CFABE8 /* Floaty.swift */,
+				5168BD051F73A7E600AA1287 /* Formatter.swift */,
+				5168BD091F73A89700AA1287 /* Sequence.swift */,
+				5168BCFF1F73A78B00AA1287 /* String.swift */,
 				BF5947E71F8CCA5E003593C0 /* UICircleView.swift */,
+				5168BB461F7375BB00AA1287 /* UIColor.swift */,
+				5168BCFD1F73A74D00AA1287 /* UIImageView.swift */,
+				5168BD071F73A88200AA1287 /* UITextField.swift */,
+				51561F321F7908C700619723 /* UIToolbar.swift */,
+				B8A608BC1F8F57A700376292 /* UIView.swift */,
+				5168BCFB1F73A73600AA1287 /* UIViewController.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -553,6 +597,8 @@
 				51E94E941F871EC6002368D3 /* RequestLeaveCell.xib */,
 				513B326E1F8B338000D0D770 /* RequestFilterView.xib */,
 				BFC037FC1F8B52F300DBE212 /* RequestOTCell.xib */,
+				B8C606E61F86171000DF34D4 /* RequestBasicInfoHeaderView.xib */,
+				B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -560,22 +606,23 @@
 		202ED9D61F6FCBCB00544A7D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
-				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
-				B8FA282E1F78E400004E16CB /* DayOffModel.swift */,
-				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
 				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
 				B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */,
 				51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */,
 				51221C0F1F7B6287002F17E0 /* RequestOtModel.swift */,
-				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
-				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
+				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
+				B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */,
 				51221C041F7B370F002F17E0 /* UserGroup.swift */,
 				B89BB9D41F74B03A008E547C /* UserProfileModel.swift */,
 				B8FA28241F78BE29004E16CB /* UserSettingModel.swift */,
 				51221C061F7B3720002F17E0 /* UserWorkSpace.swift */,
 				5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */,
 				511600B91F905DA900B13102 /* RequestOffModel.swift */,
+				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
+				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
+				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
+				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
+				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -586,6 +633,8 @@
 				202ED9EA1F6FCE8600544A7D /* AlertHelper.swift */,
 				202ED9E11F6FCD4200544A7D /* Utils.swift */,
 				B87CDBF31F833CE1008A8D0E /* AppConstant.swift */,
+				B8FCEEC61F8B719D0032136E /* FloatCompareValidator.swift */,
+				B8CD7FA01F8DC0F800DC71B3 /* StringRequiredValidator.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -593,7 +642,7 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
-				511600B21F90549900B13102 /* RequestOff */,
+				B8CCDB451F94C11700A00E02 /* RequestOff */,
 				51692C8F1F7CCC0400DE6248 /* RequestLeave */,
 				51754C701F78A6D200CFABE8 /* RequestOt */,
 				5131FD751F7278BF00E0478B /* UserInfo */,
@@ -622,24 +671,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		511600B21F90549900B13102 /* RequestOff */ = {
-			isa = PBXGroup;
-			children = (
-				511600B71F9055F700B13102 /* ListRequestOffViewController.swift */,
-				511600BD1F907B5400B13102 /* RequestOffDetailViewController.swift */,
-			);
-			name = RequestOff;
-			sourceTree = "<group>";
-		};
 		5131FD691F72771300E0478B /* enums */ = {
 			isa = PBXGroup;
 			children = (
+				B8CCDB501F94C16C00A00E02 /* TimeSheetSpecialCase.swift */,
+				B8FCEEBF1F8B5D000032136E /* TimeSheetDayOffType.swift */,
 				5131FD6A1F72772000E0478B /* MenuGroup.swift */,
 				51A281131F7CFB7700D4BFD0 /* LeaveType.swift */,
 				5117021E1F83382C001BC69A /* UserSpecial.swift */,
-				B833CCCB1F7B87B200D0F1ED /* TimeSheetSpecialCaseEnum.swift */,
-				B833CCCD1F7B90D500D0F1ED /* TimeSheetDayOffTypeEnum.swift */,
 				51E94E9F1F8767B9002368D3 /* RequestStatus.swift */,
+				B8259FD61F8764DE00E5891D /* DateOffType.swift */,
+				B8259FDA1F87729B00E5891D /* TimeConventionType.swift */,
 			);
 			name = enums;
 			sourceTree = "<group>";
@@ -679,8 +721,8 @@
 		513B32741F8B43F400D0D770 /* customviews */ = {
 			isa = PBXGroup;
 			children = (
+				B8CD7FA21F8E0D4200DC71B3 /* CardView.swift */,
 				513B32751F8B441300D0D770 /* MonthYearPickerView.swift */,
-				B88E77F31F82433500E61374 /* CardView.swift */,
 			);
 			name = customviews;
 			sourceTree = "<group>";
@@ -805,6 +847,7 @@
 		B81AF6C11F7203EB00E579B2 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				B8FCEECA1F8B82590032136E /* ACFloatingTextfield.swift */,
 				B858E7961F7CDAEB00080052 /* DateHelper.swift */,
 				B81AF6C41F72043F00E579B2 /* FSCalendar */,
 			);
@@ -893,6 +936,7 @@
 		B8C47EF71F84BECE0024F865 /* RequestOffApi */ = {
 			isa = PBXGroup;
 			children = (
+				B8FCEEBB1F8B201A0032136E /* RequestOffApiInputModel.swift */,
 				B8C47F061F84BF0D0024F865 /* ListDayOffSettingApiOutputModel.swift */,
 				511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */,
 				B8C47F051F84BF0D0024F865 /* RequestOffProvider.swift */,
@@ -948,12 +992,32 @@
 			name = TransformTypes;
 			sourceTree = "<group>";
 		};
+		B8CCDB451F94C11700A00E02 /* RequestOff */ = {
+			isa = PBXGroup;
+			children = (
+				B8CCDB461F94C12500A00E02 /* CreateRequestOffTimeCell.swift */,
+				B8CCDB471F94C12500A00E02 /* CreateRequestOffViewController.swift */,
+				B8CCDB481F94C12500A00E02 /* CreateRequestOffViewControllerType.swift */,
+				B8CCDB491F94C12500A00E02 /* ListRequestOffViewController.swift */,
+				B8CCDB4A1F94C12500A00E02 /* RequestOffDetailViewController.swift */,
+			);
+			name = RequestOff;
+			sourceTree = "<group>";
+		};
 		B8F8AFCB1F793FDE0063E687 /* services */ = {
 			isa = PBXGroup;
 			children = (
 				B8F8AFCC1F79401D0063E687 /* UserServices.swift */,
 			);
 			name = services;
+			sourceTree = "<group>";
+		};
+		B8FCEEC11F8B6BEF0032136E /* errors */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEEC21F8B6C1B0032136E /* ValidateError.swift */,
+			);
+			name = errors;
 			sourceTree = "<group>";
 		};
 		E716D944208DF53FC79A9A96 /* Frameworks */ = {
@@ -1047,6 +1111,7 @@
 				5100D3B31F73535900F44329 /* LeftMenuHeaderCell.xib in Resources */,
 				5168BCDD1F739DBF00AA1287 /* ic_menu_right.png in Resources */,
 				51E94E961F871EC6002368D3 /* RequestLeaveCell.xib in Resources */,
+				B8C606E71F86171000DF34D4 /* RequestBasicInfoHeaderView.xib in Resources */,
 				5168BCE21F739DBF00AA1287 /* ic_personal_information.png in Resources */,
 				5168BCF41F739DBF00AA1287 /* ic_request_leave.png in Resources */,
 				5168BCEA1F739DBF00AA1287 /* ic_status.png in Resources */,
@@ -1059,6 +1124,7 @@
 				5168BCE61F739DBF00AA1287 /* ic_search.png in Resources */,
 				5168BCDE1F739DBF00AA1287 /* ic_not_found_data.png in Resources */,
 				51561F351F79141E00619723 /* vi.lproj in Resources */,
+				B8D185CA1F862A4D000B6E3B /* RequestTextFieldCell.xib in Resources */,
 				5168BCD41F739DBF00AA1287 /* ic_filter.png in Resources */,
 				5168BCEB1F739DBF00AA1287 /* ic_calendar_timesheet.png in Resources */,
 				5168BCB71F739DBF00AA1287 /* ic_view.png in Resources */,
@@ -1158,7 +1224,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-wsm/Pods-wsm-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ACFloatingTextfield-Swift/ACFloatingTextfield_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -1176,11 +1241,11 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACFloatingTextfield_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -1198,6 +1263,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1222,9 +1288,11 @@
 				5100D3BB1F73570100F44329 /* LeftMenuSectionCell.swift in Sources */,
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
 				511600B51F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift in Sources */,
+				B8FCEEC71F8B719D0032136E /* FloatCompareValidator.swift in Sources */,
 				202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */,
 				B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */,
 				51E94E951F871EC6002368D3 /* RequestLeaveCell.swift in Sources */,
+				B8FCEECB1F8B82590032136E /* ACFloatingTextfield.swift in Sources */,
 				B81AF7211F72096A00E579B2 /* FSCalendarCollectionView.m in Sources */,
 				51221C101F7B6287002F17E0 /* RequestOtModel.swift in Sources */,
 				5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */,
@@ -1233,6 +1301,8 @@
 				511600BC1F905F0200B13102 /* ListRequestOffApiOutModel.swift in Sources */,
 				B8C47F241F84BFCC0024F865 /* WsmAccessTokenPlugin.swift in Sources */,
 				B81AF7291F72096A00E579B2 /* FSCalendarTransitionCoordinator.m in Sources */,
+				B84235401F94AB1D001D256B /* Collection.swift in Sources */,
+				B8CD7FA11F8DC0F800DC71B3 /* StringRequiredValidator.swift in Sources */,
 				51E94EA01F8767B9002368D3 /* RequestStatus.swift in Sources */,
 				B81AF71F1F72096A00E579B2 /* FSCalendarDelegationFactory.m in Sources */,
 				513B326D1F8B336000D0D770 /* RequestFilterView.swift in Sources */,
@@ -1243,15 +1313,18 @@
 				B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */,
 				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateRequestCell.swift in Sources */,
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
+				B8A608BD1F8F57A700376292 /* UIView.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
-				511600B81F9055F700B13102 /* ListRequestOffViewController.swift in Sources */,
+				511600B81F9055F700B13102 /* (null) in Sources */,
 				B8C47EFD1F84BEF80024F865 /* TimesheetProvider.swift in Sources */,
 				51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */,
+				B8CD7FA31F8E0D4200DC71B3 /* CardView.swift in Sources */,
 				B83516991F7A0C1B006B536E /* TimeSheetViewController.swift in Sources */,
 				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
 				B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */,
 				B8A20B611F7698C800C63979 /* ErrorDebugPrinter.swift in Sources */,
+				B8CCDB4D1F94C12500A00E02 /* CreateRequestOffViewControllerType.swift in Sources */,
 				B8C47F271F84C0250024F865 /* WSMDateTransform.swift in Sources */,
 				51FBBA181F79FE8B004C32BD /* CreateRequestOtViewController.swift in Sources */,
 				51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */,
@@ -1259,9 +1332,12 @@
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
 				5131FD5D1F7276AA00E0478B /* LeftMenuViewController.swift in Sources */,
 				B8C47F0F1F84BF150024F865 /* CreateRequestLeaveApiOutModel.swift in Sources */,
+				B8CCDB4E1F94C12500A00E02 /* ListRequestOffViewController.swift in Sources */,
 				5131FD641F7276E400E0478B /* MainViewController.swift in Sources */,
 				5131FD5C1F7276AA00E0478B /* LeftMenuCell.swift in Sources */,
+				B8C606E91F86187E00DF34D4 /* RequestBasicInfoHeaderView.swift in Sources */,
 				51561F331F7908C700619723 /* UIToolbar.swift in Sources */,
+				B8FCEEC01F8B5D000032136E /* TimeSheetDayOffType.swift in Sources */,
 				5117021F1F83382C001BC69A /* UserSpecial.swift in Sources */,
 				BFC037FD1F8B52F300DBE212 /* RequestOTCell.swift in Sources */,
 				B81AF7221F72096A00E579B2 /* FSCalendarCollectionViewLayout.m in Sources */,
@@ -1281,19 +1357,22 @@
 				511600BA1F905DA900B13102 /* RequestOffModel.swift in Sources */,
 				B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */,
 				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
+				B8FCEEC31F8B6C1B0032136E /* ValidateError.swift in Sources */,
 				B8C47F211F84BFC30024F865 /* MoyaProvider+Promise.swift in Sources */,
-				B8FA282F1F78E400004E16CB /* DayOffModel.swift in Sources */,
+				B8FCEEBE1F8B30500032136E /* (null) in Sources */,
+				B8FA282F1F78E400004E16CB /* DayOffSettingModel.swift in Sources */,
 				B8C47F011F84BF010024F865 /* RequestOTProvider.swift in Sources */,
 				B8C47F0D1F84BF150024F865 /* ListLeaveTypeSettingApiOutputModel.swift in Sources */,
 				51A281141F7CFB7700D4BFD0 /* LeaveType.swift in Sources */,
 				51692C911F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift in Sources */,
+				B8259FDB1F87729B00E5891D /* TimeConventionType.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
 				51E94E9E1F875BBC002368D3 /* ListRequestLeavesApiOutModel.swift in Sources */,
 				B8C47F031F84BF010024F865 /* RequestOtApiInputModel.swift in Sources */,
 				51221C071F7B3720002F17E0 /* UserWorkSpace.swift in Sources */,
 				51221C051F7B370F002F17E0 /* UserGroup.swift in Sources */,
 				51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */,
-				511600BE1F907B5400B13102 /* RequestOffDetailViewController.swift in Sources */,
+				511600BE1F907B5400B13102 /* (null) in Sources */,
 				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
 				5168BD081F73A88200AA1287 /* UITextField.swift in Sources */,
@@ -1301,16 +1380,21 @@
 				5168BD001F73A78B00AA1287 /* String.swift in Sources */,
 				B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */,
 				B8C47F021F84BF010024F865 /* CreateRequestOtApiOutModel.swift in Sources */,
+				B8CCDB4B1F94C12500A00E02 /* CreateRequestOffTimeCell.swift in Sources */,
+				B8C47EF21F84B6320024F865 /* (null) in Sources */,
 				B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
+				B8CCDB4F1F94C12500A00E02 /* RequestOffDetailViewController.swift in Sources */,
 				5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */,
 				B83516951F79FCD8006B536E /* TimeSheetDayModel.swift in Sources */,
 				B81AF7231F72096A00E579B2 /* FSCalendarConstants.m in Sources */,
-				B833CCCE1F7B90D500D0F1ED /* TimeSheetDayOffTypeEnum.swift in Sources */,
 				B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */,
+				B8FCEEBC1F8B201A0032136E /* RequestOffApiInputModel.swift in Sources */,
+				B8259FD71F8764DE00E5891D /* DateOffType.swift in Sources */,
+				B8CCDB4C1F94C12500A00E02 /* CreateRequestOffViewController.swift in Sources */,
 				B87CDBF41F833CE1008A8D0E /* AppConstant.swift in Sources */,
 				B86B843B1F7E52D3009D178D /* CompanyModel.swift in Sources */,
-				B88E77F41F82433500E61374 /* CardView.swift in Sources */,
+				B8D185C71F862A30000B6E3B /* RequestTextFieldCell.swift in Sources */,
 				B81AF7271F72096A00E579B2 /* FSCalendarScopeHandle.m in Sources */,
 				5168BCFE1F73A74D00AA1287 /* UIImageView.swift in Sources */,
 				BF5947E61F8C672D003593C0 /* ListRequestOTApiOutModel.swift in Sources */,
@@ -1318,11 +1402,13 @@
 				5168BD021F73A7AA00AA1287 /* Dictionary.swift in Sources */,
 				51221C091F7B5852002F17E0 /* ConfirmCreateRequestOtViewControllerType.swift in Sources */,
 				B8C47F071F84BF0D0024F865 /* RequestOffProvider.swift in Sources */,
+				B8CCDB511F94C16C00A00E02 /* TimeSheetSpecialCase.swift in Sources */,
 				B8C47F201F84BFC30024F865 /* API.swift in Sources */,
 				5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */,
-				B833CCCC1F7B87B200D0F1ED /* TimeSheetSpecialCaseEnum.swift in Sources */,
 				511600B61F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */,
+				B8259FD91F876F1000E5891D /* RequestDayOffModel.swift in Sources */,
 				51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */,
+				B8D185D01F863119000B6E3B /* (null) in Sources */,
 				5131FD611F7276AA00E0478B /* UserInfoViewController.swift in Sources */,
 				B83516931F79FC2D006B536E /* TimeSheetModel.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,7 +37,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaP-V8-gll">
-                                        <rect key="frame" x="19.5" y="48" width="335" height="2"/>
+                                        <rect key="frame" x="20" y="48" width="335" height="2"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="jNN-gn-eG7"/>
@@ -191,7 +191,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F4-iD-PTw" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                    <rect key="frame" x="58" y="16.5" width="309" height="17"/>
+                                                    <rect key="frame" x="58" y="17" width="309" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -323,7 +323,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ti5-oC-cAd" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="10" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="10" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="RVM-rH-yqg"/>
                                                 </constraints>
@@ -352,7 +352,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CgS-rg-IGf" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="60" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="60" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="9ro-Jy-HUZ"/>
                                                 </constraints>
@@ -381,7 +381,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-GF-Z4s" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20.5" y="110" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="110" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="f39-he-aS2"/>
                                                 </constraints>
@@ -410,7 +410,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CV7-Kc-Agr" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="160" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="160" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Ymt-Gv-ezc"/>
                                                 </constraints>
@@ -439,7 +439,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="project_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkh-vT-FaQ" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="210" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="210" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="mZ8-tW-aZ9"/>
                                                 </constraints>
@@ -471,7 +471,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="reason" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POT-8U-0tI" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="310" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="310" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="9Rm-Rb-aWj"/>
                                                 </constraints>
@@ -536,7 +536,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="to" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N3i-d8-IrN" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="195.5" y="260" width="159" height="40"/>
+                                                <rect key="frame" x="196" y="260" width="159" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="sJs-8o-ngh"/>
                                                 </constraints>
@@ -688,13 +688,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJv-w3-b73">
-                                                    <rect key="frame" x="48" y="10" width="319" height="14.5"/>
+                                                    <rect key="frame" x="48" y="10" width="319" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_accept_all.png" translatesAutoresizingMaskIntoConstraints="NO" id="JSU-FA-QFt">
-                                                    <rect key="frame" x="14" y="59.5" width="20" height="20"/>
+                                                    <rect key="frame" x="14" y="60" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="61f-i5-auN"/>
                                                         <constraint firstAttribute="width" constant="20" id="jRx-tH-6eU"/>
@@ -792,20 +792,20 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, 11 Sep 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSQ-Ve-rK3" userLabel="Title date">
-                                                    <rect key="frame" x="45" y="18" width="320" height="20.5"/>
+                                                    <rect key="frame" x="45" y="18" width="320" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.023529411764705882" green="0.5725490196078431" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clC-fE-Je7">
-                                                    <rect key="frame" x="13" y="43.5" width="352" height="1"/>
+                                                    <rect key="frame" x="13" y="43" width="352" height="1"/>
                                                     <color key="backgroundColor" red="0.024341460320000001" green="0.57449430229999998" blue="0.52263092990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="Pj8-Xh-2NC"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8o-1t-3De">
-                                                    <rect key="frame" x="20" y="57" width="335" height="65"/>
+                                                    <rect key="frame" x="20" y="56" width="335" height="66"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYc-4Y-fAL" customClass="CardView" customModule="wsm" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="162.5" height="28"/>
@@ -910,23 +910,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icC-w1-ktF" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                    <rect key="frame" x="10" y="5" width="355" height="20.5"/>
+                                                    <rect key="frame" x="10" y="5" width="355" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.024341460320000001" green="0.57449430229999998" blue="0.52263092990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0a-Kt-cX8">
-                                                    <rect key="frame" x="10" y="27.5" width="355" height="1"/>
+                                                    <rect key="frame" x="10" y="28" width="355" height="1"/>
                                                     <color key="backgroundColor" red="0.024341460320000001" green="0.57449430229999998" blue="0.52263092990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="pqr-iz-jbQ"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8X-or-JKj">
-                                                    <rect key="frame" x="12" y="40.5" width="351" height="259.5"/>
+                                                    <rect key="frame" x="12" y="41" width="351" height="259"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3N-Px-9M3" userLabel="Line">
-                                                            <rect key="frame" x="7.5" y="20" width="1" height="105"/>
+                                                            <rect key="frame" x="7" y="20" width="1" height="105"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="1" id="IFJ-rE-cSe"/>
@@ -1349,7 +1349,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dr7-xY-7ew" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="10" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="10" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Yvd-gx-p7w"/>
                                                 </constraints>
@@ -1378,7 +1378,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="employee_code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ufv-Ik-duG" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="60" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="60" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Jys-FU-wNE"/>
                                                 </constraints>
@@ -1407,7 +1407,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZJ-2B-jGn" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20.5" y="110" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="110" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="rCJ-Kr-qqi"/>
                                                 </constraints>
@@ -1436,7 +1436,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-kO-BRb" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="160" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="160" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="1T3-aW-BGF"/>
                                                 </constraints>
@@ -1465,7 +1465,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="project_name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXJ-ST-NYA" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="210" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="210" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Vjg-kS-Q87"/>
                                                 </constraints>
@@ -1494,7 +1494,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="leave_type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nnY-5f-rQc" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="260" width="334.5" height="40"/>
+                                                <rect key="frame" x="20" y="260" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="scX-Pu-uC6"/>
                                                 </constraints>
@@ -1587,7 +1587,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fz-fT-0Iq">
-                                                        <rect key="frame" x="195.5" y="0.0" width="159" height="83"/>
+                                                        <rect key="frame" x="196" y="0.0" width="159" height="83"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="select_time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-8U-Kek" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="44" width="159" height="40"/>
@@ -1662,10 +1662,10 @@
                                                 <rect key="frame" x="0.0" y="300" width="375" height="83"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70V-W0-pZ9">
-                                                        <rect key="frame" x="20.5" y="0.0" width="334.5" height="83"/>
+                                                        <rect key="frame" x="20" y="0.0" width="335" height="83"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="select_time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FiW-Ey-pTG" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44" width="334.5" height="40"/>
+                                                                <rect key="frame" x="0.0" y="44" width="335" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="NcN-YP-lvM"/>
                                                                 </constraints>
@@ -1698,13 +1698,13 @@
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hn6-Zm-0Rh" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                                <rect key="frame" x="0.0" y="10" width="334.5" height="15"/>
+                                                                <rect key="frame" x="0.0" y="10" width="335" height="15"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exmple_leave_out_from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVG-Kr-1gN" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                                <rect key="frame" x="0.0" y="30" width="334.5" height="14"/>
+                                                                <rect key="frame" x="0.0" y="30" width="335" height="14"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1733,7 +1733,7 @@
                                                 <rect key="frame" x="0.0" y="383" width="375" height="177"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="from" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-9U-sf7" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="75" width="159" height="40"/>
+                                                        <rect key="frame" x="20" y="77" width="159" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="qEn-60-5i5"/>
                                                         </constraints>
@@ -1766,7 +1766,7 @@
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="to" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jQN-4a-La9" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                        <rect key="frame" x="196" y="75" width="159" height="40"/>
+                                                        <rect key="frame" x="196" y="77" width="159" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="HRz-Ac-e0Y"/>
                                                         </constraints>
@@ -1805,31 +1805,31 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11H-bh-py7" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                        <rect key="frame" x="20" y="42" width="159" height="14.5"/>
+                                                        <rect key="frame" x="20" y="42" width="159" height="15"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="example_time_from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTb-Cn-prL" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                        <rect key="frame" x="20" y="62" width="159" height="13.5"/>
+                                                        <rect key="frame" x="20" y="63" width="159" height="14"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46r-nQ-FKk" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                        <rect key="frame" x="196" y="42" width="159" height="14.5"/>
+                                                        <rect key="frame" x="196" y="42" width="159" height="15"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="example_time_to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZA-9c-fHY" customClass="LocalizableLabel" customModule="InAppLocalize">
-                                                        <rect key="frame" x="196" y="62" width="159" height="13.5"/>
+                                                        <rect key="frame" x="196" y="63" width="159" height="14"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="reason" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asS-Cv-XP5" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="125" width="334.5" height="40"/>
+                                                        <rect key="frame" x="20" y="127" width="335" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="nts-lh-4xy"/>
                                                         </constraints>
@@ -1977,7 +1977,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksk-mp-ttl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949.60000000000002" y="1478.4107946026988"/>
+            <point key="canvasLocation" x="945" y="1478"/>
         </scene>
         <!--confirm_others_request-->
         <scene sceneID="abA-SS-PIe">
@@ -2034,13 +2034,13 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO9-5c-MPZ">
-                                                    <rect key="frame" x="48" y="10" width="319" height="14.5"/>
+                                                    <rect key="frame" x="48" y="10" width="319" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_accept_all.png" translatesAutoresizingMaskIntoConstraints="NO" id="UVL-rF-qz7">
-                                                    <rect key="frame" x="14" y="59.5" width="20" height="20"/>
+                                                    <rect key="frame" x="14" y="60" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="9I4-63-fl3"/>
                                                         <constraint firstAttribute="width" constant="20" id="rgx-4t-nWs"/>
@@ -2093,6 +2093,263 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azu-TP-59E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1732" y="1478"/>
+        </scene>
+        <!--create_request_leave-->
+        <scene sceneID="GiI-I9-Zzv">
+            <objects>
+                <viewController storyboardIdentifier="CreateRequestOffViewController" title="create_request_leave" id="cky-Ej-7qg" customClass="CreateRequestOffViewController" customModule="wsm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z4i-Js-wQg"/>
+                        <viewControllerLayoutGuide type="bottom" id="AJk-de-QfT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8I9-3Z-mm4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yji-du-dIE" customClass="LocalizableButton" customModule="InAppLocalize">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.58628696199999997" blue="0.53447610140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Y11-1O-vhD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonClicked:" destination="cky-Ej-7qg" eventType="touchUpInside" id="88S-7w-qoJ"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5OL-Ta-YO6">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="bpT-Tx-zbC" customClass="RequestBasicInfoHeaderView" customModule="wsm" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CreateRequestOffTimeCell" rowHeight="250" id="k5u-z7-7VL" customClass="CreateRequestOffTimeCell" customModule="wsm" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="278" width="375" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k5u-z7-7VL" id="5js-n5-Tzj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="from" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O0V-um-cbx" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="8" width="213.5" height="40"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="showFromDayPicker:" destination="k5u-z7-7VL" eventType="editingDidBegin" id="jKv-eU-muR"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aE8-0a-4cx" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                    <rect key="frame" x="253" y="8" width="94" height="40"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="to" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JmP-b8-gfx" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="58" width="213.5" height="40"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="showToDayPicker:" destination="k5u-z7-7VL" eventType="editingDidBegin" id="Lnd-To-lTI"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qdw-60-6cs" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                    <rect key="frame" x="253.5" y="58" width="93.5" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="2Tr-Ok-IFF"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="am_pm" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l07-D8-QvD" customClass="LocalizableLabel" customModule="InAppLocalize">
+                                                    <rect key="frame" x="73" y="108" width="274" height="84"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgo-i4-Nmf" customClass="LocalizableLabel" customModule="InAppLocalize">
+                                                    <rect key="frame" x="20" y="108" width="31.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="reason" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRG-KD-kw4" customClass="WsmTextField" customModule="wsm" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="202" width="335" height="40"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                            <color key="value" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                            <color key="value" red="0.82948133680000002" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onReasonTextFieldEditingDidEnd:" destination="k5u-z7-7VL" eventType="editingDidEnd" id="ybU-i6-HWe"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="fRG-KD-kw4" firstAttribute="height" secondItem="JmP-b8-gfx" secondAttribute="height" id="1B5-xT-6Gu"/>
+                                                <constraint firstAttribute="trailing" secondItem="fRG-KD-kw4" secondAttribute="trailing" constant="20" id="2Zb-C4-FEK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="l07-D8-QvD" secondAttribute="bottom" constant="50" id="5wN-UQ-EmT"/>
+                                                <constraint firstItem="fRG-KD-kw4" firstAttribute="top" secondItem="l07-D8-QvD" secondAttribute="bottom" constant="10" id="8bs-9h-QnU"/>
+                                                <constraint firstItem="l07-D8-QvD" firstAttribute="leading" secondItem="5js-n5-Tzj" secondAttribute="leadingMargin" constant="65" id="BaI-WK-iyy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="l07-D8-QvD" secondAttribute="trailing" constant="20" id="BlG-zw-1Vj"/>
+                                                <constraint firstItem="aE8-0a-4cx" firstAttribute="top" secondItem="l07-D8-QvD" secondAttribute="top" constant="-100" id="CWJ-4W-hMc"/>
+                                                <constraint firstItem="O0V-um-cbx" firstAttribute="height" secondItem="JmP-b8-gfx" secondAttribute="height" id="FRh-Us-sOn"/>
+                                                <constraint firstItem="fRG-KD-kw4" firstAttribute="leading" secondItem="5js-n5-Tzj" secondAttribute="leading" constant="20" id="I6H-dt-xDP"/>
+                                                <constraint firstItem="Qdw-60-6cs" firstAttribute="leading" secondItem="JmP-b8-gfx" secondAttribute="trailing" constant="20" id="Kv7-lb-dbG"/>
+                                                <constraint firstItem="JmP-b8-gfx" firstAttribute="leading" secondItem="5js-n5-Tzj" secondAttribute="leading" constant="20" id="QRF-G9-ARu"/>
+                                                <constraint firstItem="aE8-0a-4cx" firstAttribute="height" secondItem="Qdw-60-6cs" secondAttribute="height" id="SSj-cv-aWp"/>
+                                                <constraint firstItem="O0V-um-cbx" firstAttribute="centerX" secondItem="JmP-b8-gfx" secondAttribute="centerX" id="VgL-3e-ZLT"/>
+                                                <constraint firstItem="l07-D8-QvD" firstAttribute="top" secondItem="5js-n5-Tzj" secondAttribute="topMargin" constant="100" id="X7U-jE-Dkf"/>
+                                                <constraint firstItem="O0V-um-cbx" firstAttribute="top" secondItem="l07-D8-QvD" secondAttribute="top" constant="-100" id="Y4H-aP-7lu"/>
+                                                <constraint firstItem="Qdw-60-6cs" firstAttribute="top" secondItem="l07-D8-QvD" secondAttribute="top" constant="-50" id="c29-zK-ga1"/>
+                                                <constraint firstItem="aE8-0a-4cx" firstAttribute="trailing" secondItem="Qdw-60-6cs" secondAttribute="trailing" id="h0L-JV-oND"/>
+                                                <constraint firstItem="Qdw-60-6cs" firstAttribute="trailing" secondItem="l07-D8-QvD" secondAttribute="trailing" id="i7H-lo-aIL"/>
+                                                <constraint firstItem="wgo-i4-Nmf" firstAttribute="leading" secondItem="JmP-b8-gfx" secondAttribute="leading" id="mNB-9c-I0t"/>
+                                                <constraint firstItem="O0V-um-cbx" firstAttribute="width" secondItem="JmP-b8-gfx" secondAttribute="width" id="meU-Sq-WLZ"/>
+                                                <constraint firstItem="JmP-b8-gfx" firstAttribute="top" secondItem="l07-D8-QvD" secondAttribute="top" constant="-50" id="qMa-IV-N4W"/>
+                                                <constraint firstItem="aE8-0a-4cx" firstAttribute="width" secondItem="Qdw-60-6cs" secondAttribute="width" id="s4T-iG-zGu"/>
+                                                <constraint firstItem="Qdw-60-6cs" firstAttribute="width" secondItem="5js-n5-Tzj" secondAttribute="width" multiplier="1:4" id="sqs-dG-fzZ"/>
+                                                <constraint firstItem="wgo-i4-Nmf" firstAttribute="top" secondItem="l07-D8-QvD" secondAttribute="top" id="vzR-YO-8ja"/>
+                                                <constraint firstItem="JmP-b8-gfx" firstAttribute="height" secondItem="Qdw-60-6cs" secondAttribute="height" id="zyY-ai-7nM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fromDayTextField" destination="O0V-um-cbx" id="7I4-B5-ai4"/>
+                                            <outlet property="fromTimeConventionTextField" destination="aE8-0a-4cx" id="BaP-Lp-t7E"/>
+                                            <outlet property="reasonTextField" destination="fRG-KD-kw4" id="PIQ-gD-Df3"/>
+                                            <outlet property="toDayTextField" destination="JmP-b8-gfx" id="CyD-EY-awi"/>
+                                            <outlet property="toTimeConventionTextField" destination="Qdw-60-6cs" id="ea2-oY-bl3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yji-du-dIE" firstAttribute="top" secondItem="5OL-Ta-YO6" secondAttribute="bottom" id="AHe-ao-cTR"/>
+                            <constraint firstAttribute="trailing" secondItem="Yji-du-dIE" secondAttribute="trailing" id="DuP-Cl-QqU"/>
+                            <constraint firstItem="5OL-Ta-YO6" firstAttribute="top" secondItem="Z4i-Js-wQg" secondAttribute="bottom" id="L0j-kq-pL8"/>
+                            <constraint firstItem="Yji-du-dIE" firstAttribute="leading" secondItem="8I9-3Z-mm4" secondAttribute="leading" id="NDD-vT-MrK"/>
+                            <constraint firstItem="AJk-de-QfT" firstAttribute="top" secondItem="Yji-du-dIE" secondAttribute="bottom" id="W8m-gE-cUO"/>
+                            <constraint firstItem="5OL-Ta-YO6" firstAttribute="leading" secondItem="8I9-3Z-mm4" secondAttribute="leading" id="YNr-Cv-bJo"/>
+                            <constraint firstAttribute="trailing" secondItem="5OL-Ta-YO6" secondAttribute="trailing" id="kn1-Ow-luE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="basicInfoHeaderView" destination="bpT-Tx-zbC" id="67c-zm-fC4"/>
+                        <outlet property="tableView" destination="5OL-Ta-YO6" id="su1-3w-uHs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KS1-5d-18j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="2808"/>
         </scene>
         <!--day_off-->
         <scene sceneID="YdN-kI-fNS">
@@ -2271,7 +2528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AD-fX-P0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950" y="2122"/>
+            <point key="canvasLocation" x="945" y="2122"/>
         </scene>
     </scenes>
     <resources>

@@ -20,6 +20,8 @@ class UserWorkSpace: BaseModel {
     var timezone: String?
     var status: Bool?
 
+    init() {}
+
     required init?(map: Map) {
     }
 

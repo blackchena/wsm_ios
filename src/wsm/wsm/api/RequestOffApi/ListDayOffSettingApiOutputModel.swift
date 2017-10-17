@@ -11,11 +11,13 @@ import ObjectMapper
 
 class ListDayOffSettingApiOutputModel: ResponseData {
 
-    var listDayOffSetting: [DayOffModel]?
+    var listDayOffSetting: [DayOffSettingModel]?
+    var remainingDayOff: Float?
 
     override func mapping(map: Map) {
         super.mapping(map: map)
 
         listDayOffSetting <- map["data.special_dayoff_settings"]
+        remainingDayOff <- map["remaining_days_off"]
     }
 }
