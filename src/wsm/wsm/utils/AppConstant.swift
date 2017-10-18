@@ -19,7 +19,7 @@ class AppConstant {
 
     public static let DateFormatEEEDisplay = "EEE, d MMM yyyy"
     public static let TimeFormat24HDisplay = "HH:mm"
-    public static let requestDateFormat = "yyyy/MM/dd HH:mm"
+    public static let requestDateFormat = "yyyy/MM/dd - HH:mm"
     public static let onlyDateFormat = "yyyy/MM/dd"
     public static let onlyTimeFormat = "HH:mm"
     public static let monthYearFormat = "MM/yyyy"

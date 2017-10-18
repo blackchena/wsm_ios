@@ -106,9 +106,12 @@ class ListRequestOtViewController: BaseViewController, FloatyDelegate {
 }
 
 extension ListRequestOtViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestOTCell", for: indexPath) as! RequestOTCell
-        cell.updateCell(request: RequestOtProvider.shared.listRequestOts[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestOTCell", for: indexPath)
+        if let cell = cell as? RequestOTCell {
+            cell.updateCell(request: RequestOtProvider.shared.listRequestOts[indexPath.row])
+        }
         return cell;
     }
     
@@ -124,6 +127,14 @@ extension ListRequestOtViewController: UITableViewDelegate, UITableViewDataSourc
         if indexPath.row == RequestOtProvider.shared.listRequestOts.count - 1 {
             self.tableView.tableFooterView = spiner
             getListRequestOts(page: currentPage + 1)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRequest = RequestOtProvider.shared.listRequestOts[indexPath.row]
+        if let otRequestDetailVc = UIViewController.getStoryboardController(identifier: "OtRequestDetailViewController") as? OtRequestDetailViewController {
+            otRequestDetailVc.otRequest = selectedRequest
+            self.navigationController?.pushViewController(otRequestDetailVc, animated: true)
         }
     }
 }

@@ -31,4 +31,19 @@ extension Date {
         let dateComponents = calender.dateComponents([.year, .month, .day, .hour, .minute], from: self)
         return calender.date(from: dateComponents)
     }
+    
+    func getDurationWithSpecificTime(date : Date?) -> Float {
+        let requestedComponent: Set<Calendar.Component> = [.hour,.minute,.second]
+        var result = Float(0)
+        if let dateCompare = date {
+            let timeDifferent = Calendar.current.dateComponents(requestedComponent, from: self, to: dateCompare)
+            if let hour = timeDifferent.hour {
+                result += Float(hour)
+            }
+            if let hourPercent = timeDifferent.minute {
+                result += Float(hourPercent)/60
+            }
+        }
+        return result
+    }
 }

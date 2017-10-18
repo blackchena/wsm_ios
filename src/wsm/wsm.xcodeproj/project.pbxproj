@@ -229,6 +229,7 @@
 		B8FCEEC31F8B6C1B0032136E /* ValidateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEC21F8B6C1B0032136E /* ValidateError.swift */; };
 		B8FCEEC71F8B719D0032136E /* FloatCompareValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEC61F8B719D0032136E /* FloatCompareValidator.swift */; };
 		B8FCEECB1F8B82590032136E /* ACFloatingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEECA1F8B82590032136E /* ACFloatingTextfield.swift */; };
+		BF2519A51F959F1C00325601 /* OtRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2519A41F959F1C00325601 /* OtRequestDetailViewController.swift */; };
 		BF5947E61F8C672D003593C0 /* ListRequestOTApiOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5947E51F8C672D003593C0 /* ListRequestOTApiOutModel.swift */; };
 		BF5947E81F8CCA5E003593C0 /* UICircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5947E71F8CCA5E003593C0 /* UICircleView.swift */; };
 		BFC037FD1F8B52F300DBE212 /* RequestOTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */; };
@@ -472,6 +473,7 @@
 		B8FCEEC21F8B6C1B0032136E /* ValidateError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValidateError.swift; path = errors/ValidateError.swift; sourceTree = "<group>"; };
 		B8FCEEC61F8B719D0032136E /* FloatCompareValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatCompareValidator.swift; sourceTree = "<group>"; };
 		B8FCEECA1F8B82590032136E /* ACFloatingTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ACFloatingTextfield.swift; path = libs/ACFloatingTextfield.swift; sourceTree = "<group>"; };
+		BF2519A41F959F1C00325601 /* OtRequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtRequestDetailViewController.swift; path = RequestOt/OtRequestDetailViewController.swift; sourceTree = "<group>"; };
 		BF5947E51F8C672D003593C0 /* ListRequestOTApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOTApiOutModel.swift; path = RequestOtApi/ListRequestOTApiOutModel.swift; sourceTree = "<group>"; };
 		BF5947E71F8CCA5E003593C0 /* UICircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircleView.swift; sourceTree = "<group>"; };
 		BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOTCell.swift; path = ../interfaces/RequestOTCell.swift; sourceTree = "<group>"; };
@@ -606,23 +608,23 @@
 		202ED9D61F6FCBCB00544A7D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
+				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
+				B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */,
+				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
 				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
 				B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */,
+				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 				51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */,
+				511600B91F905DA900B13102 /* RequestOffModel.swift */,
 				51221C0F1F7B6287002F17E0 /* RequestOtModel.swift */,
-				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
-				B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */,
+				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
+				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
 				51221C041F7B370F002F17E0 /* UserGroup.swift */,
 				B89BB9D41F74B03A008E547C /* UserProfileModel.swift */,
 				B8FA28241F78BE29004E16CB /* UserSettingModel.swift */,
 				51221C061F7B3720002F17E0 /* UserWorkSpace.swift */,
 				5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */,
-				511600B91F905DA900B13102 /* RequestOffModel.swift */,
-				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
-				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
-				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
-				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
-				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -831,6 +833,7 @@
 				51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */,
 				51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */,
 				BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */,
+				BF2519A41F959F1C00325601 /* OtRequestDetailViewController.swift */,
 			);
 			name = RequestOt;
 			sourceTree = "<group>";
@@ -1331,6 +1334,7 @@
 				5100D3B51F73539400F44329 /* LeftMenuHeaderCell.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
 				5131FD5D1F7276AA00E0478B /* LeftMenuViewController.swift in Sources */,
+				BF2519A51F959F1C00325601 /* OtRequestDetailViewController.swift in Sources */,
 				B8C47F0F1F84BF150024F865 /* CreateRequestLeaveApiOutModel.swift in Sources */,
 				B8CCDB4E1F94C12500A00E02 /* ListRequestOffViewController.swift in Sources */,
 				5131FD641F7276E400E0478B /* MainViewController.swift in Sources */,
