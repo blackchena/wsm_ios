@@ -31,13 +31,14 @@ class RequestLeaveCell: UITableViewCell {
         statusImageView.image = request.status?.getIcon()
     }
 
-    func updateRequestOffCell(request: RequestOffModel) {
+    func updateRequestOffCell(request: RequestDayOffModel) {
         requestTimeTitleLabel.text = LocalizationHelper.shared.localized("date_of_creation")
         leaveTypeLabel.textColor = .darkGray
         seperatorLineView.backgroundColor = UIColor.red
         requestTypeImageView.image = UIImage(named: "ic_day_off")
 
-        requestTimeLabel.text = request.createdAt?.toString(dateFormat: AppConstant.onlyDateFormat)
+        requestTimeLabel.text = request.createdAt?.toString(dateFormat: LocalizationHelper.shared.localized("date_format"))
         statusImageView.image = request.status?.getIcon()
+        leaveTypeLabel.text = request.getRequestTimeString()
     }
 }

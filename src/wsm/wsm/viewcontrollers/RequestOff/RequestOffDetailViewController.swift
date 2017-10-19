@@ -15,7 +15,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
     @IBOutlet weak var editButton: LocalizableButton!
     @IBOutlet weak var deleteButtonHeight: NSLayoutConstraint!
 
-    var selectedRequest = RequestOffModel()
+    var selectedRequest = RequestDayOffModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
