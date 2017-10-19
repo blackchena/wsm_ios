@@ -114,7 +114,11 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
         AlertHelper.showLoading()
         RequestLeaveProvider.submitRequestLeave(requestModel: requestModel)
             .then { apiOutput -> Void in
-                self.listRequestDelegate?.didCreateRequest()
+                if self.requestModel.id != nil {
+                    self.listRequestDelegate?.getListRequests()
+                } else {
+                    self.listRequestDelegate?.didCreateRequest()
+                }
                 self.navigationController?.popToRootViewController(animated: true)
             }.catch { error in
                 AlertHelper.showError(error: error)

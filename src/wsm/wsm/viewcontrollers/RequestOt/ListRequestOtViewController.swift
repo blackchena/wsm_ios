@@ -66,8 +66,10 @@ class ListRequestOtViewController: BaseViewController, FloatyDelegate {
     }
     
     func emptyFloatySelected(_ floaty: Floaty) {
-        let createOtVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController")
-        self.navigationController?.pushViewController(createOtVc, animated: true)
+        if let createOtVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController") as? CreateRequestOtViewController {
+            createOtVc.listRequestDelegate = self
+            self.navigationController?.pushViewController(createOtVc, animated: true)
+        }
     }
     
     func getListRequestOts(page: Int = 1) {

@@ -15,7 +15,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
     @IBOutlet weak var fromTextField: WsmTextField!
     @IBOutlet weak var toTextField: WsmTextField!
 
-    fileprivate let requestModel = RequestOtApiInputModel()
+    var requestModel = RequestOtApiInputModel()
     weak var listRequestDelegate: ListRequestDelegte?
     let fromDatePicker = UIDatePicker()
     let toDatePicker = UIDatePicker()
@@ -64,6 +64,24 @@ class CreateRequestOtViewController: RequestBaseViewController {
     override func onGroupSelected() {
         super.onGroupSelected()
         requestModel.groupId = groups[groupPicker.selectedRow(inComponent: 0)].id
+    }
+    
+    override func bindData() {
+        super.bindData()
+        if requestModel.id != nil {
+            title = LocalizationHelper.shared.localized("edit_overtime_request")
+            
+            branchTextField.isEnabled = false
+            groupTextField.isEnabled = false
+            
+            branchTextField.textColor = UIColor.lightGray
+            groupTextField.textColor = UIColor.lightGray
+            
+            projectNameTextField.text = requestModel.projectName
+            fromTextField.text = requestModel.fromTime
+            toTextField.text = requestModel.endTime
+            reasonTextField.text = requestModel.reason
+        }
     }
     
     @IBAction func textEditingEnd(_ sender: WsmTextField) {

@@ -161,9 +161,3 @@ extension RequestBaseViewController {
         }
     }
 }
-
-//extension RequestBaseViewController {
-//    fileprivate func getCellSelectedIndexPath() -> IndexPath {
-//        
-//    }
-//}

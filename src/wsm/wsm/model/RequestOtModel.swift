@@ -88,4 +88,16 @@ class RequestOtModel: BaseModel {
     func getNumberHours() -> Float? {
         return fromTime?.getDurationWithSpecificTime(date: endTime)
     }
+    
+    func toApiInputMode() -> RequestOtApiInputModel {
+        let model = RequestOtApiInputModel()
+        model.id = id
+        model.workspaceId = workSpace?.id
+        model.groupId = group?.id
+        model.projectName = projectName
+        model.fromTime = fromTime?.toString(dateFormat: AppConstant.requestDateFormat)
+        model.endTime = endTime?.toString(dateFormat: AppConstant.requestDateFormat)
+        model.reason = reason
+        return model
+    }
 }

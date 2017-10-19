@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 public class RequestOtApiInputModel: BaseModel {
+    var id: Int?
     var workspaceId: Int?
     var groupId: Int?
     var projectName: String?
