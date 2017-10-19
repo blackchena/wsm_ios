@@ -45,7 +45,7 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
 final class RequestOffProvider {
 
     static let shared  = RequestOffProvider()
-    var listRequests = [RequestOffModel]()
+    var listRequests = [RequestDayOffModel]()
     var isNeedRefreshList = false
 
     static func getListRequestOff(page: Int?, month: String?, status: Int?) -> Promise<ListRequestOffApiOutModel> {

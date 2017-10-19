@@ -17,7 +17,6 @@
 		5100D3B31F73535900F44329 /* LeftMenuHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */; };
 		5100D3B91F7356E100F44329 /* LeftMenuSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */; };
 		511600B81F9055F700B13102 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		511600BA1F905DA900B13102 /* RequestOffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600B91F905DA900B13102 /* RequestOffModel.swift */; };
 		511600BC1F905F0200B13102 /* ListRequestOffApiOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */; };
 		511600BE1F907B5400B13102 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */; };
@@ -273,7 +272,9 @@
 		2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wsm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuHeaderCell.xib; sourceTree = "<group>"; };
 		5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuSectionCell.xib; sourceTree = "<group>"; };
-		511600B91F905DA900B13102 /* RequestOffModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOffModel.swift; sourceTree = "<group>"; };
+		5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuSectionCell.swift; sourceTree = "<group>"; };
+		511600B31F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewController.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
+		511600B41F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewControllerType.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewControllerType.swift; sourceTree = "<group>"; };
 		511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffApiOutModel.swift; path = RequestOffApi/ListRequestOffApiOutModel.swift; sourceTree = "<group>"; };
 		5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpaceShift.swift; sourceTree = "<group>"; };
 		5117021E1F83382C001BC69A /* UserSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSpecial.swift; path = enums/UserSpecial.swift; sourceTree = "<group>"; };
@@ -667,7 +668,6 @@
 				B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */,
 				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 				51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */,
-				511600B91F905DA900B13102 /* RequestOffModel.swift */,
 				51221C0F1F7B6287002F17E0 /* RequestOtModel.swift */,
 				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
 				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
@@ -1455,7 +1455,6 @@
 				513B32781F8B68F100D0D770 /* RequestLeaveDetailViewController.swift in Sources */,
 				B8C47F081F84BF0D0024F865 /* ListDayOffSettingApiOutputModel.swift in Sources */,
 				B8C47F101F84BF150024F865 /* RequestLeaveApiInputModel.swift in Sources */,
-				511600BA1F905DA900B13102 /* RequestOffModel.swift in Sources */,
 				B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */,
 				B81AF7311F7222BA00E579B2 /* BaseModel.swift in Sources */,
 				B8FCEEC31F8B6C1B0032136E /* ValidateError.swift in Sources */,

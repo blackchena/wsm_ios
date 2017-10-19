@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import InAppLocalize
 
 class RequestLeaveModel: BaseModel {
 
@@ -60,20 +61,22 @@ class RequestLeaveModel: BaseModel {
             return nil
         }
 
+        let dateFormat = LocalizationHelper.shared.localized("date_time_format")
+
         switch leaveType.trackingTimeType {
         case .both:
             if let checkInTime = checkInTime, let checkOutTime = checkOutTime {
-                return "\(checkInTime.toString(dateFormat: AppConstant.requestDateFormat)) - \(checkOutTime.toString(dateFormat: AppConstant.onlyTimeFormat))"
+                return "\(checkInTime.toString(dateFormat: dateFormat)) - \(checkOutTime.toString(dateFormat: AppConstant.onlyTimeFormat))"
             }
         case .checkIn,
              .checkInM,
              .checkInA:
             if let checkInTime = checkInTime {
-                return checkInTime.toString(dateFormat: AppConstant.requestDateFormat)
+                return checkInTime.toString(dateFormat: dateFormat)
             }
         case .checkOut:
             if let checkOutTime = checkOutTime {
-                return checkOutTime.toString(dateFormat: AppConstant.requestDateFormat)
+                return checkOutTime.toString(dateFormat: dateFormat)
             }
         }
 

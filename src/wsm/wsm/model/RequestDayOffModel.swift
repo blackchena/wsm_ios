@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import InAppLocalize
 
 class RequestDayOffModel: BaseModel {
 
@@ -24,12 +25,12 @@ class RequestDayOffModel: BaseModel {
     var offHaveSalaryFrom: RequestDayOffFromModel?
     var offHaveSalaryTo: RequestDayOffToModel?
 
-    var offNoSalaryFrom: RequestDayOffFromModel?
-    var offNoSalaryTo: RequestDayOffToModel?
+    var offNoSalaryFrom: RequestDayOffNoSalaryFromModel?
+    var offNoSalaryTo: RequestDayOffNoSalaryToModel?
 
     var user: UserProfileModel?
     var group: UserGroup?
-    var status: Any?
+    var status: RequestStatus?
     var company: CompanyModel?
     var phoneNumber: Any?
     var partHandover: Any?
@@ -42,6 +43,10 @@ class RequestDayOffModel: BaseModel {
     var handleByGroupName: String?
     var dayOffType: String?
     var canApproveRejectRequest: Bool?
+
+    init(){
+
+    }
 
     required init?(map: Map) {
     }
@@ -74,6 +79,50 @@ class RequestDayOffModel: BaseModel {
         dayOffType <- map["day_off_type"]
         canApproveRejectRequest <- map["can_approve_reject_request"]
     }
+
+    func getRequestTimeString() -> String {
+        let dateFormat = LocalizationHelper.shared.localized("date_format")
+        var result = ""
+        if let offHaveSalaryFromDate = offHaveSalaryFrom?.offPaidFrom,
+            let offHaveSalaryFromPeriod = offHaveSalaryFrom?.paidFromPeriod {
+
+            result = offHaveSalaryFromDate.toString(dateFormat: dateFormat) + " " + offHaveSalaryFromPeriod.rawValue
+
+            if let offNoSalaryFromDate = offNoSalaryFrom?.offPaidFrom ,
+                let offNoSalaryFromPeriod = offNoSalaryFrom?.paidFromPeriod,
+                offNoSalaryFromDate < offHaveSalaryFromDate
+                    || (offNoSalaryFromDate == offHaveSalaryFromDate && offNoSalaryFromPeriod == .am) {
+
+                result = offNoSalaryFromDate.toString(dateFormat: dateFormat) + " " + offNoSalaryFromPeriod.rawValue
+            }
+        } else if let offNoSalaryFromDate = offNoSalaryFrom?.offPaidFrom ,
+            let offNoSalaryFromPeriod = offNoSalaryFrom?.paidFromPeriod {
+
+            result = offNoSalaryFromDate.toString(dateFormat: dateFormat) + " " + offNoSalaryFromPeriod.rawValue
+        }
+
+        result += " → "
+
+        if let offHaveSalaryToDate = offHaveSalaryTo?.offPaidTo,
+            let offHaveSalaryToPeriod = offHaveSalaryTo?.paidToPeriod {
+
+            result += offHaveSalaryToDate.toString(dateFormat: dateFormat) + " " + offHaveSalaryToPeriod.rawValue
+
+            if let offNoSalaryToDate = offNoSalaryTo?.offPaidTo ,
+                let offNoSalaryToPeriod = offNoSalaryTo?.paidToPeriod,
+                offNoSalaryToDate > offHaveSalaryToDate
+                    || (offNoSalaryToDate == offHaveSalaryToDate && offNoSalaryToPeriod == .pm) {
+
+                result += offNoSalaryToDate.toString(dateFormat: dateFormat) + " " + offNoSalaryToPeriod.rawValue
+            }
+        } else if let offNoSalaryToDate = offNoSalaryTo?.offPaidTo ,
+            let offNoSalaryToPeriod = offNoSalaryTo?.paidToPeriod {
+
+            result += offNoSalaryToDate.toString(dateFormat: dateFormat) + " " + offNoSalaryToPeriod.rawValue
+        }
+
+        return result
+    }
 }
 
 class RequestDayOffFromModel: BaseModel {
@@ -91,6 +140,24 @@ class RequestDayOffFromModel: BaseModel {
 
         offPaidFrom <- (map["off_paid_from"], customDateTransform)
         paidFromPeriod <- map["paid_from_period"]
+    }
+}
+
+class RequestDayOffNoSalaryFromModel: BaseModel {
+
+    var offPaidFrom: Date?
+    var paidFromPeriod: TimeConventionType = .am
+
+    init() {}
+
+    required init?(map: Map) {
+    }
+
+    func mapping(map: Map) {
+        let customDateTransform = WSMDateTransform(formatFromJson: .custom("dd/MM/yyyy"), formatToJson: .custom("dd/MM/yyyy"))
+
+        offPaidFrom <- (map["off_from"], customDateTransform)
+        paidFromPeriod <- map["off_from_period"]
     }
 }
 
@@ -112,8 +179,26 @@ class RequestDayOffToModel: BaseModel {
     }
 }
 
+class RequestDayOffNoSalaryToModel: BaseModel {
+
+    var offPaidTo: Date?
+    var paidToPeriod: TimeConventionType = .am
+
+    init() {}
+
+    required init?(map: Map) {
+    }
+
+    func mapping(map: Map) {
+        let customDateTransform = WSMDateTransform(formatFromJson: .custom("dd/MM/yyyy"), formatToJson: .custom("dd/MM/yyyy"))
+
+        offPaidTo <- (map["off_to"], customDateTransform)
+        paidToPeriod <- map["off_to_period"]
+    }
+}
+
 class RequestDayOffTypeModel: BaseModel {
-    
+
     var id: Int? // "special_dayoff_settings" -> "id"
     var specialDayOffSettingId: Int? // "special_dayoff_settings" -> "dayoff_setting_id"
     var numberDayOff: Float?
@@ -128,7 +213,7 @@ class RequestDayOffTypeModel: BaseModel {
 
     required init?(map: Map) {
     }
-
+    
     func mapping(map: Map) {
         id <- map["special_dayoff_setting_id"]
         specialDayOffSettingId <- map["special_dayoff_setting_id"]

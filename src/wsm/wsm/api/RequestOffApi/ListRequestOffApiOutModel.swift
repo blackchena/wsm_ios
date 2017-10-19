@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class ListRequestOffApiOutModel: ResponseData {
-    var listRequestOff = [RequestOffModel]()
+    var listRequestOff = [RequestDayOffModel]()
 
     override func mapping(map: Map) {
         super.mapping(map: map)
