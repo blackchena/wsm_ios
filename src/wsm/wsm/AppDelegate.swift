@@ -10,6 +10,8 @@ import UIKit
 import InAppLocalize
 import SVProgressHUD
 import SwiftyUserDefaults
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         AppDelegate.initRootView()
+        
+        Fabric.with([Crashlytics.self])
 
         return true
     }
