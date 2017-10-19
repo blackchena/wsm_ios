@@ -24,4 +24,6 @@ class AppConstant {
     public static let onlyTimeFormat = "HH:mm"
     public static let monthYearFormat = "MM/yyyy"
     public static let requestDateTimeFormat = "HH:mm - dd/MM/yyyy"
+
+    public static let annualDayOffSettingId = Int(Int32.min) //-2147483647, this number is not conflict with server
 }

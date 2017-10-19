@@ -12,7 +12,8 @@ import Moya
 
 fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
     case getListRequestOff(page: Int?, month: String?, status: Int?)
-    case deleteRequestOff(int: Int)
+    case deleteRequestOff(id: Int)
+    case createRequestOff(requestModel: RequestOffApiInputModel)
 
     public var path: String {
         switch self {
@@ -20,6 +21,8 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
             return "/api/dashboard/request_offs"
         case .deleteRequestOff(let id):
             return "/api/dashboard/request_offs/\(id)"
+        case .createRequestOff:
+            return "/api/dashboard/request_offs"
         }
     }
 
@@ -29,6 +32,8 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
             return .get
         case .deleteRequestOff:
             return .delete
+        case .createRequestOff:
+            return .post
         }
     }
 
@@ -36,6 +41,8 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
         switch self {
         case .getListRequestOff(let page, let month, let status):
             return ["page": page ?? "", "month": month ?? "", "q[status_eq]": status ?? ""]
+        case .createRequestOff(let requestModel):
+            return createParameters(fromDataModel: requestModel)
         default:
             return nil
         }
@@ -52,6 +59,10 @@ final class RequestOffProvider {
     }
 
     static func deleteRequestOff(id: Int) -> Promise<ResponseData> {
-        return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.deleteRequestOff(int: id)))
+        return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.deleteRequestOff(id: id)))
+    }
+
+    static func createRequestOff(requestModel: RequestOffApiInputModel) -> Promise<RequestDayOffModel> {
+        return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.createRequestOff(requestModel: requestModel)))
     }
 }

@@ -198,6 +198,8 @@
 		B835169B1F7A0C32006B536E /* TimeSheetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835169A1F7A0C32006B536E /* TimeSheetViewCell.swift */; };
 		B84235401F94AB1D001D256B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842353F1F94AB1D001D256B /* Collection.swift */; };
 		B858E7971F7CDAEB00080052 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858E7961F7CDAEB00080052 /* DateHelper.swift */; };
+		B85A25931F95B57B007F8028 /* ConfirmCreateRequestOffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A25921F95B57B007F8028 /* ConfirmCreateRequestOffCell.swift */; };
+		B85A25951F95B6FC007F8028 /* ConfirmCreateRequestOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A25941F95B6FC007F8028 /* ConfirmCreateRequestOffViewController.swift */; };
 		B85E1D571F7360CB00329529 /* WSMLocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */; };
 		B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E1D5A1F73B12B00329529 /* LoginModel.swift */; };
 		B86B843B1F7E52D3009D178D /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86B843A1F7E52D3009D178D /* CompanyModel.swift */; };
@@ -240,6 +242,9 @@
 		B8CD7FA31F8E0D4200DC71B3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CD7FA21F8E0D4200DC71B3 /* CardView.swift */; };
 		B8D185C71F862A30000B6E3B /* RequestTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D185C51F862A30000B6E3B /* RequestTextFieldCell.swift */; };
 		B8D185CA1F862A4D000B6E3B /* RequestTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */; };
+		B8D185D01F863119000B6E3B /* (null) in Sources */ = {isa = PBXBuildFile; };
+		B8F714441F96F31F00F67073 /* ConfirmRequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */; };
+		B8F714461F96FEE300F67073 /* ConfirmCreateRequestOffDayOffSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F714451F96FEE300F67073 /* ConfirmCreateRequestOffDayOffSettingCell.swift */; };
 		B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A5031F822AD200FD0890 /* TimeSheetSummaryViewCell.swift */; };
 		B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8AFCC1F79401D0063E687 /* UserServices.swift */; };
 		B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA28241F78BE29004E16CB /* UserSettingModel.swift */; };
@@ -468,6 +473,8 @@
 		B835169A1F7A0C32006B536E /* TimeSheetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetViewCell.swift; path = TimeSheet/TimeSheetViewCell.swift; sourceTree = "<group>"; };
 		B842353F1F94AB1D001D256B /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		B858E7961F7CDAEB00080052 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = libs/DateHelper.swift; sourceTree = "<group>"; };
+		B85A25921F95B57B007F8028 /* ConfirmCreateRequestOffCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestOffCell.swift; path = RequestOff/ConfirmCreateRequestOffCell.swift; sourceTree = "<group>"; };
+		B85A25941F95B6FC007F8028 /* ConfirmCreateRequestOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestOffViewController.swift; path = RequestOff/ConfirmCreateRequestOffViewController.swift; sourceTree = "<group>"; };
 		B85E1D561F7360CB00329529 /* WSMLocalStorageKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSMLocalStorageKeys.swift; path = storages/WSMLocalStorageKeys.swift; sourceTree = "<group>"; };
 		B85E1D5A1F73B12B00329529 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		B86B843A1F7E52D3009D178D /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
@@ -509,6 +516,8 @@
 		B8CD7FA21F8E0D4200DC71B3 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = customviews/CardView.swift; sourceTree = "<group>"; };
 		B8D185C51F862A30000B6E3B /* RequestTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTextFieldCell.swift; sourceTree = "<group>"; };
 		B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestTextFieldCell.xib; sourceTree = "<group>"; };
+		B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRequestItem.swift; sourceTree = "<group>"; };
+		B8F714451F96FEE300F67073 /* ConfirmCreateRequestOffDayOffSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestOffDayOffSettingCell.swift; path = RequestOff/ConfirmCreateRequestOffDayOffSettingCell.swift; sourceTree = "<group>"; };
 		B8F7A5031F822AD200FD0890 /* TimeSheetSummaryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetSummaryViewCell.swift; path = TimeSheet/TimeSheetSummaryViewCell.swift; sourceTree = "<group>"; };
 		B8F8AFCC1F79401D0063E687 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServices.swift; path = services/UserServices.swift; sourceTree = "<group>"; };
 		B8FA28241F78BE29004E16CB /* UserSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingModel.swift; sourceTree = "<group>"; };
@@ -679,6 +688,13 @@
 				516A968E1F984003002FCF85 /* IdentifyInfoModel.swift */,
 				516A96901F98401F002FCF85 /* VehicleInfoModel.swift */,
 				516A96921F984039002FCF85 /* UserNationModel.swift */,
+				511600B91F905DA900B13102 /* RequestOffModel.swift */,
+				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
+				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
+				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
+				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
+				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
+				B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1069,6 +1085,9 @@
 		B8CCDB451F94C11700A00E02 /* RequestOff */ = {
 			isa = PBXGroup;
 			children = (
+				B85A25921F95B57B007F8028 /* ConfirmCreateRequestOffCell.swift */,
+				B8F714451F96FEE300F67073 /* ConfirmCreateRequestOffDayOffSettingCell.swift */,
+				B85A25941F95B6FC007F8028 /* ConfirmCreateRequestOffViewController.swift */,
 				B8CCDB461F94C12500A00E02 /* CreateRequestOffTimeCell.swift */,
 				B8CCDB471F94C12500A00E02 /* CreateRequestOffViewController.swift */,
 				B8CCDB481F94C12500A00E02 /* CreateRequestOffViewControllerType.swift */,
@@ -1402,6 +1421,7 @@
 				B81AF7211F72096A00E579B2 /* FSCalendarCollectionView.m in Sources */,
 				51221C101F7B6287002F17E0 /* RequestOtModel.swift in Sources */,
 				516A96831F974A45002FCF85 /* LeftMenuHeaderCell.swift in Sources */,
+				B85A25951F95B6FC007F8028 /* ConfirmCreateRequestOffViewController.swift in Sources */,
 				5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */,
 				B81AF7201F72096A00E579B2 /* FSCalendar+Deprecated.m in Sources */,
 				516A96931F984039002FCF85 /* UserNationModel.swift in Sources */,
@@ -1419,7 +1439,9 @@
 				B88E77F61F824BEA00E61374 /* TimeSheetDetailViewCell.swift in Sources */,
 				B8C47F181F84BF280024F865 /* UserProvider.swift in Sources */,
 				B8FA28251F78BE29004E16CB /* UserSettingModel.swift in Sources */,
+				B8F714461F96FEE300F67073 /* ConfirmCreateRequestOffDayOffSettingCell.swift in Sources */,
 				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateRequestCell.swift in Sources */,
+				B85A25931F95B57B007F8028 /* ConfirmCreateRequestOffCell.swift in Sources */,
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
 				B8A608BD1F8F57A700376292 /* UIView.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
@@ -1507,6 +1529,7 @@
 				B8259FD71F8764DE00E5891D /* DateOffType.swift in Sources */,
 				B8CCDB4C1F94C12500A00E02 /* CreateRequestOffViewController.swift in Sources */,
 				B87CDBF41F833CE1008A8D0E /* AppConstant.swift in Sources */,
+				B8F714441F96F31F00F67073 /* ConfirmRequestItem.swift in Sources */,
 				B86B843B1F7E52D3009D178D /* CompanyModel.swift in Sources */,
 				B8D185C71F862A30000B6E3B /* RequestTextFieldCell.swift in Sources */,
 				B81AF7271F72096A00E579B2 /* FSCalendarScopeHandle.m in Sources */,

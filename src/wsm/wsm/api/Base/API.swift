@@ -11,23 +11,14 @@ import Moya
 import Alamofire
 import ObjectMapper
 import SwiftyUserDefaults
+import InAppLocalize
 
 public enum APIError: Swift.Error, LocalizedError {
     case noStatusCode
-
     case invalidData
     case unknown(statusCode: Int?)
-
-    case notModified // 304
-    case invalidRequest // 400
-    case unauthorized // 401
-    case accessDenied // 403
-    case notFound  // 404
-    case methodNotAllowed  // 405
-    case serverError // 500
-    case badGateway // 502
-    case serviceUnavailable // 503
-    case gatewayTimeout // 504
+    case invalidRequest(response: ResponseData?) // 400
+    case unauthorized(message: String?) // 401
     case networkError
     case apiFailure(message: String?)
 
@@ -35,9 +26,21 @@ public enum APIError: Swift.Error, LocalizedError {
         //TODOs: fill message match with APIError on Localize text
         switch self {
         case .apiFailure(let message):
-            return message ?? ""
-        default:
-            return ""
+            return message ?? LocalizationHelper.shared.localized("api_error_unknow_error")
+
+        case .networkError:
+            return LocalizationHelper.shared.localized("api_network_error")
+        case .unauthorized( let message):
+            //TODOs: handle accessToken expired case -> must logout
+            return message ?? LocalizationHelper.shared.localized("you_are_unauthorized_to_access")
+        case .unknown(let statusCode):
+            print("ERROR WITH HTTP STATUS CODE: \(String(describing: statusCode))")
+            return LocalizationHelper.shared.localized("api_error_server_error")
+        case .noStatusCode:
+            return LocalizationHelper.shared.localized("api_error_server_error")
+        case .invalidData,
+             .invalidRequest:
+            return LocalizationHelper.shared.localized("api_error_unknow_error")
         }
     }
 }
@@ -45,6 +48,13 @@ public enum APIError: Swift.Error, LocalizedError {
 public class ResponseData: Mappable {
     var status: Int?
     var message: String?
+    var data: [String]?
+
+    init(status: Int?, message: String?, data: [String]?) {
+        self.status = status
+        self.message = message
+        self.data = data
+    }
 
     required public init?(map: Map) {
 
@@ -57,6 +67,7 @@ public class ResponseData: Mappable {
     public func mapping(map: Map) {
         status <- map["status"]
         message <- map["messages"]
+        data <- map["data.base"]
     }
 }
 

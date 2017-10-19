@@ -102,11 +102,11 @@ class CreateRequestOffTimeCell: UITableViewCell {
     }
 
     @IBAction func showFromDayPicker(_ sender: Any) {
-        fromDayTextField.setupDatePicker(picker: fromDatePicker, selector: #selector(onFromDatePickerSelected), target: self)
+        fromDayTextField.setupDatePicker(picker: fromDatePicker, selector: #selector(onFromDatePickerSelected), target: self, currentValue: fromDayTextField.text)
     }
 
     @IBAction func showToDayPicker(_ sender: Any) {
-        toDayTextField.setupDatePicker(picker: toDatePicker, selector: #selector(onToDatePickerSelected), target: self)
+        toDayTextField.setupDatePicker(picker: toDatePicker, selector: #selector(onToDatePickerSelected), target: self, currentValue: toDayTextField.text)
     }
 
     @objc private func onFromDatePickerSelected() {
@@ -121,7 +121,7 @@ class CreateRequestOffTimeCell: UITableViewCell {
         self.endEditing(true)
         if let isOk = self.toDatePickerDidSelected?(self, toDatePicker.date),
             isOk {
-            toDayTextField.text = fromDatePicker.date.toString(dateFormat: AppConstant.onlyDateFormat)
+            toDayTextField.text = toDatePicker.date.toString(dateFormat: AppConstant.onlyDateFormat)
         }
     }
 

@@ -19,7 +19,7 @@ target 'wsm' do
     pod 'InAppLocalize'
     pod "Floaty"
 #    pod 'AFDateHelper', '~> 4.2.4'
-    pod 'ObjectMapper'
+    pod 'ObjectMapper', '~> 2.2.9'
     pod 'SwiftyUserDefaults'
     pod "PromiseKit", "~> 4.4"
     pod "TextFieldEffects"

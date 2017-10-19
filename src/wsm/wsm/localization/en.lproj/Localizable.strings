@@ -398,3 +398,7 @@
 "km" = "km(s)";
 "date_format" = "yyyy/MM/dd";
 "date_time_format" = "yyyy/MM/dd HH:mm";
+
+"api_error_server_error" = "A server error occurred, please try again later!";
+"api_error_unknow_error" = "An error occurred, please try again later!";
+"api_network_error" = "The network is unavailable, please try again later!";

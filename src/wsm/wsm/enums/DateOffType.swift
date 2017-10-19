@@ -24,4 +24,14 @@ enum DateOffType: String {
             return LocalizationHelper.shared.localized("off_no_salary")
         }
     }
+
+    var isHaveSalary: Bool {
+        switch self {
+        case .noSalary:
+            return false
+        default:
+            return true
+        }
+    }
+
 }

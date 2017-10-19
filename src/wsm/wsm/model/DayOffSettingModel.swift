@@ -51,9 +51,9 @@ class DayOffSettingModel: BaseModel {
 
     var dayOffAsString: String {
         return String(format: LocalizationHelper.shared.localized("off_type_with_amount"),
-                      name ?? "null",
+                      name ?? "N/A",
                       remaining ?? 0,
-                      unit ?? "null")
+                      unit ?? "N/A")
     }
 
     required init?(map: Map) {
