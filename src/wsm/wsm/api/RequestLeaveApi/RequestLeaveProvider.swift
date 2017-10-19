@@ -67,7 +67,6 @@ final class RequestLeaveProvider {
 
     static let shared  = RequestLeaveProvider()
     var listRequests = [RequestLeaveModel]()
-    var isNeedRefreshList = false
 
     static func submitRequestLeave(requestModel: RequestLeaveApiInputModel) -> Promise<CreateRequestLeaveApiOutModel> {
         if requestModel.id == nil {

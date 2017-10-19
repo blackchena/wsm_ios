@@ -22,7 +22,7 @@ extension Date {
     }
 
     func createDateFromTimeOf(date: Date) -> Date? {
-        let dateString = ("\(self.toString(dateFormat: AppConstant.onlyDateFormat)) \(date.getComponent(.hour)):\(date.getComponent(.minute))")
+        let dateString = ("\(self.toString(dateFormat: AppConstant.onlyDateFormat)) - \(date.getComponent(.hour)):\(date.getComponent(.minute))")
         return dateString.toDate(dateFormat: AppConstant.requestDateFormat)
     }
 

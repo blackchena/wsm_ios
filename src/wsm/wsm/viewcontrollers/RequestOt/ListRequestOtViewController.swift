@@ -134,7 +134,19 @@ extension ListRequestOtViewController: UITableViewDelegate, UITableViewDataSourc
         let selectedRequest = RequestOtProvider.shared.listRequestOts[indexPath.row]
         if let otRequestDetailVc = UIViewController.getStoryboardController(identifier: "OtRequestDetailViewController") as? OtRequestDetailViewController {
             otRequestDetailVc.otRequest = selectedRequest
+            otRequestDetailVc.listRequestDelegate = self
             self.navigationController?.pushViewController(otRequestDetailVc, animated: true)
         }
+    }
+}
+
+extension ListRequestOtViewController: ListRequestDelegte {
+    func getListRequests() {
+        getListRequestOts()
+    }
+
+    func didCreateRequest() {
+        filterView.resetConditions()
+        getListRequestOts()
     }
 }

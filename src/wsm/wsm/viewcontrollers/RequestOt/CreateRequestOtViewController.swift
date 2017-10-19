@@ -16,6 +16,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
     @IBOutlet weak var toTextField: WsmTextField!
 
     fileprivate let requestModel = RequestOtApiInputModel()
+    weak var listRequestDelegate: ListRequestDelegte?
     let fromDatePicker = UIDatePicker()
     let toDatePicker = UIDatePicker()
 
@@ -84,6 +85,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
             self.requestModel.projectName = projectNameTextField.text
             self.requestModel.reason = reasonTextField.text
             confirmOtVc.requestModel = self.requestModel
+            confirmOtVc.listRequestDelegate = self.listRequestDelegate
             self.navigationController?.pushViewController(confirmOtVc, animated: true)
         }
     }

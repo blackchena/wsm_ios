@@ -16,6 +16,7 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
     @IBOutlet weak var editButton: LocalizableButton!
     @IBOutlet weak var deleteButtonHeight: NSLayoutConstraint!
 
+    weak var listRequestDelegate: ListRequestDelegte?
     var selectedRequest = RequestLeaveModel()
     var leaveType: LeaveTypeModel?
     var detailItems = [ConfirmRequestItem]()
@@ -146,7 +147,7 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
             .then { apiOutput -> Void in
                 if apiOutput.isSucceeded() {
                     AlertHelper.showInfo(message: apiOutput.message, makesureLoadingHidden: true, handler: { (alert) in
-                        RequestLeaveProvider.shared.isNeedRefreshList = true
+                        self.listRequestDelegate?.getListRequests()
                         self.navigationController?.popViewController(animated: true)
                     })
                 }

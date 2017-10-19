@@ -15,6 +15,7 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
     @IBOutlet weak var tableView: UITableView!
 
     fileprivate var confirmItems = [ConfirmRequestItem]()
+    weak var listRequestDelegate: ListRequestDelegte?
     var requestModel = RequestLeaveApiInputModel()
     var leaveType: LeaveTypeModel?
     let currentUser = UserServices.getLocalUserProfile()
@@ -110,7 +111,16 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
     }
 
     @IBAction func submitBtnClick(_ sender: Any) {
-        submitRequestLeave(requestModel: requestModel)
+        AlertHelper.showLoading()
+        RequestLeaveProvider.submitRequestLeave(requestModel: requestModel)
+            .then { apiOutput -> Void in
+                self.listRequestDelegate?.didCreateRequest()
+                self.navigationController?.popToRootViewController(animated: true)
+            }.catch { error in
+                AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
+        }
     }
 }
 
@@ -155,12 +165,5 @@ extension ConfirmCreateRequestLeaveViewController: UITableViewDelegate, UITableV
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.darkGray
         header.backgroundView?.backgroundColor = UIColor.white
-    }
-}
-
-extension ConfirmCreateRequestLeaveViewController: ConfirmCreateRequestLeaveViewControllerType {
-    
-    func didSubmitRequestSuccess() {
-        _ = navigationController?.popToRootViewController(animated: true)
     }
 }

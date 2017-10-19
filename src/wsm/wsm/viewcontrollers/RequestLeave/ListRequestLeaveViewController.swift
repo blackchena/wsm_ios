@@ -51,15 +51,6 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if RequestLeaveProvider.shared.isNeedRefreshList {
-            filterView.resetConditions()
-            getListRequests(page: 1)
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -106,7 +97,6 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
                 AlertHelper.showError(error: error)
             }.always {
                 AlertHelper.hideLoading()
-                RequestLeaveProvider.shared.isNeedRefreshList = false
                 self.refreshControl.endRefreshing()
                 self.isLoading = false
                 self.tableView.tableFooterView = nil
@@ -141,7 +131,19 @@ extension ListReuqestLeaveViewController: UITableViewDelegate, UITableViewDataSo
         if let detailtVc = UIViewController.getStoryboardController(identifier: "RequestLeaveDetailViewController")
                 as? RequestLeaveDetailViewController {
             detailtVc.selectedRequest = selectedRequest
+            detailtVc.listRequestDelegate = self
             self.navigationController?.pushViewController(detailtVc, animated: true)
         }
+    }
+}
+
+extension ListReuqestLeaveViewController: ListRequestDelegte {
+    func getListRequests() {
+        getListRequests()
+    }
+
+    func didCreateRequest() {
+        filterView.resetConditions()
+        getListRequests()
     }
 }
