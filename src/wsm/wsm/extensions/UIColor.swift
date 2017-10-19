@@ -16,6 +16,7 @@ extension UIColor {
     static let pendingColor = UIColor(red: 60, green: 136, blue: 250)
     static let cancelColor = UIColor(red: 4, green: 44, blue: 145)
     static let approveColor = UIColor(red: 62, green: 177, blue: 86)
+    static let sectionColor = UIColor.init(hexString: "#3EB156")
 
     convenience init(red: Int, green: Int, blue: Int) {
         self.init(red: CGFloat(red)/CGFloat(255.0),
