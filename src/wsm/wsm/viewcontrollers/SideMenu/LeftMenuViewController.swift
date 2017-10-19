@@ -128,7 +128,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
         switch (indexPath.section, indexPath.row) {
         //user profile
         case (0, 0):
-            selectedViewController = UIViewController.getStoryboardController(identifier: "UserInfoViewController")
+            selectedViewController = UIViewController.getStoryboardController(identifier: "ProfileDetailViewController")
         case (0, 1):
             break
         //manage request

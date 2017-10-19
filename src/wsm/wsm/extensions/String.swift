@@ -53,4 +53,17 @@ extension String {
         let end = index(startIndex, offsetBy: r.upperBound)
         return self[start...end]
     }
+
+    func removeEmptyLines() -> String {
+        var linesArray: [String] = []
+        self.enumerateLines { line, _ in linesArray.append(line) }
+        return linesArray.filter{!$0.isEmpty}.joined(separator: "\n")
+    }
+
+    static func setNullOrEmptyStringHolder(string: String?, holder: String) -> String{
+        if let str = string, !str.isEmpty {
+            return str
+        }
+        return holder
+    }
 }

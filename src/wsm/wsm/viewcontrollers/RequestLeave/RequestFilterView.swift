@@ -66,7 +66,7 @@ class RequestFilterView: UIView {
     @objc func onStatusSelected() {
         endEditing(true)
         let selectedRow = statusPicker.selectedRow(inComponent: 0)
-        statusTextField.text = listStatus[selectedRow].rawValue
+        statusTextField.text = listStatus[selectedRow].localizedString()
         self.filterAction?()
     }
 

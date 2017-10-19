@@ -7,7 +7,6 @@
 
 import Foundation
 import ObjectMapper
-//import AFDateHelper
 
 class UserProfileModel: BaseModel {
 
@@ -28,8 +27,13 @@ class UserProfileModel: BaseModel {
     var employeeCode: String?
     var name: String?
     var special = UserSpecial.normal
-
     var isManager: Bool?
+    var address: AddressModel?
+    var generalInfo: GeneralInfoModel?
+    var identifyInfo: IdentifyInfoModel?
+    var vehicleInfo: VehicleInfoModel?
+    var userNations = [UserNationModel]()
+    var bankInfo: BankInfoModel?
 
     required init?(map: Map) {
     }
@@ -57,6 +61,12 @@ class UserProfileModel: BaseModel {
         id <- map["id"]
         employeeCode <- map["employee_code"]
         name <- map["name"]
+        address <- map["address"]
+        generalInfo <- map["general_info"]
+        identifyInfo <- map["identify_info"]
+        vehicleInfo <- map["vehicle_info"]
+        userNations <- map["user_nations"]
+        bankInfo <- map["bank_info"]
     }
 
     func getAvatarURL() -> URL? {
