@@ -17,7 +17,7 @@ public extension Response {
     public func tryToValidateResponseData() throws {
         if let responseData = ResponseData(JSONString: try mapString()) {
             if !responseData.isSucceeded() {
-                throw APIError.apiFailure(message: responseData.message)
+                throw MoyaError.statusCode(self)
             }
         } else {
             //Cannot parser result

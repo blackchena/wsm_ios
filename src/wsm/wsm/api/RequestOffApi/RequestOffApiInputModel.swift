@@ -13,16 +13,23 @@ class RequestOffApiInputModel: BaseModel {
 
     var requestOffDetail: RequestOffDetailApiInputModel?
 
+    init(requestOffDetail: RequestOffDetailApiInputModel) {
+        self.requestOffDetail = requestOffDetail
+    }
+
     required public init?(map: Map) {
+
     }
 
     public func mapping(map: Map) {
+        map.shouldIncludeNilValues = true
         requestOffDetail <- map["request_off"]
     }
 }
 
 class RequestOffDetailApiInputModel: BaseModel {
 
+    var id: Int?
     var projectName: String?
     var positionName: String?
     var workSpaceId: Int = 0
@@ -34,20 +41,23 @@ class RequestOffDetailApiInputModel: BaseModel {
     */
     var requestDayOffTypesAttributes: [RequestDayOffTypeModel]?
 
-    var offHaveSalaryFrom = RequestDayOffFromModel()
-    var offHaveSalaryTo = RequestDayOffToModel()
+    var offHaveSalaryFrom = RequestDayOffFromModel(isHaveSalary: true)
+    var offHaveSalaryTo = RequestDayOffToModel(isHaveSalary: true)
 
-    var offNoSalaryFrom = RequestDayOffFromModel()
-    var offNoSalaryTo = RequestDayOffToModel()
+    var offNoSalaryFrom = RequestDayOffFromModel(isHaveSalary: false)
+    var offNoSalaryTo = RequestDayOffToModel(isHaveSalary: false)
 
     var reason: String = ""
 
     init() {}
 
     required public init?(map: Map) {
+
     }
 
     public func mapping(map: Map) {
+        map.shouldIncludeNilValues = true
+        id <- map["id"]
         projectName <- map["project_name"]
         positionName <- map["position_name"]
         workSpaceId <- map["workspace_id"]
@@ -57,6 +67,7 @@ class RequestOffDetailApiInputModel: BaseModel {
 
         offHaveSalaryFrom <- map["off_have_salary_from"]
         offHaveSalaryTo <- map["off_have_salary_to"]
+
         offNoSalaryFrom <- map["off_no_salary_from"]
         offNoSalaryTo <- map["off_no_salary_to"]
 

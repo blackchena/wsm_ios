@@ -61,12 +61,13 @@ class ListRequestOffViewController: BaseViewController, FloatyDelegate {
         createRequestFloatyButton.fabDelegate = self
         createRequestFloatyButton.buttonColor = UIColor.appBarTintColor
         createRequestFloatyButton.buttonImage = UIImage(named: "ic_add")
+        
         self.view.addSubview(createRequestFloatyButton)
     }
 
     func emptyFloatySelected(_ floaty: Floaty) {
-        //        let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
-        //        self.navigationController?.pushViewController(createOffVc, animated: true)
+        let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
+        self.navigationController?.pushViewController(createOffVc, animated: true)
     }
 
     @objc private func pullToRefreshHandler(_: Any) {

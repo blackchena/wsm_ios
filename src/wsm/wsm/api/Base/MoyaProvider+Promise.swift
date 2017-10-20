@@ -54,6 +54,8 @@ public extension MoyaProvider {
                             }
 
                             fulfill(object)
+                        } catch let apiError as MoyaError {
+                            reject(handleRejectRequest(moyaError: apiError))
                         } catch let error {
                             //TODOs: Handle isCancelledError case
                             reject(handleCompleteRequestError(error: error))
@@ -77,6 +79,9 @@ public extension MoyaProvider {
                         do {
                             try response.tryToValidateResponseData()
                             fulfill()
+
+                        } catch let apiError as MoyaError {
+                            reject(handleRejectRequest(moyaError: apiError))
                         } catch let error {
                             //TODOs: Handle isCancelledError case
                             reject(handleCompleteRequestError(error: error))
@@ -107,6 +112,8 @@ public extension MoyaProvider {
 
                             let data = Mapper<T>().mapArray(JSONArray: array)
                             fulfill(data)
+                        } catch let apiError as MoyaError {
+                            reject(handleRejectRequest(moyaError: apiError))
                         } catch let error {
                             //TODOs: Handle isCancelledError case
                             reject(handleCompleteRequestError(error: error))
@@ -121,48 +128,38 @@ public extension MoyaProvider {
 private func handleCompleteRequestError(error: Swift.Error) -> APIError {
     if let moyaError = error as? MoyaError {
         moyaError.printError()
-        return APIError.invalidData
+        return handleRejectRequest(moyaError: moyaError)
     } else if let apiError = error as? APIError {
         return apiError
     } else {
-        return error.isCancelledError ? APIError.networkError : APIError.unauthorized
+        return error.isCancelledError ? APIError.networkError : APIError.unauthorized(message: nil)
     }
-
 }
+
+private func handleRejectRequest(responseData: ResponseData) -> APIError {
+    if let statusCode = responseData.status {
+        switch statusCode {
+        case 400:
+            return  APIError.invalidRequest(response: responseData)
+        case 401,
+             403:
+            return  APIError.unauthorized(message: responseData.message)
+        default:
+            return (responseData.message ?? "").isEmpty ? APIError.unknown(statusCode: statusCode) : APIError.apiFailure(message: responseData.message)
+        }
+    } else {
+        return APIError.noStatusCode
+    }
+}
+
 
 private func handleRejectRequest(moyaError: MoyaError) -> APIError {
     switch moyaError {
     case .statusCode(let response):
         let statusCode = response.statusCode
-        switch statusCode {
-        case 304:
-            return APIError.notModified
-        case 400:
-            return  APIError.invalidRequest
-        case 401:
-            return  APIError.unauthorized
-        case 403:
-            return APIError.accessDenied
-        case 404:
-            return APIError.notFound
-        case 405:
-            return APIError.methodNotAllowed
-            //    case 422:
-            //    let message = ResponseMessage(value: value)
-            //    SpeedLog.print(message)
-        //    reject(ResponseError.validate(message: message))
-        case 500:
-            return APIError.serverError
-        case 502:
-            return APIError.badGateway
-        case 503:
-            return APIError.serviceUnavailable
-        case 504:
-            return APIError.gatewayTimeout
-        default:
-            return APIError.unknown(statusCode: statusCode)
-        }
+        let wsmResponseDataModel = Mapper<ResponseData>().map(JSONObject: try? response.mapJSON()) ?? ResponseData(status: statusCode, message: nil, data: nil)
+        return handleRejectRequest(responseData: wsmResponseDataModel)
     default:
-        return APIError.noStatusCode
+        return APIError.networkError
     }
 }

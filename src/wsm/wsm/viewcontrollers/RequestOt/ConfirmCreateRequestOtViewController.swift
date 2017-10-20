@@ -24,34 +24,9 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
 
-        guard let currentUser = UserServices.getLocalUserProfile() else {
-            return
-        }
+        confirmReqOtItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestModel.workspaceId, groupId: requestModel.groupId, projectName: requestModel.projectName))
 
-        var branchName = ""
-        if let branches = currentUser.workSpaces, let i = branches.index(where: {$0.id == requestModel.workspaceId}) {
-            branchName = branches[i].name ?? ""
-        }
-        var groupName = ""
-        if let groups = currentUser.groups, let i = groups.index(where: {$0.id == requestModel.groupId}) {
-            groupName = groups[i].fullName ?? ""
-        }
 
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user",
-                                                  header: LocalizationHelper.shared.localized("employee_name"),
-                                                  value: currentUser.name))
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_id_card",
-                                                  header: LocalizationHelper.shared.localized("employee_code"),
-                                                  value: currentUser.employeeCode))
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_branch",
-                                                  header: LocalizationHelper.shared.localized("branch"),
-                                                  value: branchName))
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_group",
-                                                  header: LocalizationHelper.shared.localized("group"),
-                                                  value: groupName))
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_project",
-                                                  header: LocalizationHelper.shared.localized("project_name"),
-                                                  value: requestModel.projectName))
         confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("from"),
                                                   value: requestModel.fromTime))
@@ -115,10 +90,4 @@ extension ConfirmCreateRequestOtViewController: UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return confirmReqOtItems.count
     }
-}
-
-struct ConfirmRequestItem {
-    var imageName: String
-    var header: String
-    var value: String?
 }

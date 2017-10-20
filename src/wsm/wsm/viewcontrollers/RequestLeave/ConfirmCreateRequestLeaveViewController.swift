@@ -40,34 +40,12 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
     }
 
     func appendDefaultItem() {
-
-        var branchName = ""
-        if let branches = currentUser?.workSpaces, let i = branches.index(where: {$0.id == requestModel.workspaceId}) {
-            branchName = branches[i].name ?? ""
-        }
-        var groupName = ""
-        if let groups = currentUser?.groups, let i = groups.index(where: {$0.id == requestModel.groupId}) {
-            groupName = groups[i].fullName ?? ""
-        }
         if let leaveTypes = UserServices.getLocalLeaveTypeSettings(), let i = leaveTypes.index(where: {$0.id == requestModel.leaveTypeId}) {
             leaveType = leaveTypes[i]
         }
 
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user",
-                                               header: LocalizationHelper.shared.localized("employee_name"),
-                                               value: currentUser?.name))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_id_card",
-                                               header: LocalizationHelper.shared.localized("employee_code"),
-                                               value: currentUser?.employeeCode))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_branch",
-                                               header: LocalizationHelper.shared.localized("branch"),
-                                               value: branchName))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_group",
-                                               header: LocalizationHelper.shared.localized("group"),
-                                               value: groupName))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_project",
-                                               header: LocalizationHelper.shared.localized("project_name"),
-                                               value: requestModel.projectName))
+        confirmItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestModel.workspaceId, groupId: requestModel.groupId, projectName: requestModel.projectName))
+
         confirmItems.append(ConfirmRequestItem(imageName: "ic_project",
                                                header: LocalizationHelper.shared.localized("type_leave"),
                                                value: leaveType?.name))

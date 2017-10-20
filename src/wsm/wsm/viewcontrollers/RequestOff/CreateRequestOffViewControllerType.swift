@@ -8,12 +8,34 @@
 
 import UIKit
 import InAppLocalize
+import PromiseKit
 
 protocol CreateRequestOffViewControllerType {
+}
+
+protocol ConfirmCreateRequestOffViewControllerType {
     func didSubmitRequestSuccess()
 }
 
-extension CreateRequestOffViewControllerType  where Self: UIViewController {
+extension ConfirmCreateRequestOffViewControllerType where Self: UIViewController {
+    func submitRequestOff(requestOffDetailApiInputModel: RequestOffDetailApiInputModel) {
+        let requestApiInput = RequestOffApiInputModel(requestOffDetail: requestOffDetailApiInputModel)
+
+            AlertHelper.showLoading()
+
+            RequestOffProvider.createRequestOff(requestModel: requestApiInput).then { result -> Void in
+                //save
+                RequestOffProvider.shared.listRequests.append(result)
+                self.didSubmitRequestSuccess()
+            }.catch { error in
+                AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
+        }
+    }
+}
+
+extension CreateRequestOffViewControllerType where Self: UIViewController {
     func getRequestDayOffTypes(byDateOffType dateOffType: DateOffType) -> [DayOffSettingModel]? {
 
         guard let dayOffSettingResult = UserServices.getLocalDayOffSettings(),
@@ -25,7 +47,7 @@ extension CreateRequestOffViewControllerType  where Self: UIViewController {
 
         if dateOffType == .haveSalaryCompanyPay {
 
-            let annualDayOff = DayOffSettingModel(id: nil, code: nil, companyId: nil,
+            let annualDayOff = DayOffSettingModel(id: AppConstant.annualDayOffSettingId, code: nil, companyId: nil,
                                                   dayOffSettingId: nil, amount: nil, unit: nil,
                                                   limitTimes: nil, loopType: nil,
                                                   payType: .haveSalaryCompanyPay,
@@ -38,9 +60,9 @@ extension CreateRequestOffViewControllerType  where Self: UIViewController {
         }
 
         return settings
-    }
+    }    
 
-    func generateDayOffTypeAttributes(dayOffSettingBindedValue: [Int: (Float, Bool)]) -> [RequestDayOffTypeModel] {
+    func generateDayOffTypeAttributes(dayOffSettingBindedValue: [Int: (Float, Bool, DayOffSettingModel)]) -> [RequestDayOffTypeModel] {
 
         var result = [RequestDayOffTypeModel]()
 
@@ -54,8 +76,8 @@ extension CreateRequestOffViewControllerType  where Self: UIViewController {
 
                 let numberDayOffBySetting: Float? = dayOffSettingBindedValue[settingId]?.0
 
-                result.append(RequestDayOffTypeModel(id: setting.id,
-                                                     specialDayOffSettingId: setting.dayOffSettingId,
+                result.append(RequestDayOffTypeModel(id: setting.dayOffSettingId,
+                                                     specialDayOffSettingId: setting.id,
                                                      numberDayOff: numberDayOffBySetting,
                                                      destroy: !((numberDayOffBySetting ?? 0) > 0)  )) //have value && > 0 -> false, else true
             }

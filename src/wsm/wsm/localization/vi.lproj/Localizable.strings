@@ -387,3 +387,7 @@
 "km" = "km(s)";
 "date_format" = "dd/MM/yyyy";
 "date_time_format" = "dd/MM/yyyy HH:mm";
+
+"api_error_server_error" = "Server xảy ra lỗi, vui lòng thử lại!";
+"api_error_unknow_error" = "Có lỗi xảy ra, vui lòng thử lại!";
+"api_network_error" = "Kết nối mạng không sẵn sàng, vui lòng thử lại!";

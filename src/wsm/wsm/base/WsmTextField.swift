@@ -82,14 +82,14 @@ class WsmTextField: ACFloatingTextfield {
         return UIEdgeInsetsInsetRect(bounds, padding)
     }
 
-    public func setupPicker(picker: UIPickerView, selector: Selector, target: Any? = nil, currentValue: String = "") {
+    public func setupPicker(picker: UIPickerView, selector: Selector, target: Any? = nil, currentValue: String? = "") {
         self.isPicker = true
         self.inputView = picker
         self.inputAccessoryView = UIToolbar().ToolbarPiker(selector: selector, target: target)
         self.text = currentValue
     }
 
-    public func setupDatePicker(picker: UIDatePicker, selector: Selector, target: Any? = nil, currentValue: String = "") {
+    public func setupDatePicker(picker: UIDatePicker, selector: Selector, target: Any? = nil, currentValue: String? = "") {
         self.isPicker = true
         self.inputView = picker
         self.inputAccessoryView = UIToolbar().ToolbarPiker(selector: selector, target: target)
