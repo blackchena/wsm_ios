@@ -52,15 +52,6 @@ class ListRequestOffViewController: BaseViewController, FloatyDelegate {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if RequestOffProvider.shared.isNeedRefreshList {
-            filterView.resetConditions()
-            getListRequests(page: 1)
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -107,7 +98,6 @@ class ListRequestOffViewController: BaseViewController, FloatyDelegate {
                 AlertHelper.showError(error: error)
             }.always {
                 AlertHelper.hideLoading()
-                RequestOffProvider.shared.isNeedRefreshList = false
                 self.refreshControl.endRefreshing()
                 self.isLoading = false
                 self.tableView.tableFooterView = nil
@@ -142,7 +132,19 @@ extension ListRequestOffViewController: UITableViewDelegate, UITableViewDataSour
         if let detailtVc = UIViewController.getStoryboardController(identifier: "RequestOffDetailViewController")
             as? RequestOffDetailViewController {
             detailtVc.selectedRequest = selectedRequest
+            detailtVc.listRequestDelegate = self
             self.navigationController?.pushViewController(detailtVc, animated: true)
         }
+    }
+}
+
+extension ListRequestOffViewController: ListRequestDelegte {
+    func getListRequests() {
+        getListRequests()
+    }
+
+    func didCreateRequest() {
+        filterView.resetConditions()
+        getListRequests()
     }
 }

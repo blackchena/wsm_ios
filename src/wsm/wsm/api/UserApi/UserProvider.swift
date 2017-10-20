@@ -17,6 +17,7 @@ fileprivate enum UserApiEndpoint: BaseApiTargetType {
     case getUserSettings
     case getListLeaveTypesSettings
     case getListDayOffSettings
+    case changePassword(changePasswordModel: ChangePasswordApiInputModel)
 
     public var path: String {
         switch self {
@@ -28,13 +29,27 @@ fileprivate enum UserApiEndpoint: BaseApiTargetType {
             return "/api/dashboard/leave_types"
         case .getListDayOffSettings:
             return "/api/dashboard/dayoff_settings"
+        case .changePassword:
+            return "/api/dashboard/passwords"
         }
     }
+
+    public var method: Moya.Method {
+        switch self {
+        case .changePassword:
+            return .put
+        default:
+            return .get
+        }
+    }
+
     
     public var parameters: [String: Any]? {
         switch self {
         case .getProfile(let userId):
             return ["user_id": userId]
+        case .changePassword(let changePasswordModel):
+            return ["user": createParameters(fromDataModel: changePasswordModel)]
         default:
             return nil
         }
@@ -64,4 +79,9 @@ final class UserProvider {
     static func getAllAppSettingsAsync(userId: Int) -> AppSettingPromise {
         return when(fulfilled: getProfile(userId: userId), getSettings(), getListLeaveTypeSetting(), getListDateOffSetting())
     }
+
+    static func changePassword(changePasswordModel: ChangePasswordApiInputModel) -> Promise<ResponseData> {
+        return ApiProvider.shared.requestPromise(target: MultiTarget(UserApiEndpoint.changePassword(changePasswordModel: changePasswordModel)))
+    }
+
 }

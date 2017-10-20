@@ -16,6 +16,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
     @IBOutlet weak var deleteButtonHeight: NSLayoutConstraint!
 
     var selectedRequest = RequestDayOffModel()
+    weak var listRequestDelegate: ListRequestDelegte?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
             .then { apiOutput -> Void in
                 if apiOutput.isSucceeded() {
                     AlertHelper.showInfo(message: apiOutput.message, makesureLoadingHidden: true, handler: { (alert) in
-                        RequestLeaveProvider.shared.isNeedRefreshList = true
+                        self.listRequestDelegate?.getListRequests()
                         self.navigationController?.popViewController(animated: true)
                     })
                 }

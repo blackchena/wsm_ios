@@ -32,6 +32,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
     @IBOutlet weak var checkInExampleLabel: LocalizableLabel!
     @IBOutlet weak var checkOutExampleLabel: LocalizableLabel!
 
+    weak var listRequestDelegate: ListRequestDelegte?
     var requestModel = RequestLeaveApiInputModel()
     fileprivate let emptyError = LocalizationHelper.shared.localized("is_empty")
     fileprivate let leaveTypes = UserServices.getLocalLeaveTypeSettings() ?? [LeaveTypeModel]()
@@ -184,6 +185,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
             self.requestModel.projectName = projectNameTextField.text
             self.requestModel.reason = reasonTextField.text
             confirmVc.requestModel = self.requestModel
+            confirmVc.listRequestDelegate = listRequestDelegate
             self.navigationController?.pushViewController(confirmVc, animated: true)
         }
     }

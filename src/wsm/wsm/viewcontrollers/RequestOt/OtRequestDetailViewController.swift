@@ -15,7 +15,8 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
     @IBOutlet weak var deleteButton: LocalizableButton!
     @IBOutlet weak var editButton: LocalizableButton!
     @IBOutlet weak var deleteButtonHeight: NSLayoutConstraint!
-    
+
+    weak var listRequestDelegate: ListRequestDelegte?
     var otRequest = RequestOtModel()
     fileprivate var detailItems = [ConfirmRequestItem]()
     fileprivate var statusCellIndex = -1

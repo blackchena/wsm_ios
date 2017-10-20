@@ -46,7 +46,6 @@ final class RequestOffProvider {
 
     static let shared  = RequestOffProvider()
     var listRequests = [RequestDayOffModel]()
-    var isNeedRefreshList = false
 
     static func getListRequestOff(page: Int?, month: String?, status: Int?) -> Promise<ListRequestOffApiOutModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.getListRequestOff(page: page, month: month, status: status)))

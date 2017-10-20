@@ -16,6 +16,7 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
 
     fileprivate var confirmReqOtItems = [ConfirmRequestItem]()
     var requestModel = RequestOtApiInputModel()
+    weak var listRequestDelegate: ListRequestDelegte?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,16 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
     }
 
     @IBAction func submitBtnClick(_ sender: Any) {
-        submitRequestOt(requestModel: requestModel)
+        AlertHelper.showLoading()
+        RequestOtProvider.submitRequestOt(requestModel: requestModel)
+            .then { apiOutput -> Void in
+                self.listRequestDelegate?.didCreateRequest()
+                self.navigationController?.popToRootViewController(animated: true)
+            }.catch { error in
+                AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
+        }
     }
 }
 
@@ -84,13 +94,6 @@ extension ConfirmCreateRequestOtViewController: UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return confirmReqOtItems.count
-    }
-}
-
-extension ConfirmCreateRequestOtViewController: ConfirmCreateRequestOtViewControllerType {
-    
-    func didSubmitRequestSuccess() {
-        _ = navigationController?.popToRootViewController(animated: true)
     }
 }
 

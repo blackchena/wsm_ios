@@ -119,7 +119,6 @@
 		51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */; };
 		51692C991F7CE6A900DE6248 /* RequestLeaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */; };
 		516A96451F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96431F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewController.swift */; };
-		516A96461F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96441F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewControllerType.swift */; };
 		516A96481F959CE9002FCF85 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96471F959CE9002FCF85 /* ProfileDetailViewController.swift */; };
 		516A964A1F959D04002FCF85 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96491F959D04002FCF85 /* ChangePasswordViewController.swift */; };
 		516A96561F95DBFF002FCF85 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96541F95DBFF002FCF85 /* ProfileHeaderView.swift */; };
@@ -144,7 +143,6 @@
 		516A96831F974A45002FCF85 /* LeftMenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A967F1F974A45002FCF85 /* LeftMenuHeaderCell.swift */; };
 		516A96841F974A45002FCF85 /* LeftMenuSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96801F974A45002FCF85 /* LeftMenuSectionCell.swift */; };
 		516A96851F974A45002FCF85 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96811F974A45002FCF85 /* LeftMenuViewController.swift */; };
-		516A96871F974A53002FCF85 /* ConfirmCreateRequestOtViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96861F974A53002FCF85 /* ConfirmCreateRequestOtViewControllerType.swift */; };
 		516A96891F983F66002FCF85 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96881F983F66002FCF85 /* AddressModel.swift */; };
 		516A968B1F983FA5002FCF85 /* BankInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A968A1F983FA5002FCF85 /* BankInfoModel.swift */; };
 		516A968D1F983FCE002FCF85 /* GeneralInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A968C1F983FCE002FCF85 /* GeneralInfoModel.swift */; };
@@ -157,6 +155,8 @@
 		51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */; };
 		51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */; };
 		51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C771F78B32F00CFABE8 /* WsmTextField.swift */; };
+		51800B6B1F9855F0002A4384 /* ChangePasswordApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */; };
+		51800B6D1F987C9C002A4384 /* ListRequestDelegte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */; };
 		51A281141F7CFB7700D4BFD0 /* LeaveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A281131F7CFB7700D4BFD0 /* LeaveType.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
@@ -376,7 +376,6 @@
 		51692C941F7CD89E00DE6248 /* RequestBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBaseViewController.swift; sourceTree = "<group>"; };
 		51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLeaveModel.swift; sourceTree = "<group>"; };
 		516A96431F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewController.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
-		516A96441F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewControllerType.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewControllerType.swift; sourceTree = "<group>"; };
 		516A96471F959CE9002FCF85 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileDetailViewController.swift; path = Profile/ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		516A96491F959D04002FCF85 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordViewController.swift; path = Profile/ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		516A96541F95DBFF002FCF85 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeaderView.swift; path = Profile/ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -401,7 +400,6 @@
 		516A967F1F974A45002FCF85 /* LeftMenuHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuHeaderCell.swift; path = SideMenu/LeftMenuHeaderCell.swift; sourceTree = "<group>"; };
 		516A96801F974A45002FCF85 /* LeftMenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuSectionCell.swift; path = SideMenu/LeftMenuSectionCell.swift; sourceTree = "<group>"; };
 		516A96811F974A45002FCF85 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuViewController.swift; path = SideMenu/LeftMenuViewController.swift; sourceTree = "<group>"; };
-		516A96861F974A53002FCF85 /* ConfirmCreateRequestOtViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestOtViewControllerType.swift; path = RequestOt/ConfirmCreateRequestOtViewControllerType.swift; sourceTree = "<group>"; };
 		516A96881F983F66002FCF85 /* AddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		516A968A1F983FA5002FCF85 /* BankInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankInfoModel.swift; sourceTree = "<group>"; };
 		516A968C1F983FCE002FCF85 /* GeneralInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInfoModel.swift; sourceTree = "<group>"; };
@@ -414,6 +412,8 @@
 		51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOtViewController.swift; path = RequestOt/ListRequestOtViewController.swift; sourceTree = "<group>"; };
 		51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMenuBaseViewController.swift; sourceTree = "<group>"; };
 		51754C771F78B32F00CFABE8 /* WsmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmTextField.swift; sourceTree = "<group>"; };
+		51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordApiInputModel.swift; path = UserApi/ChangePasswordApiInputModel.swift; sourceTree = "<group>"; };
+		51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestDelegte.swift; path = RequestLeave/ListRequestDelegte.swift; sourceTree = "<group>"; };
 		51A281131F7CFB7700D4BFD0 /* LeaveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaveType.swift; path = enums/LeaveType.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
@@ -878,12 +878,12 @@
 			isa = PBXGroup;
 			children = (
 				516A96431F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewController.swift */,
-				516A96441F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewControllerType.swift */,
 				51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */,
 				51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */,
 				513B326C1F8B336000D0D770 /* RequestFilterView.swift */,
 				51E94E931F871EC6002368D3 /* RequestLeaveCell.swift */,
 				513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */,
+				51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */,
 			);
 			name = RequestLeave;
 			sourceTree = "<group>";
@@ -901,7 +901,6 @@
 		51754C701F78A6D200CFABE8 /* RequestOt */ = {
 			isa = PBXGroup;
 			children = (
-				516A96861F974A53002FCF85 /* ConfirmCreateRequestOtViewControllerType.swift */,
 				51FBBA191F7A06CD004C32BD /* ConfirmCreateRequestCell.swift */,
 				51FBBA151F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift */,
 				51FBBA171F79FE8B004C32BD /* CreateRequestOtViewController.swift */,
@@ -982,6 +981,7 @@
 		B8C47EF41F84BD240024F865 /* UserApi */ = {
 			isa = PBXGroup;
 			children = (
+				51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */,
 				B8C47F161F84BF280024F865 /* UserProfileApiOutputModel.swift */,
 				B8C47F171F84BF280024F865 /* UserSettingApiOutputModel.swift */,
 				B8C47F151F84BF280024F865 /* UserProvider.swift */,
@@ -1410,7 +1410,6 @@
 				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateRequestCell.swift in Sources */,
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
 				B8A608BD1F8F57A700376292 /* UIView.swift in Sources */,
-				516A96871F974A53002FCF85 /* ConfirmCreateRequestOtViewControllerType.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
 				511600B81F9055F700B13102 /* (null) in Sources */,
 				B8C47EFD1F84BEF80024F865 /* TimesheetProvider.swift in Sources */,
@@ -1482,6 +1481,7 @@
 				5168BD001F73A78B00AA1287 /* String.swift in Sources */,
 				B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */,
 				B8C47F021F84BF010024F865 /* CreateRequestOtApiOutModel.swift in Sources */,
+				51800B6B1F9855F0002A4384 /* ChangePasswordApiInputModel.swift in Sources */,
 				B8CCDB4B1F94C12500A00E02 /* CreateRequestOffTimeCell.swift in Sources */,
 				B8C47EF21F84B6320024F865 /* (null) in Sources */,
 				B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */,
@@ -1502,13 +1502,13 @@
 				BF5947E61F8C672D003593C0 /* ListRequestOTApiOutModel.swift in Sources */,
 				5168BD0A1F73A89700AA1287 /* Sequence.swift in Sources */,
 				5168BD021F73A7AA00AA1287 /* Dictionary.swift in Sources */,
+				51800B6D1F987C9C002A4384 /* ListRequestDelegte.swift in Sources */,
 				B8C47F071F84BF0D0024F865 /* RequestOffProvider.swift in Sources */,
 				B8CCDB511F94C16C00A00E02 /* TimeSheetSpecialCase.swift in Sources */,
 				B8C47F201F84BFC30024F865 /* API.swift in Sources */,
 				5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */,
 				516A96851F974A45002FCF85 /* LeftMenuViewController.swift in Sources */,
 				B8259FD91F876F1000E5891D /* RequestDayOffModel.swift in Sources */,
-				516A96461F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewControllerType.swift in Sources */,
 				51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */,
 				B83516931F79FC2D006B536E /* TimeSheetModel.swift in Sources */,
 				516A96911F98401F002FCF85 /* VehicleInfoModel.swift in Sources */,
