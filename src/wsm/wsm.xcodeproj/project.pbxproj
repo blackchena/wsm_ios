@@ -272,9 +272,6 @@
 		2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wsm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuHeaderCell.xib; sourceTree = "<group>"; };
 		5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuSectionCell.xib; sourceTree = "<group>"; };
-		5100D3BA1F73570100F44329 /* LeftMenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuSectionCell.swift; sourceTree = "<group>"; };
-		511600B31F9054DD00B13102 /* ConfirmCreateRequestLeaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewController.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewController.swift; sourceTree = "<group>"; };
-		511600B41F9054DD00B13102 /* ConfirmCreateRequestLeaveViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestLeaveViewControllerType.swift; path = RequestLeave/ConfirmCreateRequestLeaveViewControllerType.swift; sourceTree = "<group>"; };
 		511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffApiOutModel.swift; path = RequestOffApi/ListRequestOffApiOutModel.swift; sourceTree = "<group>"; };
 		5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpaceShift.swift; sourceTree = "<group>"; };
 		5117021E1F83382C001BC69A /* UserSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSpecial.swift; path = enums/UserSpecial.swift; sourceTree = "<group>"; };
@@ -1118,6 +1115,7 @@
 				202ED9B51F6FC42200544A7D /* Resources */,
 				DA12107119DA2A90C53A9282 /* [CP] Embed Pods Frameworks */,
 				49325F73150ED9D85BFB801A /* [CP] Copy Pods Resources */,
+				BF26C5431F9897B5001221D4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1140,8 +1138,9 @@
 				TargetAttributes = {
 					202ED9B61F6FC42200544A7D = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = DZNDUUNX92;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1309,6 +1308,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BF26C5431F9897B5001221D4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run afa5b4969ced7faced055aca28be45ea3adfaa5f 488599d73d56b6c48144d11adebcb6025e3bcae6086786347e5110d176a64499";
 		};
 		DA12107119DA2A90C53A9282 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1643,11 +1655,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = DZNDUUNX92;
 				INFOPLIST_FILE = wsm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.framgia.wsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr.wsm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2cf66f20-07c3-4947-a46a-aa74fe4f71ce";
+				PROVISIONING_PROFILE_SPECIFIER = "WSM-Inhouse";
 				SWIFT_OBJC_BRIDGING_HEADER = "wsm/wsm-Bridge-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1660,11 +1676,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = DZNDUUNX92;
 				INFOPLIST_FILE = wsm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.framgia.wsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr.wsm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2cf66f20-07c3-4947-a46a-aa74fe4f71ce";
+				PROVISIONING_PROFILE_SPECIFIER = "WSM-Inhouse";
 				SWIFT_OBJC_BRIDGING_HEADER = "wsm/wsm-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
