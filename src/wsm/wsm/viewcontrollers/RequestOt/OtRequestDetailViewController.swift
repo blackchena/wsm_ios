@@ -42,6 +42,21 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    @IBAction func deleteRequestButtonClicked(_ sender: Any) {
+        AlertHelper.showConfirm(message: LocalizationHelper.shared.localized("do_you_want_delete_this_request"),
+                                makesureLoadingHidden: true,
+                                handler: { (alert) in self.deleteRequest()})
+    }
+    
+    @IBAction func editRequestButtonClicked(_ sender: Any) {
+        if let editVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController")
+            as? CreateRequestOtViewController {
+            editVc.requestModel = otRequest.toApiInputMode()
+            editVc.listRequestDelegate = self.listRequestDelegate
+            self.navigationController?.pushViewController(editVc, animated: true)
+        }
+    }
+    
     private func appendDefaultItems() {
         detailItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user", header: LocalizationHelper.shared.localized("employee_name"),
                                               value: currentUser?.name))
@@ -83,6 +98,24 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
         detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("being_handled_by"),
                                               value: otRequest.handleBy))
+    }
+    
+    private func deleteRequest() {
+        guard let id = self.otRequest.id else {
+            return
+        }
+        AlertHelper.showLoading()
+        RequestOtProvider.deleteOtRequest(id: id)
+            .then { apiOutput -> Void in
+                self.listRequestDelegate?.getListRequests()
+                AlertHelper.showInfo(message: apiOutput.message, makesureLoadingHidden: true, handler: { (alert) in
+                    self.navigationController?.popViewController(animated: true)
+                })
+            }.catch { error in
+                AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
+        }
     }
 }
 
