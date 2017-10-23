@@ -41,6 +41,9 @@ class RequestOffDetailApiInputModel: BaseModel {
     */
     var requestDayOffTypesAttributes: [RequestDayOffTypeModel]?
 
+    //This property use for EDIT request
+    var requestDayoffType: [RequestDayOffTypeModel]?
+
     var offHaveSalaryFrom = RequestDayOffFromModel(isHaveSalary: true)
     var offHaveSalaryTo = RequestDayOffToModel(isHaveSalary: true)
 
@@ -63,7 +66,10 @@ class RequestOffDetailApiInputModel: BaseModel {
         workSpaceId <- map["workspace_id"]
         groupId <- map["group_id"]
         numberDayOffNormal <- map["number_dayoff_normal"]
+
         requestDayOffTypesAttributes <- map["request_dayoff_types_attributes"]
+
+        requestDayoffType <- map["request_dayoff_type"]
 
         offHaveSalaryFrom <- map["off_have_salary_from"]
         offHaveSalaryTo <- map["off_have_salary_to"]

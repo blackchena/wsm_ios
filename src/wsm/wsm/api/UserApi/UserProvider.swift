@@ -60,19 +60,19 @@ final class UserProvider {
 
     typealias AppSettingPromise = Promise<(UserProfileApiOutputModel, UserSettingApiOutputModel, ListLeaveTypeSettingApiOutputModel, ListDayOffSettingApiOutputModel)>
 
-    private static func getProfile(userId: Int) -> Promise<UserProfileApiOutputModel> {
+    static func getProfile(userId: Int) -> Promise<UserProfileApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(UserApiEndpoint.getProfile(userId: userId)))
     }
 
-    private static func getSettings() -> Promise<UserSettingApiOutputModel> {
+    static func getSettings() -> Promise<UserSettingApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(UserApiEndpoint.getUserSettings))
     }
 
-    private static func getListLeaveTypeSetting() -> Promise<ListLeaveTypeSettingApiOutputModel> {
+    static func getListLeaveTypeSetting() -> Promise<ListLeaveTypeSettingApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(UserApiEndpoint.getListLeaveTypesSettings))
     }
 
-    private static func getListDateOffSetting() -> Promise<ListDayOffSettingApiOutputModel> {
+    static func getListDateOffSetting() -> Promise<ListDayOffSettingApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(UserApiEndpoint.getListDayOffSettings))
     }
 

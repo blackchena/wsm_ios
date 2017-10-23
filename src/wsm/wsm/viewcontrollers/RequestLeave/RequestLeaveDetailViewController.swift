@@ -54,25 +54,15 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
         if let leaveTypes = UserServices.getLocalLeaveTypeSettings(), let i = leaveTypes.index(where: {$0.id == selectedRequest.leaveType?.id}) {
             leaveType = leaveTypes[i]
         }
+        detailItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceName: selectedRequest.workspace?.name,
+                                                                         groupName: selectedRequest.group?.fullName,
+                                                                         projectName: selectedRequest.projectName,
+                                                                         userProfileModel: selectedRequest.user))
 
-        detailItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user",
-                                               header: LocalizationHelper.shared.localized("employee_name"),
-                                               value: currentUser?.name))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_id_card",
-                                               header: LocalizationHelper.shared.localized("employee_code"),
-                                               value: currentUser?.employeeCode))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_branch",
-                                               header: LocalizationHelper.shared.localized("branch"),
-                                               value: selectedRequest.workspace?.name))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_group",
-                                               header: LocalizationHelper.shared.localized("group"),
-                                               value: selectedRequest.group?.name))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_project",
-                                               header: LocalizationHelper.shared.localized("project_name"),
-                                               value: selectedRequest.projectName))
         detailItems.append(ConfirmRequestItem(imageName: "ic_project",
                                                header: LocalizationHelper.shared.localized("type_leave"),
                                                value: leaveType?.name))
+        
         detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
                                               header: LocalizationHelper.shared.localized("created_at"),
                                               value: selectedRequest.createAt?.toString(dateFormat: AppConstant.requestDateFormat)))

@@ -15,8 +15,18 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
     @IBOutlet weak var editButton: LocalizableButton!
     @IBOutlet weak var deleteButtonHeight: NSLayoutConstraint!
 
-    var selectedRequest = RequestDayOffModel()
     weak var listRequestDelegate: ListRequestDelegte?
+    var selectedRequest = RequestDayOffModel()
+    public var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
+
+    fileprivate var confirmDefaultItems = [ConfirmRequestItem]()
+    fileprivate var confirmHaveSalaryCompanyPayItems = [ConfirmRequestItem]()
+    fileprivate var confirmHaveSalaryInsuranceCoverageItems = [ConfirmRequestItem]()
+    fileprivate var confirmHaveSalaryDateTimeItems = [ConfirmRequestItem]()
+
+    fileprivate var confirmNoSalaryItems = [ConfirmRequestItem]()
+    fileprivate var sectionTypes = [SectionType]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +36,187 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
             view.layoutIfNeeded()
         }
 
+        fetchDayOffData()
+
+        appendDefaultItems()
+        appendHaveSalaryCompanyPayItems()
+        appendHaveSalaryInsuranceCoverageItems()
+        appendHaveSalaryDateTimeItems()
+        appendNoSalaryItems()
+        createSectionData()
+
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+
+    func fetchDayOffData() {
+
+        var listDayOffSetting = getRequestDayOffTypes(byDateOffType: .haveSalaryCompanyPay)
+        if let insuranceCoverage = getRequestDayOffTypes(byDateOffType: .haveSalaryInsuranceCoverage) {
+            listDayOffSetting?.append(contentsOf: insuranceCoverage)
+        }
+
+        if let noSalary = getRequestDayOffTypes(byDateOffType: .noSalary) {
+            listDayOffSetting?.append(contentsOf: noSalary)
+        }
+
+        //append annualDayOff if have value
+        if let numberDayOffNormal = selectedRequest.numberDayOffNormal,
+            numberDayOffNormal > 0,
+            let annualDayOffSetting = listDayOffSetting?.first(where: { s in AppConstant.annualDayOffSettingId == s.id }) {
+
+            dayOffSettingBindedValues[AppConstant.annualDayOffSettingId] = (numberDayOffNormal, true, annualDayOffSetting)
+        }
+
+
+        //append special dayoff if have value
+        if let dayOffAttribute = selectedRequest.requestDayOffTypes {
+            for bindedValue in dayOffAttribute {
+                if let dayOffSettingId = bindedValue.specialDayOffSettingId,
+                    let dayOffSettingModel = listDayOffSetting?.first(where: { s in dayOffSettingId == s.id }),
+                    let value = bindedValue.numberDayOff,
+                    value > 0 {
+
+                    dayOffSettingBindedValues[dayOffSettingId] = (value, true, dayOffSettingModel)
+                }
+            }
+        }
+    }
+
+    func createSectionData() {
+        //minimun is 3 sections
+        //first section is defaultItem
+
+        sectionTypes.removeAll()
+
+        if confirmDefaultItems.count > 0 {
+            sectionTypes.append(.defaultItems)
+        }
+
+        if confirmHaveSalaryCompanyPayItems.count > 0 {
+            sectionTypes.append(.haveSalaryCompanyPayItems)
+        }
+
+        if confirmHaveSalaryInsuranceCoverageItems.count > 0 {
+            sectionTypes.append(.haveSalaryInsuranceCoverageItems)
+        }
+
+        if confirmHaveSalaryDateTimeItems.count > 0{
+            sectionTypes.append(.haveSalaryDateTimeItems)
+        }
+
+        if confirmNoSalaryItems.count > 0 {
+            sectionTypes.append(.noSalaryDateTimeItems)
+        }
+
+        //reason section
+        sectionTypes.append(.reason)
+    }
+
+
+    private func appendDefaultItems() {
+
+        confirmDefaultItems.removeAll()
+
+        confirmDefaultItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceName: selectedRequest.workSpace?.name,
+                                                                                 groupName: selectedRequest.group?.fullName,
+                                                                                 positionName: selectedRequest.positionName,
+                                                                                 projectName: selectedRequest.projectName,
+                                                                                 userProfileModel: selectedRequest.user))
+
+
+        //append "status" cell
+        confirmDefaultItems.append(ConfirmRequestItem(imageName: "ic_status",
+                                                      header: LocalizationHelper.shared.localized("status"),
+                                                      value: selectedRequest.status?.localizedString(),
+                                                      valueColor: selectedRequest.status?.getColor()))
+
+        //append "being_handle_by" cell
+        confirmDefaultItems.append(ConfirmRequestItem(imageName: "ic_being_handled_by",
+                                                      header: LocalizationHelper.shared.localized("being_handled_by"),
+                                                      value: selectedRequest.handleByGroupName))
+    }
+
+    func appendHaveSalaryCompanyPayItems() {
+
+        confirmHaveSalaryCompanyPayItems.removeAll()
+
+        if let listIdDayOffSetting = getRequestDayOffTypes(byDateOffType: .haveSalaryCompanyPay)?.filter({ f -> Bool in return f.id != nil }).map({ o -> Int in return o.id! }) {
+            let listDayOffSettingBinded = dayOffSettingBindedValues.filter({ s -> Bool in return listIdDayOffSetting.contains(s.key) })
+
+            for dayOffSettingBinded in listDayOffSettingBinded {
+                confirmHaveSalaryCompanyPayItems.append(ConfirmRequestItem(imageName: "",
+                                                                           header: dayOffSettingBinded.value.2.dayOffAsString,
+                                                                           value: "\(dayOffSettingBinded.value.0)"))
+            }
+        }
+    }
+
+    func appendHaveSalaryInsuranceCoverageItems() {
+
+        confirmHaveSalaryInsuranceCoverageItems.removeAll()
+
+        if let listIdDayOffSetting = getRequestDayOffTypes(byDateOffType: .haveSalaryInsuranceCoverage)?.filter({ f -> Bool in return f.id != nil }).map({ o -> Int in return o.id! }) {
+            let listDayOffSettingBinded = dayOffSettingBindedValues.filter({ s -> Bool in return listIdDayOffSetting.contains(s.key) })
+
+            for dayOffSettingBinded in listDayOffSettingBinded {
+                confirmHaveSalaryInsuranceCoverageItems.append(ConfirmRequestItem(imageName: "",
+                                                                                  header: dayOffSettingBinded.value.2.dayOffAsString,
+                                                                                  value: "\(dayOffSettingBinded.value.0)"))
+            }
+        }
+    }
+
+    func appendHaveSalaryDateTimeItems() {
+        confirmHaveSalaryDateTimeItems.removeAll()
+
+        if let haveSalaryFrom = selectedRequest.offHaveSalaryFrom,
+            let _ = haveSalaryFrom.offPaidFrom,
+            let _ = haveSalaryFrom.paidFromPeriod {
+            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                                                                     header: LocalizationHelper.shared.localized("off_have_salary_from"),
+                                                                     value: haveSalaryFrom.toString()))
+        }
+
+        if  let haveSalaryTo = selectedRequest.offHaveSalaryTo,
+            let _ = haveSalaryTo.offPaidTo,
+            let _ = haveSalaryTo.paidToPeriod {
+            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                                                                     header: LocalizationHelper.shared.localized("off_have_salary_to"),
+                                                                     value: haveSalaryTo.toString()))
+        }
+    }
+
+    func appendNoSalaryItems() {
+
+        confirmNoSalaryItems.removeAll()
+
+        if let _ = selectedRequest.offNoSalaryFrom.offPaidFrom,
+            let _ = selectedRequest.offNoSalaryFrom.paidFromPeriod {
+            confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                                                           header: LocalizationHelper.shared.localized("off_no_salary_from"),
+                                                           value: self.selectedRequest.offNoSalaryFrom.toString()))
+        }
+
+        if let _ = selectedRequest.offNoSalaryTo.offPaidTo,
+            let _ = selectedRequest.offNoSalaryTo.paidToPeriod {
+            confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                                                           header: LocalizationHelper.shared.localized("off_no_salary_to"),
+                                                           value: self.selectedRequest.offNoSalaryTo.toString()))
+        }
+    }
+
+    @IBAction func editButtonClicked(_ sender: Any) {
+        if let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController") as? CreateRequestOffViewController {
+
+            createOffVc.editRequestOff(request: self.selectedRequest, dayOffSettingBindedValues: self.dayOffSettingBindedValues)
+            createOffVc.listRequestDelegate = self.listRequestDelegate
+
+            self.navigationController?.pushViewController(createOffVc, animated: true)
+        }
+
     }
 
     @IBAction func deleteButtunClick(_ sender: Any) {
@@ -55,4 +244,103 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
                 AlertHelper.hideLoading()
         }
     }
+}
+
+extension RequestOffDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        switch sectionTypes[indexPath.section] {
+        case .defaultItems:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffCell", for: indexPath)
+            if let cell = cell as? ConfirmCreateRequestOffCell {
+                cell.updateCell(item: self.confirmDefaultItems[indexPath.row])
+            }
+            return cell
+        case .haveSalaryCompanyPayItems:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffDayOffSettingCell", for: indexPath)
+            if let cell = cell as? ConfirmCreateRequestOffDayOffSettingCell {
+                cell.updateCell(item: confirmHaveSalaryCompanyPayItems[indexPath.row])
+            }
+            return cell
+        case .haveSalaryInsuranceCoverageItems:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffDayOffSettingCell", for: indexPath)
+            if let cell = cell as? ConfirmCreateRequestOffDayOffSettingCell {
+                cell.updateCell(item: confirmHaveSalaryInsuranceCoverageItems[indexPath.row])
+            }
+            return cell
+        case .haveSalaryDateTimeItems:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffCell", for: indexPath)
+            if let cell = cell as? ConfirmCreateRequestOffCell {
+                cell.updateCell(item: confirmHaveSalaryDateTimeItems[indexPath.row])
+            }
+            return cell
+        case .noSalaryDateTimeItems:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffCell", for: indexPath)
+            if let cell = cell as? ConfirmCreateRequestOffCell {
+                cell.updateCell(item: confirmNoSalaryItems[indexPath.row])
+            }
+            return cell
+        case .reason:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffCell", for: indexPath)
+            if let cell = cell as? ConfirmCreateRequestOffCell {
+                let item = ConfirmRequestItem(imageName: "ic_reason",
+                                              header: LocalizationHelper.shared.localized("reason"),
+                                              value: self.selectedRequest.reason)
+
+                cell.updateCell(item: item)
+            }
+            return cell
+        }
+    }
+
+
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTypes.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        switch sectionTypes[section] {
+        case .defaultItems:
+            return confirmDefaultItems.count
+        case .haveSalaryCompanyPayItems:
+            return confirmHaveSalaryCompanyPayItems.count
+        case .haveSalaryInsuranceCoverageItems:
+            return confirmHaveSalaryInsuranceCoverageItems.count
+        case .haveSalaryDateTimeItems:
+            return confirmHaveSalaryDateTimeItems.count
+        case .noSalaryDateTimeItems:
+            return confirmNoSalaryItems.count
+        case .reason:
+            return 1
+        }
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+        switch sectionTypes[section] {
+        case .defaultItems:
+            return nil
+        case .haveSalaryCompanyPayItems:
+            return LocalizationHelper.shared.localized("off_have_salary_company_pay")
+        case .haveSalaryInsuranceCoverageItems:
+            return LocalizationHelper.shared.localized("off_have_salary_insurance_coverage")
+        case .haveSalaryDateTimeItems:
+            return nil
+        case .noSalaryDateTimeItems:
+            return LocalizationHelper.shared.localized("off_no_salary")
+        case .reason:
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.darkGray
+        header.backgroundView?.backgroundColor = UIColor.white
+    }
+}
+
+extension RequestOffDetailViewController: CreateRequestOffViewControllerType {
 }

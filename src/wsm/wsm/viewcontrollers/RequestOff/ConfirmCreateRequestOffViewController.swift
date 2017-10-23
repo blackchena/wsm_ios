@@ -9,7 +9,7 @@
 import UIKit
 import InAppLocalize
 
-fileprivate enum SectionType {
+public enum SectionType {
     case defaultItems
     case haveSalaryCompanyPayItems
     case haveSalaryInsuranceCoverageItems
@@ -28,22 +28,26 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
     fileprivate var confirmDefaultItems = [ConfirmRequestItem]()
     fileprivate var confirmHaveSalaryCompanyPayItems = [ConfirmRequestItem]()
     fileprivate var confirmHaveSalaryInsuranceCoverageItems = [ConfirmRequestItem]()
+    fileprivate var confirmHaveSalaryDateTimeItems = [ConfirmRequestItem]()
+
     fileprivate var confirmNoSalaryItems = [ConfirmRequestItem]()
     fileprivate var sectionTypes = [SectionType]()
+    weak var listRequestDelegate: ListRequestDelegte?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         if requestOffInputDetailModel.id != nil {
-            title = LocalizationHelper.shared.localized("confirm_edit_others_request")
+            title = LocalizationHelper.shared.localized("confirm_edit_day_off_request")
         }
 
-        createSectionData()
         appendDefaultItems()
         appendHaveSalaryCompanyPayItems()
         appendHaveSalaryInsuranceCoverageItems()
+        appendHaveSalaryDateTimeItems()
         appendNoSalaryItems()
+        createSectionData()
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -69,7 +73,7 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
             sectionTypes.append(.haveSalaryInsuranceCoverageItems)
         }
 
-        if confirmHaveSalaryCompanyPayItems.count > 0 || confirmHaveSalaryInsuranceCoverageItems.count > 0 {
+        if confirmHaveSalaryDateTimeItems.count > 0 {
             sectionTypes.append(.haveSalaryDateTimeItems)
         }
 
@@ -82,7 +86,10 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
     }
 
     func appendDefaultItems() {
-        confirmDefaultItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestOffInputDetailModel.workSpaceId, groupId: requestOffInputDetailModel.groupId, projectName: requestOffInputDetailModel.projectName))
+        confirmDefaultItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestOffInputDetailModel.workSpaceId,
+                                                                                 groupId: requestOffInputDetailModel.groupId,
+                                                                                 positionName: requestOffInputDetailModel.positionName,
+                                                                                 projectName: requestOffInputDetailModel.projectName))
     }
 
     func appendHaveSalaryCompanyPayItems() {
@@ -111,20 +118,53 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
         }
     }
 
+    func appendHaveSalaryDateTimeItems() {
+        confirmHaveSalaryDateTimeItems.removeAll()
+
+        if let _ = requestOffInputDetailModel.offHaveSalaryFrom.offPaidFrom,
+            let _ = requestOffInputDetailModel.offHaveSalaryFrom.paidFromPeriod {
+            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_from"), value: self.requestOffInputDetailModel.offHaveSalaryFrom.toString()))
+        }
+
+        if let _ = requestOffInputDetailModel.offHaveSalaryTo.offPaidTo,
+            let _ = requestOffInputDetailModel.offHaveSalaryTo.paidToPeriod {
+            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_to"), value: self.requestOffInputDetailModel.offHaveSalaryTo.toString()))
+        }
+    }
+
     func appendNoSalaryItems() {
 
         confirmNoSalaryItems.removeAll()
 
-        if self.requestOffInputDetailModel.offNoSalaryFrom.offPaidFrom != nil && self.requestOffInputDetailModel.offNoSalaryTo.offPaidTo != nil {
+        if let _ = requestOffInputDetailModel.offNoSalaryFrom.offPaidFrom,
+            let _ = requestOffInputDetailModel.offNoSalaryFrom.paidFromPeriod {
             confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_no_salary_from"), value: self.requestOffInputDetailModel.offNoSalaryFrom.toString()))
+        }
 
-
+        if let _ = requestOffInputDetailModel.offNoSalaryTo.offPaidTo,
+            let _ = requestOffInputDetailModel.offNoSalaryTo.paidToPeriod {
             confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_no_salary_to"), value: self.requestOffInputDetailModel.offNoSalaryTo.toString()))
         }
     }
 
     @IBAction func submitButtonClicked(_ sender: Any) {
-        self.submitRequestOff(requestOffDetailApiInputModel: self.requestOffInputDetailModel)
+        if let id = self.requestOffInputDetailModel.id {
+
+            //must set those properties for edit right here
+            self.requestOffInputDetailModel.requestDayoffType = self.requestOffInputDetailModel.requestDayOffTypesAttributes?.filter({ attr in attr.id != nil })
+
+            self.requestOffInputDetailModel.requestDayOffTypesAttributes = self.requestOffInputDetailModel.requestDayOffTypesAttributes?.map({ attr in
+                if (attr.destroy ?? true) {
+                    return RequestDayOffTypeModel(id: attr.id, specialDayOffSettingId: attr.specialDayOffSettingId, numberDayOff: 0, destroy: attr.destroy)
+                }
+
+                return attr
+            })
+
+            self.submitEditRequestOff(id: id, requestOffDetailApiInputModel: self.requestOffInputDetailModel)
+        } else {
+            self.submitCreateRequestOff(requestOffDetailApiInputModel: self.requestOffInputDetailModel)
+        }
     }
 
 }
@@ -154,14 +194,7 @@ extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableVie
         case .haveSalaryDateTimeItems:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmCreateRequestOffCell", for: indexPath)
             if let cell = cell as? ConfirmCreateRequestOffCell {
-                var item: ConfirmRequestItem
-                if indexPath.row == 0 {
-                    item = ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_from"), value: self.requestOffInputDetailModel.offHaveSalaryFrom.toString())
-                } else {
-                    item = ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_to"), value: self.requestOffInputDetailModel.offHaveSalaryTo.toString())
-                }
-
-                cell.updateCell(item: item)
+                cell.updateCell(item: confirmHaveSalaryDateTimeItems[indexPath.row])
             }
             return cell
         case .noSalaryDateTimeItems:
@@ -196,9 +229,10 @@ extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableVie
             return confirmHaveSalaryCompanyPayItems.count
         case .haveSalaryInsuranceCoverageItems:
             return confirmHaveSalaryInsuranceCoverageItems.count
-        case .haveSalaryDateTimeItems,
-             .noSalaryDateTimeItems:
-            return 2
+        case .haveSalaryDateTimeItems:
+            return confirmHaveSalaryDateTimeItems.count
+        case .noSalaryDateTimeItems:
+            return confirmNoSalaryItems.count
         case .reason:
             return 1
         }
@@ -231,6 +265,15 @@ extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableVie
 
 extension ConfirmCreateRequestOffViewController: CreateRequestOffViewControllerType, ConfirmCreateRequestOffViewControllerType {
     func didSubmitRequestSuccess() {
+        if self.isEditingRequest() {
+            self.listRequestDelegate?.getListRequests()
+        } else {
+            self.listRequestDelegate?.didCreateRequest()
+        }
         _ = navigationController?.popToRootViewController(animated: true)
+    }
+
+    private func isEditingRequest() -> Bool {
+        return self.requestOffInputDetailModel.id != nil
     }
 }

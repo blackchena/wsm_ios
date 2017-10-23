@@ -14,6 +14,7 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
     case getListRequestOff(page: Int?, month: String?, status: Int?)
     case deleteRequestOff(id: Int)
     case createRequestOff(requestModel: RequestOffApiInputModel)
+    case editRequestOff(id: Int, requestModel: RequestOffApiInputModel)
 
     public var path: String {
         switch self {
@@ -23,6 +24,9 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
             return "/api/dashboard/request_offs/\(id)"
         case .createRequestOff:
             return "/api/dashboard/request_offs"
+        case .editRequestOff(let id, _):
+            return "/api/dashboard/request_offs/\(id)"
+
         }
     }
 
@@ -34,6 +38,8 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
             return .delete
         case .createRequestOff:
             return .post
+        case .editRequestOff:
+            return .put
         }
     }
 
@@ -42,6 +48,8 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
         case .getListRequestOff(let page, let month, let status):
             return ["page": page ?? "", "month": month ?? "", "q[status_eq]": status ?? ""]
         case .createRequestOff(let requestModel):
+            return createParameters(fromDataModel: requestModel)
+        case .editRequestOff( _, let requestModel):
             return createParameters(fromDataModel: requestModel)
         default:
             return nil
@@ -64,5 +72,9 @@ final class RequestOffProvider {
 
     static func createRequestOff(requestModel: RequestOffApiInputModel) -> Promise<RequestDayOffModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.createRequestOff(requestModel: requestModel)))
+    }
+
+    static func editRequestOff(id: Int, requestModel: RequestOffApiInputModel) -> Promise<RequestDayOffModel> {
+        return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.editRequestOff(id: id, requestModel: requestModel)))
     }
 }

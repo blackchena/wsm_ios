@@ -24,7 +24,9 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
 
-        confirmReqOtItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestModel.workspaceId, groupId: requestModel.groupId, projectName: requestModel.projectName))
+        confirmReqOtItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestModel.workspaceId,
+                                                                               groupId: requestModel.groupId,
+                                                                               projectName: requestModel.projectName))
 
 
         confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock_2",

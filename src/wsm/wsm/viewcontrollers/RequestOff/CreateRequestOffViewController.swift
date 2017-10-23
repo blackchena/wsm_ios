@@ -31,6 +31,16 @@ class CreateRequestOffViewController: RequestBaseViewController {
     fileprivate var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
     fileprivate var timeWithOffTypes = [DayOffPayType : (RequestDayOffFromModel, RequestDayOffToModel)]()
 
+    private var currentWorkSpace: UserWorkSpace?
+    private var currentGroup: UserGroup?
+    private var currentPositionName: String?
+    private var currentProjectName: String?
+
+    private var requestEditing: RequestDayOffModel?
+
+    weak var listRequestDelegate: ListRequestDelegte?
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -45,30 +55,98 @@ class CreateRequestOffViewController: RequestBaseViewController {
         //initial value
         timeWithOffTypes[.haveSalary] = (currentRequestOffModel.offHaveSalaryFrom, currentRequestOffModel.offHaveSalaryTo)
         timeWithOffTypes[.noSalary] = (currentRequestOffModel.offNoSalaryFrom, currentRequestOffModel.offNoSalaryTo)
+
+        self.basicInfoHeaderView.isEditingRequest = currentRequestOffModel.id != nil
+
+        if let currentWorkSpace = currentWorkSpace {
+            self.basicInfoHeaderView.selectedWorkSpace = currentWorkSpace
+        }
+
+        if let currentGroup = currentGroup {
+            self.basicInfoHeaderView.selectedGroup = currentGroup
+        }
+
+        self.basicInfoHeaderView.positionName = currentPositionName
+        self.basicInfoHeaderView.projectName = currentProjectName
+    }
+
+    public func editRequestOff(request: RequestDayOffModel, dayOffSettingBindedValues: [Int: (Float, Bool, DayOffSettingModel)]) {
+        self.currentWorkSpace = request.workSpace
+        self.currentGroup = request.group
+        self.currentPositionName = request.positionName
+        self.currentProjectName = request.projectName
+
+        self.currentRequestOffModel.id = request.id
+
+        self.requestEditing = request
+
+        self.dayOffSettingBindedValues = dayOffSettingBindedValues
+
+        if let haveSalaryFrom = request.offHaveSalaryFrom,
+            let haveSalaryTo = request.offHaveSalaryTo {
+            currentRequestOffModel.offHaveSalaryFrom = haveSalaryFrom
+            currentRequestOffModel.offHaveSalaryTo = haveSalaryTo
+        }
+
+        if let _ = request.offNoSalaryFrom.offPaidFrom,
+            let _ = request.offNoSalaryTo.offPaidTo {
+            currentRequestOffModel.offNoSalaryFrom = request.offNoSalaryFrom
+            currentRequestOffModel.offNoSalaryTo = request.offNoSalaryTo
+        }
+
+        self.reasonText = request.reason
     }
 
     func bindDataToModel() {
-        currentRequestOffModel.workSpaceId = basicInfoHeaderView.selectedWorkSpace.id ?? 0
-        currentRequestOffModel.groupId = basicInfoHeaderView.selectedGroup.id ?? 0
+        currentRequestOffModel.workSpaceId = basicInfoHeaderView.selectedWorkSpace?.id ?? 0
+        currentRequestOffModel.groupId = basicInfoHeaderView.selectedGroup?.id ?? 0
         currentRequestOffModel.projectName = basicInfoHeaderView.projectName
-        //        currentRequestOffModel.positionName = basicInfoHeaderView.
-
-
-        //        currentRequestOffModel.offHaveSalaryFrom = RequestDayOffFromModel()
-        //        currentRequestOffModel.offHaveSalaryTo = RequestDayOffToModel()
+        currentRequestOffModel.positionName = basicInfoHeaderView.positionName
 
         if let haveSalaryoff = timeWithOffTypes[.haveSalary] {
             currentRequestOffModel.offHaveSalaryFrom = haveSalaryoff.0
+            if currentRequestOffModel.offHaveSalaryFrom.offPaidFrom == nil {
+                currentRequestOffModel.offHaveSalaryFrom.paidFromPeriod = nil
+            }
+
+            if currentRequestOffModel.offHaveSalaryTo.offPaidTo == nil {
+                currentRequestOffModel.offHaveSalaryTo.paidToPeriod = nil
+            }
+
             currentRequestOffModel.offHaveSalaryTo = haveSalaryoff.1
         }
 
         if let noHaveSalaryOff = timeWithOffTypes[.noSalary] {
             currentRequestOffModel.offNoSalaryFrom = noHaveSalaryOff.0
+
+            if currentRequestOffModel.offNoSalaryFrom.offPaidFrom == nil {
+                currentRequestOffModel.offNoSalaryFrom.paidFromPeriod = nil
+            }
+
             currentRequestOffModel.offNoSalaryTo = noHaveSalaryOff.1
+
+            if currentRequestOffModel.offNoSalaryTo.offPaidTo == nil {
+                currentRequestOffModel.offNoSalaryTo.paidToPeriod = nil
+            }
         }
 
         currentRequestOffModel.requestDayOffTypesAttributes = generateDayOffTypeAttributes(dayOffSettingBindedValue: dayOffSettingBindedValues)
 
+        //get id from editing model and set into sending model
+        if let dayOffNotChangeEditingAttr = self.requestEditing?.requestDayOffTypes,
+            dayOffNotChangeEditingAttr.count > 0 {
+
+           self.currentRequestOffModel.requestDayOffTypesAttributes = self.currentRequestOffModel.requestDayOffTypesAttributes?.map( { attr in
+
+                if let editingDayOffSetting = dayOffNotChangeEditingAttr.first(where: { x in x.specialDayOffSettingId == attr.specialDayOffSettingId }) {
+                    attr.id = editingDayOffSetting.id
+                    if (attr.destroy ?? true) {
+                        attr.numberDayOff = editingDayOffSetting.numberDayOff
+                    }
+                }
+                return attr
+            })
+        }
         currentRequestOffModel.numberDayOffNormal = dayOffSettingBindedValues[AppConstant.annualDayOffSettingId]?.0 ?? 0
 
         currentRequestOffModel.reason = reasonText ?? ""
@@ -307,6 +385,8 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
                 confirmVc.dayOffSettingBindedValues = self.dayOffSettingBindedValues
                 confirmVc.requestOffInputDetailModel = self.currentRequestOffModel
+                confirmVc.listRequestDelegate = self.listRequestDelegate
+            
                 self.navigationController?.pushViewController(confirmVc, animated: true)
             }
     }
@@ -467,6 +547,7 @@ extension CreateRequestOffViewController {
         cell.setToDate(date: self.getTimeValueForCurrentOffType().1.offPaidTo)
         cell.setFromTimeConvention(convention: self.getTimeValueForCurrentOffType().0.paidFromPeriod)
         cell.setToTimeConvention(convention: self.getTimeValueForCurrentOffType().1.paidToPeriod)
+        cell.reasonTextField.text = self.reasonText
         
         cell.fromDatePickerDidSelected = self.onFromDaySelected
         cell.toDatePickerDidSelected = self.onToDaySelected
@@ -477,7 +558,4 @@ extension CreateRequestOffViewController {
 }
 
 extension CreateRequestOffViewController: CreateRequestOffViewControllerType {
-//    func didSubmitRequestSuccess() {        
-//
-//    }
 }

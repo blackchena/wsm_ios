@@ -28,5 +28,7 @@ class ConfirmCreateRequestOffCell: UITableViewCell {
         let tintedImage = image?.withRenderingMode(.alwaysTemplate)
         iconImgView.image = tintedImage
         iconImgView.tintColor = UIColor.appBarTintColor
+
+        valueLabel.textColor = item.valueColor ?? .black
     }
 }

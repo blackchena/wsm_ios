@@ -13,6 +13,7 @@ import UIKit
     //    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var empNameTextField: WsmTextField!
     @IBOutlet weak var empCodeTextField: WsmTextField!
+    @IBOutlet weak var positionNameTextField: WsmTextField!
     @IBOutlet weak var branchTextField: WsmTextField!
     @IBOutlet weak var groupTextField: WsmTextField!
     @IBOutlet weak var projectNameTextField: WsmTextField!
@@ -25,8 +26,14 @@ import UIKit
     fileprivate var workSpaces = [UserWorkSpace]()
     fileprivate var groups = [UserGroup]()
 
-    public var selectedWorkSpace = UserWorkSpace()
-    public var selectedGroup = UserGroup()
+    public var selectedWorkSpace: UserWorkSpace?
+    public var selectedGroup: UserGroup?
+    public var isEditingRequest: Bool = false {
+        didSet {
+            groupTextField?.isEnabled = !self.isEditingRequest
+            groupTextField?.textColor = self.isEditingRequest ? UIColor.lightGray : UIColor.black
+        }
+    }
 
     public var empName: String? {
         get {
@@ -43,6 +50,15 @@ import UIKit
         }
         set {
             empCodeTextField.text = newValue
+        }
+    }
+
+    public var positionName: String? {
+        get {
+            return positionNameTextField.text
+        }
+        set {
+            positionNameTextField.text = newValue
         }
     }
 
@@ -104,6 +120,9 @@ import UIKit
         groupTextField.isPicker = true
         groupTextField.inputView = groupPicker
         groupTextField.inputAccessoryView = UIToolbar().ToolbarPiker(selector: #selector(onGroupSelected))
+
+        groupTextField.isEnabled = !self.isEditingRequest
+        groupTextField.textColor = self.isEditingRequest ? UIColor.lightGray : UIColor.black
     }
 
     func bindData() {
@@ -116,21 +135,34 @@ import UIKit
         empNameTextField.textColor = UIColor.lightGray
         empCodeTextField.textColor = UIColor.lightGray
 
+        positionNameTextField.isEnabled = true
+
         if workSpaces.count > 0 {
-            let defaultBranchId = UserServices.getLocalUserSetting()?.workSpaceDefault
-            if let i = workSpaces.index(where: {$0.id == defaultBranchId}) {
+            if let selectedWorkSpaceId = selectedWorkSpace?.id,
+                let i = workSpaces.index(where: {$0.id == selectedWorkSpaceId}) {
                 branchPicker.selectRow(i, inComponent: 0, animated: true)
             } else {
-                branchPicker.selectRow(0, inComponent: 0, animated: true)
+                if let defaultBranchId = UserServices.getLocalUserSetting()?.workSpaceDefault,
+                    let i = workSpaces.index(where: {$0.id == defaultBranchId}) {
+                    branchPicker.selectRow(i, inComponent: 0, animated: true)
+                } else {
+                    branchPicker.selectRow(0, inComponent: 0, animated: true)
+                }
             }
             onBranchSelected()
         }
+
         if groups.count > 0 {
-            let defaultGroupId = UserServices.getLocalUserSetting()?.groupDefault
-            if let i = groups.index(where: {$0.id == defaultGroupId}) {
+            if let selectedGroupId = selectedGroup?.id,
+                let i = groups.index(where: {$0.id == selectedGroupId}) {
                 groupPicker.selectRow(i, inComponent: 0, animated: true)
             } else {
-                groupPicker.selectRow(0, inComponent: 0, animated: true)
+                if let defaultGroupId = UserServices.getLocalUserSetting()?.groupDefault,
+                    let i = groups.index(where: {$0.id == defaultGroupId}) {
+                    groupPicker.selectRow(i, inComponent: 0, animated: true)
+                } else {
+                    groupPicker.selectRow(0, inComponent: 0, animated: true)
+                }
             }
             onGroupSelected()
         }
@@ -139,13 +171,13 @@ import UIKit
     @objc func onBranchSelected() {
         self.endEditing(true)
         selectedWorkSpace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
-        branchTextField.text = selectedWorkSpace.name
+        branchTextField.text = selectedWorkSpace?.name
     }
 
     @objc func onGroupSelected() {
         self.endEditing(true)
         selectedGroup = groups[groupPicker.selectedRow(inComponent: 0)]
-        groupTextField.text = selectedGroup.fullName
+        groupTextField.text = selectedGroup?.fullName
     }
 }
 
