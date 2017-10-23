@@ -158,7 +158,8 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
 //            } else if currentPage.compare(.isEarlier(than: startWorkingDate)) {
             } else if currentPage < startWorkingDate {
                 //case 2
-                if currentPage.compare(.isSameMonth(as: startWorkingDate)) {
+//                if currentPage.compare(.isSameMonth(as: startWorkingDate)) {
+                if currentPage.compare(.isSameMonth(as: endWorkingDate)) {
                     //case 2.1
                     offset = 0
                 } else {
