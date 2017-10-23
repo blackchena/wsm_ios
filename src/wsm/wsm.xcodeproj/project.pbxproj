@@ -242,7 +242,6 @@
 		B8CD7FA31F8E0D4200DC71B3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CD7FA21F8E0D4200DC71B3 /* CardView.swift */; };
 		B8D185C71F862A30000B6E3B /* RequestTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D185C51F862A30000B6E3B /* RequestTextFieldCell.swift */; };
 		B8D185CA1F862A4D000B6E3B /* RequestTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */; };
-		B8D185D01F863119000B6E3B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B8F714441F96F31F00F67073 /* ConfirmRequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */; };
 		B8F714461F96FEE300F67073 /* ConfirmCreateRequestOffDayOffSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F714451F96FEE300F67073 /* ConfirmCreateRequestOffDayOffSettingCell.swift */; };
 		B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7A5031F822AD200FD0890 /* TimeSheetSummaryViewCell.swift */; };
@@ -666,17 +665,12 @@
 		202ED9D61F6FCBCB00544A7D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
-				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
 				B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */,
 				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
 				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
 				B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */,
-				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 				51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */,
 				51221C0F1F7B6287002F17E0 /* RequestOtModel.swift */,
-				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
-				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
 				51221C041F7B370F002F17E0 /* UserGroup.swift */,
 				B89BB9D41F74B03A008E547C /* UserProfileModel.swift */,
 				B8FA28241F78BE29004E16CB /* UserSettingModel.swift */,
@@ -688,7 +682,6 @@
 				516A968E1F984003002FCF85 /* IdentifyInfoModel.swift */,
 				516A96901F98401F002FCF85 /* VehicleInfoModel.swift */,
 				516A96921F984039002FCF85 /* UserNationModel.swift */,
-				511600B91F905DA900B13102 /* RequestOffModel.swift */,
 				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
 				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
 				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
@@ -892,11 +885,11 @@
 			children = (
 				516A96431F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewController.swift */,
 				51692C921F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift */,
+				51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */,
 				51692C901F7CCCBB00DE6248 /* ListRequestLeaveViewController.swift */,
 				513B326C1F8B336000D0D770 /* RequestFilterView.swift */,
 				51E94E931F871EC6002368D3 /* RequestLeaveCell.swift */,
 				513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */,
-				51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */,
 			);
 			name = RequestLeave;
 			sourceTree = "<group>";

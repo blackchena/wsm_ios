@@ -43,7 +43,7 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
             tableView.addSubview(refreshControl)
         }
 
-        getListRequests(page: currentPage)
+        getListRequestLeaves(page: currentPage)
         createRequestButton()
 
         filterView.filterAction = { [weak self] in
@@ -72,7 +72,7 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
         getListRequests()
     }
 
-    func getListRequests(page: Int = 1) {
+    func getListRequestLeaves(page: Int = 1) {
         if isLoading {
             return
         }
@@ -122,7 +122,7 @@ extension ListReuqestLeaveViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == RequestLeaveProvider.shared.listRequests.count - 1 {
             self.tableView.tableFooterView = spinner
-            getListRequests(page: currentPage + 1)
+            getListRequestLeaves(page: currentPage + 1)
         }
     }
 
@@ -139,11 +139,11 @@ extension ListReuqestLeaveViewController: UITableViewDelegate, UITableViewDataSo
 
 extension ListReuqestLeaveViewController: ListRequestDelegte {
     func getListRequests() {
-        getListRequests()
+        getListRequestLeaves()
     }
 
     func didCreateRequest() {
         filterView.resetConditions()
-        getListRequests()
+        getListRequestLeaves()
     }
 }

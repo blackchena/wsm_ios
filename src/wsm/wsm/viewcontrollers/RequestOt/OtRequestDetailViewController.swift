@@ -58,20 +58,10 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
     }
     
     private func appendDefaultItems() {
-        detailItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user", header: LocalizationHelper.shared.localized("employee_name"),
-                                              value: currentUser?.name))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_id_card",
-                                              header: LocalizationHelper.shared.localized("employee_code"),
-                                              value: currentUser?.employeeCode))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_branch",
-                                              header: LocalizationHelper.shared.localized("branch"),
-                                              value: otRequest.workSpace?.name))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_group",
-                                              header: LocalizationHelper.shared.localized("group"),
-                                              value: otRequest.group?.fullName))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_project",
-                                              header: LocalizationHelper.shared.localized("project_name"),
-                                              value: otRequest.projectName))
+        detailItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceName: otRequest.workSpace?.name,
+                                                                         groupName: otRequest.group?.fullName,
+                                                                         projectName: otRequest.projectName,
+                                                                         userProfileModel: otRequest.user))
     }
     
     private func appendTrackingItems() {

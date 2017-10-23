@@ -18,7 +18,7 @@ class RequestDayOffModel: BaseModel {
 
     var workSpace: UserWorkSpace?
 
-    var numberDayOffNormal: Int?
+    var numberDayOffNormal: Float?
     var reason: String?
     var addressContact: Any?
 
@@ -225,7 +225,7 @@ class RequestDayOffTypeModel: BaseModel {
     func mapping(map: Map) {
         map.shouldIncludeNilValues = true
 
-        id <- map["special_dayoff_setting_id"]
+        id <- map["id"]
         specialDayOffSettingId <- map["special_dayoff_setting_id"]
         numberDayOff <- map["number_dayoff"]
         destroy <- map["_destroy"]

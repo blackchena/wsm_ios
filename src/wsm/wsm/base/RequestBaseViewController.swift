@@ -24,8 +24,7 @@ class RequestBaseViewController: NoMenuBaseViewController {
 
     @IBOutlet weak var basicInfoHeaderView: RequestBasicInfoHeaderView!
     @IBOutlet weak var reasonTextField: WsmTextField!
-
-
+    
     let branchPicker = UIPickerView()
     let groupPicker = UIPickerView()
 

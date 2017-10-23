@@ -44,7 +44,7 @@ class ListRequestOffViewController: BaseViewController, FloatyDelegate {
             tableView.addSubview(refreshControl)
         }
 
-        getListRequests(page: currentPage)
+        getListRequestOffs(page: currentPage)
         createRequestButton()
 
         filterView.filterAction = { [weak self] in
@@ -66,15 +66,17 @@ class ListRequestOffViewController: BaseViewController, FloatyDelegate {
     }
 
     func emptyFloatySelected(_ floaty: Floaty) {
-        let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
-        self.navigationController?.pushViewController(createOffVc, animated: true)
+        if let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController") as? CreateRequestOffViewController {
+            createOffVc.listRequestDelegate = self
+            self.navigationController?.pushViewController(createOffVc, animated: true)
+        }
     }
 
     @objc private func pullToRefreshHandler(_: Any) {
         getListRequests()
     }
 
-    func getListRequests(page: Int = 1) {
+    func getListRequestOffs(page: Int = 1) {
         if isLoading {
             return
         }
@@ -124,7 +126,7 @@ extension ListRequestOffViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == RequestOffProvider.shared.listRequests.count - 1 {
             self.tableView.tableFooterView = spinner
-            getListRequests(page: currentPage + 1)
+            getListRequestOffs(page: currentPage + 1)
         }
     }
 
@@ -141,11 +143,11 @@ extension ListRequestOffViewController: UITableViewDelegate, UITableViewDataSour
 
 extension ListRequestOffViewController: ListRequestDelegte {
     func getListRequests() {
-        getListRequests()
+        getListRequestOffs()
     }
 
     func didCreateRequest() {
         filterView.resetConditions()
-        getListRequests()
+        getListRequestOffs()
     }
 }

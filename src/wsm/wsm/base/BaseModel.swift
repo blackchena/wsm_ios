@@ -9,5 +9,5 @@
 import UIKit
 import ObjectMapper
 
-protocol BaseModel: Mappable {
+protocol BaseModel: Mappable {    
 }
