@@ -157,6 +157,13 @@
 		51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C771F78B32F00CFABE8 /* WsmTextField.swift */; };
 		51800B6B1F9855F0002A4384 /* ChangePasswordApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */; };
 		51800B6D1F987C9C002A4384 /* ListRequestDelegte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */; };
+		518006481F998CC20023FF4B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006471F998CC20023FF4B /* NotificationViewController.swift */; };
+		5180064B1F9994DD0023FF4B /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180064A1F9994DD0023FF4B /* NotificationModel.swift */; };
+		5180064D1F9995530023FF4B /* NotificationTrackableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180064C1F9995530023FF4B /* NotificationTrackableType.swift */; };
+		5180064F1F9996720023FF4B /* NotificationOwnerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180064E1F9996720023FF4B /* NotificationOwnerType.swift */; };
+		518006511F9998DC0023FF4B /* ListNotificationOuputApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006501F9998DC0023FF4B /* ListNotificationOuputApiModel.swift */; };
+		518006531F9999B30023FF4B /* NotificationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006521F9999B30023FF4B /* NotificationProvider.swift */; };
+		518006551F99A4C30023FF4B /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006541F99A4C30023FF4B /* NotificationCell.swift */; };
 		51A281141F7CFB7700D4BFD0 /* LeaveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A281131F7CFB7700D4BFD0 /* LeaveType.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
@@ -415,6 +422,13 @@
 		51754C771F78B32F00CFABE8 /* WsmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmTextField.swift; sourceTree = "<group>"; };
 		51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordApiInputModel.swift; path = UserApi/ChangePasswordApiInputModel.swift; sourceTree = "<group>"; };
 		51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestDelegte.swift; path = RequestLeave/ListRequestDelegte.swift; sourceTree = "<group>"; };
+		518006471F998CC20023FF4B /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationViewController.swift; path = Notification/NotificationViewController.swift; sourceTree = "<group>"; };
+		5180064A1F9994DD0023FF4B /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		5180064C1F9995530023FF4B /* NotificationTrackableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationTrackableType.swift; path = enums/NotificationTrackableType.swift; sourceTree = "<group>"; };
+		5180064E1F9996720023FF4B /* NotificationOwnerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationOwnerType.swift; path = enums/NotificationOwnerType.swift; sourceTree = "<group>"; };
+		518006501F9998DC0023FF4B /* ListNotificationOuputApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNotificationOuputApiModel.swift; path = NotificationApi/ListNotificationOuputApiModel.swift; sourceTree = "<group>"; };
+		518006521F9999B30023FF4B /* NotificationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationProvider.swift; path = NotificationApi/NotificationProvider.swift; sourceTree = "<group>"; };
+		518006541F99A4C30023FF4B /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCell.swift; path = Notification/NotificationCell.swift; sourceTree = "<group>"; };
 		51A281131F7CFB7700D4BFD0 /* LeaveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaveType.swift; path = enums/LeaveType.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
@@ -597,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C47F1B1F84BFAB0024F865 /* Base */,
+				518006491F99947F0023FF4B /* NotificationApi */,
 				B8C47EF51F84BEB50024F865 /* LoginApi */,
 				B8C47EF61F84BEBE0024F865 /* RequestLeaveApi */,
 				B8C47EF71F84BECE0024F865 /* RequestOffApi */,
@@ -688,6 +703,7 @@
 				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
 				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 				B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */,
+				5180064A1F9994DD0023FF4B /* NotificationModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -707,6 +723,7 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				518006461F998CA00023FF4B /* Notification */,
 				B8CCDB451F94C11700A00E02 /* RequestOff */,
 				516A96421F959AF2002FCF85 /* Profile */,
 				51692C8F1F7CCC0400DE6248 /* RequestLeave */,
@@ -747,6 +764,8 @@
 				51E94E9F1F8767B9002368D3 /* RequestStatus.swift */,
 				B8259FD61F8764DE00E5891D /* DateOffType.swift */,
 				B8259FDA1F87729B00E5891D /* TimeConventionType.swift */,
+				5180064C1F9995530023FF4B /* NotificationTrackableType.swift */,
+				5180064E1F9996720023FF4B /* NotificationOwnerType.swift */,
 			);
 			name = enums;
 			sourceTree = "<group>";
@@ -915,6 +934,24 @@
 				BF2519A41F959F1C00325601 /* OtRequestDetailViewController.swift */,
 			);
 			name = RequestOt;
+			sourceTree = "<group>";
+		};
+		518006461F998CA00023FF4B /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				518006471F998CC20023FF4B /* NotificationViewController.swift */,
+				518006541F99A4C30023FF4B /* NotificationCell.swift */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		518006491F99947F0023FF4B /* NotificationApi */ = {
+			isa = PBXGroup;
+			children = (
+				518006501F9998DC0023FF4B /* ListNotificationOuputApiModel.swift */,
+				518006521F9999B30023FF4B /* NotificationProvider.swift */,
+			);
+			name = NotificationApi;
 			sourceTree = "<group>";
 		};
 		51E63CB91F74C3A6008B0C89 /* localization */ = {
@@ -1342,6 +1379,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-wsm/Pods-wsm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BBBadgeBarButtonItem/BBBadgeBarButtonItem.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/InAppLocalize/InAppLocalize.framework",
@@ -1364,6 +1402,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BBBadgeBarButtonItem.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppLocalize.framework",
@@ -1426,6 +1465,7 @@
 				B8CD7FA11F8DC0F800DC71B3 /* StringRequiredValidator.swift in Sources */,
 				51E94EA01F8767B9002368D3 /* RequestStatus.swift in Sources */,
 				B81AF71F1F72096A00E579B2 /* FSCalendarDelegationFactory.m in Sources */,
+				5180064F1F9996720023FF4B /* NotificationOwnerType.swift in Sources */,
 				513B326D1F8B336000D0D770 /* RequestFilterView.swift in Sources */,
 				B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */,
 				5168BCFC1F73A73600AA1287 /* UIViewController.swift in Sources */,
@@ -1436,11 +1476,13 @@
 				51FBBA1A1F7A06CD004C32BD /* ConfirmCreateRequestCell.swift in Sources */,
 				B85A25931F95B57B007F8028 /* ConfirmCreateRequestOffCell.swift in Sources */,
 				B8F8AFCD1F79401D0063E687 /* UserServices.swift in Sources */,
+				518006531F9999B30023FF4B /* NotificationProvider.swift in Sources */,
 				B8A608BD1F8F57A700376292 /* UIView.swift in Sources */,
 				B81AF71E1F72096A00E579B2 /* FSCalendarCell.m in Sources */,
 				511600B81F9055F700B13102 /* (null) in Sources */,
 				B8C47EFD1F84BEF80024F865 /* TimesheetProvider.swift in Sources */,
 				51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */,
+				5180064D1F9995530023FF4B /* NotificationTrackableType.swift in Sources */,
 				B8CD7FA31F8E0D4200DC71B3 /* CardView.swift in Sources */,
 				B83516991F7A0C1B006B536E /* TimeSheetViewController.swift in Sources */,
 				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
@@ -1451,6 +1493,7 @@
 				B8CCDB4D1F94C12500A00E02 /* CreateRequestOffViewControllerType.swift in Sources */,
 				B8C47F271F84C0250024F865 /* WSMDateTransform.swift in Sources */,
 				51FBBA181F79FE8B004C32BD /* CreateRequestOtViewController.swift in Sources */,
+				5180064B1F9994DD0023FF4B /* NotificationModel.swift in Sources */,
 				51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
 				BF2519A51F959F1C00325601 /* OtRequestDetailViewController.swift in Sources */,
@@ -1512,6 +1555,7 @@
 				B8CCDB4B1F94C12500A00E02 /* CreateRequestOffTimeCell.swift in Sources */,
 				B8C47EF21F84B6320024F865 /* (null) in Sources */,
 				B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */,
+				518006551F99A4C30023FF4B /* NotificationCell.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
 				B8CCDB4F1F94C12500A00E02 /* RequestOffDetailViewController.swift in Sources */,
 				5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */,
@@ -1519,7 +1563,9 @@
 				B81AF7231F72096A00E579B2 /* FSCalendarConstants.m in Sources */,
 				B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */,
 				B8FCEEBC1F8B201A0032136E /* RequestOffApiInputModel.swift in Sources */,
+				518006511F9998DC0023FF4B /* ListNotificationOuputApiModel.swift in Sources */,
 				B8259FD71F8764DE00E5891D /* DateOffType.swift in Sources */,
+				518006481F998CC20023FF4B /* NotificationViewController.swift in Sources */,
 				B8CCDB4C1F94C12500A00E02 /* CreateRequestOffViewController.swift in Sources */,
 				B87CDBF41F833CE1008A8D0E /* AppConstant.swift in Sources */,
 				B8F714441F96F31F00F67073 /* ConfirmRequestItem.swift in Sources */,

@@ -58,7 +58,7 @@ fileprivate enum UserApiEndpoint: BaseApiTargetType {
 
 final class UserProvider {
 
-    typealias AppSettingPromise = Promise<(UserProfileApiOutputModel, UserSettingApiOutputModel, ListLeaveTypeSettingApiOutputModel, ListDayOffSettingApiOutputModel)>
+    typealias AppSettingPromise = Promise<(UserProfileApiOutputModel, UserSettingApiOutputModel, ListLeaveTypeSettingApiOutputModel, ListDayOffSettingApiOutputModel, ListNotificatinApiOutputModel)>
 
     static func getProfile(userId: Int) -> Promise<UserProfileApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(UserApiEndpoint.getProfile(userId: userId)))
@@ -77,7 +77,7 @@ final class UserProvider {
     }
 
     static func getAllAppSettingsAsync(userId: Int) -> AppSettingPromise {
-        return when(fulfilled: getProfile(userId: userId), getSettings(), getListLeaveTypeSetting(), getListDateOffSetting())
+        return when(fulfilled: getProfile(userId: userId), getSettings(), getListLeaveTypeSetting(), getListDateOffSetting(), NotificationProvider.getListNotifications(page: 1))
     }
 
     static func changePassword(changePasswordModel: ChangePasswordApiInputModel) -> Promise<ResponseData> {

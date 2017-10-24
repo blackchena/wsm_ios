@@ -19,7 +19,7 @@ target 'wsm' do
     pod 'InAppLocalize'
     pod "Floaty"
 #    pod 'AFDateHelper', '~> 4.2.4'
-    pod 'ObjectMapper', '~> 2.2.9'
+    pod 'ObjectMapper', '~> 2.2.8’
     pod 'SwiftyUserDefaults'
     pod "PromiseKit", "~> 4.4"
     pod "TextFieldEffects"
@@ -27,4 +27,5 @@ target 'wsm' do
     pod 'MaterialComponents/ShadowElevations'
     pod 'MaterialComponents/ShadowLayer'
     pod 'Validator', '~> 2.1.1'
+    pod 'BBBadgeBarButtonItem'
 end

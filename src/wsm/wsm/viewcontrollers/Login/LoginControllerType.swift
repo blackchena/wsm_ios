@@ -33,11 +33,12 @@ extension LoginControllerType where Self: UIViewController {
 
                 //start async call apis setting for app
                 return UserProvider.getAllAppSettingsAsync(userId: (loginResult.loginData?.userId)!)
-            }.then { (userProfileResult, userSettingResult, listLeaveTypeSettingResult, listDayOffSettingResult) -> Void in
+            }.then { (userProfileResult, userSettingResult, listLeaveTypeSettingResult, listDayOffSettingResult, listNotifications) -> Void in
                 UserServices.saveUserSettings(userProfileResult: userProfileResult.userData,
                                               userSettingResult: userSettingResult.userSetting,
                                               listLeaveTypeResult: listLeaveTypeSettingResult.listLeaveTypeSetting,
-                                              listDayOffResult: listDayOffSettingResult)
+                                              listDayOffResult: listDayOffSettingResult,
+                                              notificationData: listNotifications)
                 self.didLoginSuccess()
             }.catch { error in
                 AlertHelper.showError(error: error)
