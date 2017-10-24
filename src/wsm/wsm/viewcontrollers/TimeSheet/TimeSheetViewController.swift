@@ -137,23 +137,44 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
      * each page which is have the calendar.currentPage is the first day of current month
      * if new workingTimeSheets is nil -> keep current state
      * 1. if the new startWorkingDay ->.. currentPage ->.. endWorkingDay |=> keep display currentPage
-     * 2. if the     currentPage ->.. new startWorkingDay ->.. endWorkingDay |=> display next page
+     *
+     * 2. if the     currentPage ->.. new startWorkingDay ->.. endWorkingDay 
+     * 2.1   if the  currentPage && new startWorkingDay is the sameMonth |=> keep display currentPage
+     * 2.2   if the currentPage && new startWorkingDay is not the sameMonth |=> display next page
+     *
      * 3. if the new startWorkingDay ->.. endWorkingDay ->.. currentPage |=> display previous page
+     * 3.1   if the  currentPage && new startWorkingDay is the sameMonth |=> keep display currentPage
+     * 3.2   if the currentPage && new startWorkingDay is not the sameMonth |=> display next page
      */
     private func correctMonthAdujstOffSet(startWorkingDate: Date?, endWorkingDate: Date?, currentPage: Date) -> Int {
         var offset = 0
         if let startWorkingDate = startWorkingDate,
             let endWorkingDate = endWorkingDate {
-            if (currentPage.compare(.isLater(than: startWorkingDate)) || currentPage.compare(.isSameDay(as: startWorkingDate))) &&
-                (currentPage.compare(.isEarlier(than: endWorkingDate)) || currentPage.compare(.isSameDay(as: endWorkingDate))) {
+//            if (currentPage.compare(.isLater(than: startWorkingDate)) || currentPage.compare(.isSameDay(as: startWorkingDate))) &&
+//                (currentPage.compare(.isEarlier(than: endWorkingDate)) || currentPage.compare(.isSameDay(as: endWorkingDate))) {
+            if currentPage >= startWorkingDate && currentPage <= endWorkingDate {
                 //case 1
                 offset = 0
-            } else if currentPage.compare(.isEarlier(than: startWorkingDate)) {
+//            } else if currentPage.compare(.isEarlier(than: startWorkingDate)) {
+            } else if currentPage < startWorkingDate {
                 //case 2
-                offset = 1
+                if currentPage.compare(.isSameMonth(as: startWorkingDate)) {
+                    //case 2.1
+                    offset = 0
+                } else {
+                    //case 2.2
+                    offset = 1
+                }
+
             } else if currentPage.compare(.isLater(than: endWorkingDate)) {
                 //case 3
-                offset = -1
+                if currentPage.compare(.isSameMonth(as: startWorkingDate)) {
+                    //case 2.1
+                    offset = 0
+                } else {
+                    //case 2.2
+                    offset = -1
+                }
             }
         }
 

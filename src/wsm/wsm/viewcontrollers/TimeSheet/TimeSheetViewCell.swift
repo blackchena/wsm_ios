@@ -212,13 +212,24 @@ class TimeSheetViewCell: FSCalendarCell {
 
             switch monthPosition {
             case .current:
-                if dateForCell.compare(.isLater(than: dateEndWorking)) &&
-                    !dateForCell.compare(.isSameDay(as: dateEndWorking)) {
+                //date for current month will display on calendar
+
+                // dateForCell > dateEndWorking || dateForCell < dateStartWorking
+                // hide
+                if (dateForCell.compare(.isLater(than: dateEndWorking)) &&
+                    !dateForCell.compare(.isSameDay(as: dateEndWorking))) ||
+                    (dateForCell.compare(.isEarlier(than: dateStartWorking)) &&
+                    !dateForCell.compare(.isSameDay(as: dateStartWorking))) {
                     self.isHidden = true
                 }
             case .next:
+                //date for next month will display on calendar -> hide all
                 self.isHidden = true
             case .previous:
+                //date for previous month will display on calendar
+
+                // dateForCell < dateStartWorking
+                // hide
                 if dateForCell.compare(.isEarlier(than: dateStartWorking)) &&
                     !dateForCell.compare(.isSameDay(as: dateStartWorking)) {
                     self.isHidden = true
