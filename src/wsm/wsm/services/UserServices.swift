@@ -18,6 +18,7 @@ class UserServices {
     private static let userSetting = DefaultsKey<String?>("WSM-userSetting")
     private static let listDayOffSetting = DefaultsKey<String?>("WSM-listDayOffSetting")
     private static let listLeaveTypeSetting = DefaultsKey<String?>("WSM-listLeaveTypeSetting")
+    private static let listNotification = DefaultsKey<String?>("WSM-listNotifications")
 
     private static let authToken = DefaultsKey<String?>("WSM-AUTH-TOKEN")
     private static let currentLocale = DefaultsKey<String?>("WSM-LOCALE")
@@ -51,11 +52,13 @@ class UserServices {
     public static func saveUserSettings(userProfileResult: UserProfileModel?,
                                         userSettingResult: UserSettingModel?,
                                         listLeaveTypeResult: [LeaveTypeModel]?,
-                                        listDayOffResult: ListDayOffSettingApiOutputModel?) {
+                                        listDayOffResult: ListDayOffSettingApiOutputModel?,
+                                        notificationData: ListNotificatinApiOutputModel?) {
         saveUserProfile(userProfileResult: userProfileResult)
         saveUserSetting(userSettingResult: userSettingResult)
         saveLeaveTypeSettings(listLeaveTypeResult: listLeaveTypeResult)
         saveDayOffSettings(listDayOffResult: listDayOffResult)
+        saveNotificationData(noticaitions: notificationData)
     }
 
     public static func getLocalUserLogin() -> LoginModel? {
@@ -138,12 +141,29 @@ class UserServices {
             return nil
         }
     }
+
+    public static func saveNotificationData(noticaitions: ListNotificatinApiOutputModel?) {
+        Defaults[listNotification] = noticaitions?.toJSONString()
+    }
+
+    public static func getLocalNotificationData() -> ListNotificatinApiOutputModel? {
+        guard let dataRaw = Defaults[listNotification] else {
+            return nil
+        }
+
+        return ListNotificatinApiOutputModel(JSONString: dataRaw)
+    }
+
+    public static func clearListNotifications() {
+        Defaults[listNotification] = nil
+    }
     
-     static func clearAllUserData() {
+    static func clearAllUserData() {
         clearToken()
         clearUserProfile()
         clearUserSetting()
         clearDayOffSettings()
         clearLeaveTypeSettings()
+        clearListNotifications()
     }
 }

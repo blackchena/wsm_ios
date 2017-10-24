@@ -22,6 +22,14 @@ class MainViewController: LGSideMenuController {
         leftViewBackgroundImage = UIImage(named: "imageLeft")
         leftViewPresentationStyle = .slideAbove
         isLeftViewStatusBarHidden = false
+
+        if let notificationData = UserServices.getLocalNotificationData() {
+            NotificationProvider.shared.listNotifications = notificationData.listNotifications
+            if let badge = notificationData.unreadCount {
+                NotificationProvider.shared.badgeValue = "\(badge)"
+            }
+        }
+
     }
     override func leftViewWillLayoutSubviews(with size: CGSize) {
         super.leftViewWillLayoutSubviews(with: size)

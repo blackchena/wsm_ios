@@ -35,10 +35,10 @@ public struct WsmAccessTokenPlugin: PluginType {
             return request
         }
 
-        let languageSupport = ["vi", "en", "ja"]
-        var deviceLanguage = Locale.preferredLanguages[0]
-        if !languageSupport.contains(deviceLanguage) {
-            deviceLanguage = "en"
+        var deviceLanguage = AppConstant.defaultLanguage
+        if let langCode = Locale.current.languageCode,
+            AppConstant.supportLanguages.contains(langCode) {
+            deviceLanguage = langCode
         }
 
         var request = request

@@ -10,8 +10,12 @@ import Foundation
 import UIKit
 import LGSideMenuController
 import InAppLocalize
+import BBBadgeBarButtonItem
 
 class BaseViewController: UIViewController {
+
+    private var rightBarButton: BBBadgeBarButtonItem?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,11 +38,21 @@ class BaseViewController: UIViewController {
         rightButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         rightButton.addTarget(self, action: #selector(self.showNotification), for: .touchUpInside)
         rightButton.tintColor = UIColor.appTintColor
-        let rightBarButton = UIBarButtonItem(customView: rightButton)
+        rightBarButton = BBBadgeBarButtonItem(customUIButton: rightButton)
+        rightBarButton?.badgeOriginX = 15
+        rightBarButton?.badgeOriginY = -7
         navigationItem.rightBarButtonItem = rightBarButton
 
         if let title = self.title {
             self.title = LocalizationHelper.shared.localized(title)
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let badgeValue = NotificationProvider.shared.badgeValue {
+            rightBarButton?.badgeValue = badgeValue
         }
     }
 
@@ -47,6 +61,8 @@ class BaseViewController: UIViewController {
     }
 
     @objc private func showNotification() {
-        print("Show notification screen")
+        if let vc = UIViewController.getStoryboardController(identifier: "NotificationViewController") as? NotificationViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
