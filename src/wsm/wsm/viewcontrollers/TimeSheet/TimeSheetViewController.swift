@@ -201,12 +201,19 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
     }
 
     private func createRequestButton() {
-        floaty.addButton(title: LocalizationHelper.shared.localized("create_others_request"), hexColor: "#35F128")
+        floaty.addButton(title: LocalizationHelper.shared.localized("create_others_request"), hexColor: "#35F128", image: nil, handler: { _ in
+            let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
+            self.navigationController?.pushViewController(createOffVc, animated: true)
+        })
+
         floaty.addButton(title: LocalizationHelper.shared.localized("create_request_leave"), hexColor: "#FA003F", image: nil, handler: { _ in
             let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
             self.navigationController?.pushViewController(createOffVc, animated: true)
         })
-        floaty.addButton(title: LocalizationHelper.shared.localized("create_request_ot"), hexColor: "#1564C0")
+        floaty.addButton(title: LocalizationHelper.shared.localized("create_request_ot"), hexColor: "#1564C0", image: nil, handler: { _ in
+            let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController")
+            self.navigationController?.pushViewController(createOffVc, animated: true)
+        })
 
         floaty.paddingX = floaty.paddingY
         floaty.fabDelegate = self

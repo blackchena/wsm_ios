@@ -705,34 +705,49 @@ extension CreateRequestLeaveViewController {
             let timeLunch = workspace.shifts[0].timeLunch,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
             let timeOut = workspace.shifts[0].timeOut,
-            let inDate = checkInDate.createDateFromTimeOf(date: timeIn),
-            let afternoonDate = checkInDate.createDateFromTimeOf(date: timeAfternoon),
-            let lunchDate = checkInDate.createDateFromTimeOf(date: timeLunch),
-            let outDate = checkInDate.createDateFromTimeOf(date: timeOut) else {
+            let compensationDateStart = Date().createDateFromTimeOf(date: timeOut) else {
                 return
         }
 
         if compensationFromTextField.isEmpty() {
-            compensationFromDatePicker.date = outDate
-            compensationFromTextField.text = outDate.toString(dateFormat: AppConstant.requestDateFormat)
-            requestModel.compensationAttributes.compensationFrom = outDate
+            compensationFromDatePicker.date = compensationDateStart
+            compensationFromTextField.text = compensationDateStart.toString(dateFormat: AppConstant.requestDateFormat)
+            requestModel.compensationAttributes.compensationFrom = compensationDateStart
         }
+
+        var inDate = Date()
+        var afternoonDate = Date()
+        var lunchDate = Date()
+        var outDate = Date()
 
         //compensation duration
         var compensationDuration = 0.0
         switch leaveType.trackingTimeType {
         case .checkOut:
+            if let date = trackingDate.createDateFromTimeOf(date: timeLunch) {
+                lunchDate = date
+            }
+            if let date = trackingDate.createDateFromTimeOf(date: timeOut) {
+                outDate = date
+            }
             if leaveType.id == TrackingCheckOutTypeId.leaveEarlyM.rawValue {
                 compensationDuration = lunchDate.timeIntervalSince(trackingDate)
             } else if leaveType.id == TrackingCheckOutTypeId.leaveEarlyA.rawValue {
                 compensationDuration = outDate.timeIntervalSince(trackingDate)
             }
         case .checkInM:
+            if let date = trackingDate.createDateFromTimeOf(date: timeIn) {
+                inDate = date
+            }
             compensationDuration = trackingDate.timeIntervalSince(inDate)
-            break
         case .checkInA:
+            if let date = trackingDate.createDateFromTimeOf(date: timeAfternoon) {
+                afternoonDate = date
+            }
+            if let date = compensationDateStart.createDateFromTimeOf(date: timeOut) {
+                outDate = date
+            }
             compensationDuration = trackingDate.timeIntervalSince(afternoonDate)
-            break
         case .both:
             compensationDuration = checkOutDate.timeIntervalSince(checkInDate)
         default:
