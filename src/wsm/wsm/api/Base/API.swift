@@ -30,9 +30,8 @@ public enum APIError: Swift.Error, LocalizedError {
 
         case .networkError:
             return LocalizationHelper.shared.localized("api_network_error")
-        case .unauthorized( let message):
-            //TODOs: handle accessToken expired case -> must logout
-            return message ?? LocalizationHelper.shared.localized("you_are_unauthorized_to_access")
+        case .unauthorized(_):
+            return nil
         case .unknown(let statusCode):
             print("ERROR WITH HTTP STATUS CODE: \(String(describing: statusCode))")
             return LocalizationHelper.shared.localized("api_error_server_error")

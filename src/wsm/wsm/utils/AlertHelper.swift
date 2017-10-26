@@ -38,8 +38,8 @@ final class AlertHelper {
      */
     class func showError(error: Error?, makesureLoadingHidden: Bool = true) {
 
-        var message = ""
         var title = ""
+        var message = ""
         if let apiError = error as? APIError {
             switch apiError {
             case .invalidRequest(let response):
@@ -47,6 +47,18 @@ final class AlertHelper {
                 message = mergedString.isNotEmpty ? "-" + mergedString : mergedString
 
                 title = response?.message ?? ""
+                break
+            case .unauthorized(let message):
+                hideLoading()
+                let alertLogout = UIAlertController(title:
+                    nil, message: message, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                    UserServices.clearAllUserData()
+                    AppDelegate.showLoginPage()
+                })
+                alertLogout.addAction(okAction)
+                UIViewController.getTopViewController()?.present(alertLogout, animated: true, completion: nil)
+                return
             default:
                 break
             }
