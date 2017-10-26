@@ -67,16 +67,29 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
         self.delegate = self
         self.dataSource = self
 
-        let currentMonth = Date().getComponent(.month)
-        self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
-
-        self.year  = currentYear
-        self.month = currentMonth
+        selectCurrentWorkingMonth()
     }
 
     func selectCurrentMonth() {
         let currentMonth = Date().getComponent(.month)
         let currentYear = Date().getComponent(.year)
+        self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
+        self.selectRow(currentYear - startYear, inComponent: 1, animated: false)
+        self.year = currentYear
+        self.month = currentMonth
+    }
+
+    func selectCurrentWorkingMonth() {
+        var today = Date()
+        let dayOfToday = Calendar.current.component(.day, from: today)
+        if let cutOffDate = UserServices.getLocalUserProfile()?.company?.cutOffDate,
+            dayOfToday > cutOffDate {
+            today = today.dateFor(.startOfMonth).adjust(.month, offset: 1)
+        }
+
+        let currentMonth = today.getComponent(.month)
+        let currentYear = today.getComponent(.year)
+
         self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
         self.selectRow(currentYear - startYear, inComponent: 1, animated: false)
         self.year = currentYear
