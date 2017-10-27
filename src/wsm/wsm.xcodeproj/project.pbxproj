@@ -32,6 +32,8 @@
 		513B32731F8B3AAF00D0D770 /* ic_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 513B32721F8B3AAF00D0D770 /* ic_clear.png */; };
 		513B32761F8B441300D0D770 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B32751F8B441300D0D770 /* MonthYearPickerView.swift */; };
 		513B32781F8B68F100D0D770 /* RequestLeaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */; };
+		5154AF131FA030EB00B90E8B /* StatisticSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154AF111FA030EB00B90E8B /* StatisticSectionHeaderView.swift */; };
+		5154AF141FA030EB00B90E8B /* StatisticSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5154AF121FA030EB00B90E8B /* StatisticSectionHeaderView.xib */; };
 		5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154D9DB1F79DD6100A6A1B2 /* Date.swift */; };
 		51561F331F7908C700619723 /* UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51561F321F7908C700619723 /* UIToolbar.swift */; };
 		51561F351F79141E00619723 /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51561F341F79141E00619723 /* vi.lproj */; };
@@ -155,8 +157,6 @@
 		51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */; };
 		51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */; };
 		51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C771F78B32F00CFABE8 /* WsmTextField.swift */; };
-		51800B6B1F9855F0002A4384 /* ChangePasswordApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */; };
-		51800B6D1F987C9C002A4384 /* ListRequestDelegte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */; };
 		518006481F998CC20023FF4B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006471F998CC20023FF4B /* NotificationViewController.swift */; };
 		5180064B1F9994DD0023FF4B /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180064A1F9994DD0023FF4B /* NotificationModel.swift */; };
 		5180064D1F9995530023FF4B /* NotificationTrackableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180064C1F9995530023FF4B /* NotificationTrackableType.swift */; };
@@ -164,7 +164,18 @@
 		518006511F9998DC0023FF4B /* ListNotificationOuputApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006501F9998DC0023FF4B /* ListNotificationOuputApiModel.swift */; };
 		518006531F9999B30023FF4B /* NotificationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006521F9999B30023FF4B /* NotificationProvider.swift */; };
 		518006551F99A4C30023FF4B /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518006541F99A4C30023FF4B /* NotificationCell.swift */; };
+		51800B6B1F9855F0002A4384 /* ChangePasswordApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */; };
+		51800B6D1F987C9C002A4384 /* ListRequestDelegte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */; };
 		51A281141F7CFB7700D4BFD0 /* LeaveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A281131F7CFB7700D4BFD0 /* LeaveType.swift */; };
+		51A7294C1F9EE41B002F9677 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7294B1F9EE41B002F9677 /* StatisticViewController.swift */; };
+		51A7294E1F9EE5AF002F9677 /* StatictisHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A7294D1F9EE5AF002F9677 /* StatictisHeaderView.xib */; };
+		51A729501F9EE5CE002F9677 /* StatictisHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7294F1F9EE5CE002F9677 /* StatictisHeaderView.swift */; };
+		51A729521F9EECFC002F9677 /* StatisticOfMonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A729511F9EECFC002F9677 /* StatisticOfMonthModel.swift */; };
+		51A729541F9EEDB0002F9677 /* StatisticOfYearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A729531F9EEDB0002F9677 /* StatisticOfYearModel.swift */; };
+		51A729571F9EF1B7002F9677 /* StatisticApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A729561F9EF1B7002F9677 /* StatisticApiOutputModel.swift */; };
+		51A729591F9EF1CA002F9677 /* StatisticProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A729581F9EF1CA002F9677 /* StatisticProvider.swift */; };
+		51A7295D1F9F2CA9002F9677 /* StatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7295C1F9F2CA9002F9677 /* StatisticCell.swift */; };
+		51A7295F1F9F2CCA002F9677 /* StatisticGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7295E1F9F2CCA002F9677 /* StatisticGroupCell.swift */; };
 		51E63CBC1F74C3B7008B0C89 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CBA1F74C3B7008B0C89 /* en.lproj */; };
 		51E63CC11F750A45008B0C89 /* ic_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E63CC01F750A45008B0C89 /* ic_add.png */; };
 		51E94E951F871EC6002368D3 /* RequestLeaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E94E931F871EC6002368D3 /* RequestLeaveCell.swift */; };
@@ -297,6 +308,8 @@
 		513B32721F8B3AAF00D0D770 /* ic_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_clear.png; sourceTree = "<group>"; };
 		513B32751F8B441300D0D770 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthYearPickerView.swift; path = customviews/MonthYearPickerView.swift; sourceTree = "<group>"; };
 		513B32771F8B68F100D0D770 /* RequestLeaveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestLeaveDetailViewController.swift; path = RequestLeave/RequestLeaveDetailViewController.swift; sourceTree = "<group>"; };
+		5154AF111FA030EB00B90E8B /* StatisticSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticSectionHeaderView.swift; path = Statistic/StatisticSectionHeaderView.swift; sourceTree = "<group>"; };
+		5154AF121FA030EB00B90E8B /* StatisticSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticSectionHeaderView.xib; path = ../viewcontrollers/Statistic/StatisticSectionHeaderView.xib; sourceTree = "<group>"; };
 		5154D9DB1F79DD6100A6A1B2 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		51561F321F7908C700619723 /* UIToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIToolbar.swift; sourceTree = "<group>"; };
 		51561F341F79141E00619723 /* vi.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi.lproj; path = localization/vi.lproj; sourceTree = "<group>"; };
@@ -420,8 +433,6 @@
 		51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOtViewController.swift; path = RequestOt/ListRequestOtViewController.swift; sourceTree = "<group>"; };
 		51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMenuBaseViewController.swift; sourceTree = "<group>"; };
 		51754C771F78B32F00CFABE8 /* WsmTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsmTextField.swift; sourceTree = "<group>"; };
-		51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordApiInputModel.swift; path = UserApi/ChangePasswordApiInputModel.swift; sourceTree = "<group>"; };
-		51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestDelegte.swift; path = RequestLeave/ListRequestDelegte.swift; sourceTree = "<group>"; };
 		518006471F998CC20023FF4B /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationViewController.swift; path = Notification/NotificationViewController.swift; sourceTree = "<group>"; };
 		5180064A1F9994DD0023FF4B /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		5180064C1F9995530023FF4B /* NotificationTrackableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationTrackableType.swift; path = enums/NotificationTrackableType.swift; sourceTree = "<group>"; };
@@ -429,7 +440,18 @@
 		518006501F9998DC0023FF4B /* ListNotificationOuputApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNotificationOuputApiModel.swift; path = NotificationApi/ListNotificationOuputApiModel.swift; sourceTree = "<group>"; };
 		518006521F9999B30023FF4B /* NotificationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationProvider.swift; path = NotificationApi/NotificationProvider.swift; sourceTree = "<group>"; };
 		518006541F99A4C30023FF4B /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCell.swift; path = Notification/NotificationCell.swift; sourceTree = "<group>"; };
+		51800B6A1F9855F0002A4384 /* ChangePasswordApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordApiInputModel.swift; path = UserApi/ChangePasswordApiInputModel.swift; sourceTree = "<group>"; };
+		51800B6C1F987C9C002A4384 /* ListRequestDelegte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestDelegte.swift; path = RequestLeave/ListRequestDelegte.swift; sourceTree = "<group>"; };
 		51A281131F7CFB7700D4BFD0 /* LeaveType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaveType.swift; path = enums/LeaveType.swift; sourceTree = "<group>"; };
+		51A7294B1F9EE41B002F9677 /* StatisticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticViewController.swift; path = Statistic/StatisticViewController.swift; sourceTree = "<group>"; };
+		51A7294D1F9EE5AF002F9677 /* StatictisHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatictisHeaderView.xib; sourceTree = "<group>"; };
+		51A7294F1F9EE5CE002F9677 /* StatictisHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatictisHeaderView.swift; path = Statistic/StatictisHeaderView.swift; sourceTree = "<group>"; };
+		51A729511F9EECFC002F9677 /* StatisticOfMonthModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticOfMonthModel.swift; sourceTree = "<group>"; };
+		51A729531F9EEDB0002F9677 /* StatisticOfYearModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticOfYearModel.swift; sourceTree = "<group>"; };
+		51A729561F9EF1B7002F9677 /* StatisticApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticApiOutputModel.swift; path = Statistic/StatisticApiOutputModel.swift; sourceTree = "<group>"; };
+		51A729581F9EF1CA002F9677 /* StatisticProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticProvider.swift; path = Statistic/StatisticProvider.swift; sourceTree = "<group>"; };
+		51A7295C1F9F2CA9002F9677 /* StatisticCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticCell.swift; path = Statistic/StatisticCell.swift; sourceTree = "<group>"; };
+		51A7295E1F9F2CCA002F9677 /* StatisticGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticGroupCell.swift; path = Statistic/StatisticGroupCell.swift; sourceTree = "<group>"; };
 		51E63CBA1F74C3B7008B0C89 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = localization/en.lproj; sourceTree = "<group>"; };
 		51E63CC01F750A45008B0C89 /* ic_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add.png; path = resources/ic_add.png; sourceTree = "<group>"; };
 		51E94E931F871EC6002368D3 /* RequestLeaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestLeaveCell.swift; path = RequestLeave/RequestLeaveCell.swift; sourceTree = "<group>"; };
@@ -610,6 +632,7 @@
 		202ED9CD1F6FCBCB00544A7D /* api */ = {
 			isa = PBXGroup;
 			children = (
+				51A729551F9EF150002F9677 /* Statistic */,
 				B8C47F1B1F84BFAB0024F865 /* Base */,
 				518006491F99947F0023FF4B /* NotificationApi */,
 				B8C47EF51F84BEB50024F865 /* LoginApi */,
@@ -673,6 +696,8 @@
 				B8C606E61F86171000DF34D4 /* RequestBasicInfoHeaderView.xib */,
 				B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */,
 				516A965A1F95F5D6002FCF85 /* ProfileHeaderView.xib */,
+				51A7294D1F9EE5AF002F9677 /* StatictisHeaderView.xib */,
+				5154AF121FA030EB00B90E8B /* StatisticSectionHeaderView.xib */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -704,6 +729,8 @@
 				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 				B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */,
 				5180064A1F9994DD0023FF4B /* NotificationModel.swift */,
+				51A729511F9EECFC002F9677 /* StatisticOfMonthModel.swift */,
+				51A729531F9EEDB0002F9677 /* StatisticOfYearModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -723,6 +750,7 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				51A7294A1F9EE3EC002F9677 /* Statistic */,
 				518006461F998CA00023FF4B /* Notification */,
 				B8CCDB451F94C11700A00E02 /* RequestOff */,
 				516A96421F959AF2002FCF85 /* Profile */,
@@ -952,6 +980,27 @@
 				518006521F9999B30023FF4B /* NotificationProvider.swift */,
 			);
 			name = NotificationApi;
+			sourceTree = "<group>";
+		};
+		51A7294A1F9EE3EC002F9677 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				51A7294B1F9EE41B002F9677 /* StatisticViewController.swift */,
+				51A7294F1F9EE5CE002F9677 /* StatictisHeaderView.swift */,
+				51A7295C1F9F2CA9002F9677 /* StatisticCell.swift */,
+				51A7295E1F9F2CCA002F9677 /* StatisticGroupCell.swift */,
+				5154AF111FA030EB00B90E8B /* StatisticSectionHeaderView.swift */,
+			);
+			name = Statistic;
+			sourceTree = "<group>";
+		};
+		51A729551F9EF150002F9677 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				51A729561F9EF1B7002F9677 /* StatisticApiOutputModel.swift */,
+				51A729581F9EF1CA002F9677 /* StatisticProvider.swift */,
+			);
+			name = Statistic;
 			sourceTree = "<group>";
 		};
 		51E63CB91F74C3A6008B0C89 /* localization */ = {
@@ -1233,6 +1282,7 @@
 				5168BCD11F739DBF00AA1287 /* ic_users.png in Resources */,
 				5168BCD01F739DBF00AA1287 /* ic_pending_blue.png in Resources */,
 				5168BCB81F739DBF00AA1287 /* ic_logo_login.png in Resources */,
+				5154AF141FA030EB00B90E8B /* StatisticSectionHeaderView.xib in Resources */,
 				516A96771F972935002FCF85 /* ic_material_status.png in Resources */,
 				5168BCFA1F739DBF00AA1287 /* ic_current_day.png in Resources */,
 				5168BCCF1F739DBF00AA1287 /* ic_edit.png in Resources */,
@@ -1252,6 +1302,7 @@
 				5168BCDA1F739DBF00AA1287 /* ic_logout.png in Resources */,
 				5168BCE51F739DBF00AA1287 /* ic_request_come_late_leave_early.png in Resources */,
 				5168BCDB1F739DBF00AA1287 /* ic_menu_left.png in Resources */,
+				51A7294E1F9EE5AF002F9677 /* StatictisHeaderView.xib in Resources */,
 				5168BCF31F739DBF00AA1287 /* ic_reject_red.png in Resources */,
 				516A96731F9727AF002FCF85 /* ic_personal_email.png in Resources */,
 				5168BCE61F739DBF00AA1287 /* ic_search.png in Resources */,
@@ -1380,6 +1431,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-wsm/Pods-wsm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BBBadgeBarButtonItem/BBBadgeBarButtonItem.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/InAppLocalize/InAppLocalize.framework",
@@ -1403,6 +1455,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BBBadgeBarButtonItem.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppLocalize.framework",
@@ -1439,8 +1492,10 @@
 				B8C47F221F84BFC30024F865 /* Response+ObjectMapper.swift in Sources */,
 				B8C47F1A1F84BF280024F865 /* UserSettingApiOutputModel.swift in Sources */,
 				B8C47F141F84BF210024F865 /* LoginApiOutputModel.swift in Sources */,
+				5154AF131FA030EB00B90E8B /* StatisticSectionHeaderView.swift in Sources */,
 				B81AF7261F72096A00E579B2 /* FSCalendarHeaderView.m in Sources */,
 				516A96481F959CE9002FCF85 /* ProfileDetailViewController.swift in Sources */,
+				51A729541F9EEDB0002F9677 /* StatisticOfYearModel.swift in Sources */,
 				B8C47F191F84BF280024F865 /* UserProfileApiOutputModel.swift in Sources */,
 				51FBBA161F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift in Sources */,
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
@@ -1452,6 +1507,7 @@
 				B8FCEECB1F8B82590032136E /* ACFloatingTextfield.swift in Sources */,
 				B81AF7211F72096A00E579B2 /* FSCalendarCollectionView.m in Sources */,
 				51221C101F7B6287002F17E0 /* RequestOtModel.swift in Sources */,
+				51A7295D1F9F2CA9002F9677 /* StatisticCell.swift in Sources */,
 				516A96831F974A45002FCF85 /* LeftMenuHeaderCell.swift in Sources */,
 				B85A25951F95B6FC007F8028 /* ConfirmCreateRequestOffViewController.swift in Sources */,
 				5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */,
@@ -1537,10 +1593,12 @@
 				B8259FDB1F87729B00E5891D /* TimeConventionType.swift in Sources */,
 				5168BD061F73A7E600AA1287 /* Formatter.swift in Sources */,
 				51E94E9E1F875BBC002368D3 /* ListRequestLeavesApiOutModel.swift in Sources */,
+				51A729591F9EF1CA002F9677 /* StatisticProvider.swift in Sources */,
 				B8C47F031F84BF010024F865 /* RequestOtApiInputModel.swift in Sources */,
 				51221C071F7B3720002F17E0 /* UserWorkSpace.swift in Sources */,
 				51221C051F7B370F002F17E0 /* UserGroup.swift in Sources */,
 				51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */,
+				51A729501F9EE5CE002F9677 /* StatictisHeaderView.swift in Sources */,
 				511600BE1F907B5400B13102 /* (null) in Sources */,
 				5168BB471F7375BB00AA1287 /* UIColor.swift in Sources */,
 				202ED9BB1F6FC42200544A7D /* AppDelegate.swift in Sources */,
@@ -1550,11 +1608,13 @@
 				B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */,
 				5168BD001F73A78B00AA1287 /* String.swift in Sources */,
 				B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */,
+				51A7294C1F9EE41B002F9677 /* StatisticViewController.swift in Sources */,
 				B8C47F021F84BF010024F865 /* CreateRequestOtApiOutModel.swift in Sources */,
 				51800B6B1F9855F0002A4384 /* ChangePasswordApiInputModel.swift in Sources */,
 				B8CCDB4B1F94C12500A00E02 /* CreateRequestOffTimeCell.swift in Sources */,
 				B8C47EF21F84B6320024F865 /* (null) in Sources */,
 				B8F7A5041F822AD200FD0890 /* TimeSheetSummaryViewCell.swift in Sources */,
+				51A7295F1F9F2CCA002F9677 /* StatisticGroupCell.swift in Sources */,
 				518006551F99A4C30023FF4B /* NotificationCell.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
 				B8CCDB4F1F94C12500A00E02 /* RequestOffDetailViewController.swift in Sources */,
@@ -1567,6 +1627,7 @@
 				B8259FD71F8764DE00E5891D /* DateOffType.swift in Sources */,
 				518006481F998CC20023FF4B /* NotificationViewController.swift in Sources */,
 				B8CCDB4C1F94C12500A00E02 /* CreateRequestOffViewController.swift in Sources */,
+				51A729571F9EF1B7002F9677 /* StatisticApiOutputModel.swift in Sources */,
 				B87CDBF41F833CE1008A8D0E /* AppConstant.swift in Sources */,
 				B8F714441F96F31F00F67073 /* ConfirmRequestItem.swift in Sources */,
 				B86B843B1F7E52D3009D178D /* CompanyModel.swift in Sources */,
@@ -1586,6 +1647,7 @@
 				51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */,
 				B83516931F79FC2D006B536E /* TimeSheetModel.swift in Sources */,
 				516A96911F98401F002FCF85 /* VehicleInfoModel.swift in Sources */,
+				51A729521F9EECFC002F9677 /* StatisticOfMonthModel.swift in Sources */,
 				51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */,
 				513B32761F8B441300D0D770 /* MonthYearPickerView.swift in Sources */,
 				B858E7971F7CDAEB00080052 /* DateHelper.swift in Sources */,

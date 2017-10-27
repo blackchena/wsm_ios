@@ -16,7 +16,7 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
 
     var requestModel = RequestOtApiInputModel()
     weak var listRequestDelegate: ListRequestDelegte?
-    fileprivate var confirmReqOtItems = [ConfirmRequestItem]()
+    fileprivate var confirmReqOtItems = [DetailModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,21 +24,21 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
 
-        confirmReqOtItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestModel.workspaceId,
+        confirmReqOtItems.append(contentsOf: DetailModel.getDefaultItem(workSpaceId: requestModel.workspaceId,
                                                                                groupId: requestModel.groupId,
                                                                                projectName: requestModel.projectName))
 
 
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+        confirmReqOtItems.append(DetailModel(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("from"),
                                                   value: requestModel.fromTime))
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+        confirmReqOtItems.append(DetailModel(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("to"),
                                                   value: requestModel.endTime))
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_clock",
+        confirmReqOtItems.append(DetailModel(imageName: "ic_clock",
                                                   header: LocalizationHelper.shared.localized("number_of_overtime"),
                                                   value: requestModel.getOtTime()))
-        confirmReqOtItems.append(ConfirmRequestItem(imageName: "ic_reason",
+        confirmReqOtItems.append(DetailModel(imageName: "ic_reason",
                                                   header: LocalizationHelper.shared.localized("reason"),
                                                   value: requestModel.reason))
     }

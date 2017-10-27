@@ -19,12 +19,12 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
     var selectedRequest = RequestDayOffModel()
     public var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
 
-    fileprivate var confirmDefaultItems = [ConfirmRequestItem]()
-    fileprivate var confirmHaveSalaryCompanyPayItems = [ConfirmRequestItem]()
-    fileprivate var confirmHaveSalaryInsuranceCoverageItems = [ConfirmRequestItem]()
-    fileprivate var confirmHaveSalaryDateTimeItems = [ConfirmRequestItem]()
+    fileprivate var confirmDefaultItems = [DetailModel]()
+    fileprivate var confirmHaveSalaryCompanyPayItems = [DetailModel]()
+    fileprivate var confirmHaveSalaryInsuranceCoverageItems = [DetailModel]()
+    fileprivate var confirmHaveSalaryDateTimeItems = [DetailModel]()
 
-    fileprivate var confirmNoSalaryItems = [ConfirmRequestItem]()
+    fileprivate var confirmNoSalaryItems = [DetailModel]()
     fileprivate var sectionTypes = [SectionType]()
 
 
@@ -120,7 +120,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
 
         confirmDefaultItems.removeAll()
 
-        confirmDefaultItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceName: selectedRequest.workSpace?.name,
+        confirmDefaultItems.append(contentsOf: DetailModel.getDefaultItem(workSpaceName: selectedRequest.workSpace?.name,
                                                                                  groupName: selectedRequest.group?.fullName,
                                                                                  positionName: selectedRequest.positionName,
                                                                                  projectName: selectedRequest.projectName,
@@ -128,13 +128,13 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
 
 
         //append "status" cell
-        confirmDefaultItems.append(ConfirmRequestItem(imageName: "ic_status",
+        confirmDefaultItems.append(DetailModel(imageName: "ic_status",
                                                       header: LocalizationHelper.shared.localized("status"),
                                                       value: selectedRequest.status?.localizedString(),
                                                       valueColor: selectedRequest.status?.getColor()))
 
         //append "being_handle_by" cell
-        confirmDefaultItems.append(ConfirmRequestItem(imageName: "ic_being_handled_by",
+        confirmDefaultItems.append(DetailModel(imageName: "ic_being_handled_by",
                                                       header: LocalizationHelper.shared.localized("being_handled_by"),
                                                       value: selectedRequest.handleByGroupName))
     }
@@ -147,7 +147,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
             let listDayOffSettingBinded = dayOffSettingBindedValues.filter({ s -> Bool in return listIdDayOffSetting.contains(s.key) })
 
             for dayOffSettingBinded in listDayOffSettingBinded {
-                confirmHaveSalaryCompanyPayItems.append(ConfirmRequestItem(imageName: "",
+                confirmHaveSalaryCompanyPayItems.append(DetailModel(imageName: "",
                                                                            header: dayOffSettingBinded.value.2.dayOffAsString,
                                                                            value: "\(dayOffSettingBinded.value.0)"))
             }
@@ -162,7 +162,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
             let listDayOffSettingBinded = dayOffSettingBindedValues.filter({ s -> Bool in return listIdDayOffSetting.contains(s.key) })
 
             for dayOffSettingBinded in listDayOffSettingBinded {
-                confirmHaveSalaryInsuranceCoverageItems.append(ConfirmRequestItem(imageName: "",
+                confirmHaveSalaryInsuranceCoverageItems.append(DetailModel(imageName: "",
                                                                                   header: dayOffSettingBinded.value.2.dayOffAsString,
                                                                                   value: "\(dayOffSettingBinded.value.0)"))
             }
@@ -175,7 +175,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
         if let haveSalaryFrom = selectedRequest.offHaveSalaryFrom,
             let _ = haveSalaryFrom.offPaidFrom,
             let _ = haveSalaryFrom.paidFromPeriod {
-            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            confirmHaveSalaryDateTimeItems.append(DetailModel(imageName: "ic_clock_2",
                                                                      header: LocalizationHelper.shared.localized("off_have_salary_from"),
                                                                      value: haveSalaryFrom.toString()))
         }
@@ -183,7 +183,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
         if  let haveSalaryTo = selectedRequest.offHaveSalaryTo,
             let _ = haveSalaryTo.offPaidTo,
             let _ = haveSalaryTo.paidToPeriod {
-            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            confirmHaveSalaryDateTimeItems.append(DetailModel(imageName: "ic_clock_2",
                                                                      header: LocalizationHelper.shared.localized("off_have_salary_to"),
                                                                      value: haveSalaryTo.toString()))
         }
@@ -195,14 +195,14 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
 
         if let _ = selectedRequest.offNoSalaryFrom.offPaidFrom,
             let _ = selectedRequest.offNoSalaryFrom.paidFromPeriod {
-            confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            confirmNoSalaryItems.append(DetailModel(imageName: "ic_clock_2",
                                                            header: LocalizationHelper.shared.localized("off_no_salary_from"),
                                                            value: self.selectedRequest.offNoSalaryFrom.toString()))
         }
 
         if let _ = selectedRequest.offNoSalaryTo.offPaidTo,
             let _ = selectedRequest.offNoSalaryTo.paidToPeriod {
-            confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            confirmNoSalaryItems.append(DetailModel(imageName: "ic_clock_2",
                                                            header: LocalizationHelper.shared.localized("off_no_salary_to"),
                                                            value: self.selectedRequest.offNoSalaryTo.toString()))
         }
@@ -283,7 +283,7 @@ extension RequestOffDetailViewController: UITableViewDelegate, UITableViewDataSo
         case .reason:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffCell", for: indexPath)
             if let cell = cell as? ConfirmCreateRequestOffCell {
-                let item = ConfirmRequestItem(imageName: "ic_reason",
+                let item = DetailModel(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("reason"),
                                               value: self.selectedRequest.reason)
 

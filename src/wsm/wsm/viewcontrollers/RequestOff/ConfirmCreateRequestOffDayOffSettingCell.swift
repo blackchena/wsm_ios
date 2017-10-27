@@ -20,7 +20,7 @@ class ConfirmCreateRequestOffDayOffSettingCell: UITableViewCell {
         // Initialization code
     }
 
-    public func updateCell(item: ConfirmRequestItem) {
+    public func updateCell(item: DetailModel) {
         titleLable.text = item.header
         valueLable.text = item.value
     }

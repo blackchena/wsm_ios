@@ -19,7 +19,7 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
     weak var listRequestDelegate: ListRequestDelegte?
     var selectedRequest = RequestLeaveModel()
     var leaveType: LeaveTypeModel?
-    var detailItems = [ConfirmRequestItem]()
+    var detailItems = [DetailModel]()
     let currentUser = UserServices.getLocalUserProfile()
     let compensationRowNumber = 3
     let statusRowNumber = 2
@@ -54,16 +54,16 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
         if let leaveTypes = UserServices.getLocalLeaveTypeSettings(), let i = leaveTypes.index(where: {$0.id == selectedRequest.leaveType?.id}) {
             leaveType = leaveTypes[i]
         }
-        detailItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceName: selectedRequest.workspace?.name,
+        detailItems.append(contentsOf: DetailModel.getDefaultItem(workSpaceName: selectedRequest.workspace?.name,
                                                                          groupName: selectedRequest.group?.fullName,
                                                                          projectName: selectedRequest.projectName,
                                                                          userProfileModel: selectedRequest.user))
 
-        detailItems.append(ConfirmRequestItem(imageName: "ic_project",
+        detailItems.append(DetailModel(imageName: "ic_project",
                                                header: LocalizationHelper.shared.localized("type_leave"),
                                                value: leaveType?.name))
         
-        detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+        detailItems.append(DetailModel(imageName: "ic_clock_2",
                                               header: LocalizationHelper.shared.localized("created_at"),
                                               value: selectedRequest.createAt?.toString(dateFormat: AppConstant.requestDateFormat)))
     }
@@ -72,18 +72,18 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
         if let trackingType = leaveType?.trackingTimeType {
             switch trackingType {
             case .both:
-                detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("from"),
                                                        value: selectedRequest.checkInTime?.toString(dateFormat: AppConstant.requestDateFormat)))
-                detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("to"),
                                                        value: selectedRequest.checkOutTime?.toString(dateFormat: AppConstant.requestDateFormat)))
             case .checkOut:
-                detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("title_forgot_out"),
                                                        value: selectedRequest.checkOutTime?.toString(dateFormat: AppConstant.requestDateFormat)))
             default:
-                detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("title_forgot_in"),
                                                        value: selectedRequest.checkInTime?.toString(dateFormat: AppConstant.requestDateFormat)))
                 break
@@ -92,23 +92,23 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
     }
 
     func appendStatusItem() {
-        detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
+        detailItems.append(DetailModel(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("status"),
                                               value: selectedRequest.status?.localizedString()))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
+        detailItems.append(DetailModel(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("being_handled_by"),
                                               value: selectedRequest.handleByGroupName))
     }
 
     func appendCompensationItem() {
         if leaveType?.compensationKind == .require {
-            detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("from"),
                                                   value: selectedRequest.compensation?.compensationFrom?.toString(dateFormat: AppConstant.requestDateFormat)))
-            detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("to"),
                                                   value: selectedRequest.compensation?.compensationTo?.toString(dateFormat: AppConstant.requestDateFormat)))
-            detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
+            detailItems.append(DetailModel(imageName: "ic_reason",
                                                   header: LocalizationHelper.shared.localized("reason"),
                                                   value: selectedRequest.reason))
         }
