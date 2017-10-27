@@ -10,6 +10,9 @@ import UIKit
 
 class AppConstant {
 
+    public static let babySpecialTime = 60
+    public static let childrenSpecialTime = 15
+
     public static let supportLanguages = ["en", "vi"]
     public static let defaultLanguage = "en"
     public static let defaultLocale = Locale(identifier: "en_US")

@@ -409,7 +409,7 @@ extension CreateRequestLeaveViewController {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
-            let timeIn = workspace.shifts[0].timeIn,
+            let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
             let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
@@ -440,8 +440,8 @@ extension CreateRequestLeaveViewController {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
-            let timeout = workspace.shifts[0].timeOut,
-            let timeAfternoon = workspace.shifts[0].timeAfternoon,
+            let timeout = workspace.shifts[0].getTimeOutSpecial(),
+            let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
             let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
@@ -471,7 +471,7 @@ extension CreateRequestLeaveViewController {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
-            let timeIn = workspace.shifts[0].timeIn,
+            let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
             let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
@@ -502,8 +502,8 @@ extension CreateRequestLeaveViewController {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
-            let timeout = workspace.shifts[0].timeOut,
-            let timeAfternoon = workspace.shifts[0].timeAfternoon,
+            let timeout = workspace.shifts[0].getTimeOutSpecial(),
+            let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
             let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
@@ -533,7 +533,7 @@ extension CreateRequestLeaveViewController {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
-            let timeIn = workspace.shifts[0].timeIn,
+            let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
             let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
@@ -563,10 +563,10 @@ extension CreateRequestLeaveViewController {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = checkInDatePicker.date.zeroSecond(),
-            let timeIn = workspace.shifts[0].timeIn,
+            let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
-            let timeAfternoon = workspace.shifts[0].timeAfternoon,
-            let timeOut = workspace.shifts[0].timeOut,
+            let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
+            let timeOut = workspace.shifts[0].getTimeOutSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let afternoonDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let lunchDate = selectedDate.createDateFromTimeOf(date: timeLunch),
@@ -609,10 +609,10 @@ extension CreateRequestLeaveViewController {
         guard workspace.shifts.count > 0,
             let checkInDate = checkInDatePicker.date.zeroSecond(),
             let selectedDate = checkOutDatePicker.date.zeroSecond(),
-            let timeIn = workspace.shifts[0].timeIn,
+            let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
-            let timeAfternoon = workspace.shifts[0].timeAfternoon,
-            let timeOut = workspace.shifts[0].timeOut,
+            let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
+            let timeOut = workspace.shifts[0].getTimeOutSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let afternoonDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let lunchDate = selectedDate.createDateFromTimeOf(date: timeLunch),
@@ -701,10 +701,10 @@ extension CreateRequestLeaveViewController {
             let trackingDate = trackingDatePicker.date.zeroSecond(),
             let checkOutDate = checkOutDatePicker.date.zeroSecond(),
             let checkInDate = checkInDatePicker.date.zeroSecond(),
-            let timeIn = workspace.shifts[0].timeIn,
+            let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
-            let timeAfternoon = workspace.shifts[0].timeAfternoon,
-            let timeOut = workspace.shifts[0].timeOut,
+            let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
+            let timeOut = workspace.shifts[0].getTimeOutSpecial(),
             let compensationDateStart = Date().createDateFromTimeOf(date: timeOut) else {
                 return
         }
@@ -771,12 +771,12 @@ extension CreateRequestLeaveViewController {
         if let special = currentUser?.special, let date = compensationEndDate {
             switch special {
             case .children:
-                if let correctDate = Calendar.current.date(byAdding: .minute, value: -15, to: date),
+                if let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.childrenSpecialTime, to: date),
                     correctDate > compensationFromDatePicker.date {
                     compensationEndDate = correctDate
                 }
             case .baby:
-                if let correctDate = Calendar.current.date(byAdding: .hour, value: -1, to: date),
+                if let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.babySpecialTime, to: date),
                     correctDate > compensationFromDatePicker.date {
                     compensationEndDate = correctDate
                 }

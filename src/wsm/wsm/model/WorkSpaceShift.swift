@@ -44,9 +44,9 @@ class WorkSpaceShift : BaseModel {
         }
         switch special {
         case .children:
-            return maxSecond + 15/*minutes*/ * 60
+            return maxSecond + AppConstant.childrenSpecialTime * 60
         case .baby:
-            return maxSecond + 3600
+            return maxSecond + AppConstant.babySpecialTime * 60
         default:
             return maxSecond
         }
@@ -62,11 +62,32 @@ class WorkSpaceShift : BaseModel {
         }
         switch special {
         case .children:
-            return maxSecond + 15/*minutes*/ * 60
+            return maxSecond + AppConstant.childrenSpecialTime * 60
         case .baby:
-            return maxSecond + 3600
+            return maxSecond + AppConstant.babySpecialTime * 60
         default:
             return maxSecond
         }
+    }
+
+    func getTimeInSpecial() -> Date? {
+        guard let date = timeIn else {
+            return nil
+        }
+        return UserServices.getLocalUserProfile()?.special == .children ? Calendar.current.date(byAdding: .minute, value: AppConstant.childrenSpecialTime, to: date) : date
+    }
+
+    func getTimeAfternoonSpecial() -> Date? {
+        guard let date = timeAfternoon else {
+            return nil
+        }
+        return UserServices.getLocalUserProfile()?.special == .children ? Calendar.current.date(byAdding: .minute, value: AppConstant.childrenSpecialTime, to: date) : date
+    }
+
+    func getTimeOutSpecial() -> Date? {
+        guard let date = timeOut else {
+            return nil
+        }
+        return UserServices.getLocalUserProfile()?.special == .children ? Calendar.current.date(byAdding: .minute, value: AppConstant.childrenSpecialTime, to: date) : date
     }
 }
