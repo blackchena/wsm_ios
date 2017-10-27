@@ -33,4 +33,40 @@ class WorkSpaceShift : BaseModel {
         maxComeLate <- map["max_come_late"]
         maxLevesEarly <- map["max_leves_early"]
     }
+
+    func getMaxComeLateSpecial() -> Int? {
+        guard let max = maxComeLate else {
+            return nil
+        }
+        let maxSecond = max * 3600
+        guard let special = UserServices.getLocalUserProfile()?.special else {
+            return maxSecond
+        }
+        switch special {
+        case .children:
+            return maxSecond + 15/*minutes*/ * 60
+        case .baby:
+            return maxSecond + 3600
+        default:
+            return maxSecond
+        }
+    }
+
+    func getMaxLeavesEarlySpecial() -> Int? {
+        guard let max = maxLevesEarly else {
+            return nil
+        }
+        let maxSecond = max * 3600
+        guard let special = UserServices.getLocalUserProfile()?.special else {
+            return maxSecond
+        }
+        switch special {
+        case .children:
+            return maxSecond + 15/*minutes*/ * 60
+        case .baby:
+            return maxSecond + 3600
+        default:
+            return maxSecond
+        }
+    }
 }

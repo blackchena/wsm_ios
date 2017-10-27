@@ -411,7 +411,7 @@ extension CreateRequestLeaveViewController {
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
-            let maxComeLate = workspace.shifts[0].maxComeLate,
+            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
                 return false
@@ -428,7 +428,7 @@ extension CreateRequestLeaveViewController {
         }
 
         let duration = selectedDate.timeIntervalSince(inDate)
-        if Int(duration) > maxComeLate * 3600{
+        if Int(duration) > maxComeLate {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
             return false
         }
@@ -442,7 +442,7 @@ extension CreateRequestLeaveViewController {
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeout = workspace.shifts[0].timeOut,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
-            let maxComeLate = workspace.shifts[0].maxComeLate,
+            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
                 return false
@@ -459,7 +459,7 @@ extension CreateRequestLeaveViewController {
         }
 
         let duration = selectedDate.timeIntervalSince(inDate)
-        if Int(duration) > maxComeLate * 3600 || Int(duration) * -1 > maxComeLate * 3600{
+        if Int(duration) > maxComeLate || Int(duration) * -1 > maxComeLate{
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
             return false
         }
@@ -473,7 +473,7 @@ extension CreateRequestLeaveViewController {
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
-            let maxLevesEarly = workspace.shifts[0].maxLevesEarly,
+            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
                 return false
@@ -490,7 +490,7 @@ extension CreateRequestLeaveViewController {
         }
 
         let duration = luchDate.timeIntervalSince(selectedDate)
-        if Int(duration) > maxLevesEarly * 3600 {
+        if Int(duration) > maxLevesEarly {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
             return false
         }
@@ -504,7 +504,7 @@ extension CreateRequestLeaveViewController {
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeout = workspace.shifts[0].timeOut,
             let timeAfternoon = workspace.shifts[0].timeAfternoon,
-            let maxLevesEarly = workspace.shifts[0].maxLevesEarly,
+            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
                 return false
@@ -521,7 +521,7 @@ extension CreateRequestLeaveViewController {
         }
 
         let duration = outDate.timeIntervalSince(selectedDate)
-        if Int(duration) > maxLevesEarly * 3600 {
+        if Int(duration) > maxLevesEarly {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
             return false
         }
@@ -535,7 +535,7 @@ extension CreateRequestLeaveViewController {
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].timeIn,
             let timeLunch = workspace.shifts[0].timeLunch,
-            let maxComeLate = workspace.shifts[0].maxComeLate,
+            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
                 return false
@@ -552,7 +552,7 @@ extension CreateRequestLeaveViewController {
         }
 
         let duration = inDate.timeIntervalSince(selectedDate)
-        if Int(duration) > maxComeLate * 3600 || Int(duration) * -1 > maxComeLate * 3600{
+        if Int(duration) > maxComeLate || Int(duration) * -1 > maxComeLate{
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
             return false
         }
@@ -617,7 +617,7 @@ extension CreateRequestLeaveViewController {
             let afternoonDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let lunchDate = selectedDate.createDateFromTimeOf(date: timeLunch),
             let outDate = selectedDate.createDateFromTimeOf(date: timeOut),
-            let maxLevesEarly = workspace.shifts[0].maxLevesEarly else {
+            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial() else {
                 return false
         }
 
@@ -647,7 +647,7 @@ extension CreateRequestLeaveViewController {
         }
 
         let duration = selectedDate.timeIntervalSince(checkInDate)
-        if Int(duration) - lunchBreakTime > maxLevesEarly * 3600 {
+        if Int(duration) - lunchBreakTime > maxLevesEarly {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_amount_tim_can_not_greater_than_max_allow_time"))
             return false
         }

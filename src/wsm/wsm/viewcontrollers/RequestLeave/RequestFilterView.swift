@@ -89,7 +89,7 @@ class RequestFilterView: UIView {
     }
 
     func resetConditions() {
-        monthPicker.selectCurrentMonth()
+        monthPicker.selectCurrentWorkingMonth()
         monthTextField.text = monthPicker.getMonthYearSelectedString()
         statusTextField.text = ""
     }
