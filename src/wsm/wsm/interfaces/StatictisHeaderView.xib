@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatictisHeaderView" customModule="wsm" customModuleProvider="target">
+            <connections>
+                <outlet property="chartView" destination="bvB-T2-rg6" id="7G7-2n-GRh"/>
+                <outlet property="yearTextField" destination="5Em-oW-xxZ" id="uUe-x2-ydo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="305"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Em-oW-xxZ">
+                    <rect key="frame" x="10" y="10" width="350" height="40"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="r7u-Eo-gcc"/>
+                    </constraints>
+                    <color key="textColor" red="0.13356259470000001" green="0.55719155070000004" blue="0.51476544140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvB-T2-rg6" customClass="LineChartView" customModule="Charts">
+                    <rect key="frame" x="10" y="60" width="350" height="235"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bvB-T2-rg6" firstAttribute="top" secondItem="5Em-oW-xxZ" secondAttribute="bottom" constant="10" id="9pK-nm-u61"/>
+                <constraint firstItem="5Em-oW-xxZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="OfA-sB-CIE"/>
+                <constraint firstItem="bvB-T2-rg6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="ROu-iV-omw"/>
+                <constraint firstItem="5Em-oW-xxZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="T6Y-kc-GUc"/>
+                <constraint firstAttribute="bottom" secondItem="bvB-T2-rg6" secondAttribute="bottom" constant="10" id="mrD-6H-6B3"/>
+                <constraint firstAttribute="trailing" secondItem="5Em-oW-xxZ" secondAttribute="trailing" constant="10" id="oHp-OK-sDC"/>
+                <constraint firstAttribute="trailing" secondItem="bvB-T2-rg6" secondAttribute="trailing" constant="10" id="vwL-BG-re4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="24" y="-128.5"/>
+        </view>
+    </objects>
+</document>

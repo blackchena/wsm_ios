@@ -14,8 +14,8 @@ class ProfileDetailViewController: BaseViewController, FloatyDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    fileprivate var profileData = [ConfirmRequestItem]()
-    fileprivate var otherData = [ConfirmRequestItem]()
+    fileprivate var profileData = [DetailModel]()
+    fileprivate var otherData = [DetailModel]()
     private let currentUser = UserServices.getLocalUserProfile()
 
     override func viewDidLoad() {
@@ -64,84 +64,84 @@ class ProfileDetailViewController: BaseViewController, FloatyDelegate {
     }
 
     func initProfileData() {
-        profileData.append(ConfirmRequestItem(imageName: "ic_placeholder_user",
+        profileData.append(DetailModel(imageName: "ic_placeholder_user",
                                               header: LocalizationHelper.shared.localized("employee_code"),
                                               value: currentUser?.employeeCode
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_contract",
+        profileData.append(DetailModel(imageName: "ic_contract",
                                               header: LocalizationHelper.shared.localized("company"),
                                               value: currentUser?.company?.name
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_holiday_calendar",
+        profileData.append(DetailModel(imageName: "ic_holiday_calendar",
                                               header: LocalizationHelper.shared.localized("start_probation_date"),
                                               value: currentUser?.startProbationDate?.toString(dateFormat: LocalizationHelper.shared.localized("date_format"))
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_holiday_calendar",
+        profileData.append(DetailModel(imageName: "ic_holiday_calendar",
                                               header: LocalizationHelper.shared.localized("end_probation_date"),
                                               value: currentUser?.endProbationDate?.toString(dateFormat: LocalizationHelper.shared.localized("date_format"))
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_holiday_calendar",
+        profileData.append(DetailModel(imageName: "ic_holiday_calendar",
                                               header: LocalizationHelper.shared.localized("contract_date"),
                                               value: currentUser?.contractDate?.toString(dateFormat: LocalizationHelper.shared.localized("date_format"))
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_position",
+        profileData.append(DetailModel(imageName: "ic_position",
                                               header: LocalizationHelper.shared.localized("position_name"),
                                               value: currentUser?.namePosition
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_id_card",
+        profileData.append(DetailModel(imageName: "ic_id_card",
                                               header: LocalizationHelper.shared.localized("individual_code"),
                                               value: currentUser?.individualCode
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_star",
+        profileData.append(DetailModel(imageName: "ic_star",
                                               header: LocalizationHelper.shared.localized("staff_type"),
                                               value: currentUser?.nameStaffType
                                                 ?? LocalizationHelper.shared.localized("empty_information")))
-        profileData.append(ConfirmRequestItem(imageName: "ic_branch",
+        profileData.append(DetailModel(imageName: "ic_branch",
                                               header: LocalizationHelper.shared.localized("branch"),
                                               value: getWorkspaceData()))
-        profileData.append(ConfirmRequestItem(imageName: "ic_group",
+        profileData.append(DetailModel(imageName: "ic_group",
                                               header: LocalizationHelper.shared.localized("group"),
                                               value: getGroupData()))
     }
 
     func initOtherData() {
-        otherData.append(ConfirmRequestItem(imageName: "ic_identity",
+        otherData.append(DetailModel(imageName: "ic_identity",
                                             header: LocalizationHelper.shared.localized("identification_passport"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.identifyInfo?.code)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_personal_email",
+        otherData.append(DetailModel(imageName: "ic_personal_email",
                                             header: LocalizationHelper.shared.localized("personal_email"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.generalInfo?.personalMail)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_place_of_birth",
+        otherData.append(DetailModel(imageName: "ic_place_of_birth",
                                             header: LocalizationHelper.shared.localized("place_of_birth"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.address?.placeOfBirth)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_current_address",
+        otherData.append(DetailModel(imageName: "ic_current_address",
                                             header: LocalizationHelper.shared.localized("current_address"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.address?.currentAddress)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_permanent_address",
+        otherData.append(DetailModel(imageName: "ic_permanent_address",
                                             header: LocalizationHelper.shared.localized("permanent_address"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.address?.permanentAddress)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_distance_from_office",
+        otherData.append(DetailModel(imageName: "ic_distance_from_office",
                                             header: LocalizationHelper.shared.localized("distance_from_office"),
                                             value: "\(currentUser?.address?.distanceFromOffice ?? 0) \(LocalizationHelper.shared.localized("km"))"))
-        otherData.append(ConfirmRequestItem(imageName: "ic_home_phone",
+        otherData.append(DetailModel(imageName: "ic_home_phone",
                                             header: LocalizationHelper.shared.localized("home_phone"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.generalInfo?.homePhoneNumber)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_material_status",
+        otherData.append(DetailModel(imageName: "ic_material_status",
                                             header: LocalizationHelper.shared.localized("marital_status"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.generalInfo?.marriedStatus)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_number_of_child",
+        otherData.append(DetailModel(imageName: "ic_number_of_child",
                                             header: LocalizationHelper.shared.localized("number_of_child"),
                                             value: "\(currentUser?.generalInfo?.numberOfChildrent ?? 0)"))
-        otherData.append(ConfirmRequestItem(imageName: "ic_vehecil",
+        otherData.append(DetailModel(imageName: "ic_vehecil",
                                             header: LocalizationHelper.shared.localized("vehicle"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.vehicleInfo?.vehicleType)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_licsense_plate",
+        otherData.append(DetailModel(imageName: "ic_licsense_plate",
                                             header: LocalizationHelper.shared.localized("license_plate"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.vehicleInfo?.licensePlate)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_bank_info",
+        otherData.append(DetailModel(imageName: "ic_bank_info",
                                             header: LocalizationHelper.shared.localized("bank_info"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.bankInfo?.bankname)))
-        otherData.append(ConfirmRequestItem(imageName: "ic_account_id",
+        otherData.append(DetailModel(imageName: "ic_account_id",
                                             header: LocalizationHelper.shared.localized("account_id"),
                                             value: emptyHolderStringIfNeeded(string: currentUser?.bankInfo?.taxCode)))
     }

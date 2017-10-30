@@ -144,7 +144,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
         case (2, 1):
             break
         case (2, 2):
-            break
+            selectedViewController = UIViewController.getStoryboardController(identifier: "StatisticViewController")
         //user request
         case (3, 0):
             selectedViewController = UIViewController.getStoryboardController(identifier: "ListRequestOtViewController")

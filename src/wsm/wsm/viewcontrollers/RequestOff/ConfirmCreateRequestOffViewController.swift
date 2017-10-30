@@ -25,12 +25,12 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
 
     public var requestOffInputDetailModel = RequestOffDetailApiInputModel()
     public var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
-    fileprivate var confirmDefaultItems = [ConfirmRequestItem]()
-    fileprivate var confirmHaveSalaryCompanyPayItems = [ConfirmRequestItem]()
-    fileprivate var confirmHaveSalaryInsuranceCoverageItems = [ConfirmRequestItem]()
-    fileprivate var confirmHaveSalaryDateTimeItems = [ConfirmRequestItem]()
+    fileprivate var confirmDefaultItems = [DetailModel]()
+    fileprivate var confirmHaveSalaryCompanyPayItems = [DetailModel]()
+    fileprivate var confirmHaveSalaryInsuranceCoverageItems = [DetailModel]()
+    fileprivate var confirmHaveSalaryDateTimeItems = [DetailModel]()
 
-    fileprivate var confirmNoSalaryItems = [ConfirmRequestItem]()
+    fileprivate var confirmNoSalaryItems = [DetailModel]()
     fileprivate var sectionTypes = [SectionType]()
     weak var listRequestDelegate: ListRequestDelegte?
 
@@ -86,7 +86,7 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
     }
 
     func appendDefaultItems() {
-        confirmDefaultItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestOffInputDetailModel.workSpaceId,
+        confirmDefaultItems.append(contentsOf: DetailModel.getDefaultItem(workSpaceId: requestOffInputDetailModel.workSpaceId,
                                                                                  groupId: requestOffInputDetailModel.groupId,
                                                                                  positionName: requestOffInputDetailModel.positionName,
                                                                                  projectName: requestOffInputDetailModel.projectName))
@@ -100,7 +100,7 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
             let listDayOffSettingBinded = dayOffSettingBindedValues.filter({ s -> Bool in return listIdDayOffSetting.contains(s.key) })
 
             for dayOffSettingBinded in listDayOffSettingBinded {
-                confirmHaveSalaryCompanyPayItems.append(ConfirmRequestItem(imageName: "", header: dayOffSettingBinded.value.2.dayOffAsString, value: "\(dayOffSettingBinded.value.0)"))
+                confirmHaveSalaryCompanyPayItems.append(DetailModel(imageName: "", header: dayOffSettingBinded.value.2.dayOffAsString, value: "\(dayOffSettingBinded.value.0)"))
             }
         }
     }
@@ -113,7 +113,7 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
             let listDayOffSettingBinded = dayOffSettingBindedValues.filter({ s -> Bool in return listIdDayOffSetting.contains(s.key) })
 
             for dayOffSettingBinded in listDayOffSettingBinded {
-                confirmHaveSalaryInsuranceCoverageItems.append(ConfirmRequestItem(imageName: "", header: dayOffSettingBinded.value.2.dayOffAsString, value: "\(dayOffSettingBinded.value.0)"))
+                confirmHaveSalaryInsuranceCoverageItems.append(DetailModel(imageName: "", header: dayOffSettingBinded.value.2.dayOffAsString, value: "\(dayOffSettingBinded.value.0)"))
             }
         }
     }
@@ -123,12 +123,12 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
 
         if let _ = requestOffInputDetailModel.offHaveSalaryFrom.offPaidFrom,
             let _ = requestOffInputDetailModel.offHaveSalaryFrom.paidFromPeriod {
-            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_from"), value: self.requestOffInputDetailModel.offHaveSalaryFrom.toString()))
+            confirmHaveSalaryDateTimeItems.append(DetailModel(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_from"), value: self.requestOffInputDetailModel.offHaveSalaryFrom.toString()))
         }
 
         if let _ = requestOffInputDetailModel.offHaveSalaryTo.offPaidTo,
             let _ = requestOffInputDetailModel.offHaveSalaryTo.paidToPeriod {
-            confirmHaveSalaryDateTimeItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_to"), value: self.requestOffInputDetailModel.offHaveSalaryTo.toString()))
+            confirmHaveSalaryDateTimeItems.append(DetailModel(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_have_salary_to"), value: self.requestOffInputDetailModel.offHaveSalaryTo.toString()))
         }
     }
 
@@ -138,12 +138,12 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
 
         if let _ = requestOffInputDetailModel.offNoSalaryFrom.offPaidFrom,
             let _ = requestOffInputDetailModel.offNoSalaryFrom.paidFromPeriod {
-            confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_no_salary_from"), value: self.requestOffInputDetailModel.offNoSalaryFrom.toString()))
+            confirmNoSalaryItems.append(DetailModel(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_no_salary_from"), value: self.requestOffInputDetailModel.offNoSalaryFrom.toString()))
         }
 
         if let _ = requestOffInputDetailModel.offNoSalaryTo.offPaidTo,
             let _ = requestOffInputDetailModel.offNoSalaryTo.paidToPeriod {
-            confirmNoSalaryItems.append(ConfirmRequestItem(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_no_salary_to"), value: self.requestOffInputDetailModel.offNoSalaryTo.toString()))
+            confirmNoSalaryItems.append(DetailModel(imageName: "ic_clock_2", header: LocalizationHelper.shared.localized("off_no_salary_to"), value: self.requestOffInputDetailModel.offNoSalaryTo.toString()))
         }
     }
 
@@ -206,7 +206,7 @@ extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableVie
         case .reason:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmCreateRequestOffCell", for: indexPath)
             if let cell = cell as? ConfirmCreateRequestOffCell {
-                let item = ConfirmRequestItem(imageName: "ic_reason", header: LocalizationHelper.shared.localized("reason"), value: self.requestOffInputDetailModel.reason)
+                let item = DetailModel(imageName: "ic_reason", header: LocalizationHelper.shared.localized("reason"), value: self.requestOffInputDetailModel.reason)
 
                 cell.updateCell(item: item)
             }

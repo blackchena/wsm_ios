@@ -9,7 +9,7 @@
 import UIKit
 import InAppLocalize
 
-class ConfirmRequestItem/*DetailModel*/ {
+class DetailModel {
     var imageName: String
     var header: String
     var value: String?
@@ -23,8 +23,8 @@ class ConfirmRequestItem/*DetailModel*/ {
     }
 }
 
-extension ConfirmRequestItem {
-    public static func getDefaultItem(workSpaceId: Int?, groupId: Int?, positionName: String? = nil, projectName: String?, userProfileModel: UserProfileModel? = nil) -> [ConfirmRequestItem] {
+extension DetailModel {
+    public static func getDefaultItem(workSpaceId: Int?, groupId: Int?, positionName: String? = nil, projectName: String?, userProfileModel: UserProfileModel? = nil) -> [DetailModel] {
 
         let currentUser = userProfileModel ?? UserServices.getLocalUserProfile()
 
@@ -40,60 +40,60 @@ extension ConfirmRequestItem {
             groupName = groups[i].fullName ?? ""
         }
 
-        var confirmItems = [ConfirmRequestItem]()
+        var confirmItems = [DetailModel]()
 
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user",
+        confirmItems.append(DetailModel(imageName: "ic_placeholder_user",
                                                header: LocalizationHelper.shared.localized("employee_name"),
                                                value: currentUser?.name))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_id_card",
+        confirmItems.append(DetailModel(imageName: "ic_id_card",
                                                header: LocalizationHelper.shared.localized("employee_code"),
                                                value: currentUser?.employeeCode))
 
         if (positionName ?? "").isNotEmpty {
-            confirmItems.append(ConfirmRequestItem(imageName: "ic_position",
+            confirmItems.append(DetailModel(imageName: "ic_position",
                                                    header: LocalizationHelper.shared.localized("position_name"),
                                                    value: positionName))
         }
 
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_branch",
+        confirmItems.append(DetailModel(imageName: "ic_branch",
                                                header: LocalizationHelper.shared.localized("branch"),
                                                value: branchName))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_group",
+        confirmItems.append(DetailModel(imageName: "ic_group",
                                                header: LocalizationHelper.shared.localized("group"),
                                                value: groupName))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_project",
+        confirmItems.append(DetailModel(imageName: "ic_project",
                                                header: LocalizationHelper.shared.localized("project_name"),
                                                value: projectName))
 
         return confirmItems
     }
 
-    public static func getDefaultItem(workSpaceName: String?, groupName: String?, positionName: String? = nil, projectName: String? = nil, userProfileModel: UserProfileModel? = nil) -> [ConfirmRequestItem] {
+    public static func getDefaultItem(workSpaceName: String?, groupName: String?, positionName: String? = nil, projectName: String? = nil, userProfileModel: UserProfileModel? = nil) -> [DetailModel] {
         
         let currentUser = userProfileModel ?? UserServices.getLocalUserProfile()
 
-        var confirmItems = [ConfirmRequestItem]()
+        var confirmItems = [DetailModel]()
 
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_placeholder_user",
+        confirmItems.append(DetailModel(imageName: "ic_placeholder_user",
                                                header: LocalizationHelper.shared.localized("employee_name"),
                                                value: currentUser?.name))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_id_card",
+        confirmItems.append(DetailModel(imageName: "ic_id_card",
                                                header: LocalizationHelper.shared.localized("employee_code"),
                                                value: currentUser?.employeeCode))
 
         if (positionName ?? "").isNotEmpty {
-            confirmItems.append(ConfirmRequestItem(imageName: "ic_position",
+            confirmItems.append(DetailModel(imageName: "ic_position",
                                                    header: LocalizationHelper.shared.localized("position_name"),
                                                    value: positionName))
         }
 
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_branch",
+        confirmItems.append(DetailModel(imageName: "ic_branch",
                                                header: LocalizationHelper.shared.localized("branch"),
                                                value: workSpaceName))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_group",
+        confirmItems.append(DetailModel(imageName: "ic_group",
                                                header: LocalizationHelper.shared.localized("group"),
                                                value: groupName))
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_project",
+        confirmItems.append(DetailModel(imageName: "ic_project",
                                                header: LocalizationHelper.shared.localized("project_name"),
                                                value: projectName))
         

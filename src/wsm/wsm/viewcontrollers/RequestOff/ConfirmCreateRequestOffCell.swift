@@ -20,7 +20,7 @@ class ConfirmCreateRequestOffCell: UITableViewCell {
         // Initialization code
     }
 
-    func updateCell(item: ConfirmRequestItem) {
+    func updateCell(item: DetailModel) {
         headerLabel.text = item.header
         valueLabel.text = item.value
 

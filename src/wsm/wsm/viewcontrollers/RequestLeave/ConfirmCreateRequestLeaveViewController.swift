@@ -14,7 +14,7 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    fileprivate var confirmItems = [ConfirmRequestItem]()
+    fileprivate var confirmItems = [DetailModel]()
     weak var listRequestDelegate: ListRequestDelegte?
     var requestModel = RequestLeaveApiInputModel()
     var leaveType: LeaveTypeModel?
@@ -44,9 +44,9 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
             leaveType = leaveTypes[i]
         }
 
-        confirmItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceId: requestModel.workspaceId, groupId: requestModel.groupId, projectName: requestModel.projectName))
+        confirmItems.append(contentsOf: DetailModel.getDefaultItem(workSpaceId: requestModel.workspaceId, groupId: requestModel.groupId, projectName: requestModel.projectName))
 
-        confirmItems.append(ConfirmRequestItem(imageName: "ic_project",
+        confirmItems.append(DetailModel(imageName: "ic_project",
                                                header: LocalizationHelper.shared.localized("type_leave"),
                                                value: leaveType?.name))
     }
@@ -55,18 +55,18 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
         if let trackingType = leaveType?.trackingTimeType {
             switch trackingType {
             case .both:
-                confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                confirmItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("from"),
                                                        value: requestModel.checkinTime))
-                confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                confirmItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("to"),
                                                        value: requestModel.checkoutTime))
             case .checkOut:
-                confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                confirmItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("title_forgot_out"),
                                                        value: requestModel.checkoutTime))
             default:
-                confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+                confirmItems.append(DetailModel(imageName: "ic_clock_2",
                                                        header: LocalizationHelper.shared.localized("title_forgot_in"),
                                                        value: requestModel.checkinTime))
                 break
@@ -76,13 +76,13 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
 
     func appendCompensationItem() {
         if leaveType?.compensationKind == .require {
-            confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            confirmItems.append(DetailModel(imageName: "ic_clock_2",
                                                    header: LocalizationHelper.shared.localized("from"),
                                                    value: requestModel.compensationAttributes.compensationFrom?.toString(dateFormat: AppConstant.requestDateFormat)))
-            confirmItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            confirmItems.append(DetailModel(imageName: "ic_clock_2",
                                                    header: LocalizationHelper.shared.localized("to"),
                                                    value: requestModel.compensationAttributes.compensationTo?.toString(dateFormat: AppConstant.requestDateFormat)))
-            confirmItems.append(ConfirmRequestItem(imageName: "ic_reason",
+            confirmItems.append(DetailModel(imageName: "ic_reason",
                                                    header: LocalizationHelper.shared.localized("reason"),
                                                    value: requestModel.reason))
         }

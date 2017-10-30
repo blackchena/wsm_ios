@@ -28,4 +28,5 @@ target 'wsm' do
     pod 'MaterialComponents/ShadowLayer'
     pod 'Validator', '~> 2.1.1'
     pod 'BBBadgeBarButtonItem'
+    pod 'Charts'
 end

@@ -25,7 +25,7 @@ class ConfirmCreateRequestCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func updateCell(item: ConfirmRequestItem) {
+    func updateCell(item: DetailModel) {
         headerLabel.text = item.header
         valueLabel.text = item.value
 

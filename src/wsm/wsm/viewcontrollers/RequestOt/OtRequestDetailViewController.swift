@@ -18,7 +18,7 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
 
     weak var listRequestDelegate: ListRequestDelegte?
     var otRequest = RequestOtModel()
-    fileprivate var detailItems = [ConfirmRequestItem]()
+    fileprivate var detailItems = [DetailModel]()
     fileprivate var statusCellIndex = -1
     private let currentUser = UserServices.getLocalUserProfile()
     private let statusRowNumber = 2
@@ -58,34 +58,34 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
     }
     
     private func appendDefaultItems() {
-        detailItems.append(contentsOf: ConfirmRequestItem.getDefaultItem(workSpaceName: otRequest.workSpace?.name,
+        detailItems.append(contentsOf: DetailModel.getDefaultItem(workSpaceName: otRequest.workSpace?.name,
                                                                          groupName: otRequest.group?.fullName,
                                                                          projectName: otRequest.projectName,
                                                                          userProfileModel: otRequest.user))
     }
     
     private func appendTrackingItems() {
-        detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+        detailItems.append(DetailModel(imageName: "ic_clock_2",
                                               header: LocalizationHelper.shared.localized("from"),
                                               value: otRequest.fromTime?.toString(dateFormat: AppConstant.requestDateFormat)))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+        detailItems.append(DetailModel(imageName: "ic_clock_2",
                                               header: LocalizationHelper.shared.localized("to"),
                                               value: otRequest.endTime?.toString(dateFormat: AppConstant.requestDateFormat)))
         if let numberHours = otRequest.getNumberHours() {
-            detailItems.append(ConfirmRequestItem(imageName: "ic_clock_2",
+            detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("number_hour"),
                                                   value: String(format: "%.2f", numberHours)))
         }
-        detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
+        detailItems.append(DetailModel(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("reason"),
                                               value: otRequest.reason))
     }
     
     private func appendStatusItems() {
-        detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
+        detailItems.append(DetailModel(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("status"),
                                               value: otRequest.status?.localizedString()))
-        detailItems.append(ConfirmRequestItem(imageName: "ic_reason",
+        detailItems.append(DetailModel(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("being_handled_by"),
                                               value: otRequest.handleBy))
     }
