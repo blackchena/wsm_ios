@@ -282,6 +282,11 @@
 		BF5947E61F8C672D003593C0 /* ListRequestOTApiOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5947E51F8C672D003593C0 /* ListRequestOTApiOutModel.swift */; };
 		BF5947E81F8CCA5E003593C0 /* UICircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5947E71F8CCA5E003593C0 /* UICircleView.swift */; };
 		BF5A37941FA717D900E79921 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A37931FA717D900E79921 /* RequestType.swift */; };
+		BF7BD6161FAABE6900587C50 /* ManageOvertimeRequestApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7BD6151FAABE6900587C50 /* ManageOvertimeRequestApiOutputModel.swift */; };
+		BF7BD6181FAABE7900587C50 /* ManageOffRequestApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7BD6171FAABE7900587C50 /* ManageOffRequestApiOutputModel.swift */; };
+		BF7C50341FA81B6700924B0E /* ManageRequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C50331FA81B6700924B0E /* ManageRequestProvider.swift */; };
+		BF7C50361FA81B8B00924B0E /* ManageLeaveRequestApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C50351FA81B8B00924B0E /* ManageLeaveRequestApiOutputModel.swift */; };
+		BF7C50381FA86C1000924B0E /* ManageRequestApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C50371FA86C1000924B0E /* ManageRequestApiInputModel.swift */; };
 		BFC037FD1F8B52F300DBE212 /* RequestOTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */; };
 		BFC037FE1F8B52F300DBE212 /* RequestOTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC037FC1F8B52F300DBE212 /* RequestOTCell.xib */; };
 /* End PBXBuildFile section */
@@ -577,6 +582,11 @@
 		BF5947E51F8C672D003593C0 /* ListRequestOTApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOTApiOutModel.swift; path = RequestOtApi/ListRequestOTApiOutModel.swift; sourceTree = "<group>"; };
 		BF5947E71F8CCA5E003593C0 /* UICircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircleView.swift; sourceTree = "<group>"; };
 		BF5A37931FA717D900E79921 /* RequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		BF7BD6151FAABE6900587C50 /* ManageOvertimeRequestApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageOvertimeRequestApiOutputModel.swift; sourceTree = "<group>"; };
+		BF7BD6171FAABE7900587C50 /* ManageOffRequestApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageOffRequestApiOutputModel.swift; sourceTree = "<group>"; };
+		BF7C50331FA81B6700924B0E /* ManageRequestProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageRequestProvider.swift; sourceTree = "<group>"; };
+		BF7C50351FA81B8B00924B0E /* ManageLeaveRequestApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageLeaveRequestApiOutputModel.swift; sourceTree = "<group>"; };
+		BF7C50371FA86C1000924B0E /* ManageRequestApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageRequestApiInputModel.swift; sourceTree = "<group>"; };
 		BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOTCell.swift; path = ../interfaces/RequestOTCell.swift; sourceTree = "<group>"; };
 		BFC037FC1F8B52F300DBE212 /* RequestOTCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestOTCell.xib; sourceTree = "<group>"; };
 		DF322323208842894208499E /* Pods-wsm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.debug.xcconfig"; sourceTree = "<group>"; };
@@ -642,6 +652,7 @@
 		202ED9CD1F6FCBCB00544A7D /* api */ = {
 			isa = PBXGroup;
 			children = (
+				BF7C50321FA81B4100924B0E /* ManageRequest */,
 				51A729551F9EF150002F9677 /* Statistic */,
 				B8C47F1B1F84BFAB0024F865 /* Base */,
 				518006491F99947F0023FF4B /* NotificationApi */,
@@ -1215,6 +1226,18 @@
 			name = ManageRequest;
 			sourceTree = "<group>";
 		};
+		BF7C50321FA81B4100924B0E /* ManageRequest */ = {
+			isa = PBXGroup;
+			children = (
+				BF7C50331FA81B6700924B0E /* ManageRequestProvider.swift */,
+				BF7C50351FA81B8B00924B0E /* ManageLeaveRequestApiOutputModel.swift */,
+				BF7C50371FA86C1000924B0E /* ManageRequestApiInputModel.swift */,
+				BF7BD6151FAABE6900587C50 /* ManageOvertimeRequestApiOutputModel.swift */,
+				BF7BD6171FAABE7900587C50 /* ManageOffRequestApiOutputModel.swift */,
+			);
+			name = ManageRequest;
+			sourceTree = "<group>";
+		};
 		E716D944208DF53FC79A9A96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1526,6 +1549,7 @@
 				202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */,
 				B8FCEEC71F8B719D0032136E /* FloatCompareValidator.swift in Sources */,
 				516A96451F959BCE002FCF85 /* ConfirmCreateRequestLeaveViewController.swift in Sources */,
+				BF7C50381FA86C1000924B0E /* ManageRequestApiInputModel.swift in Sources */,
 				202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */,
 				B85E1D5B1F73B12B00329529 /* LoginModel.swift in Sources */,
 				51E94E951F871EC6002368D3 /* RequestLeaveCell.swift in Sources */,
@@ -1535,6 +1559,7 @@
 				51A7295D1F9F2CA9002F9677 /* StatisticCell.swift in Sources */,
 				516A96831F974A45002FCF85 /* LeftMenuHeaderCell.swift in Sources */,
 				B85A25951F95B6FC007F8028 /* ConfirmCreateRequestOffViewController.swift in Sources */,
+				BF7C50341FA81B6700924B0E /* ManageRequestProvider.swift in Sources */,
 				5131FD6B1F72772000E0478B /* MenuGroup.swift in Sources */,
 				B81AF7201F72096A00E579B2 /* FSCalendar+Deprecated.m in Sources */,
 				516A96931F984039002FCF85 /* UserNationModel.swift in Sources */,
@@ -1566,6 +1591,7 @@
 				5180064D1F9995530023FF4B /* NotificationTrackableType.swift in Sources */,
 				B8CD7FA31F8E0D4200DC71B3 /* CardView.swift in Sources */,
 				B83516991F7A0C1B006B536E /* TimeSheetViewController.swift in Sources */,
+				BF7BD6161FAABE6900587C50 /* ManageOvertimeRequestApiOutputModel.swift in Sources */,
 				5131FD5E1F7276AA00E0478B /* NavigationController.swift in Sources */,
 				202ED9E21F6FCD4200544A7D /* Utils.swift in Sources */,
 				B8FA28271F78BF09004E16CB /* NotifySettingModel.swift in Sources */,
@@ -1597,6 +1623,7 @@
 				202ED9E01F6FCD0C00544A7D /* BaseViewController.swift in Sources */,
 				516A968F1F984003002FCF85 /* IdentifyInfoModel.swift in Sources */,
 				B8C47EFC1F84BEF80024F865 /* TimeSheetApiOutputModel.swift in Sources */,
+				BF7C50361FA81B8B00924B0E /* ManageLeaveRequestApiOutputModel.swift in Sources */,
 				51692C931F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift in Sources */,
 				51692C991F7CE6A900DE6248 /* RequestLeaveModel.swift in Sources */,
 				B835169B1F7A0C32006B536E /* TimeSheetViewCell.swift in Sources */,
@@ -1644,6 +1671,7 @@
 				51A7295F1F9F2CCA002F9677 /* StatisticGroupCell.swift in Sources */,
 				518006551F99A4C30023FF4B /* NotificationCell.swift in Sources */,
 				B81AF7251F72096A00E579B2 /* FSCalendarExtensions.m in Sources */,
+				BF7BD6181FAABE7900587C50 /* ManageOffRequestApiOutputModel.swift in Sources */,
 				B8CCDB4F1F94C12500A00E02 /* RequestOffDetailViewController.swift in Sources */,
 				5117021D1F832FC2001BC69A /* WorkSpaceShift.swift in Sources */,
 				B83516951F79FCD8006B536E /* TimeSheetDayModel.swift in Sources */,
