@@ -133,11 +133,11 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
             break
         //manage request
         case (1, 0):
-            break
+            selectedViewController = ManageRequestListViewController(type: .overTime)
         case (1, 1):
-            break
+            selectedViewController = ManageRequestListViewController(type: .dayOff)
         case (1, 2):
-            break
+            selectedViewController = ManageRequestListViewController(type: .others)
         //user data
         case (2, 0):
             selectedViewController = timeSheetViewController
