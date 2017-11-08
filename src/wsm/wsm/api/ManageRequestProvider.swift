@@ -19,11 +19,11 @@ fileprivate enum ManageRequestApiEndPoint: BaseApiTargetType {
         case .getListManageRequest(let requestType, _):
             switch requestType {
             case RequestType.others:
-                return "/api/dashboard/manager/request_leaves"
+                return AppConstant.apiVersion.appending("/dashboard/manager/request_leaves")
             case .overTime:
-                return "/api/dashboard/manager/request_ots"
+                return AppConstant.apiVersion.appending("/dashboard/manager/request_ots")
             case .dayOff:
-                return "/api/dashboard/manager/request_offs"
+                return AppConstant.apiVersion.appending("/dashboard/manager/request_offs")
             }
         case .handleRequest(_, _, _):
             return "/api/dashboard/manager/approvals"
@@ -47,9 +47,9 @@ fileprivate enum ManageRequestApiEndPoint: BaseApiTargetType {
                 case .others:
                     return "leave"
                 case .overTime:
-                    return "off"
-                case .dayOff:
                     return "ot"
+                case .dayOff:
+                    return "off"
                 }
             }
             
@@ -74,11 +74,7 @@ enum HandleRequestType {
 }
 
 final class ManageRequestProvider {
-    static let shared  = ManageRequestProvider()
-    var leaveRequests = [RequestLeaveModel]()
-    var otRequests = [RequestOtModel]()
-    var offRequests = [RequestDayOffModel]()
-
+    
     static func getListManageLeaveRequest(requestType: RequestType, manageRequestApiInput: ManageRequestApiInputModel) -> Promise<ManageLeaveRequestApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(ManageRequestApiEndPoint.getListManageRequest(requestType: requestType, manageRequestApiInput: manageRequestApiInput)))
     }
@@ -89,5 +85,9 @@ final class ManageRequestProvider {
     
     static func getListManageOffRequest(requestType: RequestType, manageRequestApiInput: ManageRequestApiInputModel) -> Promise<ManageOffRequestApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(ManageRequestApiEndPoint.getListManageRequest(requestType: requestType, manageRequestApiInput: manageRequestApiInput)))
+    }
+    
+    static func acceptRequest(requestType: RequestType, handleRequestType: HandleRequestType, requestIds: [Int]) -> Promise<ResponseData> {
+        return ApiProvider.shared.requestPromise(target: MultiTarget(ManageRequestApiEndPoint.handleRequest(requestType: requestType, handleRequestType: handleRequestType, requestIds: requestIds)))
     }
 }

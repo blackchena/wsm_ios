@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import InAppLocalize
 
 class RequestOtModel: BaseModel {
     
@@ -87,6 +88,13 @@ class RequestOtModel: BaseModel {
     
     func getNumberHours() -> Float? {
         return fromTime?.getDurationWithSpecificTime(date: endTime)
+    }
+    
+    func getDurationTimes() -> String? {
+        if let duration = self.getNumberHours() {
+            return String(duration).appending(" ").appending(LocalizationHelper.shared.localized("hours"))
+        }
+        return nil
     }
     
     func toApiInputMode() -> RequestOtApiInputModel {
