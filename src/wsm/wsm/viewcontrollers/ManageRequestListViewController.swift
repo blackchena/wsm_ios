@@ -10,16 +10,20 @@ import UIKit
 import InAppLocalize
 
 class ManageRequestListViewController: BaseViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
-        
+    
     var requestType: RequestType
     var manageRequestApiInput = ManageRequestApiInputModel()
+    
+    fileprivate var leaveRequests = [RequestLeaveModel]()
+    fileprivate var overtimeRequests = [RequestOtModel]()
+    fileprivate var dayOffRequests = [RequestDayOffModel]()
     
     fileprivate var currentPage = 1
     fileprivate var isLoading = false
     fileprivate let refreshControl = UIRefreshControl()
-
+    
     
     required init(type: RequestType) {
         self.requestType = type
@@ -32,7 +36,7 @@ class ManageRequestListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.title = requestType.title
         
         tableView.delegate = self
@@ -77,11 +81,11 @@ class ManageRequestListViewController: BaseViewController {
             .then {apiOutput -> Void in
                 if page > 1 {
                     if apiOutput.leaveRequests.count > 0 {
-                        ManageRequestProvider.shared.leaveRequests.append(contentsOf: apiOutput.leaveRequests)
+                        self.leaveRequests.append(contentsOf: apiOutput.leaveRequests)
                         self.tableView.reloadData()
                     }
                 } else {
-                    ManageRequestProvider.shared.leaveRequests = apiOutput.leaveRequests
+                    self.leaveRequests = apiOutput.leaveRequests
                     self.tableView.reloadData()
                 }
                 self.currentPage = page
@@ -99,11 +103,11 @@ class ManageRequestListViewController: BaseViewController {
             .then {apiOutput -> Void in
                 if page > 1 {
                     if apiOutput.overtimeRequests.count > 0 {
-                        ManageRequestProvider.shared.otRequests.append(contentsOf: apiOutput.overtimeRequests)
+                        self.overtimeRequests.append(contentsOf: apiOutput.overtimeRequests)
                         self.tableView.reloadData()
                     }
                 } else {
-                    ManageRequestProvider.shared.otRequests = apiOutput.overtimeRequests
+                    self.overtimeRequests = apiOutput.overtimeRequests
                     self.tableView.reloadData()
                 }
                 self.currentPage = page
@@ -121,11 +125,11 @@ class ManageRequestListViewController: BaseViewController {
             .then {apiOutput -> Void in
                 if page > 1 {
                     if apiOutput.offRequests.count > 0 {
-                        ManageRequestProvider.shared.offRequests.append(contentsOf: apiOutput.offRequests)
+                        self.dayOffRequests.append(contentsOf: apiOutput.offRequests)
                         self.tableView.reloadData()
                     }
                 } else {
-                    ManageRequestProvider.shared.offRequests = apiOutput.offRequests
+                    self.dayOffRequests = apiOutput.offRequests
                     self.tableView.reloadData()
                 }
                 self.currentPage = page
@@ -134,28 +138,32 @@ class ManageRequestListViewController: BaseViewController {
             }.always {
                 AlertHelper.hideLoading()
                 self.refreshControl.endRefreshing()
-                self.isLoading = false
         }
     }
 }
 
 extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ManageRequestTableViewCell")
-        if let cell = cell {
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ManageRequestTableViewCell") as! ManageRequestTableViewCell
+        switch requestType {
+        case .others:
+            cell.updateLeaveRequestCell(leaveRequest: leaveRequests[indexPath.row])
+        case .overTime:
+            cell.updateOvertimeRequestCell(overtimeRequest: overtimeRequests[indexPath.row])
+        case .dayOff:
+            cell.updateOffRequestCell(offRequest: dayOffRequests[indexPath.row])
         }
-        return UITableViewCell()
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch requestType {
         case .others:
-            return ManageRequestProvider.shared.leaveRequests.count
+            return self.leaveRequests.count
         case .overTime:
-            return ManageRequestProvider.shared.otRequests.count
+            return self.overtimeRequests.count
         case .dayOff:
-            return ManageRequestProvider.shared.offRequests.count
+            return self.dayOffRequests.count
         }
     }
     
@@ -166,15 +174,15 @@ extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         switch requestType {
         case .others:
-            if indexPath.row == ManageRequestProvider.shared.leaveRequests.count - 1 {
+            if indexPath.row == self.leaveRequests.count - 1 {
                 getListManageRequest(page: currentPage + 1)
             }
         case .overTime:
-            if indexPath.row == ManageRequestProvider.shared.otRequests.count - 1 {
+            if indexPath.row == self.overtimeRequests.count - 1 {
                 getListManageRequest(page: currentPage + 1)
             }
         case .dayOff:
-            if indexPath.row == ManageRequestProvider.shared.offRequests.count - 1 {
+            if indexPath.row == self.dayOffRequests.count - 1 {
                 getListManageRequest(page: currentPage + 1)
             }
         }
@@ -186,16 +194,49 @@ extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let accept = UITableViewRowAction(style: .normal, title: "Accept") { action, index in
-            // TODOs: handle accept action later
+        var requestId : Int?
+        var requestIds = [Int]()
+        switch self.requestType {
+        case .others:
+            requestId = self.leaveRequests[indexPath.row].id
+        case .overTime:
+            requestId = self.overtimeRequests[indexPath.row].id
+        case .dayOff:
+            requestId = self.dayOffRequests[indexPath.row].id
+        }
+        if let requestId = requestId {
+            requestIds = [requestId]
+        }
+        
+        let accept = UITableViewRowAction(style: .normal, title: LocalizationHelper.shared.localized("accept")) { action, index in
+            self.handleAceptRejectRequest(handleRequestType: .approveSingleRequest , requestIds: requestIds)
         }
         accept.backgroundColor = UIColor(hexString: "0x50A298")
         
-        let reject = UITableViewRowAction(style: .normal, title: "Reject") { action, index in
-            // TODOs: handle reject action later
+        let reject = UITableViewRowAction(style: .normal, title: LocalizationHelper.shared.localized("reject")) { action, index in
+            self.handleAceptRejectRequest(handleRequestType: .rejectSingleRequest, requestIds: requestIds)
         }
         reject.backgroundColor = UIColor.red
         
         return [reject, accept]
+    }
+    
+    private func handleAceptRejectRequest(handleRequestType: HandleRequestType ,requestIds: [Int]) {
+        AlertHelper.showLoading()
+        self.isLoading = true
+        ManageRequestProvider.acceptRequest(requestType: self.requestType, handleRequestType: handleRequestType, requestIds: requestIds)
+            .then{apiOutput -> Void in
+                self.isLoading = false
+                AlertHelper.showInfo(message: apiOutput.message, makesureLoadingHidden: true, handler:
+                    { (alert) in
+                        self.navigationController?.popViewController(animated: true)
+                })
+                self.getListManageRequest()
+            }.catch { error in
+                    AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
+                self.isLoading = false
+        }
     }
 }

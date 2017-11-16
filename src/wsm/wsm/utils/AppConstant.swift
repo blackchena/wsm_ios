@@ -19,6 +19,7 @@ class AppConstant {
 
     public static let debugAPIBaseUrl = "http://edev.framgia.vn"
     public static let productAPIBaseUrl = "http://wsm.framgia.vn"
+    public static let apiVersion = "/api/v2"
 
     public static let DateFormatEEEDisplay = "EEE, d MMM yyyy"
     public static let TimeFormat24HDisplay = "HH:mm"

@@ -43,6 +43,7 @@ class RequestDayOffModel: BaseModel {
     var handleByGroupName: String?
     var dayOffType: String?
     var canApproveRejectRequest: Bool?
+    var totalDayOff: String?
 
     init(){
 
@@ -81,6 +82,7 @@ class RequestDayOffModel: BaseModel {
         handleByGroupName <- map["handle_by_group_name"]
         dayOffType <- map["day_off_type"]
         canApproveRejectRequest <- map["can_approve_reject_request"]
+        totalDayOff <- map["total_day_off"]
     }
 
     func getRequestTimeString() -> String {
