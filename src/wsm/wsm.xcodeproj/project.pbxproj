@@ -14,6 +14,7 @@
 		202ED9E71F6FCE0A00544A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9E61F6FCE0A00544A7D /* LoginViewController.swift */; };
 		202ED9E91F6FCE3F00544A7D /* LoginControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9E81F6FCE3F00544A7D /* LoginControllerType.swift */; };
 		202ED9EB1F6FCE8600544A7D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202ED9EA1F6FCE8600544A7D /* AlertHelper.swift */; };
+		4B47430A1FC6D25C00745D53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B4743091FC6D25C00745D53 /* GoogleService-Info.plist */; };
 		5100D3B31F73535900F44329 /* LeftMenuHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */; };
 		5100D3B91F7356E100F44329 /* LeftMenuSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */; };
 		511600B81F9055F700B13102 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -302,6 +303,8 @@
 		202ED9E81F6FCE3F00544A7D /* LoginControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerType.swift; sourceTree = "<group>"; };
 		202ED9EA1F6FCE8600544A7D /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wsm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B4743061FC6B01100745D53 /* wsm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wsm.entitlements; sourceTree = "<group>"; };
+		4B4743091FC6D25C00745D53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuHeaderCell.xib; sourceTree = "<group>"; };
 		5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuSectionCell.xib; sourceTree = "<group>"; };
 		511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOffApiOutModel.swift; path = RequestOffApi/ListRequestOffApiOutModel.swift; sourceTree = "<group>"; };
@@ -626,6 +629,7 @@
 		202ED9B91F6FC42200544A7D /* wsm */ = {
 			isa = PBXGroup;
 			children = (
+				4B4743061FC6B01100745D53 /* wsm.entitlements */,
 				513B32741F8B43F400D0D770 /* customviews */,
 				B8FCEEC11F8B6BEF0032136E /* errors */,
 				51E63CB91F74C3A6008B0C89 /* localization */,
@@ -642,6 +646,7 @@
 				202ED9D71F6FCBCB00544A7D /* utils */,
 				202ED9D81F6FCBCB00544A7D /* viewcontrollers */,
 				202ED9BA1F6FC42200544A7D /* AppDelegate.swift */,
+				4B4743091FC6D25C00745D53 /* GoogleService-Info.plist */,
 				202ED9C11F6FC42200544A7D /* Assets.xcassets */,
 				202ED9C61F6FC42200544A7D /* Info.plist */,
 				B81AF6F81F7204FD00E579B2 /* wsm-Bridge-Header.h */,
@@ -1282,9 +1287,17 @@
 				TargetAttributes = {
 					202ED9B61F6FC42200544A7D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = DZNDUUNX92;
+						DevelopmentTeam = 32MSK5YDT8;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1376,6 +1389,7 @@
 				516A96741F9727AF002FCF85 /* ic_place_of_birth.png in Resources */,
 				5168BCCB1F739DBF00AA1287 /* ic_change_password.png in Resources */,
 				5168BCD31F739DBF00AA1287 /* ic_email.png in Resources */,
+				4B47430A1FC6D25C00745D53 /* GoogleService-Info.plist in Resources */,
 				BF52EEDA1FA1BD24002D76EE /* ManageRequestTableViewCell.xib in Resources */,
 				5100D3B91F7356E100F44329 /* LeftMenuSectionCell.xib in Resources */,
 				5168BCBC1F739DBF00AA1287 /* ic_clock.png in Resources */,
@@ -1835,15 +1849,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = DZNDUUNX92;
+				CODE_SIGN_ENTITLEMENTS = wsm/wsm.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 32MSK5YDT8;
 				INFOPLIST_FILE = wsm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fr.wsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.framgia.wsm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2cf66f20-07c3-4947-a46a-aa74fe4f71ce";
-				PROVISIONING_PROFILE_SPECIFIER = "WSM-Inhouse";
+				PROVISIONING_PROFILE = "0d577fad-bd5c-4c9c-a722-496c17be8f49";
+				PROVISIONING_PROFILE_SPECIFIER = "WSM-Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "wsm/wsm-Bridge-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1856,15 +1871,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = DZNDUUNX92;
+				CODE_SIGN_ENTITLEMENTS = wsm/wsm.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 32MSK5YDT8;
 				INFOPLIST_FILE = wsm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fr.wsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.framgia.wsm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2cf66f20-07c3-4947-a46a-aa74fe4f71ce";
-				PROVISIONING_PROFILE_SPECIFIER = "WSM-Inhouse";
+				PROVISIONING_PROFILE = "0d577fad-bd5c-4c9c-a722-496c17be8f49";
+				PROVISIONING_PROFILE_SPECIFIER = "WSM-Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "wsm/wsm-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
