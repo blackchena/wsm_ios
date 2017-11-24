@@ -12,6 +12,7 @@ import Moya
 import ObjectMapper
 import SwiftyUserDefaults
 import PromiseKit
+import FirebaseMessaging
 
 fileprivate enum LoginApiEndpoint: BaseApiTargetType {
     case login(String, String)
@@ -38,13 +39,14 @@ fileprivate enum LoginApiEndpoint: BaseApiTargetType {
     public var parameters: [String: Any]? {
         switch self {
         case .login(let email, let password):
-            let params: [String: Any] = [
-                "sign_in": [
-                    "email": email,
-                    "password": password
-                ]
+            var params: [String: Any] = [
+                "email": email,
+                "password": password
             ]
-            return params
+            if let fcmToken = Messaging.messaging().fcmToken {
+                params["device_id"] = fcmToken
+            }
+            return ["sign_in": params]
         default:
             return nil
         }

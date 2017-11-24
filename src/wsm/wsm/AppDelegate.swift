@@ -12,6 +12,8 @@ import SVProgressHUD
 import SwiftyUserDefaults
 import Fabric
 import Crashlytics
+import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,10 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppDelegate.initRootView()
         
         Fabric.with([Crashlytics.self])
-
+        registerForRemoteNotifications(application)
+        FirebaseApp.configure()
         return true
     }
-    
+
     static func initRootView() {
         if UserServices.isAlreadyLogin {
             showHomePage()
@@ -77,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                               animations: nil, completion: nil)
         }
     }
-    
+
     static func showLoginPage() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = mainStoryboard.instantiateInitialViewController()
@@ -91,22 +94,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // TODO: Handle notification data
+        completionHandler(.newData)
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-
+    private func registerForRemoteNotifications(_ application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { _, _ in })
+        } else {
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        application.registerForRemoteNotifications()
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
+}
 
+// MARK: - UNUserNotificationCenterDelegate
+
+@available(iOS 10.0, *)
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        // TODO: Handle notification data
+        completionHandler()
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
+                                -> Void) {
+        // TODO: Handle notification data
+        completionHandler([])
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
-    }
 }
