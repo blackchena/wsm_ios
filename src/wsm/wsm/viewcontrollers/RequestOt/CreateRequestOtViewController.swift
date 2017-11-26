@@ -12,6 +12,8 @@ import InAppLocalize
 
 class CreateRequestOtViewController: RequestBaseViewController {
     
+    private let errTimeShift = "your_time_can_not_in_lunch_break_time_of_company"
+    
     @IBOutlet weak var fromTextField: WsmTextField!
     @IBOutlet weak var toTextField: WsmTextField!
 
@@ -100,11 +102,15 @@ class CreateRequestOtViewController: RequestBaseViewController {
     @IBAction func nextBtnClick(_ sender: Any) {
         if isRequestValid() && requestModel.isValid(),
             let confirmOtVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOtViewController") as? ConfirmCreateRequestOtViewController {
-            self.requestModel.projectName = projectNameTextField.text
-            self.requestModel.reason = reasonTextField.text
-            confirmOtVc.requestModel = self.requestModel
-            confirmOtVc.listRequestDelegate = self.listRequestDelegate
-            self.navigationController?.pushViewController(confirmOtVc, animated: true)
+            if requestModel.isDuringLunchBreak() {
+                requestModel.projectName = projectNameTextField.text
+                requestModel.reason = reasonTextField.text
+                confirmOtVc.requestModel = requestModel
+                confirmOtVc.listRequestDelegate = listRequestDelegate
+                self.navigationController?.pushViewController(confirmOtVc, animated: true)
+            } else {
+                AlertHelper.showInfo(message: LocalizationHelper.shared.localized(errTimeShift))
+            }
         }
     }
 }
