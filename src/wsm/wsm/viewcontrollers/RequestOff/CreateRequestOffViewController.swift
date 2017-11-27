@@ -20,11 +20,15 @@ class CreateRequestOffViewController: RequestBaseViewController {
     //MARK: IBOutlet
     fileprivate let dayOffSectionIndex = 1
     fileprivate let offTypePicker = UIPickerView()
+    fileprivate let isOfficialStaff = UserServices.getLocalUserProfile()?.contractDate != nil
 
-    fileprivate let offTypeList: [DateOffType] = [.haveSalaryCompanyPay, .haveSalaryInsuranceCoverage, .noSalary]
+    fileprivate var offTypeList: [DateOffType] {
+        return isOfficialStaff ? [.haveSalaryCompanyPay, .haveSalaryInsuranceCoverage, .noSalary] : [.noSalary]
+    }
 
     fileprivate var currentRequestOffModel = RequestOffDetailApiInputModel()
     fileprivate var currentDateOffType: DateOffType = .haveSalaryCompanyPay
+
     fileprivate var reasonText: String?
     fileprivate var isValidating = false
 
@@ -53,8 +57,12 @@ class CreateRequestOffViewController: RequestBaseViewController {
         self.tableView?.estimatedRowHeight = 44
 
         //initial value
-        timeWithOffTypes[.haveSalary] = (currentRequestOffModel.offHaveSalaryFrom, currentRequestOffModel.offHaveSalaryTo)
+        if isOfficialStaff {
+            timeWithOffTypes[.haveSalary] = (currentRequestOffModel.offHaveSalaryFrom,
+                currentRequestOffModel.offHaveSalaryTo)
+        }
         timeWithOffTypes[.noSalary] = (currentRequestOffModel.offNoSalaryFrom, currentRequestOffModel.offNoSalaryTo)
+        currentDateOffType = isOfficialStaff ? .haveSalaryCompanyPay : .noSalary
 
         self.basicInfoHeaderView.isEditingRequest = currentRequestOffModel.id != nil
 
