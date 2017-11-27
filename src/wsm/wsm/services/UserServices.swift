@@ -58,7 +58,7 @@ class UserServices {
         saveUserSetting(userSettingResult: userSettingResult)
         saveLeaveTypeSettings(listLeaveTypeResult: listLeaveTypeResult)
         saveDayOffSettings(listDayOffResult: listDayOffResult)
-        saveNotificationData(noticaitions: notificationData)
+        saveNotificationData(notifications: notificationData)
     }
 
     public static func getLocalUserLogin() -> LoginModel? {
@@ -142,8 +142,8 @@ class UserServices {
         }
     }
 
-    public static func saveNotificationData(noticaitions: ListNotificatinApiOutputModel?) {
-        Defaults[listNotification] = noticaitions?.toJSONString()
+    public static func saveNotificationData(notifications: ListNotificatinApiOutputModel?) {
+        Defaults[listNotification] = notifications?.toJSONString()
     }
 
     public static func getLocalNotificationData() -> ListNotificatinApiOutputModel? {
