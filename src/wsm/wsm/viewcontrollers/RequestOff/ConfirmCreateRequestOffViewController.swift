@@ -167,6 +167,14 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
         }
     }
 
+    func popToListRequestOffIfNeeded() {
+        if !(navigationController?.viewControllers.first is ListRequestOffViewController) {
+            let newRootViewController = UIViewController.getStoryboardController(identifier: "ListRequestOffViewController")
+            navigationController?.replaceRootViewController(by: newRootViewController)
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
+
 }
 
 extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableViewDataSource {
@@ -270,7 +278,7 @@ extension ConfirmCreateRequestOffViewController: CreateRequestOffViewControllerT
         } else {
             self.listRequestDelegate?.didCreateRequest()
         }
-        _ = navigationController?.popToRootViewController(animated: true)
+        popToListRequestOffIfNeeded()
     }
 
     private func isEditingRequest() -> Bool {

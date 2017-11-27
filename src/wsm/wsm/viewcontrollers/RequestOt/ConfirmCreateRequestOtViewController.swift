@@ -56,7 +56,7 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
         RequestOtProvider.updateOTRequest(id: id, requestModel: requestModel)
             .then { apiOutput -> Void in
                 self.listRequestDelegate?.getListRequests()
-                self.navigationController?.popToRootViewController(animated: true)
+                self.popToListOtRequestIfNeeded()
             }.catch { error in
                 AlertHelper.showError(error: error)
             }.always {
@@ -68,13 +68,22 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
         RequestOtProvider.createOTRequest(requestModel: requestModel)
             .then { apiOutput -> Void in
                 self.listRequestDelegate?.didCreateRequest()
-                self.navigationController?.popToRootViewController(animated: true)
+                self.popToListOtRequestIfNeeded()
             }.catch { error in
                 AlertHelper.showError(error: error)
             }.always {
                 AlertHelper.hideLoading()
         }
     }
+
+    private func popToListOtRequestIfNeeded() {
+        if !(navigationController?.viewControllers.first is ListRequestOtViewController) {
+            let newRootViewController = UIViewController.getStoryboardController(identifier: "ListRequestOtViewController")
+            navigationController?.replaceRootViewController(by: newRootViewController)
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
+
 }
 
 extension ConfirmCreateRequestOtViewController: UITableViewDelegate, UITableViewDataSource {
