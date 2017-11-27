@@ -64,8 +64,11 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
     }
 
     func emptyFloatySelected(_ floaty: Floaty) {
-        let createOtVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
-        self.navigationController?.pushViewController(createOtVc, animated: true)
+        if let createRequestLeaveVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
+            as? CreateRequestLeaveViewController {
+            createRequestLeaveVc.listRequestDelegate = self
+            self.navigationController?.pushViewController(createRequestLeaveVc, animated: true)
+        }
     }
 
     @objc private func pullToRefreshHandler(_: Any) {
