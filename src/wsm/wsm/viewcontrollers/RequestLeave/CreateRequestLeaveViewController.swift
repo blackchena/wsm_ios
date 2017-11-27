@@ -771,14 +771,14 @@ extension CreateRequestLeaveViewController {
         if let special = currentUser?.special, let date = compensationEndDate {
             switch special {
             case .children:
-                if let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.childrenSpecialTime, to: date),
-                    correctDate > compensationFromDatePicker.date {
-                    compensationEndDate = correctDate
+                if leaveType.trackingTimeType != .both, let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.childrenSpecialTime, to: date),
+                        correctDate > compensationFromDatePicker.date {
+                        compensationEndDate = correctDate
                 }
             case .baby:
-                if let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.babySpecialTime, to: date),
-                    correctDate > compensationFromDatePicker.date {
-                    compensationEndDate = correctDate
+                if leaveType.trackingTimeType != .both, let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.babySpecialTime, to: date),
+                        correctDate > compensationFromDatePicker.date {
+                        compensationEndDate = correctDate
                 }
             default:
                 break
