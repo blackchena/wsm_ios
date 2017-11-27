@@ -705,7 +705,7 @@ extension CreateRequestLeaveViewController {
             let timeLunch = workspace.shifts[0].timeLunch,
             let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
             let timeOut = workspace.shifts[0].getTimeOutSpecial(),
-            let compensationDateStart = Date().createDateFromTimeOf(date: timeOut) else {
+            let compensationDateStart = Date(dateString: requestModel.checkinTime)?.createDateFromTimeOf(date: timeOut) else {
                 return
         }
 

@@ -9,6 +9,20 @@
 import Foundation
 
 extension Date {
+    
+    init?(dateString: String?) {
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = AppConstant.requestDateFormat
+        if let dateString = dateString {
+            if let d = dateStringFormatter.date(from: dateString) {
+                self.init(timeInterval: 0, since: d)
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
 
     func toString(dateFormat: String) -> String {
         let formater = DateFormatter()
