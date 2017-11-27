@@ -19,7 +19,9 @@ class LeftMenuViewController: UIViewController {
     var menuItems = [MenuItem]()
 
     let currentUser = UserServices.getLocalUserProfile()
-    let isManager = UserServices.getLocalUserLogin()?.isManager ?? false
+    // TODO update later
+    // let isManager = UserServices.getLocalUserLogin()?.isManager ?? false
+    let isManager = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +50,9 @@ class LeftMenuViewController: UIViewController {
         menuItems.append(MenuItem(image: "ic_calendar_timesheet",
                                   title: LocalizationHelper.shared.localized("working_calendar"),
                                   group: MenuGroup.userData))
-        menuItems.append(MenuItem(image: "ic_holiday_calendar",
-                                  title: LocalizationHelper.shared.localized("holiday_calendar"),
-                                  group: MenuGroup.userData))
+//        menuItems.append(MenuItem(image: "ic_holiday_calendar",
+//                                  title: LocalizationHelper.shared.localized("holiday_calendar"),
+//                                  group: MenuGroup.userData))
         menuItems.append(MenuItem(image: "ic_statistic_personal",
                                   title: LocalizationHelper.shared.localized("statistics_of_personal"),
                                   group: MenuGroup.userData))
@@ -141,9 +143,9 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
         //user data
         case (2, 0):
             selectedViewController = timeSheetViewController
+//        case (2, 1):
+//            break
         case (2, 1):
-            break
-        case (2, 2):
             selectedViewController = UIViewController.getStoryboardController(identifier: "StatisticViewController")
         //user request
         case (3, 0):
