@@ -169,11 +169,9 @@ class NotificationViewController: NoMenuBaseViewController {
             default: break
             }
             if nextViewControllerName.isEmpty { return }
-            let nextViewController = UIViewController.getStoryboardController(identifier: nextViewControllerName)
-            let mainNavigationController = navigationController
-            navigationController?.popViewController(animated: false, completion: {
-                mainNavigationController?.setViewControllers([nextViewController], animated: false)
-            })
+            let newRootViewController = UIViewController.getStoryboardController(identifier: nextViewControllerName)
+            navigationController?.replaceRootViewController(by: newRootViewController)
+            navigationController?.popToRootViewController(animated: true)
         }
     }
 

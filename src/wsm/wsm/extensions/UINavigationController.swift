@@ -10,11 +10,10 @@ import Foundation
 
 extension UINavigationController {
 
-    func popViewController(animated: Bool, completion: (() -> Void)? = nil) {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completion)
-        popViewController(animated: animated)
-        CATransaction.commit()
+    func replaceRootViewController(by viewController: UIViewController) {
+        viewControllers.removeFirst()
+        viewController.view.layoutSubviews()
+        viewControllers.insert(viewController, at: 0)
     }
 
 }
