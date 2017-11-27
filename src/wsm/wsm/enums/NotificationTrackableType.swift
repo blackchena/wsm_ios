@@ -9,14 +9,16 @@
 import Foundation
 
 enum NotificationTrackableType: String {
+
     case requestLeave = "RequestLeave"
     case requestOff = "RequestOff"
     case requestOt = "RequestOt"
+    case unidentified = "unidentified"
 
     func getIcon() -> UIImage? {
         var imageName = ""
         switch self {
-        case .requestLeave:
+        case .requestLeave, .unidentified:
             imageName = "ic_request_leave"
         case .requestOff:
             imageName = "ic_request_off"

@@ -53,7 +53,22 @@ class NotificationViewController: NoMenuBaseViewController {
     }
 
     @objc private func readAllNotifications() {
-        print("read all")
+        AlertHelper.showLoading()
+        NotificationProvider.readAllNotifications()
+            .then { response -> Void in
+                if !response.isSucceeded() { return }
+                NotificationProvider.shared.listNotifications.forEach({ $0.read = true })
+                NotificationProvider.shared.badgeValue = ""
+                self.updateLocalNotificaitonData(unreadCount: 0,
+                    notifications: NotificationProvider.shared.listNotifications)
+                self.tableView.reloadData()
+            }
+            .catch { error in
+                AlertHelper.showError(error: error)
+            }
+            .always {
+                AlertHelper.hideLoading()
+            }
     }
 
 
@@ -74,7 +89,7 @@ class NotificationViewController: NoMenuBaseViewController {
                         self.tableView.reloadData()
                     }
                 } else {
-                    UserServices.saveNotificationData(noticaitions: apiOutput)
+                    UserServices.saveNotificationData(notifications: apiOutput)
                     NotificationProvider.shared.listNotifications = apiOutput.listNotifications
                     self.tableView.reloadData()
                 }
@@ -90,10 +105,83 @@ class NotificationViewController: NoMenuBaseViewController {
                 self.tableView.tableFooterView = nil
         }
     }
+
+    func singleNotificationDidSelect(at indexPath: IndexPath) {
+        guard let notification = NotificationProvider.shared.listNotifications[safe: indexPath.row] else {
+            return
+        }
+        if notification.read == false {
+            readSingleNotification(notification)
+        } else {
+            navigateToNotificationDetail(notification)
+        }
+    }
+
+    private func readSingleNotification(_ notification: NotificationModel) {
+        guard let id = notification.id else { return }
+        AlertHelper.showLoading()
+        NotificationProvider.readSingleNotification(id: id)
+            .then { response -> Void in
+                if !response.isSucceeded() { return }
+                notification.read = true
+                if let badgeValue = NotificationProvider.shared.badgeValue, let unreadCount = Int(badgeValue) {
+                    NotificationProvider.shared.badgeValue = "\(unreadCount - 1)"
+                    self.updateLocalNotificaitonData(unreadCount: unreadCount,
+                        notifications: NotificationProvider.shared.listNotifications)
+                }
+                self.tableView.reloadData()
+                self.navigateToNotificationDetail(notification)
+            }
+            .catch { error in
+                AlertHelper.showError(error: error)
+            }
+            .always {
+                AlertHelper.hideLoading()
+            }
+    }
+
+    private func updateLocalNotificaitonData(unreadCount: Int, notifications: [NotificationModel]) {
+        let localNotificationData = UserServices.getLocalNotificationData()
+        localNotificationData?.unreadCount = unreadCount
+        localNotificationData?.listNotifications = notifications
+        UserServices.saveNotificationData(notifications: localNotificationData)
+    }
+
+    private func navigateToNotificationDetail(_ notification: NotificationModel) {
+        guard let permissionRawValue = notification.permission,
+              let permission = NotificationPermission(rawValue: permissionRawValue) else {
+            return
+        }
+        if notification.trackableType == .unidentified { return }
+        switch permission {
+        case .manager:
+            // TODO: Handle navigation with permission manager
+            break
+        case .staff:
+            var nextViewControllerName = ""
+            switch notification.trackableType {
+            case .requestLeave:
+                nextViewControllerName = "ListReuqestLeaveViewController"
+            case .requestOt:
+                nextViewControllerName = "ListRequestOtViewController"
+            case .requestOff:
+                nextViewControllerName = "ListRequestOffViewController"
+            default: break
+            }
+            if nextViewControllerName.isEmpty { return }
+            let nextViewController = UIViewController.getStoryboardController(identifier: nextViewControllerName)
+            let mainNavigationController = navigationController
+            navigationController?.popViewController(animated: false, completion: {
+                mainNavigationController?.setViewControllers([nextViewController], animated: false)
+            })
+        }
+    }
+
 }
 
 
 extension NotificationViewController: UITableViewDelegate, UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
         cell.updateCell(notification: NotificationProvider.shared.listNotifications[indexPath.row])
@@ -110,4 +198,9 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
             getListNotifications(page: currentPage + 1)
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        singleNotificationDidSelect(at: indexPath)
+    }
+
 }

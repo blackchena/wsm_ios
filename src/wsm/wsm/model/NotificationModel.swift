@@ -12,7 +12,7 @@ import ObjectMapper
 class NotificationModel: BaseModel {
 
     var id: Int?
-    var trackableType = NotificationTrackableType.requestLeave
+    var trackableType = NotificationTrackableType.unidentified
     var trackableId: Int?
     var ownerType = NotificationOwnerType.user
     var owner: NotificationOwnerModel?
