@@ -34,12 +34,31 @@ public class RequestOtApiInputModel: BaseModel {
     }
 
     func getOtTime() -> String {
+        let currentUser = UserServices.getLocalUserProfile()
+        let shift = currentUser?.workSpaces?.first?.shifts.first
         if let from = endTime?.toDate(dateFormat: AppConstant.requestDateFormat),
             let to = fromTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
             let duration = from.timeIntervalSince(to)
-            return String(format: "%.2f", duration / 3600)
+            var hourOt = duration / 3600
+            if let shift = shift {
+                if (containLunchTime(shift: shift) && hourOt > 4) {
+                    hourOt -= 1;
+                }
+            }
+            return String(format: "%.2f", hourOt)
         }
         return ""
+    }
+    
+    private func containLunchTime(shift: WorkSpaceShift) -> Bool {
+        if let timeLunch = shift.getTimeLunch(dateInput: fromTime),
+            let timeAfternoon = shift.getTimeAfternoon(dateInput: endTime),
+            let timeFrom =  self.fromTime?.toDate(dateFormat: AppConstant.requestDateFormat),
+            let timeEnd = self.endTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
+            return (timeFrom.compare(DateComparisonType.isEarlier(than: timeLunch))) &&
+                (timeEnd.compare(DateComparisonType.isLater(than: timeAfternoon)))
+        }
+        return false
     }
 
     func isValid() -> Bool {

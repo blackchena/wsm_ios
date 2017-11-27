@@ -90,4 +90,24 @@ class WorkSpaceShift : BaseModel {
         }
         return UserServices.getLocalUserProfile()?.special == .children ? Calendar.current.date(byAdding: .minute, value: AppConstant.childrenSpecialTime, to: date) : date
     }
+    
+    func getTimeLunch(dateInput: String?) -> Date? {
+        let hourFormat = timeLunch?.toString(dateFormat: AppConstant.TimeFormat24HDisplay)
+        let dateFormat = Date(dateString: dateInput)?.toString(dateFormat: AppConstant.onlyDateFormat)
+        if let hourFormat = hourFormat, let dateFormat = dateFormat {
+            let time = dateFormat + " - " + hourFormat
+            return time.toDate(dateFormat: AppConstant.requestDateFormat)
+        }
+        return nil
+    }
+    
+    func getTimeAfternoon(dateInput: String?) -> Date? {
+        let hourFormat = timeAfternoon?.toString(dateFormat: AppConstant.TimeFormat24HDisplay)
+        let dateFormat = Date(dateString: dateInput)?.toString(dateFormat: AppConstant.onlyDateFormat)
+        if let hourFormat = hourFormat, let dateFormat = dateFormat {
+            let time = dateFormat + " - " + hourFormat
+            return time.toDate(dateFormat: AppConstant.requestDateFormat)
+        }
+        return nil
+    }
 }
