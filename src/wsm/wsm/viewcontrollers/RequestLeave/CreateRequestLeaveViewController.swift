@@ -407,16 +407,16 @@ extension CreateRequestLeaveViewController {
 
     func isInLateTimeValid() -> Bool{
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
-            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
+            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(maxComeLate: leaveType.maxPerOne),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
                 return false
         }
-
         if selectedDate <= inDate {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("this_is_form_request_late_time_in_is_incorrect"))
             return false
@@ -438,11 +438,12 @@ extension CreateRequestLeaveViewController {
 
     func isInLateAfternoonTimeValid() -> Bool{
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeout = workspace.shifts[0].getTimeOutSpecial(),
             let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
-            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
+            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(maxComeLate: leaveType.maxPerOne),
             let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
                 return false
@@ -469,11 +470,12 @@ extension CreateRequestLeaveViewController {
 
     func isLeaveEarlyTimeValid() -> Bool {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
-            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(),
+            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(maxLevesEarly: leaveType.maxPerOne),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
                 return false
@@ -500,11 +502,12 @@ extension CreateRequestLeaveViewController {
 
     func isLeaveEarlyAfternoonTimeValid() -> Bool {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeout = workspace.shifts[0].getTimeOutSpecial(),
             let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
-            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(),
+            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(maxLevesEarly: leaveType.maxPerOne),
             let inDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let outDate = selectedDate.createDateFromTimeOf(date: timeout) else {
                 return false
@@ -531,11 +534,12 @@ extension CreateRequestLeaveViewController {
 
     func isCheckOutTimeValid() -> Bool {
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let selectedDate = trackingDatePicker.date.zeroSecond(),
             let timeIn = workspace.shifts[0].getTimeInSpecial(),
             let timeLunch = workspace.shifts[0].timeLunch,
-            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(),
+            let maxComeLate = workspace.shifts[0].getMaxComeLateSpecial(maxComeLate: leaveType.maxPerOne),
             let inDate = selectedDate.createDateFromTimeOf(date: timeIn),
             let luchDate = selectedDate.createDateFromTimeOf(date: timeLunch) else {
                 return false
@@ -574,7 +578,7 @@ extension CreateRequestLeaveViewController {
                 return false
         }
 
-        if selectedDate >= lunchDate && selectedDate <= afternoonDate {
+        if selectedDate > lunchDate && selectedDate < afternoonDate {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_in_lunch_break_time_of_company"))
             return false
         }
@@ -606,6 +610,7 @@ extension CreateRequestLeaveViewController {
         }
 
         let workspace = workSpaces[branchPicker.selectedRow(inComponent: 0)]
+        let leaveType = leaveTypes[leaveTypePicker.selectedRow(inComponent: 0)]
         guard workspace.shifts.count > 0,
             let checkInDate = checkInDatePicker.date.zeroSecond(),
             let selectedDate = checkOutDatePicker.date.zeroSecond(),
@@ -617,11 +622,11 @@ extension CreateRequestLeaveViewController {
             let afternoonDate = selectedDate.createDateFromTimeOf(date: timeAfternoon),
             let lunchDate = selectedDate.createDateFromTimeOf(date: timeLunch),
             let outDate = selectedDate.createDateFromTimeOf(date: timeOut),
-            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial() else {
+            let maxLevesEarly = workspace.shifts[0].getMaxLeavesEarlySpecial(maxLevesEarly: leaveType.maxPerOne) else {
                 return false
         }
 
-        if selectedDate >= lunchDate && selectedDate <= afternoonDate {
+        if selectedDate > lunchDate && selectedDate < afternoonDate {
             AlertHelper.showError(message: LocalizationHelper.shared.localized("your_time_can_not_in_lunch_break_time_of_company"))
             return false
         }
