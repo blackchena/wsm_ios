@@ -22,7 +22,7 @@ class LeaveTypeModel: BaseModel {
     var siblingId: String?
     var companyId: String?
     var maxLeaveDuration: Any?
-    var maxPerOne: Int?
+    var maxPerOne: Float?
     var unlimit: Bool?
     var isSuccessive: Bool?
     var numberExpireCompensationDate: Int?
