@@ -41,7 +41,6 @@ class CreateRequestOffViewController: RequestBaseViewController {
     private var currentProjectName: String?
 
     private var requestEditing: RequestDayOffModel?
-
     weak var listRequestDelegate: ListRequestDelegte?
 
 
@@ -406,8 +405,8 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
     fileprivate func onDayOffValueChange(cell: RequestTextFieldCell, bindingContext: Any?, value: String?) {
         if let cellDayOffSetting = bindingContext as? DayOffSettingModel {
-
-            let dayOffSettingBindedValue = Float.init(cell.textField.text ?? "")
+            let numberDayOff = cell.textField.replaceCommaByDot()
+            let dayOffSettingBindedValue = Float.init(numberDayOff ?? "")
 
             if let cellDayOffSettingId = cellDayOffSetting.id {
                 if let dayOffSettingBindedValue = dayOffSettingBindedValue {
@@ -514,12 +513,9 @@ extension CreateRequestOffViewController {
     func setupDayOffTextField(cell: RequestTextFieldCell, bySetting setting: DayOffSettingModel?) {
         if let setting = setting {
             cell.textField.placeholder = setting.dayOffAsString
-            cell.textField.keyboardType = .numberPad
             cell.bindingContext = setting
             cell.onTextChanged = self.onDayOffValueChange
-
             var validateRules = ValidationRuleSet<String>()
-
             let compareValidator = FloatCompareValidator(min: 0,
                                                          max: setting.remaining ?? 0,
                                                          isRequired: false,
