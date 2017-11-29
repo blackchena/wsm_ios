@@ -258,7 +258,7 @@ class TimeSheetViewCell: FSCalendarCell {
         }
 
         if displayDateSetting.isSpecialCase {
-            //TODOs:
+            appearancesStyleMustApply += [.none]
         }
 
     }
