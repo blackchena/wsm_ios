@@ -13,15 +13,12 @@ import PromiseKit
 
 class TimeSheetViewController: BaseViewController, FloatyDelegate {
 
-    //MARK: properties
+    // MARK: Properties
     fileprivate let floaty = Floaty()
     fileprivate var calendar: FSCalendar!
-    fileprivate let calenderIdentifier = "wsmCalendar"
-    fileprivate let calenderCellIdentifier = "calenderCellIdentifier"
+    fileprivate let calendarCellIdentifier = "calendarCellIdentifier"
     fileprivate var workingTimeSheets: TimeSheetModel?
-    fileprivate var gregorian: Calendar!
-    fileprivate var preMonthButton: UIButton!
-    fileprivate var nextMonthButton: UIButton!
+    fileprivate let gregorian = Calendar.calendarUS
     fileprivate var today = Calendar.calendarUS.todayOfCalendar
     private let buttonHeaderWidth: CGFloat = 40.0
     fileprivate var selectedTimeSheetDay: TimeSheetDayModel?
@@ -33,7 +30,6 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gregorian = Calendar.calendarUS
 
         timeSheetTableView.delegate = self
         timeSheetTableView.dataSource = self
@@ -47,7 +43,7 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
 
         // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(pullToRefreshHandler(_:)), for: .valueChanged)
-
+        initCalendar()
         initDateForToday()
     }
 
@@ -55,150 +51,66 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         fetchWorkingCalendarData(forDate: self.calendar.currentPage)
     }
 
-    //1. run API with today value
-    //2.1 check if: start ..-> today ..-> end working date => keep current page
-    //2.2 check if: today ..-> start ..-> end working date => this case never happend -> just set null for API return value -> display normal calendar
-    //2.3 check if: start ..-> end ..-> today working date => call API with value of current endWorkingDate.addMonth(1) value (month, year)
-    //2.3.1 move currrent page to next page
     private func initDateForToday() {
         AlertHelper.showLoading()
-
+        var initPage = today
         if let cutOffDate = UserServices.getLocalUserProfile()?.company?.cutOffDate,
             let dayOfToday = today.component(.day),
             dayOfToday > cutOffDate {
-            today = today.dateFor(.startOfMonth).adjust(.month, offset: 1)
+            initPage = today.dateFor(.startOfMonth).adjust(.month, offset: 1)
         }
-
-        TimesheetProvider.getUserTimeSheet(month: today.component(.month)!, year: today.component(.year)!)
+        guard let month = initPage.component(.month), let year = initPage.component(.year) else { return }
+        TimesheetProvider.getUserTimeSheet(month: month, year: year)
             .then { userTimeSheet -> Void in
-
-                self.workingTimeSheets = userTimeSheet.userTimeSheetData
-                if let workingTimeSheets = self.workingTimeSheets {
-                    let correctMonthOffSet = -self.correctMonthAdujstOffSet(startWorkingDate: workingTimeSheets.startDate?.dateFor(.startOfDay),
-                                                                            endWorkingDate: workingTimeSheets.endDate?.dateFor(.startOfDay),
-                                                                            currentPage: self.today)
-
-                    if correctMonthOffSet == 1 {
-                        let nextWorkingMonth = self.today.adjust(.month, offset: correctMonthOffSet)
-                        self.fetchWorkingCalendarData(forDate: nextWorkingMonth, withAnimation: false)
-                    } else if correctMonthOffSet == -1 {
-                        self.workingTimeSheets = nil
-                        AlertHelper.hideLoading()
-                    } else {
-                        //update cutOffDay on UserProfile
-                        if let userProfile = UserServices.getLocalUserProfile() {
-                            userProfile.company?.cutOffDate = workingTimeSheets.endDate?.component(.day)
-                            UserServices.saveUserProfile(userProfileResult: userProfile)
-                        }
-                        AlertHelper.hideLoading()
-                    }
+                guard let timeSheets = userTimeSheet.userTimeSheetData else { return }
+                self.workingTimeSheets = timeSheets
+                let offset = self.adjustMonthOffset(startWorkingDate: timeSheets.startDate,
+                    endWorkingDate: timeSheets.endDate, dateToCompare: self.today)
+                if offset == 0 {
+                    self.updateCalendar(page: initPage, animated: false)
+                    AlertHelper.hideLoading()
+                } else {
+                    self.fetchWorkingCalendarData(forDate: initPage.adjust(.month, offset: offset), animated: false)
                 }
             }.catch { error in
                 AlertHelper.showError(error: error)
-            }.always {
-                self.createFSCalendar(withToday: self.today)
-                self.calendar.setCurrentPage(self.today, animated: false)
-                self.calendar.reloadData()
-                self.timeSheetTableView.reloadData()
-        }
+            }
     }
 
-    func fetchWorkingCalendarData(forDate date: Date, withAnimation: Bool = true) {
-        firstly { _ -> Promise<TimeSheetApiOutputModel>  in
-
-            self.shouldShowTimeSheetDayDetail = false
-            self.timeSheetTableView.reloadData()
-            AlertHelper.showLoading()
-
-            return TimesheetProvider.getUserTimeSheet(month: date.component(.month)!, year: date.component(.year)!)
-            }.then { userTimeSheet -> Void in
-                if let workingTimeSheets = userTimeSheet.userTimeSheetData {
-                    self.workingTimeSheets = workingTimeSheets
-                    //update cutOffDay on UserProfile
-                    if let userProfile = UserServices.getLocalUserProfile() {
-                        userProfile.company?.cutOffDate = workingTimeSheets.endDate?.component(.day)
-                        UserServices.saveUserProfile(userProfileResult: userProfile)
-                    }
-
-                    self.correctCalendarDisplayCurrentPage(startWorkingDate: workingTimeSheets.startDate,
-                                                           endWorkingDate: workingTimeSheets.endDate,
-                                                           currentPage: self.calendar.currentPage,
-                                                           withAnimation: withAnimation)
-                }
+    func fetchWorkingCalendarData(forDate date: Date, animated: Bool = true) {
+        guard let month = date.component(.month), let year = date.component(.year) else { return }
+        AlertHelper.showLoading()
+        shouldShowTimeSheetDayDetail = false
+        timeSheetTableView.reloadData()
+        TimesheetProvider.getUserTimeSheet(month: month, year: year)
+            .then { userTimeSheet -> Void in
+                self.workingTimeSheets = userTimeSheet.userTimeSheetData
+                self.updateCalendar(page: date, animated: animated)
             }.recover { error in
                 AlertHelper.showErrorWithPromise(error: error)
             }.always {
                 self.refreshControl.endRefreshing()
                 AlertHelper.hideLoading()
-        }
-    }
-
-    /**
-     * each page which is have the calendar.currentPage is the first day of current month
-     * if new workingTimeSheets is nil -> keep current state
-     * 1. if the new startWorkingDay ->.. currentPage ->.. endWorkingDay |=> keep display currentPage
-     *
-     * 2. if the     currentPage ->.. new startWorkingDay ->.. endWorkingDay 
-     * 2.1   if the  currentPage && new startWorkingDay is the sameMonth |=> keep display currentPage
-     * 2.2   if the currentPage && new startWorkingDay is not the sameMonth |=> display next page
-     *
-     * 3. if the new startWorkingDay ->.. endWorkingDay ->.. currentPage |=> display previous page
-     * 3.1   if the  currentPage && new startWorkingDay is the sameMonth |=> keep display currentPage
-     * 3.2   if the currentPage && new startWorkingDay is not the sameMonth |=> display next page
-     */
-    private func correctMonthAdujstOffSet(startWorkingDate: Date?, endWorkingDate: Date?, currentPage: Date) -> Int {
-        var offset = 0
-        if let startWorkingDate = startWorkingDate,
-            let endWorkingDate = endWorkingDate {
-//            if (currentPage.compare(.isLater(than: startWorkingDate)) || currentPage.compare(.isSameDay(as: startWorkingDate))) &&
-//                (currentPage.compare(.isEarlier(than: endWorkingDate)) || currentPage.compare(.isSameDay(as: endWorkingDate))) {
-            if currentPage >= startWorkingDate && currentPage <= endWorkingDate {
-                //case 1
-                offset = 0
-//            } else if currentPage.compare(.isEarlier(than: startWorkingDate)) {
-            } else if currentPage < startWorkingDate {
-                //case 2
-//                if currentPage.compare(.isSameMonth(as: startWorkingDate)) {
-                if currentPage.compare(.isSameMonth(as: endWorkingDate)) {
-                    //case 2.1
-                    offset = 0
-                } else {
-                    //case 2.2
-                    offset = 1
-                }
-
-            } else if currentPage.compare(.isLater(than: endWorkingDate)) {
-                //case 3
-                if currentPage.compare(.isSameMonth(as: startWorkingDate)) {
-                    //case 2.1
-                    offset = 0
-                } else {
-                    //case 2.2
-                    offset = -1
-                }
             }
+    }
+
+    private func updateCalendar(page: Date, animated: Bool) {
+        calendar.isHidden = false
+        calendar.setCurrentPage(page, animated: animated)
+        calendar.reloadData()
+        timeSheetTableView.reloadData()
+    }
+
+    private func adjustMonthOffset(startWorkingDate: Date?, endWorkingDate: Date?, dateToCompare: Date) -> Int {
+        guard let startDate = startWorkingDate, let endDate = endWorkingDate else { return 0 }
+        if dateToCompare >= startDate, dateToCompare <= endDate {
+            return 0
+        } else if dateToCompare < startDate {
+            return -1
+        } else if dateToCompare > endDate {
+            return 1
         }
-
-        print("startWorkingDate: \(String(describing: startWorkingDate)) , endWorkingDate: \(String(describing: endWorkingDate)) , currentPage: \(currentPage) , offset: \(offset)")
-        return offset
-    }
-
-
-    /**
-     * Correct display of calendar page
-     */
-    private func correctCalendarDisplayCurrentPage(startWorkingDate: Date?, endWorkingDate: Date?, currentPage: Date, withAnimation: Bool = true) {
-        let offSet = self.correctMonthAdujstOffSet(startWorkingDate: startWorkingDate,
-                                                   endWorkingDate: endWorkingDate,
-                                                   currentPage: currentPage)
-        let newPage = currentPage.adjust(.month, offset: offSet)
-        self.calendar.setCurrentPage(newPage, animated: withAnimation)
-        self.calendar.reloadData()
-        self.timeSheetTableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        return 0
     }
 
     private func createRequestButton() {
@@ -232,44 +144,32 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         createRequestButton()
     }
 
-    func createFSCalendar(withToday: Date?) {
+    private func initCalendar() {
         let height: CGFloat = UIDevice.current.model.hasPrefix("iPad") ? 400 : 300
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: height))
 
-        let view = UIView(frame: CGRect(x: 0,
-                                        y: 0,
-                                        width: UIScreen.main.bounds.width,
-                                        height: height))
-        view.backgroundColor = UIColor.white
-
-        let calendar = FSCalendar(frame: view.frame, with: Calendar.calendarUS)
+        calendar = FSCalendar(frame: view.frame, with: gregorian)
         calendar.dataSource = self
         calendar.delegate = self
         view.addSubview(calendar)
-        self.calendar = calendar
-        calendar.accessibilityIdentifier = calenderIdentifier
-
         calendar.appearance.headerMinimumDissolvedAlpha = 0
         calendar.appearance.caseOptions = .headerUsesUpperCase
-
         calendar.calendarHeaderView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        calendar.appearance.headerTitleColor = UIColor.appBarTintColor
-        calendar.appearance.weekdayTextColor = UIColor.appBarTintColor
+        calendar.appearance.headerTitleColor = .appBarTintColor
+        calendar.appearance.weekdayTextColor = .appBarTintColor
         calendar.calendarWeekdayView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        calendar.appearance.titleSelectionColor = UIColor.darkText
+        calendar.appearance.titleSelectionColor = .darkText
         calendar.appearance.shouldRemovePlaceholderStyle(true)
-        calendar.register(TimeSheetViewCell.self, forCellReuseIdentifier: calenderCellIdentifier)
-        calendar.clipsToBounds = true // Remove top/bottom line
+        calendar.register(TimeSheetViewCell.self, forCellReuseIdentifier: calendarCellIdentifier)
+        calendar.clipsToBounds = true
         calendar.placeholderType = .fillHeadTail
-        calendar.appearance.titleTodayColor = UIColor.darkText
-
+        calendar.appearance.titleTodayColor = .darkText
         calendar.scrollEnabled = false
         calendar.swipeToChooseGesture.isEnabled = false
         calendar.allowsMultipleSelection = false
-        //        let scopeGesture = UIPanGestureRecognizer(target: calendar, action: #selector(calendar.handleScopeGesture(_:)));
-        //        calendar.addGestureRecognizer(scopeGesture)
+        calendar.isHidden = true
 
-        //init pre and next button on header
-        preMonthButton = UIButton(type: .roundedRect)
+        let preMonthButton = UIButton(type: .roundedRect)
         preMonthButton.frame = CGRect(x: 0 + 8, y: 0 + 5, width: buttonHeaderWidth, height: 34)
         preMonthButton.backgroundColor = UIColor.clear
         preMonthButton.layer.cornerRadius = 8
@@ -282,8 +182,9 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         preMonthButton.addTarget(self, action: #selector(preMonthButtonClicked), for: .touchUpInside)
         view.addSubview(preMonthButton)
 
-        nextMonthButton = UIButton(type: .roundedRect)
-        nextMonthButton.frame = CGRect(x: self.view.frame.size.width - buttonHeaderWidth - 8, y: 0 + 5, width: buttonHeaderWidth, height: 34)
+        let nextMonthButton = UIButton(type: .roundedRect)
+        nextMonthButton.frame = CGRect(x: view.frame.size.width - buttonHeaderWidth - 8, y: 0 + 5,
+            width: buttonHeaderWidth, height: 34)
         nextMonthButton.backgroundColor = UIColor.clear
         nextMonthButton.layer.cornerRadius = 8
         nextMonthButton.layer.borderWidth = 1
@@ -295,82 +196,84 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         nextMonthButton.addTarget(self, action: #selector(nextMonthButtonClicked), for: .touchUpInside)
         view.addSubview(nextMonthButton)
 
-        if let withToday = withToday {
-            calendar.today = withToday
-        }
-
+        calendar.today = today
         timeSheetTableView.tableHeaderView = view
     }
 }
 
+// MARK: - FSCalendarDataSource
+
 extension TimeSheetViewController: FSCalendarDataSource {
-    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-        return calendar.dequeueReusableCell(withIdentifier: calenderCellIdentifier, for: date, at: position)
-    }
 
-    func calendar(_ calendar: FSCalendar,
-                  willDisplay cell: FSCalendarCell,
-                  for date: Date,
-                  at monthPosition: FSCalendarMonthPosition) {
-
-        guard let timeSheetCell = cell as? TimeSheetViewCell else {
-            return
+    func numberOfRows(inMonth month: Date) -> Int {
+        if !calendar.currentPage.compare(.isSameMonth(as: month)) {
+            return 0
         }
-
-        timeSheetCell.applyStyleAppearanceForCell(dateForCell: date,
-                                                  dateStartWorking: self.workingTimeSheets?.startDate,
-                                                  dateEndWorking: self.workingTimeSheets?.endDate,
-                                                  displayDateSetting: self.workingTimeSheets?.timeSheetDays?.first(where: {
-                                                    $0.date?.compare(.isSameDay(as: date)) ?? false }))
-
+        guard let startDate = workingTimeSheets?.startDate, let endDate = workingTimeSheets?.endDate else {
+            return (month.numberOfDaysInMonth() / 7) + 1
+        }
+        let startOfMonth = month.dateFor(.startOfMonth)
+        let endOfMonth = month.dateFor(.endOfMonth)
+        let startCountDate = startDate.compare(.isEarlier(than: startOfMonth)) ? startDate : startOfMonth
+        let endCountDate = endDate.compare(.isEarlier(than: endOfMonth)) ? endDate : endOfMonth
+        let days = gregorian.dateComponents([.day], from: startCountDate, to: endCountDate).day ?? 0
+        let weeks = (days / 7) + 1
+        return weeks
     }
+
+    func numberOfHeadPlaceholders(forMonth month: Date) -> Int {
+        let startOfMonth = month.dateFor(.startOfDay)
+        guard let startDate = workingTimeSheets?.startDate?.dateFor(.startOfDay),
+              startDate.compare(.isEarlier(than: startOfMonth)) else {
+            return 0
+        }
+        return gregorian.dateComponents([.day], from: startDate.dateFor(.startOfWeek), to: startOfMonth).day ?? 0
+    }
+
+    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+        return calendar.dequeueReusableCell(withIdentifier: calendarCellIdentifier, for: date, at: position)
+    }
+
 }
+
+// MARK: - FSCalendarDelegate
 
 extension TimeSheetViewController: FSCalendarDelegate {
 
-    func numberOfHeadPlaceholders(forMonth month: Date) -> Int {
-        var mustAddNumber = 0
-
-        let dateStartOfMonth = month.dateFor(.startOfDay)
-        if let dateStartWorking = workingTimeSheets?.startDate?.dateFor(.startOfDay) {
-
-            if dateStartWorking.compare(.isEarlier(than: dateStartOfMonth)) {
-                let daysMustAdd = gregorian.dateComponents([.day], from: dateStartWorking.dateFor(.startOfWeek), to: dateStartOfMonth).day
-                mustAddNumber = daysMustAdd ?? 0
-            }
-        }
-
-        if mustAddNumber == 0 {
-            //if cannot get mustAddNumber or the case: dateStartOfMonth -> dateStartWorking, just fill the date of week containt dateStartOfMonth
-            let currentWeekday = gregorian.component(.weekday, from: month)
-            let number = ((currentWeekday - gregorian.firstWeekday) + 7) % 7
-            mustAddNumber = number
-        }
-
-        return mustAddNumber
-    }
-
-    func numberOfRows(inMonth month: Date) -> Int {
-        return 6
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date,
+                  at monthPosition: FSCalendarMonthPosition) {
+        guard let cell = cell as? TimeSheetViewCell else { return }
+        let startDate = workingTimeSheets?.startDate
+        let endDate = workingTimeSheets?.endDate
+        let timesheet = workingTimeSheets?.timeSheetDays?.first(where: {
+            $0.date?.compare(.isSameDay(as: date)) == true
+        })
+        cell.applyStyleAppearanceForCell(dateForCell: date, dateStartWorking: startDate, dateEndWorking: endDate,
+            displayDateSetting: timesheet)
     }
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.selectedTimeSheetDay = self.workingTimeSheets?.timeSheetDays?.first(where: {
-            $0.date?.compare(.isSameDay(as: date)) ?? false })
-
-        self.shouldShowTimeSheetDayDetail = true
-        self.timeSheetTableView.reloadData()
+        selectedTimeSheetDay = workingTimeSheets?.timeSheetDays?.first(where: {
+            $0.date?.compare(.isSameDay(as: date)) == true
+        })
+        shouldShowTimeSheetDayDetail = true
+        timeSheetTableView.reloadData()
     }
+
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        calendar.frame = CGRect(origin: calendar.frame.origin, size: bounds.size)
+    }
+
 }
 
 extension TimeSheetViewController {
 
     func preMonthButtonClicked(sender: UIButton!) {
-        fetchWorkingCalendarData(forDate: self.calendar.currentPage.adjust(.month, offset: -1), withAnimation: true)
+        fetchWorkingCalendarData(forDate: calendar.currentPage.adjust(.month, offset: -1))
     }
 
     func nextMonthButtonClicked(sender: UIButton!) {
-        fetchWorkingCalendarData(forDate: self.calendar.currentPage.adjust(.month, offset: 1), withAnimation: true)
+        fetchWorkingCalendarData(forDate: calendar.currentPage.adjust(.month, offset: 1))
     }
 }
 
