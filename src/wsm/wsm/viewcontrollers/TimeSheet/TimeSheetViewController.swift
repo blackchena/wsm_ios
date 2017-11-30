@@ -13,6 +13,12 @@ import PromiseKit
 
 class TimeSheetViewController: BaseViewController, FloatyDelegate {
 
+    private enum MonthOffset: Int {
+        case previousMonth = -1
+        case currentMonth = 0
+        case nextMonth = 1
+    }
+
     // MARK: Properties
     fileprivate let floaty = Floaty()
     fileprivate var calendar: FSCalendar!
@@ -53,24 +59,23 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
 
     private func initDateForToday() {
         AlertHelper.showLoading()
-        var initPage = today
-        if let cutOffDate = UserServices.getLocalUserProfile()?.company?.cutOffDate,
-            let dayOfToday = today.component(.day),
-            dayOfToday > cutOffDate {
-            initPage = today.dateFor(.startOfMonth).adjust(.month, offset: 1)
+        guard let month = today.component(.month), let year = today.component(.year) else {
+            return
         }
-        guard let month = initPage.component(.month), let year = initPage.component(.year) else { return }
         TimesheetProvider.getUserTimeSheet(month: month, year: year)
             .then { userTimeSheet -> Void in
-                guard let timeSheets = userTimeSheet.userTimeSheetData else { return }
+                guard let timeSheets = userTimeSheet.userTimeSheetData else {
+                    return
+                }
                 self.workingTimeSheets = timeSheets
                 let offset = self.adjustMonthOffset(startWorkingDate: timeSheets.startDate,
                     endWorkingDate: timeSheets.endDate, dateToCompare: self.today)
-                if offset == 0 {
-                    self.updateCalendar(page: initPage, animated: false)
+                if offset == .currentMonth {
+                    self.updateCalendar(page: self.today, animated: false)
                     AlertHelper.hideLoading()
                 } else {
-                    self.fetchWorkingCalendarData(forDate: initPage.adjust(.month, offset: offset), animated: false)
+                    self.fetchWorkingCalendarData(forDate: self.today.adjust(.month, offset: offset.rawValue),
+                        animated: false)
                 }
             }.catch { error in
                 AlertHelper.showError(error: error)
@@ -78,7 +83,9 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
     }
 
     func fetchWorkingCalendarData(forDate date: Date, animated: Bool = true) {
-        guard let month = date.component(.month), let year = date.component(.year) else { return }
+        guard let month = date.component(.month), let year = date.component(.year) else {
+            return
+        }
         AlertHelper.showLoading()
         shouldShowTimeSheetDayDetail = false
         timeSheetTableView.reloadData()
@@ -95,22 +102,23 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
     }
 
     private func updateCalendar(page: Date, animated: Bool) {
-        calendar.isHidden = false
         calendar.setCurrentPage(page, animated: animated)
         calendar.reloadData()
+        timeSheetTableView.isHidden = false
         timeSheetTableView.reloadData()
     }
 
-    private func adjustMonthOffset(startWorkingDate: Date?, endWorkingDate: Date?, dateToCompare: Date) -> Int {
-        guard let startDate = startWorkingDate, let endDate = endWorkingDate else { return 0 }
-        if dateToCompare >= startDate, dateToCompare <= endDate {
-            return 0
-        } else if dateToCompare < startDate {
-            return -1
-        } else if dateToCompare > endDate {
-            return 1
+    private func adjustMonthOffset(startWorkingDate: Date?, endWorkingDate: Date?, dateToCompare: Date) -> MonthOffset {
+        guard let startDate = startWorkingDate, let endDate = endWorkingDate else {
+            return .currentMonth
         }
-        return 0
+        if dateToCompare >= startDate, dateToCompare <= endDate {
+            return .currentMonth
+        } else if dateToCompare < startDate {
+            return .previousMonth
+        } else {
+            return .nextMonth
+        }
     }
 
     private func createRequestButton() {
@@ -167,7 +175,6 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         calendar.scrollEnabled = false
         calendar.swipeToChooseGesture.isEnabled = false
         calendar.allowsMultipleSelection = false
-        calendar.isHidden = true
 
         let preMonthButton = UIButton(type: .roundedRect)
         preMonthButton.frame = CGRect(x: 0 + 8, y: 0 + 5, width: buttonHeaderWidth, height: 34)
@@ -198,6 +205,7 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
 
         calendar.today = today
         timeSheetTableView.tableHeaderView = view
+        timeSheetTableView.isHidden = true
     }
 }
 
@@ -242,7 +250,9 @@ extension TimeSheetViewController: FSCalendarDelegate {
 
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date,
                   at monthPosition: FSCalendarMonthPosition) {
-        guard let cell = cell as? TimeSheetViewCell else { return }
+        guard let cell = cell as? TimeSheetViewCell else {
+            return
+        }
         let startDate = workingTimeSheets?.startDate
         let endDate = workingTimeSheets?.endDate
         let timesheet = workingTimeSheets?.timeSheetDays?.first(where: {

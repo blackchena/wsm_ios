@@ -56,7 +56,9 @@ class NotificationViewController: NoMenuBaseViewController {
         AlertHelper.showLoading()
         NotificationProvider.readAllNotifications()
             .then { response -> Void in
-                if !response.isSucceeded() { return }
+                if !response.isSucceeded() {
+                    return
+                }
                 NotificationProvider.shared.listNotifications.forEach({ $0.read = true })
                 NotificationProvider.shared.badgeValue = ""
                 self.updateLocalNotificaitonData(unreadCount: 0,
@@ -118,11 +120,15 @@ class NotificationViewController: NoMenuBaseViewController {
     }
 
     private func readSingleNotification(_ notification: NotificationModel) {
-        guard let id = notification.id else { return }
+        guard let id = notification.id else {
+            return
+        }
         AlertHelper.showLoading()
         NotificationProvider.readSingleNotification(id: id)
             .then { response -> Void in
-                if !response.isSucceeded() { return }
+                if !response.isSucceeded() {
+                    return
+                }
                 notification.read = true
                 if let badgeValue = NotificationProvider.shared.badgeValue, let unreadCount = Int(badgeValue) {
                     NotificationProvider.shared.badgeValue = "\(unreadCount - 1)"
@@ -152,7 +158,9 @@ class NotificationViewController: NoMenuBaseViewController {
               let permission = NotificationPermission(rawValue: permissionRawValue) else {
             return
         }
-        if notification.trackableType == .unidentified { return }
+        if notification.trackableType == .unidentified {
+            return
+        }
         switch permission {
         case .manager:
             // TODO: Handle navigation with permission manager
@@ -168,7 +176,9 @@ class NotificationViewController: NoMenuBaseViewController {
                 nextViewControllerName = "ListRequestOffViewController"
             default: break
             }
-            if nextViewControllerName.isEmpty { return }
+            if nextViewControllerName.isEmpty {
+                return
+            }
             let newRootViewController = UIViewController.getStoryboardController(identifier: nextViewControllerName)
             navigationController?.replaceRootViewController(by: newRootViewController)
             navigationController?.popToRootViewController(animated: true)
