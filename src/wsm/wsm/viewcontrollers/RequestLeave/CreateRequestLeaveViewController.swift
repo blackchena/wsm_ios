@@ -87,11 +87,11 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
 
         title = LocalizationHelper.shared.localized("edit_others_request")
 
-        branchTextField.isEnabled = false
+        branchTextField.isEnabled = true
         groupTextField.isEnabled = false
         leaveTypeTextField.isEnabled = false
 
-        branchTextField.textColor = UIColor.lightGray
+        branchTextField.textColor = UIColor.black
         groupTextField.textColor = UIColor.lightGray
         leaveTypeTextField.textColor = UIColor.lightGray
 
