@@ -127,10 +127,12 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
             self.navigationController?.pushViewController(createOffVc, animated: true)
         })
 
-        floaty.addButton(title: LocalizationHelper.shared.localized("create_request_leave"), hexColor: "#FA003F", image: nil, handler: { _ in
-            let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
-            self.navigationController?.pushViewController(createOffVc, animated: true)
-        })
+        if let userProfile = UserServices.getLocalUserProfile(), userProfile.isAbleCreateDayOffRequest() {            
+            floaty.addButton(title: LocalizationHelper.shared.localized("create_request_leave"), hexColor: "#FA003F", image: nil, handler: { _ in
+                let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
+                self.navigationController?.pushViewController(createOffVc, animated: true)
+            })
+        }
         floaty.addButton(title: LocalizationHelper.shared.localized("create_request_ot"), hexColor: "#1564C0", image: nil, handler: { _ in
             let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController")
             self.navigationController?.pushViewController(createOffVc, animated: true)

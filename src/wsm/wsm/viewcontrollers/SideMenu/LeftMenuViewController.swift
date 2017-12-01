@@ -60,9 +60,11 @@ class LeftMenuViewController: UIViewController {
         menuItems.append(MenuItem(image: "ic_overtime",
                                   title: LocalizationHelper.shared.localized("overtime"),
                                   group: MenuGroup.userRequest))
-        menuItems.append(MenuItem(image: "ic_day_off",
-                                  title: LocalizationHelper.shared.localized("day_off"),
-                                  group: MenuGroup.userRequest))
+        if let userProfile = UserServices.getLocalUserProfile(), userProfile.isAbleCreateDayOffRequest() {
+            menuItems.append(MenuItem(image: "ic_day_off",
+                                      title: LocalizationHelper.shared.localized("day_off"),
+                                      group: MenuGroup.userRequest))
+        }
         menuItems.append(MenuItem(image: "ic_clock",
                                   title: LocalizationHelper.shared.localized("other"),
                                   group: MenuGroup.userRequest))
