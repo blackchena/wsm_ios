@@ -27,7 +27,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
     }
 
     fileprivate var currentRequestOffModel = RequestOffDetailApiInputModel()
-    fileprivate var currentDateOffType: DateOffType = .haveSalaryCompanyPay
+    var currentDateOffType: DateOffType = .haveSalaryCompanyPay
 
     fileprivate var reasonText: String?
     fileprivate var isValidating = false
@@ -61,8 +61,6 @@ class CreateRequestOffViewController: RequestBaseViewController {
                 currentRequestOffModel.offHaveSalaryTo)
         }
         timeWithOffTypes[.noSalary] = (currentRequestOffModel.offNoSalaryFrom, currentRequestOffModel.offNoSalaryTo)
-        currentDateOffType = isOfficialStaff ? .haveSalaryCompanyPay : .noSalary
-
         self.basicInfoHeaderView.isEditingRequest = currentRequestOffModel.id != nil
 
         if let currentWorkSpace = currentWorkSpace {

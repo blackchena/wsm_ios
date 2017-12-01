@@ -208,12 +208,18 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
         }
     }
 
+    func getCurrentDateOffType() -> DateOffType {
+        let isNoSalary = confirmNoSalaryItems.count > 0
+        let isHaveSalaryInsuranceCoverage  = confirmHaveSalaryInsuranceCoverageItems.count > 0
+        return isNoSalary ? .noSalary : (isHaveSalaryInsuranceCoverage ? .haveSalaryInsuranceCoverage : .haveSalaryCompanyPay)
+    }
+    
     @IBAction func editButtonClicked(_ sender: Any) {
         if let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController") as? CreateRequestOffViewController {
 
             createOffVc.editRequestOff(request: self.selectedRequest, dayOffSettingBindedValues: self.dayOffSettingBindedValues)
             createOffVc.listRequestDelegate = self.listRequestDelegate
-
+            createOffVc.currentDateOffType = getCurrentDateOffType()
             self.navigationController?.pushViewController(createOffVc, animated: true)
         }
 
