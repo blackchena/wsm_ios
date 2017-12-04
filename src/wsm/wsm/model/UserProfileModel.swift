@@ -8,6 +8,23 @@
 import Foundation
 import ObjectMapper
 
+enum UserRole {
+    case official
+    case intern
+    case partime
+    
+    func getPrefixCode() -> String {
+        switch self {
+        case .official:
+            return "B"
+        case .intern:
+            return "I"
+        case .partime:
+            return "P"
+        }
+    }
+}
+
 class UserProfileModel: BaseModel {
 
     var email: String?
@@ -75,4 +92,23 @@ class UserProfileModel: BaseModel {
         }
         return nil
     }
+    
+    func isAbleCreateDayOffRequest() -> Bool {
+        return !isIntern() && !isPartTime()
+    }
+    
+    func isIntern() -> Bool {
+        guard let firstCharacterCode = employeeCode?.characters.first else {
+            return false
+        }
+        return UserRole.intern.getPrefixCode() == firstCharacterCode.description
+    }
+    
+    func isPartTime() -> Bool {
+        guard let firstCharacterCode = employeeCode?.characters.first else {
+            return false
+        }
+        return UserRole.partime.getPrefixCode() == firstCharacterCode.description
+    }
+    
 }
