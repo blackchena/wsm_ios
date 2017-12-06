@@ -10,6 +10,7 @@ import Foundation
 import Floaty
 
 extension Floaty {
+    
     func addButton(title: String, hexColor: String, image: UIImage? = nil) {
         let item = FloatyItem()
         item.buttonColor = UIColor.init(hexString: hexColor)
@@ -42,4 +43,23 @@ extension Floaty {
 
         addItem(item: item)
     }
+    
+    func addButton(title: String, hexColor: String?, image: UIImage?, titlePosition: FloatyItemLabelPositionType?) {
+        let item = FloatyItem()
+        if let hexColor = hexColor {
+            item.buttonColor = UIColor(hexString: hexColor)
+        }
+        if let image = image {
+            item.icon = image
+        }
+        item.titleColor = UIColor.white
+        item.titleLabel.backgroundColor = UIColor.init(hexString: "#333333")
+        item.titleLabel.textAlignment = .center
+        if let titlePosition = titlePosition {
+            item.titleLabelPosition = titlePosition
+        }
+        item.title = title
+        addItem(item: item)
+    }
+    
 }

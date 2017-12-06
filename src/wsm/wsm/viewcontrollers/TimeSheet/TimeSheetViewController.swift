@@ -20,7 +20,9 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
     }
 
     // MARK: Properties
-    fileprivate let floaty = Floaty()
+    @IBOutlet weak var helpFloaty: Floaty!
+    
+    fileprivate let requestFloaty = Floaty()
     fileprivate var calendar: FSCalendar!
     fileprivate let calendarCellIdentifier = "calendarCellIdentifier"
     fileprivate var workingTimeSheets: TimeSheetModel?
@@ -122,36 +124,44 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
     }
 
     private func createRequestButton() {
-        floaty.addButton(title: LocalizationHelper.shared.localized("create_others_request"), hexColor: "#35F128", image: nil, handler: { _ in
+        requestFloaty.addButton(title: LocalizationHelper.shared.localized("create_others_request"), hexColor: "#35F128", image: nil, handler: { _ in
             let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
             self.navigationController?.pushViewController(createOffVc, animated: true)
         })
 
-        if let userProfile = UserServices.getLocalUserProfile(), userProfile.isAbleCreateDayOffRequest() {            
-            floaty.addButton(title: LocalizationHelper.shared.localized("create_request_leave"), hexColor: "#FA003F", image: nil, handler: { _ in
+        if let userProfile = UserServices.getLocalUserProfile(), userProfile.isAbleCreateDayOffRequest() {
+            requestFloaty.addButton(title: LocalizationHelper.shared.localized("create_request_leave"), hexColor: "#FA003F", image: nil, handler: { _ in
                 let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController")
                 self.navigationController?.pushViewController(createOffVc, animated: true)
             })
         }
-        floaty.addButton(title: LocalizationHelper.shared.localized("create_request_ot"), hexColor: "#1564C0", image: nil, handler: { _ in
+        requestFloaty.addButton(title: LocalizationHelper.shared.localized("create_request_ot"), hexColor: "#1564C0", image: nil, handler: { _ in
             let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController")
             self.navigationController?.pushViewController(createOffVc, animated: true)
         })
+        
+        requestFloaty.paddingX = requestFloaty.paddingY
+        requestFloaty.fabDelegate = self
+        requestFloaty.buttonColor = UIColor.init(hexString: "#DB4336")
+        requestFloaty.buttonImage = UIImage(named: "ic_add")
 
-        floaty.paddingX = floaty.paddingY
-        floaty.fabDelegate = self
-        floaty.buttonColor = UIColor.init(hexString: "#DB4336")
-        floaty.buttonImage = UIImage(named: "ic_add")
-
-
-
-
-        self.view.addSubview(floaty)
+        self.view.addSubview(requestFloaty)
+    }
+    
+    private func createHelpButton() {
+        let object = HelpObject()
+        let helpObjects = object.helpObjects
+        for helpObject in helpObjects {
+            helpFloaty.addButton(title: helpObject.title, hexColor: helpObject.color, image: helpObject.image, titlePosition: .right)
+        }
+        helpFloaty.fabDelegate = self
+        helpFloaty.buttonColor = UIColor.white
     }
 
     override func loadView() {
         super.loadView()
         createRequestButton()
+        createHelpButton()
     }
 
     private func initCalendar() {
@@ -325,8 +335,6 @@ extension TimeSheetViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
     
 }
 
