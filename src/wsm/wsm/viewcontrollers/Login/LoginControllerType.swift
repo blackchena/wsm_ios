@@ -24,6 +24,9 @@ extension LoginControllerType where Self: UIViewController {
 
         LoginProvider.login(email, password)
             .then { loginResult -> UserProvider.AppSettingPromise in
+                if UserServices.getFCMToken() != nil {
+                    UserServices.saveFCMToken(nil)
+                }
 
                 //save authToken value
                 UserServices.saveAuthToken(token: loginResult.loginData?.authenToken)

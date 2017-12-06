@@ -22,6 +22,7 @@ class UserServices {
 
     private static let authToken = DefaultsKey<String?>("WSM-AUTH-TOKEN")
     private static let currentLocale = DefaultsKey<String?>("WSM-LOCALE")
+    private static let fcmToken = DefaultsKey<String?>("WSM-FCM-TOKEN")
 
     public static func clearData() {
         Defaults.removeAll()
@@ -37,6 +38,14 @@ class UserServices {
     
     static func clearToken() {
          Defaults[authToken] = nil
+    }
+
+    static func getFCMToken() -> String? {
+        return Defaults[fcmToken]
+    }
+
+    static func saveFCMToken(_ token: String?) {
+        Defaults[fcmToken] = token
     }
 
     public static func getAuthToken() -> String? {

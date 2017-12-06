@@ -43,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         registerForRemoteNotifications(application)
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        if let fcmToken = UserServices.getFCMToken() {
+            updateDeviceTokenIfNeeded(fcmToken)
+        }
         return true
     }
 
@@ -51,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             showHomePage()
         }
         else {
-            showLoginPage()
+            showLoginPageIfNeeded()
         }
     }
 
@@ -81,7 +85,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    static func showLoginPage() {
+    static func showLoginPageIfNeeded() {
+        if UIViewController.getTopViewController() is LoginViewController {
+            return
+        }
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = mainStoryboard.instantiateInitialViewController()
         
@@ -110,6 +117,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
         }
         application.registerForRemoteNotifications()
+    }
+
+    func updateDeviceTokenIfNeeded(_ fcmToken: String) {
+        if UserServices.getAuthToken() == nil {
+            UserServices.saveFCMToken(fcmToken)
+            return
+        }
+        LoginProvider.updateDeviceToken(fcmToken)
+            .then { response -> Void in
+                if !response.isSucceeded() {
+                    UserServices.saveFCMToken(fcmToken)
+                    return
+                }
+                UserServices.saveFCMToken(nil)
+            }
+            .catch { _ in
+                UserServices.saveFCMToken(fcmToken)
+            }
+    }
+
+}
+
+// MARK: - MessagingDelegate
+
+extension AppDelegate: MessagingDelegate {
+
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        updateDeviceTokenIfNeeded(fcmToken)
     }
 
 }
