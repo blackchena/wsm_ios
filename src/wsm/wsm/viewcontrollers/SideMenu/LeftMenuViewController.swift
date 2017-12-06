@@ -219,7 +219,7 @@ extension LeftMenuViewController {
         LoginProvider.logout()
             .then{ _ -> Void in
                 UserServices.clearAllUserData()
-                AppDelegate.showLoginPage()
+                AppDelegate.showLoginPageIfNeeded()
             }
             .always {
                 AlertHelper.hideLoading()

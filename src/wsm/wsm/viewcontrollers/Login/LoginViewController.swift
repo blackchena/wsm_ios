@@ -11,17 +11,13 @@ import SwiftyUserDefaults
 import InAppLocalize
 
 class LoginViewController: BaseViewController {
+
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var backgroundView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //dummy
-        emailTextField.text = "le.thanh.quang@framgia.com.edev"
-        passwordTextField.text = "123456"
-
         emailTextField.setLeftImage(size: emailTextField.frame.height,
                                     image: "ic_personal_information",
                                     color: UIColor.white)

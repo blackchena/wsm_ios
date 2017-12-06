@@ -17,6 +17,7 @@ import FirebaseMessaging
 fileprivate enum LoginApiEndpoint: BaseApiTargetType {
     case login(String, String)
     case logout
+    case updateDeviceToken(String)
 
     public var path: String {
         switch self {
@@ -24,6 +25,8 @@ fileprivate enum LoginApiEndpoint: BaseApiTargetType {
             return "/api/sign_in"
         case .logout:
             return "/api/sign_out"
+        case .updateDeviceToken:
+            return "/api/dashboard/update_device_ids"
         }
     }
 
@@ -33,6 +36,8 @@ fileprivate enum LoginApiEndpoint: BaseApiTargetType {
             return .post
         case .logout:
             return .delete
+        case .updateDeviceToken:
+            return .put
         }
     }
 
@@ -45,8 +50,11 @@ fileprivate enum LoginApiEndpoint: BaseApiTargetType {
             ]
             if let fcmToken = Messaging.messaging().fcmToken {
                 params["device_id"] = fcmToken
+                params["device_type"] = "ios"
             }
             return ["sign_in": params]
+        case .updateDeviceToken(let token):
+            return ["device_id": token]
         default:
             return nil
         }
@@ -54,6 +62,7 @@ fileprivate enum LoginApiEndpoint: BaseApiTargetType {
 }
 
 final class LoginProvider {
+
     static func login(_ email: String, _ password: String) -> Promise<LoginApiOutputModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(LoginApiEndpoint.login(email, password)))
     }
@@ -61,4 +70,9 @@ final class LoginProvider {
     static func logout() -> Promise<Void> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(LoginApiEndpoint.logout))
     }
+
+    static func updateDeviceToken(_ token: String) -> Promise<ResponseData> {
+        return ApiProvider.shared.requestPromise(target: MultiTarget(LoginApiEndpoint.updateDeviceToken(token)))
+    }
+
 }

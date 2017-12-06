@@ -54,7 +54,7 @@ final class AlertHelper {
                     nil, message: message, preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
                     UserServices.clearAllUserData()
-                    AppDelegate.showLoginPage()
+                    AppDelegate.showLoginPageIfNeeded()
                 })
                 alertLogout.addAction(okAction)
                 UIViewController.getTopViewController()?.present(alertLogout, animated: true, completion: nil)
