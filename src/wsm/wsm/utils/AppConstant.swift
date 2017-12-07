@@ -17,8 +17,8 @@ class AppConstant {
     public static let defaultLanguage = "en"
     public static let defaultLocale = Locale(identifier: "en_US")
 
-    public static let debugAPIBaseUrl = "http://edev.framgia.vn"
-    public static let productAPIBaseUrl = "http://wsm.framgia.vn"
+    public static let debugAPIBaseUrl = "https://edev.framgia.vn"
+    public static let productAPIBaseUrl = "https://wsm.framgia.vn"
     public static let apiVersion = "/api/v2"
 
     public static let DateFormatEEEDisplay = "EEE, d MMM yyyy"
