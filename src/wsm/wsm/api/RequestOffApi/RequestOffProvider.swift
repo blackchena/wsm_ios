@@ -15,6 +15,7 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
     case deleteRequestOff(id: Int)
     case createRequestOff(requestModel: RequestOffApiInputModel)
     case editRequestOff(id: Int, requestModel: RequestOffApiInputModel)
+    case getListTheReplacement(groupId: Int)
 
     public var path: String {
         switch self {
@@ -26,7 +27,8 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
             return "/api/dashboard/request_offs"
         case .editRequestOff(let id, _):
             return "/api/dashboard/request_offs/\(id)"
-
+        case .getListTheReplacement(let groupId):
+            return "api/dashboard/get_users_group?group_id=\(groupId)"
         }
     }
 
@@ -40,6 +42,8 @@ fileprivate enum RequestOffApiEndpoint: BaseApiTargetType {
             return .post
         case .editRequestOff:
             return .put
+        case .getListTheReplacement:
+            return .get
         }
     }
 
@@ -61,6 +65,7 @@ final class RequestOffProvider {
 
     static let shared  = RequestOffProvider()
     var listRequests = [RequestDayOffModel]()
+    var listTheReplacements = [ReplacementModel]()
 
     static func getListRequestOff(page: Int?, month: String?, status: Int?) -> Promise<ListRequestOffApiOutModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.getListRequestOff(page: page, month: month, status: status)))
@@ -76,5 +81,9 @@ final class RequestOffProvider {
 
     static func editRequestOff(id: Int, requestModel: RequestOffApiInputModel) -> Promise<RequestDayOffModel> {
         return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.editRequestOff(id: id, requestModel: requestModel)))
+    }
+    
+    static func getListTheReplacement(groupId: Int) -> Promise<ReplacementApiOutputModel> {
+        return ApiProvider.shared.requestPromise(target: MultiTarget(RequestOffApiEndpoint.getListTheReplacement(groupId: groupId)))
     }
 }

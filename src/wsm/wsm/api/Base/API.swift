@@ -161,7 +161,11 @@ public struct ApiProvider {
 }
 
 public func url(_ route: TargetType) -> String {
-    return route.baseURL.appendingPathComponent(route.path).absoluteString
+    let urlString = route.baseURL.appendingPathComponent(route.path).absoluteString
+    if let urlRemoveEncoding = urlString.removingPercentEncoding {
+        return urlRemoveEncoding
+    }
+    return urlString
 }
 
 private func JSONResponseDataFormatter(_ data: Data) -> Data {

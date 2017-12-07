@@ -35,6 +35,7 @@ class RequestOffDetailApiInputModel: BaseModel {
     var workSpaceId: Int = 0
     var groupId: Int = 0
     var numberDayOffNormal: Float = 0
+    var replacement: ReplacementModel?
 
     /**
      * Must convert all value on "special_dayoff_settings" to this with "key" is "special_dayoff_settings" -> "id"
@@ -78,6 +79,7 @@ class RequestOffDetailApiInputModel: BaseModel {
         offNoSalaryTo <- map["off_no_salary_to"]
 
         reason <- map["reason"]
+        replacement?.mapId(map: map)
     }
 
 }

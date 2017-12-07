@@ -16,6 +16,7 @@ public enum SectionType {
     case haveSalaryDateTimeItems
     case noSalaryDateTimeItems
     case reason
+    case replacement
 }
 
 class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
@@ -34,6 +35,10 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
     fileprivate var sectionTypes = [SectionType]()
     weak var listRequestDelegate: ListRequestDelegte?
 
+    fileprivate let confirmCreateRequestOffCellKey = "ConfirmCreateRequestOffCell"
+    fileprivate let replacementStringKey = "replacement"
+    fileprivate let replacementIconKey = "ic_reason"
+    fileprivate let numberOffReplacementRow = 1
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,6 +88,7 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
 
         //reason section
         sectionTypes.append(.reason)
+        sectionTypes.append(.replacement)
     }
 
     func appendDefaultItems() {
@@ -219,6 +225,17 @@ extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableVie
                 cell.updateCell(item: item)
             }
             return cell
+        case .replacement:
+            let cell = tableView.dequeueReusableCell(withIdentifier: confirmCreateRequestOffCellKey, for: indexPath)
+            if let cell = cell as? ConfirmCreateRequestOffCell {
+                let item = DetailModel(
+                    imageName: replacementIconKey,
+                    header: LocalizationHelper.shared.localized(replacementStringKey),
+                    value: self.requestOffInputDetailModel.replacement?.name
+                )
+                cell.updateCell(item: item)
+            }
+            return cell
         }
     }
 
@@ -243,6 +260,8 @@ extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableVie
             return confirmNoSalaryItems.count
         case .reason:
             return 1
+        case .replacement:
+            return numberOffReplacementRow
         }
     }
 
@@ -260,6 +279,8 @@ extension ConfirmCreateRequestOffViewController: UITableViewDelegate, UITableVie
         case .noSalaryDateTimeItems:
             return LocalizationHelper.shared.localized("off_no_salary")
         case .reason:
+            return nil
+        case .replacement:
             return nil
         }
     }

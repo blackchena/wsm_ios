@@ -30,6 +30,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
     var currentDateOffType: DateOffType = .haveSalaryCompanyPay
 
     fileprivate var reasonText: String?
+    fileprivate var replacement: ReplacementModel?
     fileprivate var isValidating = false
 
     fileprivate var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
@@ -155,6 +156,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
         currentRequestOffModel.numberDayOffNormal = dayOffSettingBindedValues[AppConstant.annualDayOffSettingId]?.0 ?? 0
 
         currentRequestOffModel.reason = reasonText ?? ""
+        currentRequestOffModel.replacement = replacement
     }
 
     @objc fileprivate func onOffTypeSelected() {
@@ -400,6 +402,10 @@ class CreateRequestOffViewController: RequestBaseViewController {
     fileprivate func reasonChanged(reason: String?) {
         reasonText = reason
     }
+    
+    fileprivate func replacementChange(theReplacement: ReplacementModel?){
+        replacement = theReplacement
+    }
 
     fileprivate func onDayOffValueChange(cell: RequestTextFieldCell, bindingContext: Any?, value: String?) {
         if let cellDayOffSetting = bindingContext as? DayOffSettingModel {
@@ -550,12 +556,12 @@ extension CreateRequestOffViewController {
         cell.setFromTimeConvention(convention: self.getTimeValueForCurrentOffType().0.paidFromPeriod)
         cell.setToTimeConvention(convention: self.getTimeValueForCurrentOffType().1.paidToPeriod)
         cell.reasonTextField.text = self.reasonText
-        
         cell.fromDatePickerDidSelected = self.onFromDaySelected
         cell.toDatePickerDidSelected = self.onToDaySelected
         cell.fromTimeConvetionDidSelected = self.onFromTimeConventionSelected
         cell.toTimeConvetionDidSelected = self.onToTimeConventionSelected
         cell.reasonTextFieldDidEndEditing = self.reasonChanged
+        cell.replacementTextfieldDidEndEditing = self.replacementChange
     }
 }
 
