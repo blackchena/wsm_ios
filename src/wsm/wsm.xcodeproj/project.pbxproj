@@ -309,6 +309,7 @@
 		202ED9EA1F6FCE8600544A7D /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wsm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B0A34831FC7FEB10068DD17 /* NotificationPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
+		4B132D781FD931DC00674B40 /* wsm-production.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "wsm-production.entitlements"; sourceTree = "<group>"; };
 		4B2300541FCBAAED00A94950 /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4B4743061FC6B01100745D53 /* wsm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wsm.entitlements; sourceTree = "<group>"; };
 		4B4743091FC6D25C00745D53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -640,6 +641,7 @@
 			isa = PBXGroup;
 			children = (
 				4B4743061FC6B01100745D53 /* wsm.entitlements */,
+				4B132D781FD931DC00674B40 /* wsm-production.entitlements */,
 				513B32741F8B43F400D0D770 /* customviews */,
 				B8FCEEC11F8B6BEF0032136E /* errors */,
 				51E63CB91F74C3A6008B0C89 /* localization */,
@@ -1302,7 +1304,7 @@
 				TargetAttributes = {
 					202ED9B61F6FC42200544A7D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 32MSK5YDT8;
+						DevelopmentTeam = DZNDUUNX92;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -1871,13 +1873,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = wsm/wsm.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 32MSK5YDT8;
+				DEVELOPMENT_TEAM = DZNDUUNX92;
 				INFOPLIST_FILE = wsm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.framgia.wsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr.wsm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d577fad-bd5c-4c9c-a722-496c17be8f49";
+				PROVISIONING_PROFILE = "7b0e2330-c1dd-40af-90b0-f949b3ef7e1b";
 				PROVISIONING_PROFILE_SPECIFIER = "WSM-Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "wsm/wsm-Bridge-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1891,16 +1893,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = wsm/wsm.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 32MSK5YDT8;
+				CODE_SIGN_ENTITLEMENTS = "wsm/wsm-production.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = DZNDUUNX92;
 				INFOPLIST_FILE = wsm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.framgia.wsm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr.wsm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d577fad-bd5c-4c9c-a722-496c17be8f49";
-				PROVISIONING_PROFILE_SPECIFIER = "WSM-Dev";
+				PROVISIONING_PROFILE = "2cf66f20-07c3-4947-a46a-aa74fe4f71ce";
+				PROVISIONING_PROFILE_SPECIFIER = "WSM-Inhouse";
 				SWIFT_OBJC_BRIDGING_HEADER = "wsm/wsm-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
