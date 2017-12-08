@@ -179,7 +179,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
 
     @IBAction func nextButtonClick(_ sender: Any) {
         if isRequestValid(),
-            let confirmVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestLeaveViewController")
+            let confirmVc = getViewController(identifier: "ConfirmCreateRequestLeaveViewController")
                 as? ConfirmCreateRequestLeaveViewController {
 
             self.requestModel.projectName = projectNameTextField.text

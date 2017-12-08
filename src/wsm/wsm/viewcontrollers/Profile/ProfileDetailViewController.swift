@@ -26,7 +26,7 @@ class ProfileDetailViewController: BaseViewController, FloatyDelegate {
         //table header view
         let headerView = ProfileHeaderView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.frame.width, height: 170))
         headerView.changePasswordButtonAction = { [weak self] in
-            let vc = UIViewController.getStoryboardController(identifier: "ChangePasswordViewController")
+            let vc = getViewController(identifier: "ChangePasswordViewController")
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         tableView.tableHeaderView = headerView

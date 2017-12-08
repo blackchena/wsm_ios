@@ -78,7 +78,7 @@ class ConfirmCreateRequestOtViewController: NoMenuBaseViewController {
 
     private func popToListOtRequestIfNeeded() {
         if !(navigationController?.viewControllers.first is ListRequestOtViewController) {
-            let newRootViewController = UIViewController.getStoryboardController(identifier: "ListRequestOtViewController")
+            let newRootViewController = getViewController(identifier: "ListRequestOtViewController")
             navigationController?.replaceRootViewController(by: newRootViewController)
         }
         navigationController?.popToRootViewController(animated: true)

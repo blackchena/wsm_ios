@@ -49,7 +49,7 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
     }
     
     @IBAction func editRequestButtonClicked(_ sender: Any) {
-        if let editVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController")
+        if let editVc = getViewController(identifier: "CreateRequestOtViewController")
             as? CreateRequestOtViewController {
             editVc.requestModel = otRequest.toApiInputMode()
             editVc.listRequestDelegate = self.listRequestDelegate

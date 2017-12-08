@@ -64,7 +64,7 @@ class ListReuqestLeaveViewController: BaseViewController, FloatyDelegate {
     }
 
     func emptyFloatySelected(_ floaty: Floaty) {
-        if let createRequestLeaveVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
+        if let createRequestLeaveVc = getViewController(identifier: "CreateRequestLeaveViewController")
             as? CreateRequestLeaveViewController {
             createRequestLeaveVc.listRequestDelegate = self
             self.navigationController?.pushViewController(createRequestLeaveVc, animated: true)
@@ -131,7 +131,7 @@ extension ListReuqestLeaveViewController: UITableViewDelegate, UITableViewDataSo
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRequest = RequestLeaveProvider.shared.listRequests[indexPath.row]
-        if let detailtVc = UIViewController.getStoryboardController(identifier: "RequestLeaveDetailViewController")
+        if let detailtVc = getViewController(identifier: "RequestLeaveDetailViewController")
                 as? RequestLeaveDetailViewController {
             detailtVc.selectedRequest = selectedRequest
             detailtVc.listRequestDelegate = self

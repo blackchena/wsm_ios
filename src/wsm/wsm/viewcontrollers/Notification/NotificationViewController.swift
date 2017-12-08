@@ -147,6 +147,7 @@ class NotificationViewController: NoMenuBaseViewController {
     }
 
     private func updateLocalNotificaitonData(unreadCount: Int, notifications: [NotificationModel]) {
+        UIApplication.shared.applicationIconBadgeNumber = unreadCount
         let localNotificationData = UserServices.getLocalNotificationData()
         localNotificationData?.unreadCount = unreadCount
         localNotificationData?.listNotifications = notifications
@@ -179,7 +180,7 @@ class NotificationViewController: NoMenuBaseViewController {
             if nextViewControllerName.isEmpty {
                 return
             }
-            let newRootViewController = UIViewController.getStoryboardController(identifier: nextViewControllerName)
+            let newRootViewController = getViewController(identifier: nextViewControllerName)
             navigationController?.replaceRootViewController(by: newRootViewController)
             navigationController?.popToRootViewController(animated: true)
         }

@@ -121,7 +121,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainViewController = sideMenuController!
         let rootViewController = mainViewController.rootViewController
-        let timeSheetViewController = UIViewController.getStoryboardController(identifier: "TimeSheetViewController")
+        let timeSheetViewController = getViewController(identifier: "TimeSheetViewController")
 
         guard let navigationController = rootViewController as? NavigationController else {
             return
@@ -132,7 +132,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
         switch (indexPath.section, indexPath.row) {
         //user profile
         case (0, 0):
-            selectedViewController = UIViewController.getStoryboardController(identifier: "ProfileDetailViewController")
+            selectedViewController = getViewController(identifier: "ProfileDetailViewController")
         case (0, 1):
             break
         //manage request
@@ -148,14 +148,14 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
 //        case (2, 1):
 //            break
         case (2, 1):
-            selectedViewController = UIViewController.getStoryboardController(identifier: "StatisticViewController")
+            selectedViewController = getViewController(identifier: "StatisticViewController")
         //user request
         case (3, 0):
-            selectedViewController = UIViewController.getStoryboardController(identifier: "ListRequestOtViewController")
+            selectedViewController = getViewController(identifier: "ListRequestOtViewController")
         case (3, 1):
-            selectedViewController = UIViewController.getStoryboardController(identifier: "ListRequestOffViewController")
+            selectedViewController = getViewController(identifier: "ListRequestOffViewController")
         case (3, 2):
-            selectedViewController = UIViewController.getStoryboardController(identifier: "ListReuqestLeaveViewController")
+            selectedViewController = getViewController(identifier: "ListReuqestLeaveViewController")
         default:
             break
         }
@@ -221,6 +221,7 @@ extension LeftMenuViewController {
         LoginProvider.logout()
             .then{ _ -> Void in
                 UserServices.clearAllUserData()
+                UIApplication.shared.applicationIconBadgeNumber = 0
                 AppDelegate.showLoginPageIfNeeded()
             }
             .always {

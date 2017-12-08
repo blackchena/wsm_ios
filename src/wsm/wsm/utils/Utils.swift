@@ -27,3 +27,8 @@ final class Utils {
         return CGSize(width: min(size.width, size.height), height: max(size.width, size.height))
     }
 }
+
+func getViewController(storyboardName: String = "Main", identifier: String) -> UIViewController {
+    let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+    return storyboard.instantiateViewController(withIdentifier: identifier)
+}

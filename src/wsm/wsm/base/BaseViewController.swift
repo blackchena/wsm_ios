@@ -61,7 +61,7 @@ class BaseViewController: UIViewController {
     }
 
     @objc private func showNotification() {
-        if let vc = UIViewController.getStoryboardController(identifier: "NotificationViewController") as? NotificationViewController {
+        if let vc = getViewController(identifier: "NotificationViewController") as? NotificationViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

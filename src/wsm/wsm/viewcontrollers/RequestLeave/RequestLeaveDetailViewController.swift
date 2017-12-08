@@ -121,7 +121,7 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
     }
 
     @IBAction func editButtonClick(_ sender: Any) {
-        if let editVc = UIViewController.getStoryboardController(identifier: "CreateRequestLeaveViewController")
+        if let editVc = getViewController(identifier: "CreateRequestLeaveViewController")
             as? CreateRequestLeaveViewController {
             editVc.requestModel = selectedRequest.toApiInputModel()
             self.navigationController?.pushViewController(editVc, animated: true)
