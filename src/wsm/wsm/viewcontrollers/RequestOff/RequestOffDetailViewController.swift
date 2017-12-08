@@ -26,7 +26,8 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
 
     fileprivate var confirmNoSalaryItems = [DetailModel]()
     fileprivate var sectionTypes = [SectionType]()
-
+    
+    fileprivate let detailCreateRequestOffCellKey = "DetailCreateRequestOffCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +114,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
 
         //reason section
         sectionTypes.append(.reason)
+        sectionTypes.append(.replacement)
     }
 
 
@@ -296,6 +298,8 @@ extension RequestOffDetailViewController: UITableViewDelegate, UITableViewDataSo
                 cell.updateCell(item: item)
             }
             return cell
+        case .replacement:
+            return tableView.dequeueReusableCell(withIdentifier: detailCreateRequestOffCellKey, for: indexPath)
         }
     }
 
@@ -320,6 +324,8 @@ extension RequestOffDetailViewController: UITableViewDelegate, UITableViewDataSo
             return confirmNoSalaryItems.count
         case .reason:
             return 1
+        case .replacement:
+            return 1
         }
     }
 
@@ -337,6 +343,8 @@ extension RequestOffDetailViewController: UITableViewDelegate, UITableViewDataSo
         case .noSalaryDateTimeItems:
             return LocalizationHelper.shared.localized("off_no_salary")
         case .reason:
+            return nil
+        case .replacement:
             return nil
         }
     }

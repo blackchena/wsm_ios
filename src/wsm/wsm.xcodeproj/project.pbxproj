@@ -156,7 +156,6 @@
 		516A96911F98401F002FCF85 /* VehicleInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96901F98401F002FCF85 /* VehicleInfoModel.swift */; };
 		516A96931F984039002FCF85 /* UserNationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A96921F984039002FCF85 /* UserNationModel.swift */; };
 		516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */; };
-		516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516C32111F70B11E0001D1E8 /* Main.storyboard */; };
 		51754C6F1F7895DC00CFABE8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C6E1F7895DC00CFABE8 /* Floaty.swift */; };
 		51754C721F78A71700CFABE8 /* ListRequestOtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */; };
 		51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */; };
@@ -196,6 +195,9 @@
 		8E77B4BC1FD53A4600BD6A00 /* HelpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77B4BB1FD53A4600BD6A00 /* HelpModel.swift */; };
 		8E77B4BE1FD53B0300BD6A00 /* HelpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77B4BD1FD53B0300BD6A00 /* HelpObject.swift */; };
 		8E817B3D1FD68297000A0709 /* ic_overtime_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E817B3C1FD68297000A0709 /* ic_overtime_2.png */; };
+		8ECA79B11FD8F4EC00D6DCF5 /* ReplacementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */; };
+		8ECA79B31FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA79B21FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift */; };
+		8ECA79B61FD8F58A00D6DCF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA79B41FD8F58A00D6DCF5 /* Main.storyboard */; };
 		B81AF71B1F72096A00E579B2 /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FB1F72096A00E579B2 /* FSCalendar.m */; };
 		B81AF71C1F72096A00E579B2 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FD1F72096A00E579B2 /* FSCalendarAppearance.m */; };
 		B81AF71D1F72096A00E579B2 /* FSCalendarCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = B81AF6FE1F72096A00E579B2 /* FSCalendarCalculator.m */; };
@@ -451,7 +453,6 @@
 		516A96901F98401F002FCF85 /* VehicleInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleInfoModel.swift; sourceTree = "<group>"; };
 		516A96921F984039002FCF85 /* UserNationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNationModel.swift; sourceTree = "<group>"; };
 		516C32101F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		516C32121F70B11E0001D1E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		51754C6E1F7895DC00CFABE8 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
 		51754C711F78A71700CFABE8 /* ListRequestOtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRequestOtViewController.swift; path = RequestOt/ListRequestOtViewController.swift; sourceTree = "<group>"; };
 		51754C751F78ACD300CFABE8 /* NoMenuBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMenuBaseViewController.swift; sourceTree = "<group>"; };
@@ -490,6 +491,9 @@
 		8E77B4BB1FD53A4600BD6A00 /* HelpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpModel.swift; sourceTree = "<group>"; };
 		8E77B4BD1FD53B0300BD6A00 /* HelpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpObject.swift; sourceTree = "<group>"; };
 		8E817B3C1FD68297000A0709 /* ic_overtime_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_overtime_2.png; path = resources/ic_overtime_2.png; sourceTree = "<group>"; };
+		8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacementModel.swift; sourceTree = "<group>"; };
+		8ECA79B21FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplacementApiOutputModel.swift; path = RequestOffApi/ReplacementApiOutputModel.swift; sourceTree = "<group>"; };
+		8ECA79B51FD8F58A00D6DCF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		B81AF6F81F7204FD00E579B2 /* wsm-Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wsm-Bridge-Header.h"; sourceTree = "<group>"; };
 		B81AF6FA1F72096A00E579B2 /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = libs/FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
 		B81AF6FB1F72096A00E579B2 /* FSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendar.m; path = libs/FSCalendar/FSCalendar.m; sourceTree = "<group>"; };
@@ -727,9 +731,9 @@
 		202ED9D51F6FCBCB00544A7D /* interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				8ECA79B41FD8F58A00D6DCF5 /* Main.storyboard */,
 				BF52EEDC1FA1BF64002D76EE /* ManageRequestListViewController.xib */,
 				BF52EED81FA1BD24002D76EE /* ManageRequestTableViewCell.xib */,
-				516C32111F70B11E0001D1E8 /* Main.storyboard */,
 				516C320F1F70B11E0001D1E8 /* LaunchScreen.storyboard */,
 				5100D3B11F73535900F44329 /* LeftMenuHeaderCell.xib */,
 				5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */,
@@ -748,6 +752,7 @@
 		202ED9D61F6FCBCB00544A7D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */,
 				B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */,
 				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
 				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
@@ -1154,6 +1159,7 @@
 		B8C47EF71F84BECE0024F865 /* RequestOffApi */ = {
 			isa = PBXGroup;
 			children = (
+				8ECA79B21FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift */,
 				B8FCEEBB1F8B201A0032136E /* RequestOffApiInputModel.swift */,
 				B8C47F061F84BF0D0024F865 /* ListDayOffSettingApiOutputModel.swift */,
 				511600BB1F905F0200B13102 /* ListRequestOffApiOutModel.swift */,
@@ -1367,7 +1373,6 @@
 				5168BCCF1F739DBF00AA1287 /* ic_edit.png in Resources */,
 				BFC037FE1F8B52F300DBE212 /* RequestOTCell.xib in Resources */,
 				5168BCC31F739DBF00AA1287 /* ic_status_cancel.png in Resources */,
-				516C32141F70B11E0001D1E8 /* Main.storyboard in Resources */,
 				5100D3B31F73535900F44329 /* LeftMenuHeaderCell.xib in Resources */,
 				516A96751F9727AF002FCF85 /* ic_vehecil.png in Resources */,
 				5168BCDD1F739DBF00AA1287 /* ic_menu_right.png in Resources */,
@@ -1417,6 +1422,7 @@
 				5168BCF81F739DBF00AA1287 /* ic_forwards.png in Resources */,
 				202ED9C21F6FC42200544A7D /* Assets.xcassets in Resources */,
 				5168BCCA1F739DBF00AA1287 /* ic_camera.png in Resources */,
+				8ECA79B61FD8F58A00D6DCF5 /* Main.storyboard in Resources */,
 				516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */,
 				516A967B1F973A5E002FCF85 /* ic_go_top.png in Resources */,
 				516A966D1F9727AF002FCF85 /* ic_distance_from_office.png in Resources */,
@@ -1578,6 +1584,7 @@
 				5154AF131FA030EB00B90E8B /* StatisticSectionHeaderView.swift in Sources */,
 				B81AF7261F72096A00E579B2 /* FSCalendarHeaderView.m in Sources */,
 				516A96481F959CE9002FCF85 /* ProfileDetailViewController.swift in Sources */,
+				8ECA79B11FD8F4EC00D6DCF5 /* ReplacementModel.swift in Sources */,
 				51A729541F9EEDB0002F9677 /* StatisticOfYearModel.swift in Sources */,
 				B8C47F191F84BF280024F865 /* UserProfileApiOutputModel.swift in Sources */,
 				51FBBA161F79FE4E004C32BD /* ConfirmCreateRequestOtViewController.swift in Sources */,
@@ -1740,6 +1747,7 @@
 				5154D9DC1F79DD6100A6A1B2 /* Date.swift in Sources */,
 				516A96851F974A45002FCF85 /* LeftMenuViewController.swift in Sources */,
 				B8259FD91F876F1000E5891D /* RequestDayOffModel.swift in Sources */,
+				8ECA79B31FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift in Sources */,
 				51754C761F78ACD300CFABE8 /* NoMenuBaseViewController.swift in Sources */,
 				B83516931F79FC2D006B536E /* TimeSheetModel.swift in Sources */,
 				516A96911F98401F002FCF85 /* VehicleInfoModel.swift in Sources */,
@@ -1763,10 +1771,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		516C32111F70B11E0001D1E8 /* Main.storyboard */ = {
+		8ECA79B41FD8F58A00D6DCF5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				516C32121F70B11E0001D1E8 /* Base */,
+				8ECA79B51FD8F58A00D6DCF5 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

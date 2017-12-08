@@ -18,22 +18,25 @@ class CreateRequestOffTimeCell: UITableViewCell {
     @IBOutlet weak var toDayTextField: WsmTextField!
     @IBOutlet weak var toTimeConventionTextField: WsmTextField!
     @IBOutlet weak var reasonTextField: WsmTextField!
-
+    @IBOutlet weak var replacementTextField: WsmTextField!
     fileprivate let timeConventionTypeList: [TimeConventionType] = [.am, .pm]
     fileprivate let fromTimeConventionPicker = UIPickerView()
     fileprivate let toTimeConventionPicker = UIPickerView()
-
     fileprivate let fromDatePicker = UIDatePicker()
     fileprivate let toDatePicker = UIDatePicker()
+    fileprivate let replacementPicker = UIPickerView()
 
     public var fromDatePickerDidSelected: ((CreateRequestOffTimeCell, Date) -> Bool)?
     public var toDatePickerDidSelected: ((CreateRequestOffTimeCell, Date) -> Bool)?
 
     public var fromTimeConvetionDidSelected: ((TimeConventionType) -> Bool)?
     public var toTimeConvetionDidSelected: ((TimeConventionType) -> Bool)?
-
+    public var replacementDidSelected: (() -> Bool)?
     public var reasonTextFieldDidEndEditing: ((String?) -> Void)?
-
+    public var replacementTextfieldDidEndEditing: ((ReplacementModel?) -> Void)?
+    fileprivate var listTheReplacement = [ReplacementModel]()
+    var currentTheReplacement: ReplacementModel?
+    
     public func setFromDate(date: Date?) {
         if let date = date {
             fromDatePicker.date = date
@@ -79,7 +82,6 @@ class CreateRequestOffTimeCell: UITableViewCell {
         toDatePicker.date = Date()
         toDayTextField.isPicker = true
 
-
         fromTimeConventionPicker.delegate = self
         fromTimeConventionTextField.setupPicker(picker: fromTimeConventionPicker,
                                                 selector: #selector(onFromTimeConventionSelected), target: self)
@@ -89,6 +91,29 @@ class CreateRequestOffTimeCell: UITableViewCell {
         toTimeConventionTextField.setupPicker(picker: toTimeConventionPicker,
                                               selector: #selector(onToTimeConventionSelected), target: self)
         setToTimeConvention(convention: .am)
+        
+        getListTheReplacement()
+        replacementPicker.delegate = self
+        replacementTextField.delegate = self
+        replacementTextField.setupPicker(
+            picker: replacementPicker,
+            selector: #selector(theReplacementPickerSelected),
+            target: self
+        )
+    }
+    
+    func getListTheReplacement() {
+        guard let groupId = UserServices.getLocalUserProfile()?.groups?.first?.id else {
+            return
+        }
+        RequestOffProvider.getListTheReplacement(groupId: groupId)
+            .then { apiOutput -> Void in
+                if let theReplacements = apiOutput.replacements {
+                    self.listTheReplacement.append(contentsOf: theReplacements)
+                }
+            }.catch { error in
+                AlertHelper.showError(error: error)
+            }
     }
 
     public func validateData() -> Bool {
@@ -141,8 +166,16 @@ class CreateRequestOffTimeCell: UITableViewCell {
         }
     }
 
+    @objc private func theReplacementPickerSelected() {
+        endEditing(true)
+    }
+    
     @IBAction func onReasonTextFieldEditingDidEnd(_ sender: Any) {
         reasonTextFieldDidEndEditing?(reasonTextField.text)
+    }
+    
+    @IBAction func onReplacementTextFieldEditingDidEnd(_ sender: Any){
+        replacementTextfieldDidEndEditing?(currentTheReplacement)
     }
 }
 
@@ -152,10 +185,32 @@ extension CreateRequestOffTimeCell:  UIPickerViewDelegate, UIPickerViewDataSourc
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == replacementPicker {
+            return listTheReplacement.count
+        }
         return timeConventionTypeList.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == replacementPicker {
+            return listTheReplacement[row].name
+        }
         return timeConventionTypeList[row].rawValue
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == replacementPicker {
+            replacementTextField.text =  listTheReplacement[row].name
+            currentTheReplacement = listTheReplacement[row]
+        }
+    }
+    
+}
+
+extension CreateRequestOffTimeCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == replacementTextField {
+            replacementTextField.text = self.currentTheReplacement?.name
+        }
     }
 }
