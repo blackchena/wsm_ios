@@ -66,7 +66,7 @@ class ListRequestOtViewController: BaseViewController, FloatyDelegate {
     }
     
     func emptyFloatySelected(_ floaty: Floaty) {
-        if let createOtVc = UIViewController.getStoryboardController(identifier: "CreateRequestOtViewController") as? CreateRequestOtViewController {
+        if let createOtVc = getViewController(identifier: "CreateRequestOtViewController") as? CreateRequestOtViewController {
             createOtVc.listRequestDelegate = self
             self.navigationController?.pushViewController(createOtVc, animated: true)
         }
@@ -134,7 +134,7 @@ extension ListRequestOtViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRequest = RequestOtProvider.shared.listRequestOts[indexPath.row]
-        if let otRequestDetailVc = UIViewController.getStoryboardController(identifier: "OtRequestDetailViewController") as? OtRequestDetailViewController {
+        if let otRequestDetailVc = getViewController(identifier: "OtRequestDetailViewController") as? OtRequestDetailViewController {
             otRequestDetailVc.otRequest = selectedRequest
             otRequestDetailVc.listRequestDelegate = self
             self.navigationController?.pushViewController(otRequestDetailVc, animated: true)

@@ -66,7 +66,7 @@ class ListRequestOffViewController: BaseViewController, FloatyDelegate {
     }
 
     func emptyFloatySelected(_ floaty: Floaty) {
-        if let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController") as? CreateRequestOffViewController {
+        if let createOffVc = getViewController(identifier: "CreateRequestOffViewController") as? CreateRequestOffViewController {
             createOffVc.listRequestDelegate = self
             self.navigationController?.pushViewController(createOffVc, animated: true)
         }
@@ -132,7 +132,7 @@ extension ListRequestOffViewController: UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRequest = RequestOffProvider.shared.listRequests[indexPath.row]
-        if let detailtVc = UIViewController.getStoryboardController(identifier: "RequestOffDetailViewController")
+        if let detailtVc = getViewController(identifier: "RequestOffDetailViewController")
             as? RequestOffDetailViewController {
             detailtVc.selectedRequest = selectedRequest
             detailtVc.listRequestDelegate = self

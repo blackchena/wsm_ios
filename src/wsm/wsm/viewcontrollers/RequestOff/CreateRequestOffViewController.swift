@@ -385,7 +385,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
     @IBAction func nextButtonClicked(_ sender: Any) {
         if validateDayOffField(),
-            let confirmVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOffViewController")
+            let confirmVc = getViewController(identifier: "ConfirmCreateRequestOffViewController")
                 as? ConfirmCreateRequestOffViewController {
 
                 confirmVc.dayOffSettingBindedValues = self.dayOffSettingBindedValues

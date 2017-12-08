@@ -215,7 +215,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
     }
     
     @IBAction func editButtonClicked(_ sender: Any) {
-        if let createOffVc = UIViewController.getStoryboardController(identifier: "CreateRequestOffViewController") as? CreateRequestOffViewController {
+        if let createOffVc = getViewController(identifier: "CreateRequestOffViewController") as? CreateRequestOffViewController {
 
             createOffVc.editRequestOff(request: self.selectedRequest, dayOffSettingBindedValues: self.dayOffSettingBindedValues)
             createOffVc.listRequestDelegate = self.listRequestDelegate

@@ -99,7 +99,7 @@ class ConfirmCreateRequestLeaveViewController: NoMenuBaseViewController {
                 }
                 let rootViewController = self.navigationController?.viewControllers.first
                 if !(rootViewController is ListReuqestLeaveViewController) {
-                    let newRootViewController = UIViewController.getStoryboardController(identifier: "ListReuqestLeaveViewController")
+                    let newRootViewController = getViewController(identifier: "ListReuqestLeaveViewController")
                     self.navigationController?.replaceRootViewController(by: newRootViewController)
                 }
                 self.navigationController?.popToRootViewController(animated: true)

@@ -101,7 +101,7 @@ class CreateRequestOtViewController: RequestBaseViewController {
 
     @IBAction func nextBtnClick(_ sender: Any) {
         if isRequestValid() && requestModel.isValid(),
-            let confirmOtVc = UIViewController.getStoryboardController(identifier: "ConfirmCreateRequestOtViewController") as? ConfirmCreateRequestOtViewController {
+            let confirmOtVc = getViewController(identifier: "ConfirmCreateRequestOtViewController") as? ConfirmCreateRequestOtViewController {
             if requestModel.isDuringLunchBreak() {
                 requestModel.projectName = projectNameTextField.text
                 requestModel.reason = reasonTextField.text

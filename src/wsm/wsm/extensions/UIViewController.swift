@@ -9,10 +9,6 @@
 import Foundation
 
 extension UIViewController {
-    open static func getStoryboardController(storyboardName: String = "Main", identifier: String) -> UIViewController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: identifier)
-    }
 
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,

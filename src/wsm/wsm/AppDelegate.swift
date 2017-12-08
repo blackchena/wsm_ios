@@ -60,9 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     static func showHomePage() {
-        let navigationController = UIViewController.getStoryboardController(identifier: "NavigationController")
-        let mainViewController = UIViewController.getStoryboardController(identifier: "MainViewController")
-        let timeSheetVc = UIViewController.getStoryboardController(identifier: "TimeSheetViewController")
+        let navigationController = getViewController(identifier: "NavigationController")
+        let mainViewController = getViewController(identifier: "MainViewController")
+        let timeSheetVc = getViewController(identifier: "TimeSheetViewController")
         
         guard let mainNav = navigationController as? NavigationController else {
             return
@@ -103,7 +103,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // TODO: Handle notification data
+        if #available(iOS 10, *) {
+        } else {
+            handleNotification(with: userInfo)
+        }
         completionHandler(.newData)
     }
 
@@ -137,6 +140,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
     }
 
+    func handleNotification(with userInfo: [AnyHashable: Any]) {
+        guard let jsonData = userInfo as? [String: Any] else {
+            return
+        }
+        if let aps = jsonData["aps"] as? [String: Any], let badge = aps["badge"] as? Int {
+            let localNotification = UserServices.getLocalNotificationData()
+            localNotification?.unreadCount = badge
+            UserServices.saveNotificationData(notifications: localNotification)
+            NotificationProvider.shared.badgeValue = "\(badge)"
+        }
+        let application = UIApplication.shared
+        guard application.applicationState == .inactive || application.applicationState == .background,
+              let permissionString = jsonData["permission"] as? String,
+              let permission = RemoteNotificationPermission(rawValue: permissionString),
+              UserServices.getAuthToken() != nil,
+              let mainViewController = application.keyWindow?.rootViewController as? MainViewController,
+              let navigationController = mainViewController.rootViewController as? UINavigationController else {
+            return
+        }
+        let nextViewController: UIViewController
+        switch permission {
+        case .requestOt:
+            nextViewController = getViewController(identifier: "ListRequestOtViewController")
+        case .requestLeave:
+            nextViewController = getViewController(identifier: "ListReuqestLeaveViewController")
+        case .requestOff:
+            nextViewController = getViewController(identifier: "ListRequestOffViewController")
+        case .manageRequestOt:
+            // TODO: Handle manager's notification later
+            nextViewController = getViewController(identifier: "TimeSheetViewController")
+            break
+        case .manageRequestLeave:
+            // TODO: Handle manager's notification later
+            nextViewController = getViewController(identifier: "TimeSheetViewController")
+            break
+        case .manageRequestOff:
+            // TODO: Handle manager's notification later
+            nextViewController = getViewController(identifier: "TimeSheetViewController")
+            break
+        }
+        navigationController.replaceRootViewController(by: nextViewController)
+        navigationController.popToRootViewController(animated: false)
+    }
+
 }
 
 // MARK: - MessagingDelegate
@@ -156,14 +203,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        // TODO: Handle notification data
+        handleNotification(with: response.notification.request.content.userInfo)
         completionHandler()
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
                                 -> Void) {
-        // TODO: Handle notification data
+        handleNotification(with: notification.request.content.userInfo)
         completionHandler([])
     }
 

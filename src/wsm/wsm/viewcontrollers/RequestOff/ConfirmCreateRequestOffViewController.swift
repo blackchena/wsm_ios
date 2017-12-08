@@ -169,7 +169,7 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
 
     func popToListRequestOffIfNeeded() {
         if !(navigationController?.viewControllers.first is ListRequestOffViewController) {
-            let newRootViewController = UIViewController.getStoryboardController(identifier: "ListRequestOffViewController")
+            let newRootViewController = getViewController(identifier: "ListRequestOffViewController")
             navigationController?.replaceRootViewController(by: newRootViewController)
         }
         navigationController?.popToRootViewController(animated: true)
