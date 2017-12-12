@@ -65,7 +65,8 @@ extension CreateRequestOffViewControllerType where Self: UIViewController {
         if dateOffType == .haveSalaryCompanyPay {
 
             let annualDayOff = DayOffSettingModel(id: AppConstant.annualDayOffSettingId, code: nil, companyId: nil,
-                                                  dayOffSettingId: nil, amount: nil, unit: nil,
+                                                  dayOffSettingId: nil, amount: nil,
+                                                  unit: LocalizationHelper.shared.localized("days"),
                                                   limitTimes: nil, loopType: nil,
                                                   payType: .haveSalaryCompanyPay,
                                                   name: LocalizationHelper.shared.localized("annual_leave_detail"),

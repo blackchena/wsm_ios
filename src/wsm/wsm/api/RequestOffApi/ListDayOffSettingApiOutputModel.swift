@@ -18,6 +18,6 @@ class ListDayOffSettingApiOutputModel: ResponseData {
         super.mapping(map: map)
 
         listDayOffSetting <- map["data.special_dayoff_settings"]
-        remainingDayOff <- map["remaining_days_off"]
+        remainingDayOff <- map["data.remaining_days_off"]
     }
 }
