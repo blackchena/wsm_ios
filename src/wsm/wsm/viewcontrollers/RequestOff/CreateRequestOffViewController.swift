@@ -60,6 +60,9 @@ class CreateRequestOffViewController: RequestBaseViewController {
         if isOfficialStaff {
             timeWithOffTypes[.haveSalary] = (currentRequestOffModel.offHaveSalaryFrom,
                 currentRequestOffModel.offHaveSalaryTo)
+            currentDateOffType = .haveSalaryCompanyPay
+        } else {
+             currentDateOffType = .noSalary
         }
         timeWithOffTypes[.noSalary] = (currentRequestOffModel.offNoSalaryFrom, currentRequestOffModel.offNoSalaryTo)
         self.basicInfoHeaderView.isEditingRequest = currentRequestOffModel.id != nil
