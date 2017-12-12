@@ -392,6 +392,7 @@
 "api_error_unknow_error" = "Có lỗi xảy ra, vui lòng thử lại!";
 "api_network_error" = "Kết nối mạng không sẵn sàng, vui lòng thử lại!";
 
+"days" = "ngày";
 "hours" = "giờ";
 "accept" = "Chấp nhận";
 "reject" = "Từ chối";

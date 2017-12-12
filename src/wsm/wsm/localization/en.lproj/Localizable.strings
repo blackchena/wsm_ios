@@ -403,6 +403,7 @@
 "api_error_unknow_error" = "An error occurred, please try again later!";
 "api_network_error" = "The network is unavailable, please try again later!";
 
+"days" = "days";
 "hours" = "hours";
 "accept" = "Accept";
 "reject" = "Reject";
