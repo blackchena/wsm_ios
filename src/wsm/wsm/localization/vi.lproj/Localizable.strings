@@ -70,7 +70,7 @@
 "off_have_salary" = "Nghỉ có lương";
 "number_day_off" = "Số ngày nghỉ";
 "off_no_salary" = "Nghỉ không lương";
-
+"replacement" = "Người làm thay";
 "off_type" = "Hình thức nghỉ";
 "annual_leave" = "Nghỉ phép thường niên (%.1f ngày)";
 "leave_for_marriage" = "Nghỉ kết hôn (%.1f ngày)";

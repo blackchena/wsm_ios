@@ -218,6 +218,7 @@
 "check_in_time" = "Checkin time";
 "check_out_time" = "Checkout time";
 "time_of_creation" = "Time of creation";
+"replacement" = "Replacement";
 
 "you_can_not_access" = "You can not access for this month!";
 "you_have_to_choose_start_date" = "You have to choose start date first!";

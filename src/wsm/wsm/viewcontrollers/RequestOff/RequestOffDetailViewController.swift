@@ -17,7 +17,7 @@ class RequestOffDetailViewController: NoMenuBaseViewController {
 
     weak var listRequestDelegate: ListRequestDelegte?
     var selectedRequest = RequestDayOffModel()
-    public var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
+    public var dayOffSettingBindedValues = [Int: (numberDayOff: Float, isBinded: Bool, dayOfSettingModel: DayOffSettingModel)]()
 
     fileprivate var confirmDefaultItems = [DetailModel]()
     fileprivate var confirmHaveSalaryCompanyPayItems = [DetailModel]()
@@ -299,11 +299,17 @@ extension RequestOffDetailViewController: UITableViewDelegate, UITableViewDataSo
             }
             return cell
         case .replacement:
-            return tableView.dequeueReusableCell(withIdentifier: detailCreateRequestOffCellKey, for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCreateRequestOffCell", for: indexPath) as? ConfirmCreateRequestOffCell else {
+                    return UITableViewCell()
+            }
+            let item = DetailModel(
+                imageName: "ic_reason",
+                header: LocalizationHelper.shared.localized("replacement"),
+                value: self.selectedRequest.replacement?.name)
+            cell.updateCell(item: item)
+            return cell
         }
     }
-
-
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTypes.count

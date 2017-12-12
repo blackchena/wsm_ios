@@ -10,6 +10,10 @@ import UIKit
 import Validator
 import InAppLocalize
 
+private struct CreateCellConstants {
+    static let numberToEnableReplacement = 3
+}
+
 class CreateRequestOffTimeCell: UITableViewCell {
 
     //MARK: IBOutlet
@@ -100,6 +104,7 @@ class CreateRequestOffTimeCell: UITableViewCell {
             selector: #selector(theReplacementPickerSelected),
             target: self
         )
+        replacementTextField.isEnabled = false
     }
     
     func getListTheReplacement() {
@@ -116,6 +121,16 @@ class CreateRequestOffTimeCell: UITableViewCell {
             }
     }
 
+    func enableReplacement(numberDayOff: Int?) {
+        if let numberDayOff = numberDayOff, numberDayOff >= CreateCellConstants.numberToEnableReplacement {
+            replacementTextField.isEnabled = true
+            replacementTextField.text = currentTheReplacement?.name
+        } else {
+            replacementTextField.isEnabled = false
+            replacementTextField.text = nil
+        }
+    }
+    
     public func validateData() -> Bool {
         var result = true
 
@@ -177,6 +192,7 @@ class CreateRequestOffTimeCell: UITableViewCell {
     @IBAction func onReplacementTextFieldEditingDidEnd(_ sender: Any){
         replacementTextfieldDidEndEditing?(currentTheReplacement)
     }
+    
 }
 
 extension CreateRequestOffTimeCell:  UIPickerViewDelegate, UIPickerViewDataSource {

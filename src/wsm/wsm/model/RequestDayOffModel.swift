@@ -44,6 +44,7 @@ class RequestDayOffModel: BaseModel {
     var dayOffType: String?
     var canApproveRejectRequest: Bool?
     var totalDayOff: String?
+    var replacement: ReplacementModel?
 
     init(){
 
@@ -82,6 +83,7 @@ class RequestDayOffModel: BaseModel {
         handleByGroupName <- map["handle_by_group_name"]
         dayOffType <- map["day_off_type"]
         canApproveRejectRequest <- map["can_approve_reject_request"]
+        replacement <- map["replacement"]
         totalDayOff <- map["total_day_off"]
     }
 
