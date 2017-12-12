@@ -30,4 +30,6 @@ class AppConstant {
     public static let requestDateTimeFormat = "HH:mm - dd/MM/yyyy"
 
     public static let annualDayOffSettingId = Int(Int32.min) //-2147483647, this number is not conflict with server
+    public static let dayOffFormat = "%@ (%.1f %@)"
+
 }

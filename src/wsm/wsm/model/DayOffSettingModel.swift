@@ -26,6 +26,34 @@ class DayOffSettingModel: BaseModel {
     var remaining: Float?
     var isAnnualLeave: Bool = false
 
+    private enum DayOffType: String {
+
+        case leaveForMarriage = "KH"
+        case leaveForChildsMarriage = "KHC"
+        case funeralLeave = "TG"
+        case maternityLeave = "TS"
+        case leaveForSickChild = "CO"
+        case wifesLaborLeave = "VS"
+        case miscarriageLeave = "ST"
+        case pregnancyExaminationLeave = "KT"
+        case sickLeave = "O"
+
+        var dayOffFormat: String {
+            switch self {
+            case .leaveForMarriage: return LocalizationHelper.shared.localized("leave_for_marriage")
+            case .leaveForChildsMarriage: return LocalizationHelper.shared.localized("leave_for_child_marriage")
+            case .funeralLeave: return LocalizationHelper.shared.localized("funeral_leave")
+            case .maternityLeave: return LocalizationHelper.shared.localized("maternity_leave")
+            case .leaveForSickChild: return LocalizationHelper.shared.localized("leave_for_care_of_sick_child")
+            case .wifesLaborLeave: return LocalizationHelper.shared.localized("wife_labor_leave")
+            case .miscarriageLeave: return LocalizationHelper.shared.localized("miscarriage_leave")
+            case .pregnancyExaminationLeave: return LocalizationHelper.shared.localized("pregnancy_examination_leave")
+            case .sickLeave: return LocalizationHelper.shared.localized("sick_leave")
+            }
+        }
+
+    }
+
     init(id: Int?, code: String?,
          companyId: String?,
          dayOffSettingId: Int?, amount: Float?,
@@ -50,10 +78,10 @@ class DayOffSettingModel: BaseModel {
     }
 
     var dayOffAsString: String {
-        return String(format: LocalizationHelper.shared.localized("off_type_with_amount"),
-                      name ?? "N/A",
-                      remaining ?? 0,
-                      unit ?? "N/A")
+        guard let code = self.code, let dayOffType = DayOffType(rawValue: code) else {
+            return String(format: AppConstant.dayOffFormat, name ?? "N/A", remaining ?? 0.0, unit ?? "N/A")
+        }
+        return String(format: dayOffType.dayOffFormat, remaining ?? 0.0)
     }
 
     required init?(map: Map) {

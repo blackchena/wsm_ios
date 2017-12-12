@@ -72,16 +72,16 @@
 "off_no_salary" = "Nghỉ không lương";
 
 "off_type" = "Hình thức nghỉ";
-"annual_leave" = "Nghỉ phép thường niên (%@ ngày)";
-"leave_for_marriage" = "Kết hôn (%@ ngày)";
-"leave_for_child_marriage" = "Con kết hôn (%@ ngày)";
-"funeral_leave" = "Nghỉ lễ tang (%@ ngày)";
-"leave_for_care_of_sick_child" = "Con ốm (%@ ngày)";
-"pregnancy_examination_leave" = "Nghỉ khám thai (%@ ngày)";
-"sick_leave" = "Nghỉ đau ốm (%@ ngày)";
-"miscarriage_leave" = "Nghỉ sẩy thai (%@ ngày)";
-"maternity_leave" = "Nghỉ thai sản (%@ ngày)";
-"wife_labor_leave" = "Vợ sinh con (%@ ngày)";
+"annual_leave" = "Nghỉ phép thường niên (%.1f ngày)";
+"leave_for_marriage" = "Nghỉ kết hôn (%.1f ngày)";
+"leave_for_child_marriage" = "Nghỉ con kết hôn (%.1f ngày)";
+"funeral_leave" = "Nghỉ tang gia (%.1f ngày)";
+"leave_for_care_of_sick_child" = "Nghỉ chăm con ốm (%.1f ngày)";
+"pregnancy_examination_leave" = "Nghỉ khám thai (%.1f ngày)";
+"sick_leave" = "Nghỉ ốm (%.1f ngày)";
+"miscarriage_leave" = "Nghỉ sẩy thai (%.1f ngày)";
+"maternity_leave" = "Nghỉ thai sản (%.1f ngày)";
+"wife_labor_leave" = "Nghỉ vợ sinh (%.1f ngày)";
 "annual_leave_detail" = "Nghỉ phép thường niên";
 "leave_for_marriage_detail" = "Kết hôn";
 "leave_for_child_marriage_detail" = "Con kết hôn";
@@ -358,7 +358,6 @@
 "number_hour" = "Số giờ OT";
 "no_network_connection" = "Không có kết nối mạng !";
 "close" = "Đóng";
-"off_type_with_amount" = "%@ (%.1f %@)";
 "off_type_limit_error" = "Không được quá %.1f %@!";
 "name" = "Tên";
 "empty_information" = "Chưa có thông tin !";
