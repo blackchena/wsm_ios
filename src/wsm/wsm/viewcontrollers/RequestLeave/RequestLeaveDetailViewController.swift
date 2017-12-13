@@ -123,6 +123,7 @@ class RequestLeaveDetailViewController: NoMenuBaseViewController {
     @IBAction func editButtonClick(_ sender: Any) {
         if let editVc = getViewController(identifier: "CreateRequestLeaveViewController")
             as? CreateRequestLeaveViewController {
+            editVc.listRequestDelegate = listRequestDelegate
             editVc.requestModel = selectedRequest.toApiInputModel()
             self.navigationController?.pushViewController(editVc, animated: true)
         }
