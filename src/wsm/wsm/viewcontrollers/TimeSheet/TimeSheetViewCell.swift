@@ -14,6 +14,7 @@ private enum TimeSheetCellStyleAppearance {
     case ot
     case morning(withColor: UIColor?)
     case afternoon(withColor: UIColor?)
+    case special(day: String, text: String)
 }
 
 class TimeSheetViewCell: FSCalendarCell {
@@ -108,8 +109,7 @@ class TimeSheetViewCell: FSCalendarCell {
 
             todayLayer.frame = CGRect(x: (self.bounds.size.width) / 2,
                                       y: ((titleHeight - diameter) / 2) + (borderLayer.lineWidth * 2),
-                                      width: self.shapeLayer.bounds.width / 5,
-                                      height: self.shapeLayer.bounds.width / 5)
+                                      width: 4.0, height: 4.0)
 
             todayLayer.path = UIBezierPath(arcCenter: CGPoint(x: 0,
                                                               y: todayLayer.frame.height / 2),
@@ -170,7 +170,14 @@ class TimeSheetViewCell: FSCalendarCell {
                 afternoonLayer.fillColor = withColor.cgColor
                 afternoonLayer.strokeColor = withColor.cgColor
             }
-
+        case .special(let dayOfMonth, let displayText):
+            let upperLayerFrame = CGRect(x: 0.0, y: 4.0, width: borderLayer.bounds.width,
+                height: borderLayer.bounds.height / 2.0)
+            let lowerLayerFrame = CGRect(origin: CGPoint(x: 0.0, y: upperLayerFrame.height), size: upperLayerFrame.size)
+            let upperTextLayer = createTextLayer(with: upperLayerFrame, text: dayOfMonth)
+            let lowerTextLayer = createTextLayer(with: lowerLayerFrame, text: displayText)
+            borderLayer.addSublayer(upperTextLayer)
+            borderLayer.addSublayer(lowerTextLayer)
         default:
             break
         }
@@ -187,7 +194,7 @@ class TimeSheetViewCell: FSCalendarCell {
         afternoonLayer.isHidden = true
         otLayer.isHidden = true
         borderLayer.isHidden = false
-
+        borderLayer.sublayers?.removeAll()
         borderLayer.frame = CGRect(x: (self.bounds.size.width - diameter) / 2,
                                    y: (titleHeight - diameter) / 2,
                                    width: diameter + borderLayer.lineWidth,
@@ -203,6 +210,17 @@ class TimeSheetViewCell: FSCalendarCell {
         for style in appearancesStyleMustApply {
             applyAppearanceStyles(style: style)
         }
+    }
+
+    private func createTextLayer(with frame: CGRect, text: String) -> CATextLayer {
+        let textLayer = CATextLayer()
+        textLayer.string = text
+        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.frame = frame
+        textLayer.fontSize = 10.0
+        textLayer.contentsScale = UIScreen.main.scale
+        textLayer.foregroundColor = UIColor.darkGray.cgColor
+        return textLayer
     }
 
     func applyStyleAppearanceForCell(dateForCell: Date, dateStartWorking: Date?, dateEndWorking: Date?, displayDateSetting: TimeSheetDayModel?) {
@@ -258,9 +276,15 @@ class TimeSheetViewCell: FSCalendarCell {
         }
 
         if displayDateSetting.isSpecialCase {
-            appearancesStyleMustApply += [.none]
+            let dayOfMonth = "\(dateForCell.getComponent(.day))"
+            let displayText = displayDateSetting.afternoonTextDisplay ?? ""
+            applySpecialStyleAppearance(dayOfMonth, displayText)
         }
 
+    }
+
+    private func applySpecialStyleAppearance(_ dayOfMonth: String, _ displayText: String) {
+        appearancesStyleMustApply += [TimeSheetCellStyleAppearance.special(day: dayOfMonth, text: displayText)]
     }
 
     private func resetStyleAppearance() {
