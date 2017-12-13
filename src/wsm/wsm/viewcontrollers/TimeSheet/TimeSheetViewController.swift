@@ -254,6 +254,17 @@ extension TimeSheetViewController: FSCalendarDataSource {
         return calendar.dequeueReusableCell(withIdentifier: calendarCellIdentifier, for: date, at: position)
     }
 
+    func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
+        let timesheet = workingTimeSheets?.timeSheetDays?.first(where: {
+            $0.date?.compare(.isSameDay(as: date)) == true
+        })
+        if timesheet?.isSpecialCase == true {
+            return ""
+        } else {
+            return "\(date.getComponent(.day))"
+        }
+    }
+
 }
 
 // MARK: - FSCalendarDelegate
