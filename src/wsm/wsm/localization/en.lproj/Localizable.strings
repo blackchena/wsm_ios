@@ -80,16 +80,16 @@
 "you_are_unauthorized_to_access" = "You are unauthorized to access!";
 
 "off_type" = "Off type";
-"annual_leave" = "Annual leave (%@ days)";
-"leave_for_marriage" = "Leave for marriage (%@ days)";
-"leave_for_child_marriage" = "Leave for child\'s marriage (%@ days)";
-"funeral_leave" = "Funeral leave (%@ days)";
-"leave_for_care_of_sick_child" = "Leave for care of sick child (%@ days)";
-"pregnancy_examination_leave" = "Pregnancy examination leave (%@ days)";
-"sick_leave" = "Sick leave (%@ days)";
-"miscarriage_leave" = "Miscarriage leave (%@ days)";
-"maternity_leave" = "Maternity leave (%@ days)";
-"wife_labor_leave" = "Wife’s labor leave (%@ days)";
+"annual_leave" = "Annual leave (%.1f days)";
+"leave_for_marriage" = "Leave for marriage (%.1f days)";
+"leave_for_child_marriage" = "Leave for child\'s marriage (%.1f days)";
+"funeral_leave" = "Funeral leave (%.1f days)";
+"leave_for_care_of_sick_child" = "Leave for care of sick child (%.1f days)";
+"pregnancy_examination_leave" = "Pregnancy examination leave (%.1f days)";
+"sick_leave" = "Sick leave (%.1f days)";
+"miscarriage_leave" = "Miscarriage leave (%.1f days)";
+"maternity_leave" = "Maternity leave (%.1f days)";
+"wife_labor_leave" = "Wife’s labor leave (%.1f days)";
 "annual_leave_detail" = "Annual leave";
 "leave_for_marriage_detail" = "Leave for marriage";
 "leave_for_child_marriage_detail" = "Leave for child\'s marriage";
@@ -369,7 +369,6 @@
 "number_hour" = "Number hours";
 "no_network_connection" = "No Network Connection !";
 "close" = "Close";
-"off_type_with_amount" = "%@ (%.1f %@)";
 "off_type_limit_error" = "Not greater than %.1f %@!";
 "name" = "Name";
 "empty_information" = "Empty !";
