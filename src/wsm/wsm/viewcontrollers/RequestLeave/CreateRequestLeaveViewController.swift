@@ -710,7 +710,8 @@ extension CreateRequestLeaveViewController {
             let timeLunch = workspace.shifts[0].timeLunch,
             let timeAfternoon = workspace.shifts[0].getTimeAfternoonSpecial(),
             let timeOut = workspace.shifts[0].getTimeOutSpecial(),
-            let compensationDateStart = Date(dateString: requestModel.checkinTime)?.createDateFromTimeOf(date: timeOut) else {
+            let compensationDateStart = Date(dateString: leaveType.trackingTimeType == .checkOut ?
+                requestModel.checkoutTime : requestModel.checkinTime)?.createDateFromTimeOf(date: timeOut) else {
                 return
         }
 
@@ -773,21 +774,11 @@ extension CreateRequestLeaveViewController {
             compensationEndDate = Calendar.current.date(byAdding: .second, value: Int(compensationDuration), to: compensationFromDatePicker.date)
         }
 
-        if let special = currentUser?.special, let date = compensationEndDate {
-            switch special {
-            case .children:
-                if leaveType.trackingTimeType != .both, let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.childrenSpecialTime, to: date),
-                        correctDate > compensationFromDatePicker.date {
-                        compensationEndDate = correctDate
-                }
-            case .baby:
-                if leaveType.trackingTimeType != .both, let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.babySpecialTime, to: date),
-                        correctDate > compensationFromDatePicker.date {
-                        compensationEndDate = correctDate
-                }
-            default:
-                break
-            }
+        if currentUser?.special == .baby, leaveType.trackingTimeType != .both,
+            let date = compensationEndDate,
+            let correctDate = Calendar.current.date(byAdding: .minute, value: -AppConstant.babySpecialTime, to: date),
+            correctDate > compensationFromDatePicker.date {
+                compensationEndDate = correctDate
         }
 
         compensationToTextField.text = compensationEndDate?.toString(dateFormat: AppConstant.requestDateFormat)
