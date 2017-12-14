@@ -16,6 +16,7 @@ class RequestOtModel: BaseModel {
     var projectName:String?
     var fromTime: Date?
     var endTime: Date?
+    var otHours: Float?
     var reason: String?
     var user: UserProfileModel?
     var group: UserGroup?
@@ -41,6 +42,7 @@ class RequestOtModel: BaseModel {
         projectName <- map["project_name"]
         fromTime <- (map["from_time"],iosDateTransform)
         endTime <- (map["end_time"],iosDateTransform)
+        otHours <- map["number_hours_request"]
         reason <- map["reason"]
         user <- map["user"]
         group <- map["group"]
