@@ -71,10 +71,10 @@ class OtRequestDetailViewController : NoMenuBaseViewController {
         detailItems.append(DetailModel(imageName: "ic_clock_2",
                                               header: LocalizationHelper.shared.localized("to"),
                                               value: otRequest.endTime?.toString(dateFormat: AppConstant.requestDateFormat)))
-        if let numberHours = otRequest.getNumberHours() {
+        if let otHours = otRequest.otHours {
             detailItems.append(DetailModel(imageName: "ic_clock_2",
                                                   header: LocalizationHelper.shared.localized("number_hour"),
-                                                  value: String(format: "%.2f", numberHours)))
+                                                  value: String(format: "%.2f", otHours)))
         }
         detailItems.append(DetailModel(imageName: "ic_reason",
                                               header: LocalizationHelper.shared.localized("reason"),
