@@ -264,10 +264,11 @@
 "handler" = "Handler :";
 "wo_il_le_lo_enough_compensation_time" = "WO/IL/LE/LO and enough compensation time";
 "holiday" = "Holiday";
-"l_lo_le_forgot_card_forgot_checkin_checkout" = "IL/LO/LE/forgot card/forgot checkin/checkout";
+"il_lo_le_forgot_card_forgot_checkin_checkout" = "IL/LO/LE/forgot card/forgot checkin/checkout";
 "no_data_not_enough_working_time" = "No Data/Not enough working time";
 "p_paid_leave_of_absence" = "P: Paid leave of absence";
 "ro_unpaid_leave_of_absence" = "Ro: Unpaid leave of absence";
+"compensation" = "Compensation";
 "employee_name_italic" = "Employee name";
 "hide" = "Hide";
 "search" = "Search";
@@ -290,7 +291,7 @@
 "ago" = "ago";
 "just_now" = "just now";
 "s" = "s";
-"curen_day" = "Current Day";
+"current_day" = "Current Day";
 "end_time_can_not_greater_than_end_time" = "End time can not less than start time";
 
 "enter_full_info" = "Please enter full information!";

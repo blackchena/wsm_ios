@@ -250,10 +250,11 @@
 "handler" = "Người xử lý :";
 "wo_il_le_lo_enough_compensation_time" = "WO/IL/LE/LO và làm bù đủ";
 "holiday" = "Ngày lễ";
-"l_lo_le_forgot_card_forgot_checkin_checkout" = "IL/LO/LE/quên quẹt/quên thẻ";
+"il_lo_le_forgot_card_forgot_checkin_checkout" = "IL/LO/LE/quên quẹt/quên thẻ";
 "no_data_not_enough_working_time" = "Không có dữ liệu/Không đủ thời gian làm việc";
 "p_paid_leave_of_absence" = "P: Nghỉ có lương";
 "ro_unpaid_leave_of_absence" = "Ro: Nghỉ không lương";
+"compensation" = "Làm bù ngày nghỉ";
 "employee_name_italic" = "Tên nhân viên";
 "hide" = "Ẩn bộ lọc";
 "search" = "Tìm kiếm";
@@ -276,7 +277,7 @@
 "ago" = "trước";
 "just_now" = "vừa xong";
 "s" = "s";
-"curen_day" = "Ngày hiện tại";
+"current_day" = "Ngày hiện tại";
 "end_time_can_not_greater_than_end_time" = "Thời gian kết thúc không được nhỏ hơn thời gian bắt đầu";
 
 "update_success" = "Cập nhật thành công !";
