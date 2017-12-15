@@ -89,6 +89,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
 
         branchTextField.isEnabled = true
         groupTextField.isEnabled = false
+        groupTextField.isPicker = false
         leaveTypeTextField.isEnabled = false
 
         branchTextField.textColor = UIColor.black
@@ -96,7 +97,7 @@ class CreateRequestLeaveViewController: RequestBaseViewController {
         leaveTypeTextField.textColor = UIColor.lightGray
 
         branchTextField.text = requestModel.workspace?.name
-        groupTextField.text = requestModel.group?.name
+        groupTextField.text = requestModel.group?.fullName
         projectNameTextField.text = requestModel.projectName
 
         if let i = leaveTypes.index(where: {$0.id == requestModel.leaveTypeId}) {
