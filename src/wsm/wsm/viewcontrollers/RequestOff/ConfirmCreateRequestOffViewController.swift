@@ -25,7 +25,7 @@ class ConfirmCreateRequestOffViewController: NoMenuBaseViewController {
     @IBOutlet weak var tableView: UITableView!
 
     public var requestOffInputDetailModel = RequestOffDetailApiInputModel()
-    public var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
+    public var dayOffSettingBindedValues = [Int: (numberDayOff: Float, isBinded: Bool, dayOfSettingModel: DayOffSettingModel)]()
     fileprivate var confirmDefaultItems = [DetailModel]()
     fileprivate var confirmHaveSalaryCompanyPayItems = [DetailModel]()
     fileprivate var confirmHaveSalaryInsuranceCoverageItems = [DetailModel]()

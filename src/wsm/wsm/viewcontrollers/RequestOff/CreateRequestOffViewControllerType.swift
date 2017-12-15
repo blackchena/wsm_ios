@@ -80,7 +80,8 @@ extension CreateRequestOffViewControllerType where Self: UIViewController {
         return settings
     }
 
-    func generateDayOffTypeAttributes(dayOffSettingBindedValue: [Int: (Float, Bool, DayOffSettingModel)]) -> [RequestDayOffTypeModel] {
+    func generateDayOffTypeAttributes(dayOffSettingBindedValue:
+        [Int: (numberDayOff: Float, isBinded: Bool, dayOfSettingModel: DayOffSettingModel)]) -> [RequestDayOffTypeModel] {
 
         var result = [RequestDayOffTypeModel]()
 

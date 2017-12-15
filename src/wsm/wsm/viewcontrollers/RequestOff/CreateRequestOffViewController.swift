@@ -33,7 +33,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
     fileprivate var replacement: ReplacementModel?
     fileprivate var isValidating = false
 
-    fileprivate var dayOffSettingBindedValues = [Int: (Float, Bool, DayOffSettingModel)]()
+    fileprivate var dayOffSettingBindedValues = [Int: (numberDayOff: Float, isBinded: Bool, dayOfSettingModel: DayOffSettingModel)]()
     fileprivate var timeWithOffTypes = [DayOffPayType : (RequestDayOffFromModel, RequestDayOffToModel)]()
 
     private var currentWorkSpace: UserWorkSpace?
@@ -43,7 +43,8 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
     private var requestEditing: RequestDayOffModel?
     weak var listRequestDelegate: ListRequestDelegte?
-
+    fileprivate var numberDayOff: Int?
+    private let requestIndexPath = IndexPath(row: 0, section: 2)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +80,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
         self.basicInfoHeaderView.projectName = currentProjectName
     }
 
-    public func editRequestOff(request: RequestDayOffModel, dayOffSettingBindedValues: [Int: (Float, Bool, DayOffSettingModel)]) {
+    public func editRequestOff(request: RequestDayOffModel, dayOffSettingBindedValues: [Int: (numberDayOff: Float, isBinded: Bool, dayOfSettingModel: DayOffSettingModel)]) {
         self.currentWorkSpace = request.workSpace
         self.currentGroup = request.group
         self.currentPositionName = request.positionName
@@ -91,6 +92,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
         self.dayOffSettingBindedValues = dayOffSettingBindedValues
 
+        
         if let haveSalaryFrom = request.offHaveSalaryFrom,
             let haveSalaryTo = request.offHaveSalaryTo {
             currentRequestOffModel.offHaveSalaryFrom = haveSalaryFrom
@@ -104,6 +106,13 @@ class CreateRequestOffViewController: RequestBaseViewController {
         }
 
         self.reasonText = request.reason
+        self.replacement = request.replacement
+        guard let dayOff = dayOffSettingBindedValues.first?.value.numberDayOff else {
+            return
+        }
+        numberDayOff = Int(dayOff)
+        tableView?.reloadData()
+        
     }
 
     func bindDataToModel() {
@@ -144,7 +153,6 @@ class CreateRequestOffViewController: RequestBaseViewController {
         //get id from editing model and set into sending model
         if let dayOffNotChangeEditingAttr = self.requestEditing?.requestDayOffTypes,
             dayOffNotChangeEditingAttr.count > 0 {
-
            self.currentRequestOffModel.requestDayOffTypesAttributes = self.currentRequestOffModel.requestDayOffTypesAttributes?.map( { attr in
 
                 if let editingDayOffSetting = dayOffNotChangeEditingAttr.first(where: { x in x.specialDayOffSettingId == attr.specialDayOffSettingId }) {
@@ -226,7 +234,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
         })
 
         self.tableView?.reloadData()
-        self.tableView?.scrollToRow(at: IndexPath.init(row: 0, section: 2), at: .middle, animated: false)
+        self.tableView?.scrollToRow(at: requestIndexPath, at: .middle, animated: false)
         return true
     }
 
@@ -239,7 +247,8 @@ class CreateRequestOffViewController: RequestBaseViewController {
     }
 
     fileprivate func onToDaySelected(sender: CreateRequestOffTimeCell, date: Date) -> Bool {
-
+        tableView?.reloadData()
+        tableView?.scrollToRow(at: requestIndexPath, at: .middle, animated: false)
         return setTimeValueForCurrentOffTypeWithValidate(closure: { (from, to) -> Bool in
             if from.offPaidFrom == nil {
                 AlertHelper.showInfo(message: LocalizationHelper.shared.localized("you_have_to_choose_start_date"))
@@ -412,9 +421,8 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
     fileprivate func onDayOffValueChange(cell: RequestTextFieldCell, bindingContext: Any?, value: String?) {
         if let cellDayOffSetting = bindingContext as? DayOffSettingModel {
-            let numberDayOff = cell.textField.replaceCommaByDot()
-            let dayOffSettingBindedValue = Float.init(numberDayOff ?? "")
-
+            let numberDayOffString = cell.textField.replaceCommaByDot()
+            let dayOffSettingBindedValue = Float.init(numberDayOffString ?? "")
             if let cellDayOffSettingId = cellDayOffSetting.id {
                 if let dayOffSettingBindedValue = dayOffSettingBindedValue {
                     dayOffSettingBindedValues[cellDayOffSettingId] = (dayOffSettingBindedValue, cell.textField.validate().isValid, cellDayOffSetting)
@@ -422,9 +430,12 @@ class CreateRequestOffViewController: RequestBaseViewController {
                     dayOffSettingBindedValues.removeValue(forKey: cellDayOffSettingId)
                 }
             }
+            guard let dayOffString = numberDayOffString, !dayOffString.isEmpty else {
+                return
+            }
+            numberDayOff = Int(dayOffString)
         }
     }
-
 
 }
 
@@ -565,6 +576,8 @@ extension CreateRequestOffViewController {
         cell.toTimeConvetionDidSelected = self.onToTimeConventionSelected
         cell.reasonTextFieldDidEndEditing = self.reasonChanged
         cell.replacementTextfieldDidEndEditing = self.replacementChange
+        cell.currentTheReplacement = replacement
+        cell.enableReplacement(numberDayOff: numberDayOff)
     }
 }
 
