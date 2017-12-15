@@ -83,6 +83,12 @@ class CreateRequestOtViewController: RequestBaseViewController {
             fromTextField.text = requestModel.fromTime
             toTextField.text = requestModel.endTime
             reasonTextField.text = requestModel.reason
+            if let fromTime = requestModel.fromTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
+                fromDatePicker.date = fromTime
+            }
+            if let toTime = requestModel.endTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
+                toDatePicker.date = toTime
+            }
         }
     }
     
@@ -139,7 +145,7 @@ extension CreateRequestOtViewController {
     }
 
     func isRequestTimeValid() -> Bool {
-        if toDatePicker.date < fromDatePicker.date {
+        if toDatePicker.date <= fromDatePicker.date {
             AlertHelper.showInfo(message: LocalizationHelper.shared.localized("end_time_is_less_than_start_time"))
             return false
         }
