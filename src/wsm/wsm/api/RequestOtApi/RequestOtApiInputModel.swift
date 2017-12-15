@@ -34,39 +34,33 @@ public class RequestOtApiInputModel: BaseModel {
     }
 
     func getOtTime() -> String {
-        let currentUser = UserServices.getLocalUserProfile()
-        let shift = currentUser?.workSpaces?.first?.shifts.first
-        if let from = endTime?.toDate(dateFormat: AppConstant.requestDateFormat),
-            let to = fromTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
-            let duration = from.timeIntervalSince(to)
-            var hourOt = duration / 3600
-            if let shift = shift {
-                if (containLunchTime(shift: shift) && hourOt > 4) {
-                    hourOt -= 1;
-                }
-            }
-            return String(format: "%.2f", hourOt)
+        guard let shift = UserServices.getLocalUserProfile()?.workSpaces?.first?.shifts.first,
+              let checkinTime = fromTime?.toDate(dateFormat: AppConstant.requestDateFormat),
+              let checkoutTime = endTime?.toDate(dateFormat: AppConstant.requestDateFormat) else {
+            return ""
         }
-        return ""
+        let duration = checkoutTime.timeIntervalSince(checkinTime)
+        var otHours = duration / 3600
+        if containLunchTime(shift: shift) && otHours > 4 {
+            otHours -= 1
+        }
+        return String(format: "%.2f", otHours)
     }
     
     func isDuringLunchBreak() -> Bool {
         let currentUser = UserServices.getLocalUserProfile()
         if let shift = currentUser?.workSpaces?.first?.shifts.first {
-            return containLunchTime(shift: shift) || outOfLunchTime(shift: shift)
+            return containLunchTime(shift: shift) || !inLunchTime(shift: shift)
         }
         return false
     }
     
-    private func outOfLunchTime(shift: WorkSpaceShift) -> Bool {
+    private func inLunchTime(shift: WorkSpaceShift) -> Bool {
         if let timeLunch = shift.getTimeLunch(dateInput: fromTime),
             let timeAfternoon = shift.getTimeAfternoon(dateInput: endTime),
             let timeFrom =  fromTime?.toDate(dateFormat: AppConstant.requestDateFormat),
             let timeEnd = endTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
-            return  (timeFrom.compare(DateComparisonType.isEarlier(than: timeLunch)) &&
-                    timeEnd.compare(DateComparisonType.isEarlier(than: timeLunch))) ||
-                    (timeFrom.compare(DateComparisonType.isLater(than: timeAfternoon)) &&
-                    timeEnd.compare(DateComparisonType.isLater(than: timeAfternoon)))
+            return timeFrom.compare(.isLater(than: timeLunch)) && timeEnd.compare(.isEarlier(than: timeAfternoon))
         }
         return false
     }
@@ -76,8 +70,7 @@ public class RequestOtApiInputModel: BaseModel {
             let timeAfternoon = shift.getTimeAfternoon(dateInput: endTime),
             let timeFrom =  self.fromTime?.toDate(dateFormat: AppConstant.requestDateFormat),
             let timeEnd = self.endTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
-            return (timeFrom.compare(DateComparisonType.isEarlier(than: timeLunch))) &&
-                (timeEnd.compare(DateComparisonType.isLater(than: timeAfternoon)))
+            return timeFrom.compare(.isEarlier(than: timeLunch)) && timeEnd.compare(.isLater(than: timeAfternoon))
         }
         return false
     }
