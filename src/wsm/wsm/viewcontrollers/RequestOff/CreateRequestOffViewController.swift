@@ -48,6 +48,7 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateRemainingDayOff()
         // Do any additional setup after loading the view.
         offTypePicker.delegate = self
 
@@ -78,8 +79,22 @@ class CreateRequestOffViewController: RequestBaseViewController {
 
         self.basicInfoHeaderView.positionName = currentPositionName
         self.basicInfoHeaderView.projectName = currentProjectName
+    
     }
 
+    func updateRemainingDayOff() {
+        AlertHelper.showLoading()
+        UserProvider.getAllAppSettingsAsync(userId: (UserServices.getLocalUserProfile()?.id)!)
+            .then { apiOutput -> Void in
+                UserServices.saveDayOffSettings(listDayOffResult: apiOutput.3)
+                self.tableView?.reloadData()
+            }.catch { error in
+                AlertHelper.showError(error: error)
+            }.always {
+                AlertHelper.hideLoading()
+        }
+    }
+    
     public func editRequestOff(request: RequestDayOffModel, dayOffSettingBindedValues: [Int: (numberDayOff: Float, isBinded: Bool, dayOfSettingModel: DayOffSettingModel)]) {
         self.currentWorkSpace = request.workSpace
         self.currentGroup = request.group
