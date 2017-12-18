@@ -41,6 +41,7 @@ class NotificationModel: BaseModel {
         createAt <- (map["created_at"], iosDateTransform)
         permission <- map["permission"]
         trackableStatus <- map["trackableStatus"]
+        message = message?.standardizeStrings()
     }
 }
 

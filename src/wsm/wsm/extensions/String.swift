@@ -66,4 +66,7 @@ extension String {
         }
         return holder
     }
+    func standardizeStrings() -> String {
+        return self.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+    }
 }
