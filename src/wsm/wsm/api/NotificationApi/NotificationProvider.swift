@@ -57,7 +57,12 @@ final class NotificationProvider {
 
     static let shared = NotificationProvider()
     var listNotifications = [NotificationModel]()
-    var badgeValue: String?
+    var badgeValue: String? {
+        didSet {
+            let badgeNumber = Int(badgeValue ?? "0") ?? 0
+            Utils.updateBadgeNumber(badgeNumber)
+        }
+    }
 
     static func getListNotifications(page: Int) -> Promise<ListNotificatinApiOutputModel> {
         let target = MultiTarget(NotificationApiEndPoint.getListNotifications(page: page))

@@ -147,7 +147,6 @@ class NotificationViewController: NoMenuBaseViewController {
     }
 
     private func updateLocalNotificaitonData(unreadCount: Int, notifications: [NotificationModel]) {
-        UIApplication.shared.applicationIconBadgeNumber = unreadCount
         let localNotificationData = UserServices.getLocalNotificationData()
         localNotificationData?.unreadCount = unreadCount
         localNotificationData?.listNotifications = notifications

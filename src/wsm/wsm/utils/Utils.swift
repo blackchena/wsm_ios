@@ -26,6 +26,13 @@ final class Utils {
         let size = UIScreen.main.bounds
         return CGSize(width: min(size.width, size.height), height: max(size.width, size.height))
     }
+
+    static func updateBadgeNumber(_ badge: Int) {
+        DispatchQueue.main.async {
+            UIApplication.shared.applicationIconBadgeNumber = badge
+        }
+    }
+
 }
 
 func getViewController(storyboardName: String = "Main", identifier: String) -> UIViewController {
