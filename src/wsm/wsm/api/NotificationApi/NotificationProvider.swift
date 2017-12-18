@@ -61,6 +61,7 @@ final class NotificationProvider {
         didSet {
             let badgeNumber = Int(badgeValue ?? "0") ?? 0
             Utils.updateBadgeNumber(badgeNumber)
+            NotificationCenter.default.post(name: NotificationName.updateRightButtonBadge, object: nil)
         }
     }
 

@@ -46,13 +46,25 @@ class BaseViewController: UIViewController {
         if let title = self.title {
             self.title = LocalizationHelper.shared.localized(title)
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBadge),
+            name: NotificationName.updateRightButtonBadge, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateBadge()
+    }
 
-        if let badgeValue = NotificationProvider.shared.badgeValue {
-            rightBarButton?.badgeValue = badgeValue
+    @objc private func updateBadge() {
+        guard let badgeValue = NotificationProvider.shared.badgeValue else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.rightBarButton?.badgeValue = badgeValue
         }
     }
 

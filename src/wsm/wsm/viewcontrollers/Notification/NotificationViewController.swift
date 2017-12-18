@@ -42,6 +42,8 @@ class NotificationViewController: NoMenuBaseViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView?.isHidden = false
 
+        getListNotifications()
+
         // Add Refresh Control to Table View
         refreshControl.addTarget(self, action: #selector(pullToRefreshHandler(_:)), for: .valueChanged)
         refreshControl.tintColor = .appBarTintColor
@@ -50,6 +52,16 @@ class NotificationViewController: NoMenuBaseViewController {
         } else {
             tableView.addSubview(refreshControl)
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadListNotification),
+            name: NotificationName.reloadNotifications, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc private func reloadListNotification() {
+        getListNotifications()
     }
 
     @objc private func readAllNotifications() {
@@ -82,6 +94,7 @@ class NotificationViewController: NoMenuBaseViewController {
         if isLoading {
             return
         }
+        AlertHelper.showLoading()
         isLoading = true
         NotificationProvider.getListNotifications(page: page)
             .then { apiOutput -> Void in
@@ -105,7 +118,8 @@ class NotificationViewController: NoMenuBaseViewController {
                 self.refreshControl.endRefreshing()
                 self.isLoading = false
                 self.tableView.tableFooterView = nil
-        }
+                AlertHelper.hideLoading()
+            }
     }
 
     func singleNotificationDidSelect(at indexPath: IndexPath) {
