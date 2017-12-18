@@ -37,7 +37,7 @@ class TimeSheetSummaryViewCell: UITableViewCell {
         finingValueLable.text = "\(timeSheet?.totalFining ?? 0.0)"
         paidLeaveValueLable.text = "\(timeSheet?.numberDayOffHaveSalary ?? 0.0)"
         unpaidLeaveValueLable.text = "\(timeSheet?.numberDayOffNoSalary ?? 0.0)"
-        dayOffValueLable.text = "\((timeSheet?.numberDayOffHaveSalary ?? 0.0) + (timeSheet?.numberDayOffNoSalary ?? 0.0))"
+        dayOffValueLable.text = "\(timeSheet?.totalDayOff ?? 0.0 )"
         overtimeValueLable.text = "\(timeSheet?.numberOverTime ?? 0.0)"
     }
 }
