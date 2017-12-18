@@ -47,24 +47,6 @@ public class RequestOtApiInputModel: BaseModel {
         return String(format: "%.2f", otHours)
     }
     
-    func isDuringLunchBreak() -> Bool {
-        let currentUser = UserServices.getLocalUserProfile()
-        if let shift = currentUser?.workSpaces?.first?.shifts.first {
-            return containLunchTime(shift: shift) || !inLunchTime(shift: shift)
-        }
-        return false
-    }
-    
-    private func inLunchTime(shift: WorkSpaceShift) -> Bool {
-        if let timeLunch = shift.getTimeLunch(dateInput: fromTime),
-            let timeAfternoon = shift.getTimeAfternoon(dateInput: endTime),
-            let timeFrom =  fromTime?.toDate(dateFormat: AppConstant.requestDateFormat),
-            let timeEnd = endTime?.toDate(dateFormat: AppConstant.requestDateFormat) {
-            return timeFrom.compare(.isLater(than: timeLunch)) && timeEnd.compare(.isEarlier(than: timeAfternoon))
-        }
-        return false
-    }
-    
     private func containLunchTime(shift: WorkSpaceShift) -> Bool {
         if let timeLunch = shift.getTimeLunch(dateInput: fromTime),
             let timeAfternoon = shift.getTimeAfternoon(dateInput: endTime),
