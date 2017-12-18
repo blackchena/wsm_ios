@@ -33,3 +33,10 @@ class AppConstant {
     public static let dayOffFormat = "%@ (%.1f %@)"
 
 }
+
+enum NotificationName {
+
+    static let updateRightButtonBadge = Notification.Name(rawValue: "UpdateRightButtonBadge")
+    static let reloadNotifications = Notification.Name(rawValue: "ReloadNotifications")
+
+}

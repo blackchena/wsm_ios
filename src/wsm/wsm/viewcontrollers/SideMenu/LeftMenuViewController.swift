@@ -119,6 +119,7 @@ extension LeftMenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         let mainViewController = sideMenuController!
         let rootViewController = mainViewController.rootViewController
         let timeSheetViewController = getViewController(identifier: "TimeSheetViewController")

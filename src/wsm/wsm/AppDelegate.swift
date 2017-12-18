@@ -141,22 +141,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func handleNotification(with userInfo: [AnyHashable: Any]) {
-        guard let jsonData = userInfo as? [String: Any] else {
+        guard let jsonData = userInfo as? [String: Any],
+              let aps = jsonData["aps"] as? [String: Any],
+              let badge = aps["badge"] as? Int else {
             return
         }
-        if let aps = jsonData["aps"] as? [String: Any], let badge = aps["badge"] as? Int {
-            let localNotification = UserServices.getLocalNotificationData()
-            localNotification?.unreadCount = badge
-            UserServices.saveNotificationData(notifications: localNotification)
-            NotificationProvider.shared.badgeValue = "\(badge)"
-        }
+        let localNotificationData = UserServices.getLocalNotificationData()
+        localNotificationData?.unreadCount = badge
+        UserServices.saveNotificationData(notifications: localNotificationData)
+        NotificationProvider.shared.badgeValue = "\(badge)"
         let application = UIApplication.shared
         guard application.applicationState == .inactive || application.applicationState == .background,
               let permissionString = jsonData["permission"] as? String,
               let permission = RemoteNotificationPermission(rawValue: permissionString),
               UserServices.getAuthToken() != nil,
               let mainViewController = application.keyWindow?.rootViewController as? MainViewController,
-              let navigationController = mainViewController.rootViewController as? UINavigationController else {
+              let navigationController = mainViewController.rootViewController as? UINavigationController,
+              let notificationIdString = jsonData["notification_id"] as? String,
+              let notificationId = Int(notificationIdString) else {
+            NotificationCenter.default.post(name: NotificationName.reloadNotifications, object: nil)
             return
         }
         let nextViewController: UIViewController
@@ -180,8 +183,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             nextViewController = getViewController(identifier: "TimeSheetViewController")
             break
         }
-        navigationController.replaceRootViewController(by: nextViewController)
-        navigationController.popToRootViewController(animated: false)
+        NotificationProvider.readSingleNotification(id: notificationId)
+            .then { response -> Void in
+                if !response.isSucceeded() {
+                    return
+                }
+                NotificationProvider.shared.badgeValue = "\(badge - 1)"
+                localNotificationData?.unreadCount = badge - 1
+                UserServices.saveNotificationData(notifications: localNotificationData)
+            }.always {
+                navigationController.replaceRootViewController(by: nextViewController)
+                navigationController.popToRootViewController(animated: false)
+            }
     }
 
 }
