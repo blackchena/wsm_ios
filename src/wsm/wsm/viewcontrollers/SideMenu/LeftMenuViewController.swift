@@ -221,7 +221,7 @@ extension LeftMenuViewController {
         LoginProvider.logout()
             .then{ _ -> Void in
                 UserServices.clearAllUserData()
-                UIApplication.shared.applicationIconBadgeNumber = 0
+                Utils.updateBadgeNumber(0)
                 AppDelegate.showLoginPageIfNeeded()
             }
             .always {
