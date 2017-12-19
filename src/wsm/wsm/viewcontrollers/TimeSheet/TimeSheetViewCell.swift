@@ -15,6 +15,7 @@ private enum TimeSheetCellStyleAppearance {
     case morning(withColor: UIColor?)
     case afternoon(withColor: UIColor?)
     case special(day: String, text: String)
+    case compensationHoliday
 }
 
 class TimeSheetViewCell: FSCalendarCell {
@@ -23,6 +24,7 @@ class TimeSheetViewCell: FSCalendarCell {
     private weak var todayLayer: CAShapeLayer!
     private weak var otLayer: CAShapeLayer!
     private weak var borderLayer: CAShapeLayer!
+    private weak var compensationHolidayLayer: CAShapeLayer!
 
     //MARK: color define
     private let otColor = UIColor(hexString: "#1C2D7A")
@@ -30,6 +32,7 @@ class TimeSheetViewCell: FSCalendarCell {
     private let todayColor = UIColor(hexString: "#359190")
     private let morningDefaultColor = UIColor(hexString: "#3CCB3E")
     private let afternoonDefaultColor = UIColor(hexString: "#3CCB3E")
+    private let compensationHolidayColor = UIColor(hexString: "#FEBD84")
 
     private var appearancesStyleMustApply: [TimeSheetCellStyleAppearance] = [.none] {
         didSet {
@@ -49,6 +52,7 @@ class TimeSheetViewCell: FSCalendarCell {
         let todayLayer = CAShapeLayer()
         let otLayer = CAShapeLayer()
         let borderLayer = CAShapeLayer()
+        let compensationHolidayLayer = CAShapeLayer()
 
         morningLayer.fillColor = morningDefaultColor.cgColor
         morningLayer.lineWidth = 1
@@ -68,26 +72,25 @@ class TimeSheetViewCell: FSCalendarCell {
         borderLayer.lineWidth = 0.5
         borderLayer.strokeColor = borderColor.cgColor
 
-        self.shapeLayer.isHidden = true
+        compensationHolidayLayer.fillColor = UIColor.clear.cgColor
+        compensationHolidayLayer.lineWidth = 3.0
+        compensationHolidayLayer.strokeColor = compensationHolidayColor.cgColor
 
-        self.contentView.layer.insertSublayer(morningLayer,
-                                              below: self.titleLabel.layer)
-        self.contentView.layer.insertSublayer(afternoonLayer,
-                                              below: self.titleLabel.layer)
-        self.contentView.layer.insertSublayer(otLayer,
-                                              below: self.titleLabel.layer)
+        shapeLayer.isHidden = true
 
-        self.contentView.layer.insertSublayer(borderLayer,
-                                              below: self.titleLabel.layer)
-
-        self.contentView.layer.insertSublayer(todayLayer,
-                                              below: self.titleLabel.layer)
+        contentView.layer.insertSublayer(morningLayer, below: titleLabel.layer)
+        contentView.layer.insertSublayer(afternoonLayer, below: titleLabel.layer)
+        contentView.layer.insertSublayer(otLayer, below: titleLabel.layer)
+        contentView.layer.insertSublayer(borderLayer, below: titleLabel.layer)
+        contentView.layer.insertSublayer(todayLayer, below: titleLabel.layer)
+        contentView.layer.insertSublayer(compensationHolidayLayer, above: titleLabel.layer)
 
         self.morningLayer = morningLayer
         self.afternoonLayer = afternoonLayer
         self.todayLayer = todayLayer
         self.otLayer = otLayer
         self.borderLayer = borderLayer
+        self.compensationHolidayLayer = compensationHolidayLayer
     }
 
     private func getCurrentDimensions() -> (titleHight: CGFloat, diameter: CGFloat) {
@@ -178,8 +181,20 @@ class TimeSheetViewCell: FSCalendarCell {
             let lowerTextLayer = createTextLayer(with: lowerLayerFrame, text: displayText)
             borderLayer.addSublayer(upperTextLayer)
             borderLayer.addSublayer(lowerTextLayer)
-        default:
-            break
+        case .compensationHoliday:
+            compensationHolidayLayer.isHidden = false
+            borderLayer.isHidden = true
+            compensationHolidayLayer.frame = CGRect(x: (bounds.size.width - diameter) / 2,
+                                                    y: (titleHeight - diameter) / 2,
+                                                    width: diameter,
+                                                    height: diameter)
+            compensationHolidayLayer.path = UIBezierPath(arcCenter: CGPoint(x: shapeLayer.bounds.width / 2,
+                                                                            y: shapeLayer.bounds.height / 2),
+                                                         radius: shapeLayer.bounds.width * 0.5,
+                                                         startAngle: .pi / 2,
+                                                         endAngle: 2.5 * .pi,
+                                                         clockwise: true).cgPath
+        default: break
         }
     }
 
@@ -193,6 +208,7 @@ class TimeSheetViewCell: FSCalendarCell {
         morningLayer.isHidden = true
         afternoonLayer.isHidden = true
         otLayer.isHidden = true
+        compensationHolidayLayer.isHidden = true
         borderLayer.isHidden = false
         borderLayer.sublayers?.removeAll()
         borderLayer.frame = CGRect(x: (self.bounds.size.width - diameter) / 2,
@@ -265,6 +281,10 @@ class TimeSheetViewCell: FSCalendarCell {
 
         guard let displayDateSetting = displayDateSetting else {
             return
+        }
+
+        if displayDateSetting.compensationHoliday == true {
+            appearancesStyleMustApply += [.compensationHoliday]
         }
 
         //set color for morning and afternoon if this is a dayoff or normal day
