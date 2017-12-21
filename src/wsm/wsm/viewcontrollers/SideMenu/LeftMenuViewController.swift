@@ -33,9 +33,9 @@ class LeftMenuViewController: UIViewController {
         menuItems.append(MenuItem(image: "ic_personal_information",
                                   title: LocalizationHelper.shared.localized("personal_information"),
                                   group: MenuGroup.userInfo))
-        menuItems.append(MenuItem(image: "ic_setup_profile",
-                                  title: LocalizationHelper.shared.localized("setup_profile"),
-                                  group: MenuGroup.userInfo))
+//        menuItems.append(MenuItem(image: "ic_setup_profile",
+//                                  title: LocalizationHelper.shared.localized("setup_profile"),
+//                                  group: MenuGroup.userInfo))
         //manage request
         menuItems.append(MenuItem(image: "ic_overtime",
                                   title: LocalizationHelper.shared.localized("manage_request_overtime"),
