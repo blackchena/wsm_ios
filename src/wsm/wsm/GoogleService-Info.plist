@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>239786874868-tjfqbelauaj4255jt9ladd6bs8unk885.apps.googleusercontent.com</string>
+	<string>1072271376964-038sp9dhfv2b7iv8u09spimd7k0e7vmt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.239786874868-tjfqbelauaj4255jt9ladd6bs8unk885</string>
+	<string>com.googleusercontent.apps.1072271376964-038sp9dhfv2b7iv8u09spimd7k0e7vmt</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAFRjlBZ_JX33sPKGFrDqKr-vENa2gNMTU</string>
+	<string>AIzaSyAIRR13p7gKoN-_L2xsYGPVM5ATj__NVQc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>239786874868</string>
+	<string>1072271376964</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.fr.wsm</string>
+	<string>com.framgia.wsm</string>
 	<key>PROJECT_ID</key>
-	<string>framgia-wsm</string>
+	<string>wsm-mobile-8937c</string>
 	<key>STORAGE_BUCKET</key>
-	<string>framgia-wsm.appspot.com</string>
+	<string>wsm-mobile-8937c.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:239786874868:ios:2c3270bf5cc9ee00</string>
+	<string>1:1072271376964:ios:425fedd631defade</string>
 	<key>DATABASE_URL</key>
-	<string>https://framgia-wsm.firebaseio.com</string>
+	<string>https://wsm-mobile-8937c.firebaseio.com</string>
 </dict>
 </plist>
