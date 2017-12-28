@@ -19,9 +19,7 @@ class LeftMenuViewController: UIViewController {
     var menuItems = [MenuItem]()
 
     let currentUser = UserServices.getLocalUserProfile()
-    // TODO update later
-    // let isManager = UserServices.getLocalUserLogin()?.isManager ?? false
-    let isManager = false
+    let isManager = UserServices.getLocalUserLogin()?.isManager ?? false
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -190,6 +190,18 @@ extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        var isVisibleHandleRequest : Bool?
+        switch self.requestType {
+        case .others:
+            isVisibleHandleRequest = leaveRequests[indexPath.row].canApproveRejectRequest
+        case .overTime:
+            isVisibleHandleRequest = overtimeRequests[indexPath.row].canApproveRejectRequest
+        case .dayOff:
+            isVisibleHandleRequest = dayOffRequests[indexPath.row].canApproveRejectRequest
+        }
+        if let isVisibleHandleRequest = isVisibleHandleRequest {
+            return isVisibleHandleRequest
+        }
         return true
     }
     
