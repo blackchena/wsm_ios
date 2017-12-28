@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1114" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,13 +49,6 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1n-Xb-y7q">
-                                <rect key="frame" x="0.0" y="65" width="315" height="2"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="NAX-WO-BKc"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_accept_circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="SpD-cJ-ilT">
                                 <rect key="frame" x="285" y="4" width="25" height="25"/>
                                 <constraints>
@@ -76,13 +69,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BOv-mz-8LL" firstAttribute="top" secondItem="s9M-HO-eIt" secondAttribute="bottom" constant="17" id="4io-MV-0x8"/>
-                            <constraint firstAttribute="bottom" secondItem="m1n-Xb-y7q" secondAttribute="bottom" id="5RF-bg-1yq"/>
                             <constraint firstItem="kuZ-fw-oK3" firstAttribute="leading" secondItem="7OX-pQ-v0Q" secondAttribute="leadingMargin" id="HCk-dB-xMv"/>
                             <constraint firstItem="s9M-HO-eIt" firstAttribute="leading" secondItem="kuZ-fw-oK3" secondAttribute="trailing" constant="8" symbolic="YES" id="Iz1-uU-1IT"/>
                             <constraint firstItem="Ncl-3h-fL3" firstAttribute="top" secondItem="kuZ-fw-oK3" secondAttribute="bottom" constant="14" id="OdD-d7-El7"/>
                             <constraint firstItem="SpD-cJ-ilT" firstAttribute="leading" secondItem="khv-V5-6Zr" secondAttribute="trailing" constant="8" id="Ot5-m6-awi"/>
-                            <constraint firstItem="m1n-Xb-y7q" firstAttribute="leading" secondItem="7OX-pQ-v0Q" secondAttribute="leading" id="Ppl-6W-Ryp"/>
-                            <constraint firstAttribute="trailing" secondItem="m1n-Xb-y7q" secondAttribute="trailing" id="UHc-8L-Ovl"/>
                             <constraint firstItem="SpD-cJ-ilT" firstAttribute="centerY" secondItem="s9M-HO-eIt" secondAttribute="centerY" id="Ys0-Yn-ZdV"/>
                             <constraint firstItem="kuZ-fw-oK3" firstAttribute="top" secondItem="7OX-pQ-v0Q" secondAttribute="top" constant="4" id="Zpf-in-DWR"/>
                             <constraint firstItem="khv-V5-6Zr" firstAttribute="leading" secondItem="s9M-HO-eIt" secondAttribute="trailing" id="cO3-8D-cps"/>
@@ -96,9 +86,19 @@
                             <constraint firstItem="Ncl-3h-fL3" firstAttribute="top" secondItem="s9M-HO-eIt" secondAttribute="bottom" constant="16" id="xsG-LN-X5V"/>
                         </constraints>
                     </view>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORz-Ke-FrO">
+                        <rect key="frame" x="8" y="75.666666666666671" width="319" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="gOf-KX-rFy"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ORz-Ke-FrO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="GsZ-b1-lYQ"/>
                     <constraint firstItem="7OX-pQ-v0Q" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="NNI-3U-dFS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ORz-Ke-FrO" secondAttribute="trailing" id="PXh-Fw-Ers"/>
+                    <constraint firstAttribute="bottom" secondItem="ORz-Ke-FrO" secondAttribute="bottom" id="WyM-Wb-DXn"/>
                     <constraint firstItem="7OX-pQ-v0Q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="a2q-ee-bgm"/>
                     <constraint firstItem="7OX-pQ-v0Q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="xAj-HS-Ov4"/>
                     <constraint firstItem="7OX-pQ-v0Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="xSw-iQ-KEg"/>
