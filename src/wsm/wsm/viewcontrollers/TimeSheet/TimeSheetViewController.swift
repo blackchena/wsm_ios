@@ -230,14 +230,15 @@ extension TimeSheetViewController: FSCalendarDataSource {
             return 0
         }
         guard let startDate = workingTimeSheets?.startDate, let endDate = workingTimeSheets?.endDate else {
-            return (month.numberOfDaysInMonth() / 7) + 1
+            return Int(ceil(Double(month.numberOfDaysInMonth()) / 7.0))
         }
         let startOfMonth = month.dateFor(.startOfMonth)
         let endOfMonth = month.dateFor(.endOfMonth)
         let startCountDate = startDate.compare(.isEarlier(than: startOfMonth)) ? startDate : startOfMonth
         let endCountDate = endDate.compare(.isEarlier(than: endOfMonth)) ? endDate : endOfMonth
-        let days = gregorian.dateComponents([.day], from: startCountDate, to: endCountDate).day ?? 0
-        let weeks = (days / 7) + 1
+        let days = gregorian.dateComponents([.day], from: startCountDate.dateFor(.startOfWeek),
+            to: endCountDate.dateFor(.endOfWeek)).day ?? 0
+        let weeks = Int(ceil(Double(days) / 7.0))
         return weeks
     }
 
