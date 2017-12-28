@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManageRequestListViewController" customModule="wsm" customModuleProvider="target">
             <connections>
+                <outlet property="filterView" destination="3yo-xt-39J" id="5xK-3E-Amy"/>
                 <outlet property="tableView" destination="Dq1-X4-6dW" id="gEm-YI-Ypx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,19 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dq1-X4-6dW">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dq1-X4-6dW">
+                    <rect key="frame" x="0.0" y="103" width="375" height="564"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yo-xt-39J" customClass="ManagerRequestFilterView" customModule="wsm" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="64" width="375" height="89"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="89" id="vML-Yh-bHj"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Dq1-X4-6dW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FNm-wg-AWd"/>
-                <constraint firstItem="Dq1-X4-6dW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MmP-OT-RMh"/>
+                <constraint firstItem="3yo-xt-39J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Rql-Kf-Lpo"/>
+                <constraint firstItem="Dq1-X4-6dW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="103" id="dD3-OD-Pdi"/>
                 <constraint firstAttribute="bottom" secondItem="Dq1-X4-6dW" secondAttribute="bottom" id="mAf-sM-Xm5"/>
+                <constraint firstAttribute="trailing" secondItem="3yo-xt-39J" secondAttribute="trailing" id="r97-un-ghh"/>
                 <constraint firstAttribute="trailing" secondItem="Dq1-X4-6dW" secondAttribute="trailing" id="vHC-Tn-LbY"/>
+                <constraint firstItem="3yo-xt-39J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zpM-wv-dI0"/>
             </constraints>
-            <point key="canvasLocation" x="24.5" y="52.5"/>
+            <point key="canvasLocation" x="-10.5" y="-17.5"/>
         </view>
     </objects>
 </document>
