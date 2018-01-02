@@ -91,6 +91,8 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         AlertHelper.showLoading()
         shouldShowTimeSheetDayDetail = false
         timeSheetTableView.reloadData()
+        UserDefaults.standard.set(workingTimeSheets?.startDate, forKey: DateWorking.startDate.rawValue)
+        UserDefaults.standard.set(workingTimeSheets?.endDate, forKey: DateWorking.endDate.rawValue)
         TimesheetProvider.getUserTimeSheet(month: month, year: year)
             .then { userTimeSheet -> Void in
                 self.workingTimeSheets = userTimeSheet.userTimeSheetData

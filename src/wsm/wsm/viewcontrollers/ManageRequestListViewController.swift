@@ -12,6 +12,7 @@ import InAppLocalize
 class ManageRequestListViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var filterView: ManagerRequestFilterView!
     
     var requestType: RequestType
     var manageRequestApiInput = ManageRequestApiInputModel()
@@ -53,6 +54,9 @@ class ManageRequestListViewController: BaseViewController {
         }
         
         getListManageRequest(page: currentPage)
+        filterView.filterAction = { [weak self] in
+            self?.getListManageRequest()
+        }
     }
     
     @objc private func pullToRefreshHandler(_: Any) {
@@ -63,6 +67,12 @@ class ManageRequestListViewController: BaseViewController {
         if isLoading {
             return
         }
+        manageRequestApiInput.requestType = requestType
+        manageRequestApiInput.page = currentPage
+        manageRequestApiInput.timeFrom = filterView.timeFromTextField.text
+        manageRequestApiInput.timeTo = filterView.timeToTextField.text
+        manageRequestApiInput.keyword = filterView.memberNameTextFiled.text
+        manageRequestApiInput.status = filterView.getStatusSelected()
         AlertHelper.showLoading()
         isLoading = true
         switch requestType {
@@ -138,6 +148,7 @@ class ManageRequestListViewController: BaseViewController {
             }.always {
                 AlertHelper.hideLoading()
                 self.refreshControl.endRefreshing()
+                self.isLoading = false
         }
     }
 }

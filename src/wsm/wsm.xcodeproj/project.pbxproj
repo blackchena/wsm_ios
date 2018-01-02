@@ -192,9 +192,12 @@
 		51FBBA1C1F7A3A99004C32BD /* ic_id_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */; };
 		51FBBA1E1F7A4B26004C32BD /* ic_project.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FBBA1D1F7A4B26004C32BD /* ic_project.png */; };
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
+		8E471F681FF34BF20061FF7D /* ManagerRequestFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471F671FF34BF20061FF7D /* ManagerRequestFilterView.swift */; };
+		8E471F6A1FF34D660061FF7D /* ManagerRequestFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E471F691FF34D660061FF7D /* ManagerRequestFilterView.xib */; };
 		8E77B4BC1FD53A4600BD6A00 /* HelpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77B4BB1FD53A4600BD6A00 /* HelpModel.swift */; };
 		8E77B4BE1FD53B0300BD6A00 /* HelpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77B4BD1FD53B0300BD6A00 /* HelpObject.swift */; };
 		8E817B3D1FD68297000A0709 /* ic_overtime_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E817B3C1FD68297000A0709 /* ic_overtime_2.png */; };
+		8EB80B6F1FF4F3C1001229EC /* DateWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB80B6E1FF4F3C1001229EC /* DateWorking.swift */; };
 		8ECA79B11FD8F4EC00D6DCF5 /* ReplacementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */; };
 		8ECA79B31FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA79B21FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift */; };
 		8ECA79B61FD8F58A00D6DCF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA79B41FD8F58A00D6DCF5 /* Main.storyboard */; };
@@ -488,9 +491,12 @@
 		51FBBA191F7A06CD004C32BD /* ConfirmCreateRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmCreateRequestCell.swift; path = RequestOt/ConfirmCreateRequestCell.swift; sourceTree = "<group>"; };
 		51FBBA1B1F7A3A99004C32BD /* ic_id_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_id_card.png; path = resources/ic_id_card.png; sourceTree = "<group>"; };
 		51FBBA1D1F7A4B26004C32BD /* ic_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_project.png; path = resources/ic_project.png; sourceTree = "<group>"; };
+		8E471F671FF34BF20061FF7D /* ManagerRequestFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerRequestFilterView.swift; sourceTree = "<group>"; };
+		8E471F691FF34D660061FF7D /* ManagerRequestFilterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerRequestFilterView.xib; sourceTree = "<group>"; };
 		8E77B4BB1FD53A4600BD6A00 /* HelpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpModel.swift; sourceTree = "<group>"; };
 		8E77B4BD1FD53B0300BD6A00 /* HelpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpObject.swift; sourceTree = "<group>"; };
 		8E817B3C1FD68297000A0709 /* ic_overtime_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_overtime_2.png; path = resources/ic_overtime_2.png; sourceTree = "<group>"; };
+		8EB80B6E1FF4F3C1001229EC /* DateWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateWorking.swift; sourceTree = "<group>"; };
 		8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacementModel.swift; sourceTree = "<group>"; };
 		8ECA79B21FD8F54900D6DCF5 /* ReplacementApiOutputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplacementApiOutputModel.swift; path = RequestOffApi/ReplacementApiOutputModel.swift; sourceTree = "<group>"; };
 		8ECA79B51FD8F58A00D6DCF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = wsm/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
@@ -739,6 +745,7 @@
 				5100D3B71F7356E100F44329 /* LeftMenuSectionCell.xib */,
 				51E94E941F871EC6002368D3 /* RequestLeaveCell.xib */,
 				513B326E1F8B338000D0D770 /* RequestFilterView.xib */,
+				8E471F691FF34D660061FF7D /* ManagerRequestFilterView.xib */,
 				BFC037FC1F8B52F300DBE212 /* RequestOTCell.xib */,
 				B8C606E61F86171000DF34D4 /* RequestBasicInfoHeaderView.xib */,
 				B8D185C91F862A4D000B6E3B /* RequestTextFieldCell.xib */,
@@ -847,6 +854,7 @@
 				5180064E1F9996720023FF4B /* NotificationOwnerType.swift */,
 				4B0A34831FC7FEB10068DD17 /* NotificationPermission.swift */,
 				4B055D1D1FD8F65300AA6761 /* RemoteNotificationPermission.swift */,
+				8EB80B6E1FF4F3C1001229EC /* DateWorking.swift */,
 			);
 			name = enums;
 			sourceTree = "<group>";
@@ -1253,6 +1261,7 @@
 				BF52EED71FA1BD24002D76EE /* ManageRequestTableViewCell.swift */,
 				BF52EEDB1FA1BF64002D76EE /* ManageRequestListViewController.swift */,
 				BF5A37931FA717D900E79921 /* RequestType.swift */,
+				8E471F671FF34BF20061FF7D /* ManagerRequestFilterView.swift */,
 			);
 			name = ManageRequest;
 			sourceTree = "<group>";
@@ -1423,6 +1432,7 @@
 				202ED9C21F6FC42200544A7D /* Assets.xcassets in Resources */,
 				5168BCCA1F739DBF00AA1287 /* ic_camera.png in Resources */,
 				8ECA79B61FD8F58A00D6DCF5 /* Main.storyboard in Resources */,
+				8E471F6A1FF34D660061FF7D /* ManagerRequestFilterView.xib in Resources */,
 				516C32131F70B11E0001D1E8 /* LaunchScreen.storyboard in Resources */,
 				516A967B1F973A5E002FCF85 /* ic_go_top.png in Resources */,
 				516A966D1F9727AF002FCF85 /* ic_distance_from_office.png in Resources */,
@@ -1668,6 +1678,7 @@
 				516A968F1F984003002FCF85 /* IdentifyInfoModel.swift in Sources */,
 				B8C47EFC1F84BEF80024F865 /* TimeSheetApiOutputModel.swift in Sources */,
 				BF7C50361FA81B8B00924B0E /* ManageLeaveRequestApiOutputModel.swift in Sources */,
+				8E471F681FF34BF20061FF7D /* ManagerRequestFilterView.swift in Sources */,
 				51692C931F7CCD0400DE6248 /* CreateRequestLeaveViewController.swift in Sources */,
 				51692C991F7CE6A900DE6248 /* RequestLeaveModel.swift in Sources */,
 				B835169B1F7A0C32006B536E /* TimeSheetViewCell.swift in Sources */,
@@ -1705,6 +1716,7 @@
 				516A968B1F983FA5002FCF85 /* BankInfoModel.swift in Sources */,
 				B81AF72A1F72096A00E579B2 /* FSCalendarWeekdayView.m in Sources */,
 				5168BD001F73A78B00AA1287 /* String.swift in Sources */,
+				8EB80B6F1FF4F3C1001229EC /* DateWorking.swift in Sources */,
 				B8FA282B1F78C18B004E16CB /* LeaveTypeModel.swift in Sources */,
 				51A7294C1F9EE41B002F9677 /* StatisticViewController.swift in Sources */,
 				B8C47F021F84BF010024F865 /* CreateRequestOtApiOutModel.swift in Sources */,

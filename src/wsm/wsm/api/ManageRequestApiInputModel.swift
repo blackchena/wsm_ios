@@ -15,6 +15,7 @@ public class ManageRequestApiInputModel: BaseModel {
     var status: Int? = 0
     var timeFrom: String?
     var timeTo: String?
+    var requestType: RequestType?
     
     init() {
     }
@@ -25,8 +26,20 @@ public class ManageRequestApiInputModel: BaseModel {
     public func mapping(map: Map) {        
         page <- map["page"]
         keyword <- map["q[user_name_cont]"]
-        status <- map["q[status_eq]"]
-        timeFrom <- map["q[off_have_salary_from][off_paid_from]"]
-        timeTo <- map["q[off_have_salary_from][off_paid_to]"]
+        status <- map["status"]
+        guard let type = requestType else {
+            return
+        }
+        switch type {
+        case RequestType.others:
+            timeFrom <- map["q[checkin_time_or_checkout_time_gteq]"]
+            timeTo <- map["q[checkin_time_or_checkout_time_lteq]"]
+        case RequestType.dayOff:
+            timeFrom <- map["q[off_have_salary_from][off_paid_from]"]
+            timeTo <- map["q[off_have_salary_from][off_paid_to]"]
+        case RequestType.overTime:
+            timeFrom <- map["q[from_time_or_end_time_gteq]"]
+            timeTo <- map["q[from_time_or_end_time_lteq]"]
+        }
     }
 }
