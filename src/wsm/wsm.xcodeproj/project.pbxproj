@@ -301,6 +301,8 @@
 		BF7C50381FA86C1000924B0E /* ManageRequestApiInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C50371FA86C1000924B0E /* ManageRequestApiInputModel.swift */; };
 		BFC037FD1F8B52F300DBE212 /* RequestOTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */; };
 		BFC037FE1F8B52F300DBE212 /* RequestOTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC037FC1F8B52F300DBE212 /* RequestOTCell.xib */; };
+		BFF08E531FFC8D0700E5A40F /* ManageRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF08E511FFC8D0700E5A40F /* ManageRequestDetailViewController.swift */; };
+		BFF08E541FFC8D0700E5A40F /* ManageRequestDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF08E521FFC8D0700E5A40F /* ManageRequestDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -615,6 +617,8 @@
 		BF7C50371FA86C1000924B0E /* ManageRequestApiInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageRequestApiInputModel.swift; sourceTree = "<group>"; };
 		BFC037FB1F8B52F300DBE212 /* RequestOTCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestOTCell.swift; path = ../interfaces/RequestOTCell.swift; sourceTree = "<group>"; };
 		BFC037FC1F8B52F300DBE212 /* RequestOTCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestOTCell.xib; sourceTree = "<group>"; };
+		BFF08E511FFC8D0700E5A40F /* ManageRequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageRequestDetailViewController.swift; sourceTree = "<group>"; };
+		BFF08E521FFC8D0700E5A40F /* ManageRequestDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManageRequestDetailViewController.xib; path = ../viewcontrollers/ManageRequestDetailViewController.xib; sourceTree = "<group>"; };
 		DF322323208842894208499E /* Pods-wsm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.debug.xcconfig"; sourceTree = "<group>"; };
 		E357AF6EDD8FEAF08F129429 /* Pods-wsm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wsm.release.xcconfig"; path = "Pods/Target Support Files/Pods-wsm/Pods-wsm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -737,6 +741,7 @@
 		202ED9D51F6FCBCB00544A7D /* interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				BFF08E521FFC8D0700E5A40F /* ManageRequestDetailViewController.xib */,
 				8ECA79B41FD8F58A00D6DCF5 /* Main.storyboard */,
 				BF52EEDC1FA1BF64002D76EE /* ManageRequestListViewController.xib */,
 				BF52EED81FA1BD24002D76EE /* ManageRequestTableViewCell.xib */,
@@ -807,6 +812,7 @@
 		202ED9D81F6FCBCB00544A7D /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				BFF08E501FFC8CB100E5A40F /* ManageRequestDetail */,
 				51A7294A1F9EE3EC002F9677 /* Statistic */,
 				BF52EED21FA1BC8F002D76EE /* ManageRequest */,
 				518006461F998CA00023FF4B /* Notification */,
@@ -1278,6 +1284,14 @@
 			name = ManageRequest;
 			sourceTree = "<group>";
 		};
+		BFF08E501FFC8CB100E5A40F /* ManageRequestDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BFF08E511FFC8D0700E5A40F /* ManageRequestDetailViewController.swift */,
+			);
+			name = ManageRequestDetail;
+			sourceTree = "<group>";
+		};
 		E716D944208DF53FC79A9A96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1430,6 +1444,7 @@
 				5168BCBD1F739DBF00AA1287 /* ic_day_off.png in Resources */,
 				5168BCF81F739DBF00AA1287 /* ic_forwards.png in Resources */,
 				202ED9C21F6FC42200544A7D /* Assets.xcassets in Resources */,
+				BFF08E541FFC8D0700E5A40F /* ManageRequestDetailViewController.xib in Resources */,
 				5168BCCA1F739DBF00AA1287 /* ic_camera.png in Resources */,
 				8ECA79B61FD8F58A00D6DCF5 /* Main.storyboard in Resources */,
 				8E471F6A1FF34D660061FF7D /* ManagerRequestFilterView.xib in Resources */,
@@ -1640,6 +1655,7 @@
 				511600B81F9055F700B13102 /* (null) in Sources */,
 				B8C47EFD1F84BEF80024F865 /* TimesheetProvider.swift in Sources */,
 				51692C951F7CD89E00DE6248 /* RequestBaseViewController.swift in Sources */,
+				BFF08E531FFC8D0700E5A40F /* ManageRequestDetailViewController.swift in Sources */,
 				5180064D1F9995530023FF4B /* NotificationTrackableType.swift in Sources */,
 				B8CD7FA31F8E0D4200DC71B3 /* CardView.swift in Sources */,
 				B83516991F7A0C1B006B536E /* TimeSheetViewController.swift in Sources */,

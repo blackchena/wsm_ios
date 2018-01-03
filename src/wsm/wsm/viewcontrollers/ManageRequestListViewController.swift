@@ -200,6 +200,12 @@ extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataS
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let manageRequestDetailVc = ManageRequestDetailViewController()
+        present(manageRequestDetailVc, animated: false, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         var isVisibleHandleRequest : Bool?
         switch self.requestType {
