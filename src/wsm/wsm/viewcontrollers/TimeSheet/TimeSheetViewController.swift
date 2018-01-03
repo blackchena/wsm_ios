@@ -69,6 +69,8 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
                 guard let timeSheets = userTimeSheet.userTimeSheetData else {
                     return
                 }
+                UserDefaults.standard.set(timeSheets.startDate, forKey: DateWorking.startDate.rawValue)
+                UserDefaults.standard.set(timeSheets.endDate, forKey: DateWorking.endDate.rawValue)
                 self.workingTimeSheets = timeSheets
                 let offset = self.adjustMonthOffset(startWorkingDate: timeSheets.startDate,
                     endWorkingDate: timeSheets.endDate, dateToCompare: self.today)
@@ -91,8 +93,6 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         AlertHelper.showLoading()
         shouldShowTimeSheetDayDetail = false
         timeSheetTableView.reloadData()
-        UserDefaults.standard.set(workingTimeSheets?.startDate, forKey: DateWorking.startDate.rawValue)
-        UserDefaults.standard.set(workingTimeSheets?.endDate, forKey: DateWorking.endDate.rawValue)
         TimesheetProvider.getUserTimeSheet(month: month, year: year)
             .then { userTimeSheet -> Void in
                 self.workingTimeSheets = userTimeSheet.userTimeSheetData
