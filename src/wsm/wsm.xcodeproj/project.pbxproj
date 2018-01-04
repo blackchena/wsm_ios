@@ -194,8 +194,6 @@
 		58D01017B7A31EC2046BBBD0 /* Pods_wsm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3F69B1C7146738373CC9DD /* Pods_wsm.framework */; };
 		8E471F681FF34BF20061FF7D /* ManagerRequestFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E471F671FF34BF20061FF7D /* ManagerRequestFilterView.swift */; };
 		8E471F6A1FF34D660061FF7D /* ManagerRequestFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E471F691FF34D660061FF7D /* ManagerRequestFilterView.xib */; };
-		8E77B4BC1FD53A4600BD6A00 /* HelpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77B4BB1FD53A4600BD6A00 /* HelpModel.swift */; };
-		8E77B4BE1FD53B0300BD6A00 /* HelpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77B4BD1FD53B0300BD6A00 /* HelpObject.swift */; };
 		8E817B3D1FD68297000A0709 /* ic_overtime_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E817B3C1FD68297000A0709 /* ic_overtime_2.png */; };
 		8EB80B6F1FF4F3C1001229EC /* DateWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB80B6E1FF4F3C1001229EC /* DateWorking.swift */; };
 		8ECA79B11FD8F4EC00D6DCF5 /* ReplacementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */; };
@@ -498,8 +496,6 @@
 		51FBBA1D1F7A4B26004C32BD /* ic_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_project.png; path = resources/ic_project.png; sourceTree = "<group>"; };
 		8E471F671FF34BF20061FF7D /* ManagerRequestFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerRequestFilterView.swift; sourceTree = "<group>"; };
 		8E471F691FF34D660061FF7D /* ManagerRequestFilterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerRequestFilterView.xib; sourceTree = "<group>"; };
-		8E77B4BB1FD53A4600BD6A00 /* HelpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpModel.swift; sourceTree = "<group>"; };
-		8E77B4BD1FD53B0300BD6A00 /* HelpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpObject.swift; sourceTree = "<group>"; };
 		8E817B3C1FD68297000A0709 /* ic_overtime_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_overtime_2.png; path = resources/ic_overtime_2.png; sourceTree = "<group>"; };
 		8EB80B6E1FF4F3C1001229EC /* DateWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateWorking.swift; sourceTree = "<group>"; };
 		8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacementModel.swift; sourceTree = "<group>"; };
@@ -771,35 +767,33 @@
 		202ED9D61F6FCBCB00544A7D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */,
+				516A96881F983F66002FCF85 /* AddressModel.swift */,
+				516A968A1F983FA5002FCF85 /* BankInfoModel.swift */,
+				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
+				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
+				B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */,
 				B8FA282E1F78E400004E16CB /* DayOffSettingModel.swift */,
+				516A968C1F983FCE002FCF85 /* GeneralInfoModel.swift */,
+				516A968E1F984003002FCF85 /* IdentifyInfoModel.swift */,
 				B8FA282A1F78C18B004E16CB /* LeaveTypeModel.swift */,
 				B85E1D5A1F73B12B00329529 /* LoginModel.swift */,
+				5180064A1F9994DD0023FF4B /* NotificationModel.swift */,
 				B8FA28261F78BF09004E16CB /* NotifySettingModel.swift */,
+				8ECA79B01FD8F4EC00D6DCF5 /* ReplacementModel.swift */,
+				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
 				51692C981F7CE6A900DE6248 /* RequestLeaveModel.swift */,
 				51221C0F1F7B6287002F17E0 /* RequestOtModel.swift */,
+				51A729511F9EECFC002F9677 /* StatisticOfMonthModel.swift */,
+				51A729531F9EEDB0002F9677 /* StatisticOfYearModel.swift */,
+				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
+				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
 				51221C041F7B370F002F17E0 /* UserGroup.swift */,
+				516A96921F984039002FCF85 /* UserNationModel.swift */,
 				B89BB9D41F74B03A008E547C /* UserProfileModel.swift */,
 				B8FA28241F78BE29004E16CB /* UserSettingModel.swift */,
 				51221C061F7B3720002F17E0 /* UserWorkSpace.swift */,
-				5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */,
-				516A96881F983F66002FCF85 /* AddressModel.swift */,
-				516A968A1F983FA5002FCF85 /* BankInfoModel.swift */,
-				516A968C1F983FCE002FCF85 /* GeneralInfoModel.swift */,
-				516A968E1F984003002FCF85 /* IdentifyInfoModel.swift */,
 				516A96901F98401F002FCF85 /* VehicleInfoModel.swift */,
-				516A96921F984039002FCF85 /* UserNationModel.swift */,
-				B83516921F79FC2D006B536E /* TimeSheetModel.swift */,
-				B83516941F79FCD8006B536E /* TimeSheetDayModel.swift */,
-				B86B843A1F7E52D3009D178D /* CompanyModel.swift */,
-				51E94E991F87393D002368D3 /* CompensationAttribute.swift */,
-				B8259FD81F876F1000E5891D /* RequestDayOffModel.swift */,
-				B8F714431F96F31F00F67073 /* ConfirmRequestItem.swift */,
-				5180064A1F9994DD0023FF4B /* NotificationModel.swift */,
-				51A729511F9EECFC002F9677 /* StatisticOfMonthModel.swift */,
-				51A729531F9EEDB0002F9677 /* StatisticOfYearModel.swift */,
-				8E77B4BB1FD53A4600BD6A00 /* HelpModel.swift */,
-				8E77B4BD1FD53B0300BD6A00 /* HelpObject.swift */,
+				5117021C1F832FC2001BC69A /* WorkSpaceShift.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1679,7 +1673,6 @@
 				B8CCDB4D1F94C12500A00E02 /* CreateRequestOffViewControllerType.swift in Sources */,
 				B8C47F271F84C0250024F865 /* WSMDateTransform.swift in Sources */,
 				51FBBA181F79FE8B004C32BD /* CreateRequestOtViewController.swift in Sources */,
-				8E77B4BC1FD53A4600BD6A00 /* HelpModel.swift in Sources */,
 				5180064B1F9994DD0023FF4B /* NotificationModel.swift in Sources */,
 				51754C781F78B32F00CFABE8 /* WsmTextField.swift in Sources */,
 				B81AF7281F72096A00E579B2 /* FSCalendarStickyHeader.m in Sources */,
@@ -1776,7 +1769,6 @@
 				5168BCFE1F73A74D00AA1287 /* UIImageView.swift in Sources */,
 				BF5947E61F8C672D003593C0 /* ListRequestOTApiOutModel.swift in Sources */,
 				5168BD0A1F73A89700AA1287 /* Sequence.swift in Sources */,
-				8E77B4BE1FD53B0300BD6A00 /* HelpObject.swift in Sources */,
 				5168BD021F73A7AA00AA1287 /* Dictionary.swift in Sources */,
 				BF52EEDD1FA1BF64002D76EE /* ManageRequestListViewController.swift in Sources */,
 				51800B6D1F987C9C002A4384 /* ListRequestDelegte.swift in Sources */,

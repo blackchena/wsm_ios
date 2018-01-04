@@ -177,8 +177,21 @@ class NotificationViewController: NoMenuBaseViewController {
         }
         switch permission {
         case .manager:
-            // TODO: Handle navigation with permission manager
-            break
+            var nextViewController: ManageRequestListViewController?
+            switch notification.trackableType {
+            case .requestLeave:
+                nextViewController = ManageRequestListViewController(type: .others)
+            case .requestOt:
+                nextViewController = ManageRequestListViewController(type: .overTime)
+            case .requestOff:
+                nextViewController = ManageRequestListViewController(type: .dayOff)
+            default:
+                break
+            }
+            if let nextViewController = nextViewController {
+            navigationController?.replaceRootViewController(by: nextViewController)
+            navigationController?.popToRootViewController(animated: true)
+            }
         case .staff:
             var nextViewControllerName = ""
             switch notification.trackableType {
@@ -188,7 +201,8 @@ class NotificationViewController: NoMenuBaseViewController {
                 nextViewControllerName = "ListRequestOtViewController"
             case .requestOff:
                 nextViewControllerName = "ListRequestOffViewController"
-            default: break
+            default:
+                break
             }
             if nextViewControllerName.isEmpty {
                 return
