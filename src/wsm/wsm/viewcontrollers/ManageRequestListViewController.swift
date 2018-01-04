@@ -14,7 +14,7 @@ class ManageRequestListViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterView: ManagerRequestFilterView!
     
-    var requestType: RequestType
+    fileprivate var requestType: RequestType
     var manageRequestApiInput = ManageRequestApiInputModel()
     
     fileprivate var leaveRequests = [RequestLeaveModel]()
@@ -153,7 +153,7 @@ class ManageRequestListViewController: BaseViewController {
     }
 }
 
-extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataSource {
+extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataSource, UpdateRequestDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ManageRequestTableViewCell") as! ManageRequestTableViewCell
         switch requestType {
@@ -202,7 +202,16 @@ extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let manageRequestDetailVc = ManageRequestDetailViewController()
+        let manageRequestDetailVc = ManageRequestDetailViewController(requestType: requestType)
+        manageRequestDetailVc.updateRequestDelegate = self
+        switch requestType {
+        case .overTime:
+            manageRequestDetailVc.overTimeRequest = overtimeRequests[indexPath.row]
+        case .dayOff:
+            manageRequestDetailVc.dayOffRequest = dayOffRequests[indexPath.row]
+        case .others:
+            manageRequestDetailVc.othersRequest = leaveRequests[indexPath.row]
+        }
         present(manageRequestDetailVc, animated: false, completion: nil)
     }
     
@@ -248,6 +257,10 @@ extension ManageRequestListViewController: UITableViewDelegate, UITableViewDataS
         reject.backgroundColor = UIColor.red
         
         return [reject, accept]
+    }
+    
+    func onRequestUpdated() {
+        getListManageRequest()
     }
     
     private func handleAceptRejectRequest(handleRequestType: HandleRequestType ,requestIds: [Int]) {

@@ -122,7 +122,6 @@
 "confirm_others_request" = "Confirm others request";
 "submit" = "Submit";
 "next" = "Next";
-"status" = "Status";
 "all" = "All";
 "month" = "Month";
 "date" = "Date:";
@@ -130,7 +129,7 @@
 "day_session" = "Day session";
 "am" = "am";
 "pm" = "pm";
-"time_request" = "Time request:";
+"time_request" = "Time request";
 "request_ot" = "Request OverTime";
 "confirm_overtime_request" = "Confirm overtime request";
 "request_off" = "Request Off";
@@ -161,8 +160,8 @@
 "update" = "Update";
 "receive_notification_or_email" = "Receive Notification or Email";
 "edit_overtime_request" = "Edit overtime request";
-"type_leave" = "Leave type:";
-"statu" = "Status:";
+"type_leave" = "Leave type";
+"status" = "Status";
 "close" = "Close";
 "request_information" = "Request information";
 
@@ -408,3 +407,5 @@
 "hours" = "hours";
 "accept" = "Accept";
 "reject" = "Reject";
+"total" = "Total";
+"time_off" = "Time off";
