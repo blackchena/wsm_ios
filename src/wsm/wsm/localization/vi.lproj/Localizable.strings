@@ -119,7 +119,7 @@
 "date" = "Ngày:";
 "date_of_creation" = "Ngày tạo:";
 "day_session" = "Buổi";
-"time_request" = "Thời gian yêu cầu:";
+"time_request" = "Thời gian yêu cầu";
 "request_ot" = "Yêu cầu làm ngoài giờ";
 "confirm_overtime_request" = "Xác nhận yêu cầu làm ngoài giờ";
 "request_off" = "Yêu cầu xin nghỉ";
@@ -150,7 +150,7 @@
 "update" = "Cập nhật";
 "receive_notification_or_email" = "Nhận thông báo hoặc email";
 "edit_overtime_request" = "Sửa yêu cầu làm ngoài giờ";
-"type_leave" = "Hình thức xin nghỉ:";
+"type_leave" = "Hình thức xin nghỉ";
 "statu" = "Trạng thái:";
 
 "leave_type_in_late_m" = "In late (M)";
@@ -396,3 +396,5 @@
 "hours" = "giờ";
 "accept" = "Chấp nhận";
 "reject" = "Từ chối";
+"total" = "Tổng";
+"time_off" = "Thời gian nghỉ";

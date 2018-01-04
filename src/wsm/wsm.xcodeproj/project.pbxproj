@@ -286,6 +286,9 @@
 		B8FCEEC31F8B6C1B0032136E /* ValidateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEC21F8B6C1B0032136E /* ValidateError.swift */; };
 		B8FCEEC71F8B719D0032136E /* FloatCompareValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEEC61F8B719D0032136E /* FloatCompareValidator.swift */; };
 		B8FCEECB1F8B82590032136E /* ACFloatingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEECA1F8B82590032136E /* ACFloatingTextfield.swift */; };
+		BF249A751FFDDD2E0002224B /* RequestDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF249A741FFDDD2E0002224B /* RequestDetailCell.xib */; };
+		BF249A771FFDDED80002224B /* RequestDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF249A761FFDDED80002224B /* RequestDetailCell.swift */; };
+		BF249A791FFE22600002224B /* UpdateRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF249A781FFE22600002224B /* UpdateRequestDelegate.swift */; };
 		BF2519A51F959F1C00325601 /* OtRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2519A41F959F1C00325601 /* OtRequestDetailViewController.swift */; };
 		BF52EED91FA1BD24002D76EE /* ManageRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52EED71FA1BD24002D76EE /* ManageRequestTableViewCell.swift */; };
 		BF52EEDA1FA1BD24002D76EE /* ManageRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF52EED81FA1BD24002D76EE /* ManageRequestTableViewCell.xib */; };
@@ -602,6 +605,9 @@
 		B8FCEEC21F8B6C1B0032136E /* ValidateError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValidateError.swift; path = errors/ValidateError.swift; sourceTree = "<group>"; };
 		B8FCEEC61F8B719D0032136E /* FloatCompareValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatCompareValidator.swift; sourceTree = "<group>"; };
 		B8FCEECA1F8B82590032136E /* ACFloatingTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ACFloatingTextfield.swift; path = libs/ACFloatingTextfield.swift; sourceTree = "<group>"; };
+		BF249A741FFDDD2E0002224B /* RequestDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestDetailCell.xib; sourceTree = "<group>"; };
+		BF249A761FFDDED80002224B /* RequestDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailCell.swift; sourceTree = "<group>"; };
+		BF249A781FFE22600002224B /* UpdateRequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateRequestDelegate.swift; sourceTree = "<group>"; };
 		BF2519A41F959F1C00325601 /* OtRequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtRequestDetailViewController.swift; path = RequestOt/OtRequestDetailViewController.swift; sourceTree = "<group>"; };
 		BF52EED71FA1BD24002D76EE /* ManageRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageRequestTableViewCell.swift; sourceTree = "<group>"; };
 		BF52EED81FA1BD24002D76EE /* ManageRequestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManageRequestTableViewCell.xib; path = ../viewcontrollers/ManageRequestTableViewCell.xib; sourceTree = "<group>"; };
@@ -757,6 +763,7 @@
 				516A965A1F95F5D6002FCF85 /* ProfileHeaderView.xib */,
 				51A7294D1F9EE5AF002F9677 /* StatictisHeaderView.xib */,
 				5154AF121FA030EB00B90E8B /* StatisticSectionHeaderView.xib */,
+				BF249A741FFDDD2E0002224B /* RequestDetailCell.xib */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -1287,7 +1294,9 @@
 		BFF08E501FFC8CB100E5A40F /* ManageRequestDetail */ = {
 			isa = PBXGroup;
 			children = (
+				BF249A761FFDDED80002224B /* RequestDetailCell.swift */,
 				BFF08E511FFC8D0700E5A40F /* ManageRequestDetailViewController.swift */,
+				BF249A781FFE22600002224B /* UpdateRequestDelegate.swift */,
 			);
 			name = ManageRequestDetail;
 			sourceTree = "<group>";
@@ -1413,6 +1422,7 @@
 				51A7294E1F9EE5AF002F9677 /* StatictisHeaderView.xib in Resources */,
 				5168BCF31F739DBF00AA1287 /* ic_reject_red.png in Resources */,
 				516A96731F9727AF002FCF85 /* ic_personal_email.png in Resources */,
+				BF249A751FFDDD2E0002224B /* RequestDetailCell.xib in Resources */,
 				5168BCE61F739DBF00AA1287 /* ic_search.png in Resources */,
 				5168BCDE1F739DBF00AA1287 /* ic_not_found_data.png in Resources */,
 				516A96721F9727AF002FCF85 /* ic_permanent_address.png in Resources */,
@@ -1684,6 +1694,7 @@
 				5117021F1F83382C001BC69A /* UserSpecial.swift in Sources */,
 				BFC037FD1F8B52F300DBE212 /* RequestOTCell.swift in Sources */,
 				B81AF7221F72096A00E579B2 /* FSCalendarCollectionViewLayout.m in Sources */,
+				BF249A791FFE22600002224B /* UpdateRequestDelegate.swift in Sources */,
 				51E94E9A1F87393D002368D3 /* CompensationAttribute.swift in Sources */,
 				B81AF7241F72096A00E579B2 /* FSCalendarDelegationProxy.m in Sources */,
 				516A965D1F96DAFA002FCF85 /* UILabel.swift in Sources */,
@@ -1709,6 +1720,7 @@
 				B8FCEEC31F8B6C1B0032136E /* ValidateError.swift in Sources */,
 				B8C47F211F84BFC30024F865 /* MoyaProvider+Promise.swift in Sources */,
 				B8FCEEBE1F8B30500032136E /* (null) in Sources */,
+				BF249A771FFDDED80002224B /* RequestDetailCell.swift in Sources */,
 				B8FA282F1F78E400004E16CB /* DayOffSettingModel.swift in Sources */,
 				B8C47F011F84BF010024F865 /* RequestOTProvider.swift in Sources */,
 				B8C47F0D1F84BF150024F865 /* ListLeaveTypeSettingApiOutputModel.swift in Sources */,

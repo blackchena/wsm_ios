@@ -7,6 +7,7 @@
 //
 
 import ObjectMapper
+import InAppLocalize
 
 class CompensationAttribute: BaseModel {
     var id: Int?
@@ -25,5 +26,12 @@ class CompensationAttribute: BaseModel {
         id <- map["id"]
         compensationFrom <- (map["compensation_from"], iosDateTransform)
         compensationTo <- (map["compensation_to"], iosDateTransform)
+    }
+    
+    func getCompensationTime() -> String? {
+        if let fromTime = compensationFrom, let endTime = compensationTo {
+            return (fromTime.toString(dateFormat: AppConstant.requestDateTimeFormat) + " → " + endTime.toString(dateFormat: AppConstant.requestDateTimeFormat))
+        }
+        return nil
     }
 }
