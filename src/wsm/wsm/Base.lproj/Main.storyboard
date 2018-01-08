@@ -1467,30 +1467,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACg-Wg-8Oj" customClass="Floaty" customModule="Floaty">
-                                <rect key="frame" x="14" y="597" width="56" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="3go-gK-byS"/>
-                                    <constraint firstAttribute="width" constant="56" id="gCQ-0g-bcZ"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="buttonImage" value="ic_help.png"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tPq-8X-ZMr" firstAttribute="top" secondItem="ACg-Wg-8Oj" secondAttribute="bottom" constant="14" id="1pS-Se-18K"/>
                             <constraint firstItem="aaU-bc-iVt" firstAttribute="top" secondItem="SgE-6j-8D2" secondAttribute="bottom" id="H2m-gA-7g7"/>
-                            <constraint firstItem="ACg-Wg-8Oj" firstAttribute="leading" secondItem="DMM-hU-I09" secondAttribute="leading" constant="14" id="R1V-MR-ofR"/>
                             <constraint firstAttribute="trailing" secondItem="aaU-bc-iVt" secondAttribute="trailing" id="dqj-Rr-Wwd"/>
                             <constraint firstItem="aaU-bc-iVt" firstAttribute="leading" secondItem="DMM-hU-I09" secondAttribute="leading" id="gMG-8X-INs"/>
                             <constraint firstItem="tPq-8X-ZMr" firstAttribute="top" secondItem="aaU-bc-iVt" secondAttribute="bottom" id="gj6-fa-AIv"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="helpFloaty" destination="ACg-Wg-8Oj" id="ATZ-Ej-CjQ"/>
                         <outlet property="timeSheetTableView" destination="aaU-bc-iVt" id="DvZ-hy-mNB"/>
                     </connections>
                 </viewController>
@@ -3369,6 +3355,9 @@
                             <constraint firstAttribute="trailing" secondItem="zxB-wY-Wwt" secondAttribute="trailing" id="xsn-96-2bD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="eix-FB-DAp">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="T5O-xM-DNA"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="deleteButton" destination="472-le-PhQ" id="5rb-SG-67H"/>
                         <outlet property="deleteButtonHeight" destination="hj3-7O-Hhq" id="5Z7-VC-iod"/>
@@ -3494,7 +3483,6 @@
     <resources>
         <image name="ic_accept_all.png" width="256" height="256"/>
         <image name="ic_clock_2.png" width="256" height="256"/>
-        <image name="ic_help.png" width="50" height="50"/>
         <image name="ic_logo_login.png" width="347" height="139"/>
         <image name="imageView:VTm-Vo-KgP:image" width="28" height="28">
             <mutableData key="keyedArchiveRepresentation">

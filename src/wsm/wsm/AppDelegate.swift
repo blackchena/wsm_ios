@@ -171,17 +171,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .requestOff:
             nextViewController = getViewController(identifier: "ListRequestOffViewController")
         case .manageRequestOt:
-            // TODO: Handle manager's notification later
-            nextViewController = getViewController(identifier: "TimeSheetViewController")
-            break
+            nextViewController = ManageRequestListViewController(type: .overTime)
         case .manageRequestLeave:
-            // TODO: Handle manager's notification later
-            nextViewController = getViewController(identifier: "TimeSheetViewController")
-            break
+            nextViewController = ManageRequestListViewController(type: .others)
         case .manageRequestOff:
-            // TODO: Handle manager's notification later
-            nextViewController = getViewController(identifier: "TimeSheetViewController")
-            break
+            nextViewController = ManageRequestListViewController(type: .dayOff)
         }
         NotificationProvider.readSingleNotification(id: notificationId)
             .then { response -> Void in

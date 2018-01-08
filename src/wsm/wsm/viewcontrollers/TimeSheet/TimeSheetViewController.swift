@@ -18,9 +18,6 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
         case currentMonth = 0
         case nextMonth = 1
     }
-
-    // MARK: Properties
-    @IBOutlet weak var helpFloaty: Floaty!
     
     fileprivate let requestFloaty = Floaty()
     fileprivate var calendar: FSCalendar!
@@ -149,21 +146,10 @@ class TimeSheetViewController: BaseViewController, FloatyDelegate {
 
         self.view.addSubview(requestFloaty)
     }
-    
-    private func createHelpButton() {
-        let object = HelpObject()
-        let helpObjects = object.helpObjects
-        for helpObject in helpObjects {
-            helpFloaty.addButton(title: helpObject.title, hexColor: helpObject.color, image: helpObject.image, titlePosition: .right)
-        }
-        helpFloaty.fabDelegate = self
-        helpFloaty.buttonColor = UIColor.white
-    }
 
     override func loadView() {
         super.loadView()
         createRequestButton()
-        createHelpButton()
     }
 
     private func initCalendar() {
