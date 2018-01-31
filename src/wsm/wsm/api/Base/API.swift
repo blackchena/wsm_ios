@@ -27,7 +27,6 @@ public enum APIError: Swift.Error, LocalizedError {
         switch self {
         case .apiFailure(let message):
             return message ?? LocalizationHelper.shared.localized("api_error_unknow_error")
-
         case .networkError:
             return LocalizationHelper.shared.localized("api_network_error")
         case .unauthorized(_):
@@ -147,7 +146,7 @@ public struct ApiProvider {
             WsmAccessTokenPlugin()
         ]
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15
+        configuration.timeoutIntervalForRequest = 120
         let newManager = Alamofire.SessionManager(configuration: configuration)
 
         return MoyaProvider<MultiTarget>(endpointClosure: endpointClosure, manager: newManager, plugins: plugins)
