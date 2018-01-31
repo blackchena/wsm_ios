@@ -105,6 +105,7 @@ class CreateRequestOffTimeCell: UITableViewCell {
             target: self
         )
         replacementTextField.isEnabled = false
+        reasonTextField.delegate = self
     }
     
     func getListTheReplacement() {
@@ -228,5 +229,12 @@ extension CreateRequestOffTimeCell: UITextFieldDelegate {
         if textField == replacementTextField {
             replacementTextField.text = self.currentTheReplacement?.name
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == reasonTextField {
+           textField.endEditing(true)
+        }
+        return true;
     }
 }

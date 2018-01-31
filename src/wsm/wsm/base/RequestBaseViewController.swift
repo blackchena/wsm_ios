@@ -46,6 +46,10 @@ class RequestBaseViewController: NoMenuBaseViewController {
         if empNameTextField != nil && empCodeTextField != nil {
             bindData()
         }
+        
+        if reasonTextField != nil {
+            reasonTextField.delegate = self
+        }
     }
 
     deinit {
@@ -103,6 +107,14 @@ class RequestBaseViewController: NoMenuBaseViewController {
     @objc func onGroupSelected() {
         self.view.endEditing(true)
         groupTextField.text = groups[groupPicker.selectedRow(inComponent: 0)].fullName
+    }
+}
+
+extension RequestBaseViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true;
     }
 }
 
